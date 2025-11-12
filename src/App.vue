@@ -7,6 +7,29 @@ const currentTheme = ref<'light' | 'dark'>(getTheme())
 const searchQuery = ref('')
 const activeComponent = ref('pabutton')
 
+const handleSearch = () => {
+  if (searchQuery.value.trim()) {
+    // Filter components based on search query
+    const query = searchQuery.value.toLowerCase().trim()
+    const allComponents = [
+      ...navigation['get-started'],
+      ...navigation['buttons']
+    ]
+    const found = allComponents.find(item => 
+      item.label.toLowerCase().includes(query)
+    )
+    if (found) {
+      activeComponent.value = found.id
+    }
+  }
+}
+
+const handleSearchKeydown = (event: KeyboardEvent) => {
+  if (event.key === 'Enter') {
+    handleSearch()
+  }
+}
+
 const navigation = {
   'get-started': [
     { label: 'Introduction', id: 'introduction' },
@@ -90,8 +113,9 @@ onMounted(() => {
             type="text"
             placeholder="Search Components"
             class="search-input"
+            @keydown="handleSearchKeydown"
           />
-          <button class="search-button">
+          <button class="search-button" @click="handleSearch">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M7 12C9.76142 12 12 9.76142 12 7C12 4.23858 9.76142 2 7 2C4.23858 2 2 4.23858 2 7C2 9.76142 4.23858 12 7 12Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M14 14L10.5 10.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -393,7 +417,7 @@ onMounted(() => {
 }
 
 .main-header {
-  background-color: #151517;
+  background-color: var(--pa-color-surface-container-background, #151517);
   border-radius: var(--pa-Border-radius-100, 8px);
   padding: var(--pa-spacing-8, 8px) var(--pa-spacing-18, 18px);
   height: 139px;
@@ -401,6 +425,7 @@ onMounted(() => {
   align-items: center;
   justify-content: space-between;
   flex-shrink: 0;
+  transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
 }
 
 .search-container {
@@ -530,7 +555,7 @@ onMounted(() => {
 
 .content-area {
   flex: 1;
-  background-color: #151517;
+  background-color: var(--pa-color-surface-container-background, #151517);
   border-radius: var(--pa-Border-radius-100, 8px);
   padding: var(--pa-spacing-36, 36px);
   display: flex;
@@ -538,6 +563,7 @@ onMounted(() => {
   gap: var(--pa-spacing-10, 10px);
   overflow: hidden;
   position: relative;
+  transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
 }
 
 .content-header {

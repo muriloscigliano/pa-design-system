@@ -2,11 +2,11 @@
   "gray": {
     "50": {
       "$type": "color",
-      "$value": "#f9f9f9"
+      "$value": "#d9d9d9"
     },
     "100": {
       "$type": "color",
-      "$value": "#f8f9fa"
+      "$value": "#ffffff"
     },
     "200": {
       "$type": "color",
