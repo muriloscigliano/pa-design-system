@@ -285,7 +285,7 @@ onMounted(() => {
 .app-layout {
   display: flex;
   gap: var(--pa-spacing-4, 4px);
-  align-items: center;
+  align-items: flex-start;
   padding: var(--pa-spacing-6, 6px);
   background-color: var(--pa-color-surface-base-background, #000000);
   min-height: 100vh;
@@ -414,7 +414,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   gap: var(--pa-spacing-4, 4px);
-  height: 100vh;
+  height: calc(100vh - var(--pa-spacing-12, 12px));
   min-width: 0;
 }
 
