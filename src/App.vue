@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { setTheme, getTheme } from './utils/theme'
+import { PaButton } from './components'
 
 const currentTheme = ref<'light' | 'dark'>(getTheme())
 const searchQuery = ref('')
+const activeComponent = ref('pabutton')
 
 const navigation = {
   'get-started': [
@@ -22,6 +24,10 @@ const toggleTheme = () => {
   const newTheme = currentTheme.value === 'light' ? 'dark' : 'light'
   setTheme(newTheme)
   currentTheme.value = newTheme
+}
+
+const selectComponent = (id: string) => {
+  activeComponent.value = id
 }
 </script>
 
@@ -51,7 +57,13 @@ const toggleTheme = () => {
         <div class="nav-section">
           <h3 class="nav-section-title">Buttons</h3>
           <ul class="nav-list">
-            <li v-for="item in navigation['buttons']" :key="item.id" class="nav-item">
+            <li 
+              v-for="item in navigation['buttons']" 
+              :key="item.id" 
+              class="nav-item"
+              :class="{ 'is-active': activeComponent === item.id }"
+              @click="selectComponent(item.id)"
+            >
               {{ item.label }}
             </li>
           </ul>
@@ -99,6 +111,124 @@ const toggleTheme = () => {
           <h1 class="content-title">Buttons</h1>
         </div>
         <div class="content-body">
+          <div class="component-docs">
+            <div v-if="activeComponent === 'pabutton'" class="component-section">
+              <h2 class="component-name">PaButton</h2>
+              <p class="component-description">
+                A versatile button component with multiple variants and sizes for different use cases.
+              </p>
+              
+              <div class="component-examples">
+                <h3 class="section-title">Variants</h3>
+                <div class="example-group">
+                  <div class="example-item">
+                    <label>Primary</label>
+                    <PaButton variant="primary">Primary Button</PaButton>
+                  </div>
+                  <div class="example-item">
+                    <label>Secondary</label>
+                    <PaButton variant="secondary">Secondary Button</PaButton>
+                  </div>
+                  <div class="example-item">
+                    <label>Tertiary</label>
+                    <PaButton variant="tertiary">Tertiary Button</PaButton>
+                  </div>
+                  <div class="example-item">
+                    <label>Payment Navigation</label>
+                    <PaButton variant="payment-navigation">Payment Nav</PaButton>
+                  </div>
+                  <div class="example-item">
+                    <label>Action</label>
+                    <PaButton variant="action">Action Button</PaButton>
+                  </div>
+                </div>
+                
+                <h3 class="section-title">Sizes</h3>
+                <div class="example-group">
+                  <div class="example-item">
+                    <label>Small</label>
+                    <PaButton variant="primary" size="sm">Small Button</PaButton>
+                  </div>
+                  <div class="example-item">
+                    <label>Medium (Default)</label>
+                    <PaButton variant="primary" size="md">Medium Button</PaButton>
+                  </div>
+                  <div class="example-item">
+                    <label>Large</label>
+                    <PaButton variant="primary" size="lg">Large Button</PaButton>
+                  </div>
+                </div>
+                
+                <h3 class="section-title">States</h3>
+                <div class="example-group">
+                  <div class="example-item">
+                    <label>Default</label>
+                    <PaButton variant="primary">Default</PaButton>
+                  </div>
+                  <div class="example-item">
+                    <label>Disabled</label>
+                    <PaButton variant="primary" :disabled="true">Disabled</PaButton>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="component-props">
+                <h3 class="section-title">Props</h3>
+                <table class="props-table">
+                  <thead>
+                    <tr>
+                      <th>Prop</th>
+                      <th>Type</th>
+                      <th>Default</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>variant</code></td>
+                      <td><code>'primary' | 'secondary' | 'tertiary' | 'payment-navigation' | 'action'</code></td>
+                      <td><code>'primary'</code></td>
+                      <td>Button style variant</td>
+                    </tr>
+                    <tr>
+                      <td><code>size</code></td>
+                      <td><code>'sm' | 'md' | 'lg'</code></td>
+                      <td><code>'md'</code></td>
+                      <td>Button size</td>
+                    </tr>
+                    <tr>
+                      <td><code>disabled</code></td>
+                      <td><code>boolean</code></td>
+                      <td><code>false</code></td>
+                      <td>Disables the button</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+              <div class="component-usage">
+                <h3 class="section-title">Usage</h3>
+                <pre class="code-block"><code>&lt;PaButton variant="primary" size="md"&gt;
+  Click Me
+&lt;/PaButton&gt;
+
+&lt;PaButton variant="secondary" :disabled="false"&gt;
+  Secondary Action
+&lt;/PaButton&gt;</code></pre>
+              </div>
+            </div>
+            
+            <div v-if="activeComponent === 'paactionbutton'" class="component-section">
+              <h2 class="component-name">PaActionButton</h2>
+              <p class="component-description">Coming soon...</p>
+            </div>
+            
+            <div v-if="activeComponent === 'paactionbuttongroup'" class="component-section">
+              <h2 class="component-name">PaActionButtonGroup</h2>
+              <p class="component-description">Coming soon...</p>
+            </div>
+          </div>
+          
           <div class="version-badge">v2.0</div>
         </div>
       </div>
@@ -224,6 +354,11 @@ const toggleTheme = () => {
   
   &:hover {
     color: #cfd4d9;
+  }
+  
+  &.is-active {
+    color: #cfd4d9;
+    font-weight: 600;
   }
 }
 
@@ -388,12 +523,156 @@ const toggleTheme = () => {
   flex-direction: column;
   gap: var(--pa-spacing-10, 10px);
   height: 100%;
-  align-items: center;
-  justify-content: flex-end;
   position: relative;
+  overflow-y: auto;
+}
+
+.component-docs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--pa-spacing-24, 24px);
+  padding-bottom: var(--pa-spacing-48, 48px);
+}
+
+.component-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pa-spacing-24, 24px);
+}
+
+.component-name {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: var(--pa-font-size-500, 24px);
+  color: #ffffff;
+  margin: 0;
+}
+
+.component-description {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: var(--pa-font-size-200, 16px);
+  color: #cfd4d9;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.component-examples {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pa-spacing-24, 24px);
+}
+
+.section-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: var(--pa-font-size-200, 16px);
+  color: #eaecef;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.example-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pa-spacing-16, 16px);
+  padding: var(--pa-spacing-24, 24px);
+  background-color: #0e0e0f;
+  border: 1px solid #222529;
+  border-radius: var(--pa-Border-radius-100, 8px);
+}
+
+.example-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pa-spacing-8, 8px);
+  
+  label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: var(--pa-font-size-100, 14px);
+    color: #6e757c;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+.component-props {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pa-spacing-16, 16px);
+}
+
+.props-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--pa-font-size-100, 14px);
+  
+  thead {
+    background-color: #0e0e0f;
+    border-bottom: 1px solid #222529;
+  }
+  
+  th {
+    padding: var(--pa-spacing-12, 12px) var(--pa-spacing-16, 16px);
+    text-align: left;
+    font-weight: 600;
+    color: #eaecef;
+    font-size: var(--pa-font-size-100, 14px);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  td {
+    padding: var(--pa-spacing-12, 12px) var(--pa-spacing-16, 16px);
+    color: #cfd4d9;
+    border-bottom: 1px solid #222529;
+    
+    code {
+      background-color: #0e0e0f;
+      padding: var(--pa-spacing-2, 2px) var(--pa-spacing-8, 8px);
+      border-radius: var(--pa-Border-radius-50, 4px);
+      font-family: 'Roboto Mono', monospace;
+      font-size: var(--pa-font-size-100, 14px);
+      color: #eaecef;
+    }
+  }
+  
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+.component-usage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pa-spacing-16, 16px);
+}
+
+.code-block {
+  background-color: #0e0e0f;
+  border: 1px solid #222529;
+  border-radius: var(--pa-Border-radius-100, 8px);
+  padding: var(--pa-spacing-24, 24px);
+  overflow-x: auto;
+  margin: 0;
+  
+  code {
+    font-family: 'Roboto Mono', monospace;
+    font-size: var(--pa-font-size-100, 14px);
+    color: #cfd4d9;
+    line-height: 1.6;
+    white-space: pre;
+  }
 }
 
 .version-badge {
+  position: absolute;
+  bottom: var(--pa-spacing-36, 36px);
+  right: var(--pa-spacing-36, 36px);
   background-color: #0e0e0f;
   border: 1px solid #222529;
   border-radius: 100px;
