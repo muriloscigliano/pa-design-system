@@ -287,9 +287,10 @@ onMounted(() => {
   gap: var(--pa-spacing-4, 4px);
   align-items: center;
   padding: var(--pa-spacing-6, 6px);
-  background-color: #000000;
+  background-color: var(--pa-color-surface-base-background, #000000);
   min-height: 100vh;
   width: 100%;
+  transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
 }
 
 .sidebar {
