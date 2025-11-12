@@ -1,0 +1,26 @@
+@import './tokens/index.css';
+
+:root {
+  font-family: var(--pa-font-family-roboto, Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+  line-height: var(--pa-line-height-200, 1.5);
+  font-weight: var(--pa-font-weight-400, 400);
+  font-size: var(--pa-font-size-100, 14px);
+}
+
+html {
+  overflow-y: auto;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: var(--pa-color-surface-base-background);
+  color: var(--pa-color-surface-base-text);
+  transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease),
+    color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+}
+
+#app {
+  width: 100%;
+}
+

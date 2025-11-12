@@ -1,0 +1,99 @@
+{
+  "badge": {
+    "border": {
+      "radius": {
+        "default": {
+          "$type": "dimension",
+          "$value": "{Border.radius.full}"
+        }
+      }
+    },
+    "background": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.badge.background.default}"
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{color.badge.background.success}"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.badge.background.warning}"
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{color.badge.background.error}"
+      }
+    },
+    "text": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.badge.text.default}"
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{color.badge.text.success}"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.badge.text.warning}"
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{color.badge.text.error}"
+      }
+    },
+    "size": {
+      "sm": {
+        "padding": {
+          "x": {
+            "$type": "dimension",
+            "$value": "{spacing.8}"
+          },
+          "y": {
+            "$type": "dimension",
+            "$value": "{spacing.4}"
+          }
+        },
+        "font": {
+          "$type": "dimension",
+          "$value": "{font.size.75}"
+        }
+      },
+      "md": {
+        "padding": {
+          "x": {
+            "$type": "dimension",
+            "$value": "{spacing.12}"
+          },
+          "y": {
+            "$type": "dimension",
+            "$value": "{spacing.4}"
+          }
+        },
+        "font": {
+          "$type": "dimension",
+          "$value": "{font.size.100}"
+        }
+      },
+      "lg": {
+        "padding": {
+          "x": {
+            "$type": "dimension",
+            "$value": "{spacing.16}"
+          },
+          "y": {
+            "$type": "dimension",
+            "$value": "{spacing.8}"
+          }
+        },
+        "font": {
+          "$type": "dimension",
+          "$value": "{font.size.200}"
+        }
+      }
+    }
+  }
+}
+

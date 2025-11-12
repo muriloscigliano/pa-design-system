@@ -1,0 +1,31 @@
+{
+  "breadcrumbs": {
+    "text": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.surface.container.text}"
+      },
+      "link": {
+        "$type": "color",
+        "$value": "{color.action.primary.text.default}"
+      },
+      "separator": {
+        "$type": "color",
+        "$value": "{color.surface.container.icon}"
+      }
+    },
+    "font": {
+      "size": {
+        "$type": "dimension",
+        "$value": "{font.size.200}"
+      }
+    },
+    "spacing": {
+      "item-gap": {
+        "$type": "dimension",
+        "$value": "{spacing.8}"
+      }
+    }
+  }
+}
+

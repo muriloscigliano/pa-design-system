@@ -1,0 +1,111 @@
+{
+  "toggle-switch": {
+    "transition": {
+      "duration": {
+        "default": {
+          "$type": "duration",
+          "$value": "{transition.duration.default}"
+        }
+      },
+      "easing": {
+        "default": {
+          "$type": "string",
+          "$value": "{transition.easing.default}"
+        }
+      }
+    },
+    "outline": {
+      "width": {
+        "default": {
+          "$type": "dimension",
+          "$value": "{outline.width.default}"
+        }
+      },
+      "offset": {
+        "default": {
+          "$type": "dimension",
+          "$value": "{outline.offset.default}"
+        }
+      }
+    },
+    "background": {
+      "off": {
+        "$type": "color",
+        "$value": "{color.toggle.background.off}"
+      },
+      "on": {
+        "$type": "color",
+        "$value": "{color.toggle.background.on}"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{color.toggle.background.disabled}"
+      }
+    },
+    "thumb": {
+      "off": {
+        "$type": "color",
+        "$value": "{color.toggle.thumb.off}"
+      },
+      "on": {
+        "$type": "color",
+        "$value": "{color.toggle.thumb.on}"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{color.toggle.thumb.disabled}"
+      }
+    },
+    "border": {
+      "focus": {
+        "$type": "color",
+        "$value": "{color.toggle.border.focus}"
+      }
+    },
+    "size": {
+      "sm": {
+        "width": {
+          "$type": "dimension",
+          "$value": "32px"
+        },
+        "height": {
+          "$type": "dimension",
+          "$value": "18px"
+        },
+        "thumb": {
+          "$type": "dimension",
+          "$value": "14px"
+        }
+      },
+      "md": {
+        "width": {
+          "$type": "dimension",
+          "$value": "40px"
+        },
+        "height": {
+          "$type": "dimension",
+          "$value": "22px"
+        },
+        "thumb": {
+          "$type": "dimension",
+          "$value": "18px"
+        }
+      },
+      "lg": {
+        "width": {
+          "$type": "dimension",
+          "$value": "48px"
+        },
+        "height": {
+          "$type": "dimension",
+          "$value": "26px"
+        },
+        "thumb": {
+          "$type": "dimension",
+          "$value": "22px"
+        }
+      }
+    }
+  }
+}
+

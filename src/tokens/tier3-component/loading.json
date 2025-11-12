@@ -1,0 +1,39 @@
+{
+  "loading": {
+    "spinner": {
+      "primary": {
+        "$type": "color",
+        "$value": "{color.loading.spinner.primary}"
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "{color.loading.spinner.secondary}"
+      }
+    },
+    "size": {
+      "sm": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "24px"
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "32px"
+      }
+    },
+    "overlay": {
+      "background": {
+        "$type": "color",
+        "$value": "rgba(255, 255, 255, 0.8)"
+      },
+      "z-index": {
+        "$type": "dimension",
+        "$value": "{z-index.300}"
+      }
+    }
+  }
+}
+

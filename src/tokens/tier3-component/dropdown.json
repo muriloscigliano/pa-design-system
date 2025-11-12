@@ -1,0 +1,73 @@
+{
+  "dropdown": {
+    "menu": {
+      "background": {
+        "$type": "color",
+        "$value": "{color.surface.container.background}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.surface.container.border}"
+      },
+      "border-radius": {
+        "$type": "dimension",
+        "$value": "{Border.radius.100}"
+      },
+      "shadow": {
+        "$type": "shadow",
+        "$value": "{shadow.md}"
+      },
+      "padding": {
+        "x": {
+          "$type": "dimension",
+          "$value": "{spacing.8}"
+        },
+        "y": {
+          "$type": "dimension",
+          "$value": "{spacing.4}"
+        }
+      },
+      "z-index": {
+        "$type": "dimension",
+        "$value": "{z-index.400}"
+      }
+    },
+    "item": {
+      "background": {
+        "default": {
+          "$type": "color",
+          "$value": "transparent"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.surface.cards.hover.background}"
+        },
+        "selected": {
+          "$type": "color",
+          "$value": "{color.surface.cards.selected.background}"
+        }
+      },
+      "text": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.surface.container.text}"
+        },
+        "selected": {
+          "$type": "color",
+          "$value": "{color.surface.container.text}"
+        }
+      },
+      "padding": {
+        "x": {
+          "$type": "dimension",
+          "$value": "{spacing.12}"
+        },
+        "y": {
+          "$type": "dimension",
+          "$value": "{spacing.8}"
+        }
+      }
+    }
+  }
+}
+

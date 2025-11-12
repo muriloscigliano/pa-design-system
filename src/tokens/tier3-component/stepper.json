@@ -1,0 +1,99 @@
+{
+  "stepper": {
+    "text": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.surface.container.text}"
+      },
+      "active": {
+        "$type": "color",
+        "$value": "{color.action.primary.text.default}"
+      },
+      "completed": {
+        "$type": "color",
+        "$value": "{color.action.primary.text.default}"
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{color.status.error.text.default}"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{color.surface.cards.disable.text}"
+      }
+    },
+    "icon": {
+      "background": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.surface.container.background}"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{color.action.primary.background.default}"
+        },
+        "completed": {
+          "$type": "color",
+          "$value": "{color.action.primary.background.default}"
+        },
+        "error": {
+          "$type": "color",
+          "$value": "{color.status.error.background.default}"
+        }
+      },
+      "text": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.surface.container.text}"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{color.action.primary.text.default}"
+        },
+        "completed": {
+          "$type": "color",
+          "$value": "{color.action.primary.text.default}"
+        },
+        "error": {
+          "$type": "color",
+          "$value": "{color.status.error.text}"
+        }
+      },
+      "size": {
+        "$type": "dimension",
+        "$value": "{icon.size.300}"
+      }
+    },
+    "line": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.surface.base.divider}"
+      },
+      "completed": {
+        "$type": "color",
+        "$value": "{color.action.primary.background.default}"
+      }
+    },
+    "spacing": {
+      "step-gap": {
+        "$type": "dimension",
+        "$value": "{spacing.16}"
+      },
+      "icon-text": {
+        "$type": "dimension",
+        "$value": "{spacing.12}"
+      }
+    },
+    "font": {
+      "title-size": {
+        "$type": "dimension",
+        "$value": "{font.size.200}"
+      },
+      "description-size": {
+        "$type": "dimension",
+        "$value": "{font.size.100}"
+      }
+    }
+  }
+}
+

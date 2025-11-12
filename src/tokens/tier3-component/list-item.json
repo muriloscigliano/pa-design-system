@@ -1,0 +1,51 @@
+{
+  "list-item": {
+    "background": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.surface.base.background}"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{color.surface.cards.hover.background}"
+      },
+      "selected": {
+        "$type": "color",
+        "$value": "{color.surface.cards.selected.background}"
+      }
+    },
+    "text": {
+      "$type": "color",
+      "$value": "{color.surface.base.text}"
+    },
+    "border": {
+      "$type": "color",
+      "$value": "{color.surface.base.divider}"
+    },
+    "padding": {
+      "x": {
+        "$type": "dimension",
+        "$value": "{spacing.16}"
+      },
+      "y": {
+        "$type": "dimension",
+        "$value": "{spacing.12}"
+      }
+    },
+    "transition": {
+      "duration": {
+        "default": {
+          "$type": "duration",
+          "$value": "{transition.duration.default}"
+        }
+      },
+      "easing": {
+        "default": {
+          "$type": "string",
+          "$value": "{transition.easing.default}"
+        }
+      }
+    }
+  }
+}
+

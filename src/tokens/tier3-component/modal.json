@@ -1,0 +1,107 @@
+{
+  "modal": {
+    "overlay": {
+      "background": {
+        "$type": "color",
+        "$value": "{color.modal.overlay.background}"
+      },
+      "z-index": {
+        "$type": "dimension",
+        "$value": "{z-index.400}"
+      }
+    },
+    "container": {
+      "background": {
+        "$type": "color",
+        "$value": "{color.modal.container.background}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.modal.container.border}"
+      },
+      "border-radius": {
+        "$type": "dimension",
+        "$value": "{Border.radius.200}"
+      },
+      "shadow": {
+        "$type": "shadow",
+        "$value": "{shadow.lg}"
+      },
+      "z-index": {
+        "$type": "dimension",
+        "$value": "{z-index.500}"
+      },
+      "max-width": {
+        "sm": {
+          "$type": "dimension",
+          "$value": "400px"
+        },
+        "md": {
+          "$type": "dimension",
+          "$value": "600px"
+        },
+        "lg": {
+          "$type": "dimension",
+          "$value": "800px"
+        },
+        "fullscreen": {
+          "$type": "dimension",
+          "$value": "100%"
+        }
+      }
+    },
+    "header": {
+      "background": {
+        "$type": "color",
+        "$value": "{color.modal.header.background}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{color.modal.header.text}"
+      },
+      "padding": {
+        "x": {
+          "$type": "dimension",
+          "$value": "{spacing.24}"
+        },
+        "y": {
+          "$type": "dimension",
+          "$value": "{spacing.16}"
+        }
+      }
+    },
+    "body": {
+      "padding": {
+        "x": {
+          "$type": "dimension",
+          "$value": "{spacing.24}"
+        },
+        "y": {
+          "$type": "dimension",
+          "$value": "{spacing.16}"
+        }
+      }
+    },
+    "footer": {
+      "background": {
+        "$type": "color",
+        "$value": "{color.modal.footer.background}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.modal.footer.border}"
+      },
+      "padding": {
+        "x": {
+          "$type": "dimension",
+          "$value": "{spacing.24}"
+        },
+        "y": {
+          "$type": "dimension",
+          "$value": "{spacing.16}"
+        }
+      }
+    }
+  }
+}
+

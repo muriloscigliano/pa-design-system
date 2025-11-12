@@ -1,0 +1,53 @@
+{
+  "toggle-chip": {
+    "background": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.surface.container.background}"
+      },
+      "selected": {
+        "$type": "color",
+        "$value": "{color.action.primary.background.default}"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{color.surface.cards.hover.background}"
+      }
+    },
+    "text": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.surface.container.text}"
+      },
+      "selected": {
+        "$type": "color",
+        "$value": "{color.action.primary.text.default}"
+      }
+    },
+    "border": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.surface.container.border}"
+      },
+      "selected": {
+        "$type": "color",
+        "$value": "{color.action.primary.border.default}"
+      }
+    },
+    "border-radius": {
+      "$type": "dimension",
+      "$value": "{Border.radius.full}"
+    },
+    "padding": {
+      "x": {
+        "$type": "dimension",
+        "$value": "{spacing.12}"
+      },
+      "y": {
+        "$type": "dimension",
+        "$value": "{spacing.8}"
+      }
+    }
+  }
+}
+

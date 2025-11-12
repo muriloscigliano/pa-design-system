@@ -1,0 +1,49 @@
+{
+  "form-container": {
+    "background": {
+      "$type": "color",
+      "$value": "{color.surface.container.background}"
+    },
+    "border": {
+      "$type": "color",
+      "$value": "{color.surface.container.border}"
+    },
+    "border-radius": {
+      "$type": "dimension",
+      "$value": "{Border.radius.100}"
+    },
+    "padding": {
+      "x": {
+        "$type": "dimension",
+        "$value": "{spacing.24}"
+      },
+      "y": {
+        "$type": "dimension",
+        "$value": "{spacing.24}"
+      }
+    },
+    "spacing": {
+      "section": {
+        "$type": "dimension",
+        "$value": "{spacing.32}"
+      },
+      "field": {
+        "$type": "dimension",
+        "$value": "{spacing.16}"
+      }
+    },
+    "header": {
+      "padding": {
+        "bottom": {
+          "$type": "dimension",
+          "$value": "{spacing.16}"
+        }
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.surface.base.divider}"
+      }
+    }
+  }
+}
+

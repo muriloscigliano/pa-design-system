@@ -1,0 +1,69 @@
+/**
+ * SCSS Token Utilities
+ * 
+ * Provides SCSS functions and mixins for working with design tokens
+ * All tokens are prefixed with --pa- to avoid conflicts
+ */
+
+// Token variable function - provides fallback support
+@function pa-token($token-name, $fallback: null) {
+  @if $fallback {
+    @return var(--pa-#{$token-name}, #{$fallback});
+  }
+  @return var(--pa-#{$token-name});
+}
+
+// Shorthand for common token types
+@function pa-color($name, $fallback: null) {
+  @return pa-token($name, $fallback);
+}
+
+@function pa-spacing($name, $fallback: null) {
+  @return pa-token('spacing-#{$name}', $fallback);
+}
+
+@function pa-font-size($name, $fallback: null) {
+  @return pa-token('font-size-#{$name}', $fallback);
+}
+
+@function pa-font-weight($name, $fallback: null) {
+  @return pa-token('font-weight-#{$name}', $fallback);
+}
+
+@function pa-border-radius($name, $fallback: null) {
+  @return pa-token('Border-radius-#{$name}', $fallback);
+}
+
+// Mixin for button variants
+@mixin pa-button-variant($variant: 'primary') {
+  background-color: pa-token('button-#{$variant}-background-default');
+  color: pa-token('button-#{$variant}-text-default');
+  border: pa-token('button-border-width-default', 1px) solid pa-token('button-#{$variant}-border-default');
+
+  &:hover:not(.is-disabled) {
+    background-color: pa-token('button-#{$variant}-background-hover');
+  }
+
+  &:active:not(.is-disabled) {
+    background-color: pa-token('button-#{$variant}-background-active');
+  }
+
+  &:focus-visible {
+    outline: pa-token('button-outline-width-default', 2px) solid pa-token('button-#{$variant}-border-focus');
+    outline-offset: pa-token('button-outline-offset-default', 2px);
+  }
+
+  &.is-disabled,
+  &:disabled {
+    background-color: pa-token('button-#{$variant}-background-disabled');
+    color: pa-token('button-#{$variant}-text-disabled');
+    border-color: pa-token('button-#{$variant}-border-disabled');
+  }
+}
+
+// Mixin for button sizes
+@mixin pa-button-size($size: 'md') {
+  padding: pa-token('button-size-#{$size}-padding-y') pa-token('button-size-#{$size}-padding-x');
+  font-size: pa-token('button-size-#{$size}-font');
+}
+

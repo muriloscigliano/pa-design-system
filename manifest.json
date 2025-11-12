@@ -1,0 +1,46 @@
+{
+  "name": "Design Tokens",
+  "collections": {
+    "1": {
+      "modes": {
+        " Pay Advantage": [
+          "1. Pay Advantage.Light.tokens.json"
+        ],
+        " Core": [
+          "1. Core.Mode 1.tokens.json"
+        ],
+        " Marshall Freeman": [
+          "1. Marshall Freeman.Mode 1.tokens.json"
+        ],
+        " FIn ": [
+          "1. FIn .Mode 1.tokens.json"
+        ]
+      }
+    },
+    "Semantic": {
+      "modes": {
+        "Pay Advantage Light": [
+          "Semantic.Pay Advantage Light.tokens.json"
+        ],
+        "Pay Advantage Dark": [
+          "Semantic.Pay Advantage Dark.tokens.json"
+        ],
+        "Marshal Freeman": [
+          "Semantic.Marshal Freeman.tokens.json"
+        ]
+      }
+    },
+    "Components": {
+      "modes": {
+        "Mode 1": [
+          "Components.Mode 1.tokens.json"
+        ]
+      }
+    }
+  },
+  "styles": {
+    "color": [
+      "color.styles.tokens.json"
+    ]
+  }
+}

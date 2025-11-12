@@ -1,0 +1,101 @@
+{
+  "inline-message": {
+    "border": {
+      "width": {
+        "default": {
+          "$type": "dimension",
+          "$value": "{Border.width.50}"
+        }
+      },
+      "radius": {
+        "default": {
+          "$type": "dimension",
+          "$value": "{Border.radius.100}"
+        }
+      }
+    },
+    "background": {
+      "info": {
+        "$type": "color",
+        "$value": "{color.message.background.info}"
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{color.message.background.success}"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.message.background.warning}"
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{color.message.background.error}"
+      }
+    },
+    "text": {
+      "info": {
+        "$type": "color",
+        "$value": "{color.message.text.info}"
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{color.message.text.success}"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.message.text.warning}"
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{color.message.text.error}"
+      }
+    },
+    "border": {
+      "info": {
+        "$type": "color",
+        "$value": "{color.message.border.info}"
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{color.message.border.success}"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.message.border.warning}"
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{color.message.border.error}"
+      }
+    },
+    "icon": {
+      "info": {
+        "$type": "color",
+        "$value": "{color.message.icon.info}"
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{color.message.icon.success}"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.message.icon.warning}"
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{color.message.icon.error}"
+      }
+    },
+    "padding": {
+      "x": {
+        "$type": "dimension",
+        "$value": "{spacing.16}"
+      },
+      "y": {
+        "$type": "dimension",
+        "$value": "{spacing.12}"
+      }
+    }
+  }
+}
+

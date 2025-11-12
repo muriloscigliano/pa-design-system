@@ -1,0 +1,69 @@
+{
+  "slider": {
+    "track": {
+      "height": {
+        "$type": "dimension",
+        "$value": "4px"
+      },
+      "background": {
+        "$type": "color",
+        "$value": "{color.slider.track.background}"
+      },
+      "filled": {
+        "$type": "color",
+        "$value": "{color.slider.track.filled}"
+      },
+      "radius": {
+        "$type": "dimension",
+        "$value": "{Border.radius.full}"
+      }
+    },
+    "thumb": {
+      "width": {
+        "$type": "dimension",
+        "$value": "20px"
+      },
+      "height": {
+        "$type": "dimension",
+        "$value": "20px"
+      },
+      "background": {
+        "$type": "color",
+        "$value": "{color.slider.thumb.background}"
+      },
+      "border": {
+        "width": {
+          "$type": "dimension",
+          "$value": "{Border.width.100}"
+        },
+        "color": {
+          "$type": "color",
+          "$value": "{color.slider.thumb.border}"
+        }
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{color.slider.thumb.hover}"
+      },
+      "radius": {
+        "$type": "dimension",
+        "$value": "{Border.radius.full}"
+      }
+    },
+    "mark": {
+      "width": {
+        "$type": "dimension",
+        "$value": "2px"
+      },
+      "height": {
+        "$type": "dimension",
+        "$value": "8px"
+      },
+      "background": {
+        "$type": "color",
+        "$value": "{color.slider.mark.background}"
+      }
+    }
+  }
+}
+

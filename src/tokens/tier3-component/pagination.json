@@ -1,0 +1,49 @@
+{
+  "pagination": {
+    "item": {
+      "background": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.surface.base.background}"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.surface.cards.hover.background}"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{color.action.primary.background.default}"
+        }
+      },
+      "text": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.surface.base.text}"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{color.action.primary.text.default}"
+        }
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.surface.container.border}"
+      },
+      "padding": {
+        "x": {
+          "$type": "dimension",
+          "$value": "{spacing.12}"
+        },
+        "y": {
+          "$type": "dimension",
+          "$value": "{spacing.8}"
+        }
+      },
+      "radius": {
+        "$type": "dimension",
+        "$value": "{Border.radius.100}"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,35 @@
+{
+  "header": {
+    "background": {
+      "$type": "color",
+      "$value": "{color.surface.container.background}"
+    },
+    "text": {
+      "$type": "color",
+      "$value": "{color.surface.container.text}"
+    },
+    "border": {
+      "$type": "color",
+      "$value": "{color.surface.container.border}"
+    },
+    "height": {
+      "$type": "dimension",
+      "$value": "64px"
+    },
+    "padding": {
+      "x": {
+        "$type": "dimension",
+        "$value": "{spacing.24}"
+      },
+      "y": {
+        "$type": "dimension",
+        "$value": "{spacing.16}"
+      }
+    },
+    "z-index": {
+      "$type": "dimension",
+      "$value": "{z-index.200}"
+    }
+  }
+}
+

@@ -1,0 +1,73 @@
+{
+  "table": {
+    "header": {
+      "background": {
+        "$type": "color",
+        "$value": "{color.surface.container.background}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{color.surface.container.text}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.surface.container.border}"
+      },
+      "padding": {
+        "x": {
+          "$type": "dimension",
+          "$value": "{spacing.16}"
+        },
+        "y": {
+          "$type": "dimension",
+          "$value": "{spacing.12}"
+        }
+      }
+    },
+    "row": {
+      "background": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.surface.base.background}"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.surface.cards.hover.background}"
+        },
+        "selected": {
+          "$type": "color",
+          "$value": "{color.surface.cards.selected.background}"
+        },
+        "striped": {
+          "$type": "color",
+          "$value": "{color.surface.container.background}"
+        }
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.surface.base.divider}"
+      }
+    },
+    "cell": {
+      "text": {
+        "$type": "color",
+        "$value": "{color.surface.base.text}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.surface.base.divider}"
+      },
+      "padding": {
+        "x": {
+          "$type": "dimension",
+          "$value": "{spacing.16}"
+        },
+        "y": {
+          "$type": "dimension",
+          "$value": "{spacing.12}"
+        }
+      }
+    }
+  }
+}
+

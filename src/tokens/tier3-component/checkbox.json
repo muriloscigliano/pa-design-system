@@ -1,0 +1,125 @@
+{
+  "checkbox": {
+    "border": {
+      "width": {
+        "default": {
+          "$type": "dimension",
+          "$value": "{Border.width.50}"
+        }
+      },
+      "radius": {
+        "default": {
+          "$type": "dimension",
+          "$value": "{Border.radius.50}"
+        }
+      }
+    },
+    "transition": {
+      "duration": {
+        "default": {
+          "$type": "duration",
+          "$value": "{transition.duration.default}"
+        }
+      },
+      "easing": {
+        "default": {
+          "$type": "string",
+          "$value": "{transition.easing.default}"
+        }
+      }
+    },
+    "outline": {
+      "width": {
+        "default": {
+          "$type": "dimension",
+          "$value": "{outline.width.default}"
+        }
+      },
+      "offset": {
+        "default": {
+          "$type": "dimension",
+          "$value": "{outline.offset.default}"
+        }
+      }
+    },
+    "background": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.checkbox.background.default}"
+      },
+      "checked": {
+        "$type": "color",
+        "$value": "{color.checkbox.background.checked}"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{color.checkbox.background.hover}"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{color.checkbox.background.disabled}"
+      }
+    },
+    "border": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.checkbox.border.default}"
+      },
+      "checked": {
+        "$type": "color",
+        "$value": "{color.checkbox.border.checked}"
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "{color.checkbox.border.focus}"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{color.checkbox.border.disabled}"
+      }
+    },
+    "checkmark": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.checkbox.checkmark.default}"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{color.checkbox.checkmark.disabled}"
+      }
+    },
+    "size": {
+      "sm": {
+        "width": {
+          "$type": "dimension",
+          "$value": "16px"
+        },
+        "height": {
+          "$type": "dimension",
+          "$value": "16px"
+        }
+      },
+      "md": {
+        "width": {
+          "$type": "dimension",
+          "$value": "20px"
+        },
+        "height": {
+          "$type": "dimension",
+          "$value": "20px"
+        }
+      },
+      "lg": {
+        "width": {
+          "$type": "dimension",
+          "$value": "24px"
+        },
+        "height": {
+          "$type": "dimension",
+          "$value": "24px"
+        }
+      }
+    }
+  }
+}
+

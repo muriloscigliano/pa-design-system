@@ -1,0 +1,87 @@
+{
+  "progress": {
+    "background": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.surface.base.divider}"
+      },
+      "filled": {
+        "$type": "color",
+        "$value": "{color.action.primary.background.default}"
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{color.status.success.background.default}"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.status.warning.background.default}"
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{color.status.error.background.default}"
+      }
+    },
+    "text": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.surface.container.text}"
+      }
+    },
+    "border": {
+      "radius": {
+        "$type": "dimension",
+        "$value": "{Border.radius.full}"
+      }
+    },
+    "size": {
+      "sm": {
+        "height": {
+          "$type": "dimension",
+          "$value": "{spacing.4}"
+        },
+        "font": {
+          "$type": "dimension",
+          "$value": "{font.size.100}"
+        }
+      },
+      "md": {
+        "height": {
+          "$type": "dimension",
+          "$value": "{spacing.8}"
+        },
+        "font": {
+          "$type": "dimension",
+          "$value": "{font.size.200}"
+        }
+      },
+      "lg": {
+        "height": {
+          "$type": "dimension",
+          "$value": "{spacing.12}"
+        },
+        "font": {
+          "$type": "dimension",
+          "$value": "{font.size.400}"
+        }
+      }
+    },
+    "circular": {
+      "size": {
+        "sm": {
+          "$type": "dimension",
+          "$value": "{icon.size.300}"
+        },
+        "md": {
+          "$type": "dimension",
+          "$value": "{icon.size.400}"
+        },
+        "lg": {
+          "$type": "dimension",
+          "$value": "{icon.size.500}"
+        }
+      }
+    }
+  }
+}
+

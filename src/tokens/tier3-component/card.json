@@ -1,0 +1,69 @@
+{
+  "card": {
+    "border": {
+      "width": {
+        "default": {
+          "$type": "dimension",
+          "$value": "{Border.width.50}"
+        }
+      },
+      "radius": {
+        "default": {
+          "$type": "dimension",
+          "$value": "{Border.radius.100}"
+        }
+      }
+    },
+    "background": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.surface.cards.background}"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{color.surface.cards.hover.background}"
+      },
+      "selected": {
+        "$type": "color",
+        "$value": "{color.surface.cards.selected.background}"
+      }
+    },
+    "border": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.surface.cards.border}"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{color.surface.cards.hover.border}"
+      },
+      "selected": {
+        "$type": "color",
+        "$value": "{color.surface.cards.selected.border}"
+      }
+    },
+    "padding": {
+      "default": {
+        "x": {
+          "$type": "dimension",
+          "$value": "{spacing.16}"
+        },
+        "y": {
+          "$type": "dimension",
+          "$value": "{spacing.16}"
+        }
+      }
+    },
+    "shadow": {
+      "default": {
+        "$type": "shadow",
+        "$value": "{shadow.sm}"
+      },
+      "hover": {
+        "$type": "shadow",
+        "$value": "{shadow.md}"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,43 @@
+{
+  "section-container": {
+    "background": {
+      "$type": "color",
+      "$value": "{color.surface.container.background}"
+    },
+    "border": {
+      "$type": "color",
+      "$value": "{color.surface.container.border}"
+    },
+    "border-radius": {
+      "$type": "dimension",
+      "$value": "{Border.radius.100}"
+    },
+    "padding": {
+      "x": {
+        "$type": "dimension",
+        "$value": "{spacing.24}"
+      },
+      "y": {
+        "$type": "dimension",
+        "$value": "{spacing.24}"
+      }
+    },
+    "spacing": {
+      "header": {
+        "$type": "dimension",
+        "$value": "{spacing.16}"
+      },
+      "content": {
+        "$type": "dimension",
+        "$value": "{spacing.24}"
+      }
+    },
+    "header": {
+      "border": {
+        "$type": "color",
+        "$value": "{color.surface.base.divider}"
+      }
+    }
+  }
+}
+

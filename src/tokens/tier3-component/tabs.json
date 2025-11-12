@@ -1,0 +1,113 @@
+{
+  "tabs": {
+    "background": {
+      "default": {
+        "$type": "color",
+        "$value": "transparent"
+      },
+      "container": {
+        "$type": "color",
+        "$value": "{color.surface.container.background}"
+      }
+    },
+    "border": {
+      "width": {
+        "default": {
+          "$type": "dimension",
+          "$value": "{Border.width.50}"
+        }
+      },
+      "default": {
+        "$type": "color",
+        "$value": "{color.surface.base.divider}"
+      }
+    },
+    "tab": {
+      "background": {
+        "default": {
+          "$type": "color",
+          "$value": "transparent"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.surface.cards.hover.background}"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "transparent"
+        }
+      },
+      "text": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.surface.container.text}"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{color.action.primary.text.default}"
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.surface.cards.disable.text}"
+        }
+      },
+      "indicator": {
+        "$type": "color",
+        "$value": "{color.action.primary.background.default}"
+      },
+      "padding": {
+        "x": {
+          "$type": "dimension",
+          "$value": "{spacing.16}"
+        },
+        "y": {
+          "$type": "dimension",
+          "$value": "{spacing.12}"
+        }
+      },
+      "font": {
+        "size": {
+          "$type": "dimension",
+          "$value": "{font.size.200}"
+        },
+        "weight": {
+          "default": {
+            "$type": "number",
+            "$value": "{font.weight.400}"
+          },
+          "active": {
+            "$type": "number",
+            "$value": "{font.weight.500}"
+          }
+        }
+      },
+      "spacing": {
+        "icon-text": {
+          "$type": "dimension",
+          "$value": "{spacing.8}"
+        }
+      }
+    },
+    "content": {
+      "padding": {
+        "$type": "dimension",
+        "$value": "{spacing.16}"
+      }
+    },
+    "transition": {
+      "duration": {
+        "default": {
+          "$type": "duration",
+          "$value": "{transition.duration.default}"
+        }
+      },
+      "easing": {
+        "default": {
+          "$type": "string",
+          "$value": "{transition.easing.default}"
+        }
+      }
+    }
+  }
+}
+

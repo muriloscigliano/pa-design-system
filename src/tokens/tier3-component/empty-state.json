@@ -1,0 +1,29 @@
+{
+  "empty-state": {
+    "icon": {
+      "$type": "color",
+      "$value": "{color.empty-state.icon}"
+    },
+    "text": {
+      "primary": {
+        "$type": "color",
+        "$value": "{color.empty-state.text.primary}"
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "{color.empty-state.text.secondary}"
+      }
+    },
+    "spacing": {
+      "icon": {
+        "$type": "dimension",
+        "$value": "{spacing.24}"
+      },
+      "text": {
+        "$type": "dimension",
+        "$value": "{spacing.16}"
+      }
+    }
+  }
+}
+
