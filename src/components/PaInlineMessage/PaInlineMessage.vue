@@ -85,8 +85,8 @@ const dismiss = () => {
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  width: 20px;
-  height: 20px;
+  width: var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px));
+  height: var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px));
 
   .pa-inline-message--info & {
     color: var(--pa-inline-message-icon-info);

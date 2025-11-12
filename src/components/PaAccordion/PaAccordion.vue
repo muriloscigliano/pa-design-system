@@ -101,8 +101,8 @@ const toggle = () => {
   align-items: center;
   justify-content: center;
   color: var(--pa-accordion-icon, var(--pa-color-surface-container-icon));
-  width: 20px;
-  height: 20px;
+  width: var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px));
+  height: var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px));
   flex-shrink: 0;
   transition: transform var(--pa-accordion-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-accordion-transition-easing-default, var(--pa-transition-easing-default, ease));
 

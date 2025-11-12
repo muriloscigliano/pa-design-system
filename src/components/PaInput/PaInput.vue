@@ -159,8 +159,8 @@ defineEmits<{
   justify-content: center;
   color: var(--pa-input-icon-default);
   pointer-events: none;
-  width: 20px;
-  height: 20px;
+  width: var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px));
+  height: var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px));
 
   &--left {
     left: var(--pa-input-size-md-padding-x, var(--pa-spacing-16, 16px));

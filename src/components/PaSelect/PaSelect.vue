@@ -376,8 +376,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   color: var(--pa-select-icon-default, var(--pa-color-input-icon-default));
-  width: 20px;
-  height: 20px;
+  width: var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px));
+  height: var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px));
   transition: transform var(--pa-select-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-select-transition-easing-default, var(--pa-transition-easing-default, ease));
 
   .pa-select.is-open & {
