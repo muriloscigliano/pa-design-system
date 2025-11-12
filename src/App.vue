@@ -1,6 +1,49 @@
 <script setup lang="ts">
-import { ref, nextTick, onMounted, computed } from 'vue'
+import { ref, nextTick, onMounted, computed, Component } from 'vue'
 import { setTheme, getTheme } from './utils/theme'
+import {
+  PaButton,
+  PaInput,
+  PaCheckbox,
+  PaRadio,
+  PaRadioButtonGroup,
+  PaToggleSwitch,
+  PaSelect,
+  PaTextarea,
+  PaAutocomplete,
+  PaTimePicker,
+  PaFileUploader,
+  PaForm,
+  PaCard,
+  PaHeader,
+  PaListItem,
+  PaPageLayout,
+  PaContentSeparator,
+  PaContainer,
+  PaFormContainer,
+  PaSectionContainer,
+  PaDropdown,
+  PaSegmentedControl,
+  PaToggleSegmentation,
+  PaToggleChip,
+  PaKebabMenu,
+  PaTabs,
+  PaBreadcrumbs,
+  PaStepper,
+  PaDrawer,
+  PaModal,
+  PaTooltip,
+  PaBadge,
+  PaInlineMessage,
+  PaLoading,
+  PaEmptyState,
+  PaProgress,
+  PaTable,
+  PaAccordion,
+  PaPagination,
+  PaSlider,
+  PaRangeSlider
+} from './components'
 
 const currentTheme = ref<'light' | 'dark'>(getTheme())
 const searchQuery = ref('')
@@ -120,6 +163,65 @@ const activeComponentData = computed(() => {
   const allComponents = Object.values(navigation).flatMap(section => section.items)
   return allComponents.find(item => item.id === activeComponent.value)
 })
+
+const getComponent = (componentId: string): Component | null => {
+  const componentMap: Record<string, Component> = {
+    'pabutton': PaButton,
+    'painput': PaInput,
+    'pacheckbox': PaCheckbox,
+    'paradio': PaRadio,
+    'paradiobuttongroup': PaRadioButtonGroup,
+    'patoggleswitch': PaToggleSwitch,
+    'paselect': PaSelect,
+    'patextarea': PaTextarea,
+    'paautocomplete': PaAutocomplete,
+    'patimepicker': PaTimePicker,
+    'pafileuploader': PaFileUploader,
+    'paform': PaForm,
+    'pacard': PaCard,
+    'paheader': PaHeader,
+    'palistitem': PaListItem,
+    'papagelayout': PaPageLayout,
+    'pacontentseparator': PaContentSeparator,
+    'pacontainer': PaContainer,
+    'paformcontainer': PaFormContainer,
+    'pasectioncontainer': PaSectionContainer,
+    'padropdown': PaDropdown,
+    'pasegmentedcontrol': PaSegmentedControl,
+    'patogglesegmentation': PaToggleSegmentation,
+    'patogglechip': PaToggleChip,
+    'pakebabmenu': PaKebabMenu,
+    'patabs': PaTabs,
+    'pabreadcrumbs': PaBreadcrumbs,
+    'pastepper': PaStepper,
+    'padrawer': PaDrawer,
+    'pamodal': PaModal,
+    'patooltip': PaTooltip,
+    'pabadge': PaBadge,
+    'painlinemessage': PaInlineMessage,
+    'paloading': PaLoading,
+    'paemptystate': PaEmptyState,
+    'paprogress': PaProgress,
+    'patable': PaTable,
+    'paaccordion': PaAccordion,
+    'papagination': PaPagination,
+    'paslider': PaSlider,
+    'parangeslider': PaRangeSlider
+  }
+  return componentMap[componentId] || null
+}
+
+const getComponentProps = (componentId: string): Record<string, any> => {
+  const propsMap: Record<string, Record<string, any>> = {
+    'pabutton': { variant: 'primary', size: 'md' },
+    'painput': { placeholder: 'Enter text...' },
+    'pacheckbox': { label: 'Checkbox label' },
+    'paradio': { label: 'Radio option' },
+    'pabadge': { variant: 'default' },
+    'patooltip': { content: 'Tooltip content' }
+  }
+  return propsMap[componentId] || {}
+}
 
 const getComponentDescription = (componentId: string): string => {
   const descriptions: Record<string, string> = {
@@ -344,15 +446,63 @@ const currentTheme = getTheme()</code></pre>
               <div class="component-examples">
                 <h3 class="section-title">Examples</h3>
                 <div class="example-group">
-                  <div class="example-item">
-                    <p style="color: var(--pa-color-surface-container-text, #cfd4d9);">
-                      Component examples and documentation coming soon. Use the component in your project by importing it:
-                    </p>
-                    <pre class="code-block" style="margin-top: var(--pa-spacing-16, 16px);"><code>import { {{ activeComponentData.label }} } from './components'
+                  <!-- PaButton Special Case -->
+                  <template v-if="activeComponent === 'pabutton'">
+                    <div class="example-item">
+                      <label>Variants</label>
+                      <div class="component-preview" style="flex-wrap: wrap; gap: var(--pa-spacing-8, 8px);">
+                        <PaButton variant="primary">Primary</PaButton>
+                        <PaButton variant="secondary">Secondary</PaButton>
+                        <PaButton variant="tertiary">Tertiary</PaButton>
+                        <PaButton variant="payment-navigation">Payment Nav</PaButton>
+                        <PaButton variant="action">Action</PaButton>
+                      </div>
+                    </div>
+                    <div class="example-item">
+                      <label>Sizes</label>
+                      <div class="component-preview" style="flex-wrap: wrap; gap: var(--pa-spacing-8, 8px); align-items: center;">
+                        <PaButton variant="primary" size="sm">Small</PaButton>
+                        <PaButton variant="primary" size="md">Medium</PaButton>
+                        <PaButton variant="primary" size="lg">Large</PaButton>
+                      </div>
+                    </div>
+                    <div class="example-item">
+                      <label>States</label>
+                      <div class="component-preview" style="flex-wrap: wrap; gap: var(--pa-spacing-8, 8px);">
+                        <PaButton variant="primary">Default</PaButton>
+                        <PaButton variant="primary" :disabled="true">Disabled</PaButton>
+                      </div>
+                    </div>
+                  </template>
+                  
+                  <!-- Other Components -->
+                  <template v-else>
+                    <div class="example-item">
+                      <label>Default</label>
+                      <div class="component-preview">
+                        <component 
+                          v-if="getComponent(activeComponentData.id)" 
+                          :is="getComponent(activeComponentData.id)"
+                          v-bind="getComponentProps(activeComponentData.id)"
+                        >
+                          <template v-if="activeComponent === 'pabutton'">Button Text</template>
+                          <template v-else-if="activeComponent === 'pabadge'">Badge</template>
+                          <template v-else-if="activeComponent === 'painlinemessage'">Message content</template>
+                        </component>
+                        <p v-else style="color: var(--pa-color-surface-container-text, #cfd4d9); padding: var(--pa-spacing-16, 16px);">
+                          Component preview coming soon.
+                        </p>
+                      </div>
+                    </div>
+                  </template>
+                </div>
+              </div>
+              
+              <div class="component-usage">
+                <h3 class="section-title">Usage</h3>
+                <pre class="code-block"><code>import { {{ activeComponentData.label }} } from './components'
 
 &lt;{{ activeComponentData.label }} /&gt;</code></pre>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -748,6 +898,13 @@ const currentTheme = getTheme()</code></pre>
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
+}
+
+.component-preview {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: var(--pa-spacing-8, 8px) 0;
 }
 
 .component-props {
