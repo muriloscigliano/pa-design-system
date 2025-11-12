@@ -158,6 +158,10 @@
       "$type": "dimension",
       "$value": "0px"
     },
+    "2": {
+      "$type": "dimension",
+      "$value": "2px"
+    },
     "4": {
       "$type": "dimension",
       "$value": "4px"
@@ -390,6 +394,10 @@
       "100": {
         "$type": "dimension",
         "$value": "16px"
+      },
+      "150": {
+        "$type": "dimension",
+        "$value": "20px"
       },
       "200": {
         "$type": "dimension",

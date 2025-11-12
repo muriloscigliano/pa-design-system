@@ -353,8 +353,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
+  width: var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px));
+  height: var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px));
   color: var(--pa-color-input-icon-default);
   pointer-events: none;
 

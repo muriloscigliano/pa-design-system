@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 12 Nov 2025 03:09:11 GMT
+ * Generated on Wed, 12 Nov 2025 03:47:59 GMT
  */
 
 :root {
@@ -41,6 +41,7 @@
   --pa-red-500: #f42f2f;
   --pa-red-600: #f10000;
   --pa-spacing-0: 0px;
+  --pa-spacing-2: 2px;
   --pa-spacing-4: 4px;
   --pa-spacing-8: 8px;
   --pa-spacing-10: 10px;
@@ -92,6 +93,7 @@
   --pa-letter-spacing-200: 0px;
   --pa-letter-spacing-300: 0.5px;
   --pa-icon-size-100: 16px;
+  --pa-icon-size-150: 20px;
   --pa-icon-size-200: 24px;
   --pa-icon-size-300: 32px;
   --pa-icon-size-400: 48px;
@@ -200,10 +202,11 @@
 
 /**
  * Do not edit directly
- * Generated on Wed, 12 Nov 2025 03:09:11 GMT
+ * Generated on Wed, 12 Nov 2025 03:48:00 GMT
  */
 
 :root {
+  --pa-spacing-25: var(--pa-spacing-2);
   --pa-spacing-50: var(--pa-spacing-4);
   --pa-spacing-100: var(--pa-spacing-8);
   --pa-spacing-150: var(--pa-spacing-12);
@@ -230,7 +233,9 @@
   --pa-font-weight-700: 700;
   --pa-font-weight-800: 800;
   --pa-font-weight-900: 900;
+  --pa-icon-size-150: 20px;
   --pa-icon-size-sm: var(--pa-icon-size-100);
+  --pa-icon-size-xs: var(--pa-icon-size-150);
   --pa-icon-size-md: var(--pa-icon-size-200);
   --pa-icon-size-lg: var(--pa-icon-size-300);
   --pa-icon-size-xl: var(--pa-icon-size-400);
@@ -1284,10 +1289,11 @@
 
 /**
  * Do not edit directly
- * Generated on Wed, 12 Nov 2025 03:09:11 GMT
+ * Generated on Wed, 12 Nov 2025 03:48:00 GMT
  */
 
 [data-theme="dark"] {
+  --pa-spacing-25: var(--pa-spacing-2);
   --pa-spacing-50: var(--pa-spacing-4);
   --pa-spacing-100: var(--pa-spacing-8);
   --pa-spacing-150: var(--pa-spacing-12);
@@ -1314,7 +1320,9 @@
   --pa-font-weight-700: 700;
   --pa-font-weight-800: 800;
   --pa-font-weight-900: 900;
+  --pa-icon-size-150: 20px;
   --pa-icon-size-sm: var(--pa-icon-size-100);
+  --pa-icon-size-xs: var(--pa-icon-size-150);
   --pa-icon-size-md: var(--pa-icon-size-200);
   --pa-icon-size-lg: var(--pa-icon-size-300);
   --pa-icon-size-xl: var(--pa-icon-size-400);

@@ -194,7 +194,7 @@ const handleStepClick = (index: number, step: Step) => {
     top: calc(var(--pa-stepper-icon-size, var(--pa-icon-size-300, 32px)) / 2);
     left: calc(50% + var(--pa-stepper-icon-size, var(--pa-icon-size-300, 32px)) / 2 + var(--pa-stepper-spacing-icon-text, var(--pa-spacing-12, 12px)));
     right: calc(-50% + var(--pa-stepper-icon-size, var(--pa-icon-size-300, 32px)) / 2);
-    height: 2px;
+    height: var(--pa-spacing-25, var(--pa-spacing-2, 2px));
     transform: translateY(-50%);
   }
 
@@ -202,7 +202,7 @@ const handleStepClick = (index: number, step: Step) => {
     top: calc(var(--pa-stepper-icon-size, var(--pa-icon-size-300, 32px)) + var(--pa-stepper-spacing-icon-text, var(--pa-spacing-12, 12px)));
     left: calc(var(--pa-stepper-icon-size, var(--pa-icon-size-300, 32px)) / 2);
     bottom: calc(-100% + var(--pa-stepper-icon-size, var(--pa-icon-size-300, 32px)) / 2);
-    width: 2px;
+    width: var(--pa-spacing-25, var(--pa-spacing-2, 2px));
     transform: translateX(-50%);
   }
 

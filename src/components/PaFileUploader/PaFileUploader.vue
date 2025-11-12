@@ -62,7 +62,7 @@ const triggerFileInput = () => {
 }
 
 .pa-file-uploader-dropzone {
-  border: 2px dashed var(--pa-color-surface-container-border, var(--pa-gray-300, #dee2e6));
+  border: var(--pa-spacing-25, var(--pa-spacing-2, 2px)) dashed var(--pa-color-surface-container-border, var(--pa-gray-300, #dee2e6));
   border-radius: var(--pa-Border-radius-100, 8px);
   padding: var(--pa-spacing-32, 32px);
   text-align: center;

@@ -171,7 +171,7 @@ provide('closeTab', closeTab)
   background-color: var(--pa-tabs-tab-background-default, transparent);
   color: var(--pa-tabs-tab-text-default, var(--pa-color-surface-container-text));
   border: none;
-  border-bottom: 2px solid transparent;
+  border-bottom: var(--pa-spacing-25, var(--pa-spacing-2, 2px)) solid transparent;
   cursor: var(--pa-cursor-pointer, pointer);
   transition: all var(--pa-tabs-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-tabs-transition-easing-default, var(--pa-transition-easing-default, ease));
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);

@@ -94,7 +94,7 @@ const handleInput = (event: Event) => {
   top: 50%;
   left: 0;
   width: 100%;
-  height: 20px;
+  height: var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px));
   margin: 0;
   transform: translateY(-50%);
   background: transparent;
@@ -104,8 +104,8 @@ const handleInput = (event: Event) => {
 
   &::-webkit-slider-thumb {
     appearance: none;
-    width: var(--pa-slider-thumb-width, 20px);
-    height: var(--pa-slider-thumb-height, 20px);
+    width: var(--pa-slider-thumb-width, var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px)));
+    height: var(--pa-slider-thumb-height, var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px)));
     background-color: var(--pa-slider-thumb-background, var(--pa-gray-white, #ffffff));
     border: var(--pa-slider-thumb-border-width, var(--pa-Border-width-100, 2px)) solid var(--pa-slider-thumb-border-color, var(--pa-color-action-primary-border-default));
     border-radius: var(--pa-slider-thumb-radius, var(--pa-Border-radius-full, 99999px));
@@ -118,8 +118,8 @@ const handleInput = (event: Event) => {
   }
 
   &::-moz-range-thumb {
-    width: var(--pa-slider-thumb-width, 20px);
-    height: var(--pa-slider-thumb-height, 20px);
+    width: var(--pa-slider-thumb-width, var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px)));
+    height: var(--pa-slider-thumb-height, var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px)));
     background-color: var(--pa-slider-thumb-background, var(--pa-gray-white, #ffffff));
     border: var(--pa-slider-thumb-border-width, var(--pa-Border-width-100, 2px)) solid var(--pa-slider-thumb-border-color, var(--pa-color-action-primary-border-default));
     border-radius: var(--pa-slider-thumb-radius, var(--pa-Border-radius-full, 99999px));
