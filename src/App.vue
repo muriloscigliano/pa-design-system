@@ -1,11 +1,92 @@
 <script setup lang="ts">
-import { ref, nextTick, onMounted } from 'vue'
+import { ref, nextTick, onMounted, computed } from 'vue'
 import { setTheme, getTheme } from './utils/theme'
-import { PaButton } from './components'
 
 const currentTheme = ref<'light' | 'dark'>(getTheme())
 const searchQuery = ref('')
-const activeComponent = ref('pabutton')
+const activeComponent = ref('introduction')
+
+const navigation = {
+  'get-started': {
+    title: 'Get Started',
+    items: [
+      { label: 'Introduction', id: 'introduction' },
+      { label: 'Installation', id: 'installation' },
+      { label: 'Theming', id: 'theming' }
+    ]
+  },
+  'buttons': {
+    title: 'Buttons',
+    items: [
+      { label: 'PaButton', id: 'pabutton' }
+    ]
+  },
+  'form-inputs': {
+    title: 'Form Inputs',
+    items: [
+      { label: 'PaInput', id: 'painput' },
+      { label: 'PaCheckbox', id: 'pacheckbox' },
+      { label: 'PaRadio', id: 'paradio' },
+      { label: 'PaRadioButtonGroup', id: 'paradiobuttongroup' },
+      { label: 'PaToggleSwitch', id: 'patoggleswitch' },
+      { label: 'PaSelect', id: 'paselect' },
+      { label: 'PaTextarea', id: 'patextarea' },
+      { label: 'PaAutocomplete', id: 'paautocomplete' },
+      { label: 'PaTimePicker', id: 'patimepicker' },
+      { label: 'PaFileUploader', id: 'pafileuploader' },
+      { label: 'PaForm', id: 'paform' }
+    ]
+  },
+  'layout': {
+    title: 'Layout',
+    items: [
+      { label: 'PaCard', id: 'pacard' },
+      { label: 'PaHeader', id: 'paheader' },
+      { label: 'PaListItem', id: 'palistitem' },
+      { label: 'PaPageLayout', id: 'papagelayout' },
+      { label: 'PaContentSeparator', id: 'pacontentseparator' },
+      { label: 'PaContainer', id: 'pacontainer' },
+      { label: 'PaFormContainer', id: 'paformcontainer' },
+      { label: 'PaSectionContainer', id: 'pasectioncontainer' }
+    ]
+  },
+  'navigation': {
+    title: 'Navigation',
+    items: [
+      { label: 'PaDropdown', id: 'padropdown' },
+      { label: 'PaSegmentedControl', id: 'pasegmentedcontrol' },
+      { label: 'PaToggleSegmentation', id: 'patogglesegmentation' },
+      { label: 'PaToggleChip', id: 'patogglechip' },
+      { label: 'PaKebabMenu', id: 'pakebabmenu' },
+      { label: 'PaTabs', id: 'patabs' },
+      { label: 'PaBreadcrumbs', id: 'pabreadcrumbs' },
+      { label: 'PaStepper', id: 'pastepper' },
+      { label: 'PaDrawer', id: 'padrawer' }
+    ]
+  },
+  'feedback': {
+    title: 'Feedback',
+    items: [
+      { label: 'PaModal', id: 'pamodal' },
+      { label: 'PaTooltip', id: 'patooltip' },
+      { label: 'PaBadge', id: 'pabadge' },
+      { label: 'PaInlineMessage', id: 'painlinemessage' },
+      { label: 'PaLoading', id: 'paloading' },
+      { label: 'PaEmptyState', id: 'paemptystate' },
+      { label: 'PaProgress', id: 'paprogress' }
+    ]
+  },
+  'data-display': {
+    title: 'Data Display',
+    items: [
+      { label: 'PaTable', id: 'patable' },
+      { label: 'PaAccordion', id: 'paaccordion' },
+      { label: 'PaPagination', id: 'papagination' },
+      { label: 'PaSlider', id: 'paslider' },
+      { label: 'PaRangeSlider', id: 'parangeslider' }
+    ]
+  }
+}
 
 const handleSearch = () => {
   if (searchQuery.value.trim()) {
@@ -26,23 +107,65 @@ const handleSearchKeydown = (event: KeyboardEvent) => {
   }
 }
 
-const navigation = {
-  'get-started': {
-    title: 'Get starter',
-    items: [
-      { label: 'Introduction', id: 'introduction' },
-      { label: 'Installation', id: 'installation' },
-      { label: 'Theming', id: 'theming' }
-    ]
-  },
-  'buttons': {
-    title: 'Buttons',
-    items: [
-      { label: 'PaButton', id: 'pabutton' },
-      { label: 'PaActionButton', id: 'paactionbutton' },
-      { label: 'PaActionButtonGroup', id: 'paactionbuttongroup' }
-    ]
+const activeSection = computed(() => {
+  for (const section of Object.values(navigation)) {
+    if (section.items.some(item => item.id === activeComponent.value)) {
+      return section.title
+    }
   }
+  return 'Components'
+})
+
+const activeComponentData = computed(() => {
+  const allComponents = Object.values(navigation).flatMap(section => section.items)
+  return allComponents.find(item => item.id === activeComponent.value)
+})
+
+const getComponentDescription = (componentId: string): string => {
+  const descriptions: Record<string, string> = {
+    'pabutton': 'A versatile button component with multiple variants and sizes for different use cases.',
+    'painput': 'Text input component with validation states, sizes, and icon support.',
+    'pacheckbox': 'Checkbox input component with checked, unchecked, and indeterminate states.',
+    'paradio': 'Radio button component for single selection in forms.',
+    'paradiobuttongroup': 'Group of radio buttons for managing single selection.',
+    'patoggleswitch': 'Toggle switch component for boolean inputs.',
+    'paselect': 'Dropdown select component with single and multi-select support.',
+    'patextarea': 'Multi-line text input component with resize options.',
+    'paautocomplete': 'Input component with autocomplete suggestions.',
+    'patimepicker': 'Time picker component for selecting time values.',
+    'pafileuploader': 'File upload component with drag and drop support.',
+    'paform': 'Form wrapper component for managing form state and validation.',
+    'pacard': 'Card component for displaying content in a contained format.',
+    'paheader': 'Header component for application navigation and branding.',
+    'palistitem': 'List item component for displaying items in lists.',
+    'papagelayout': 'Page layout component for structuring page content.',
+    'pacontentseparator': 'Separator component for dividing content sections.',
+    'pacontainer': 'Container component for wrapping and constraining content.',
+    'paformcontainer': 'Form container component for grouping form fields.',
+    'pasectioncontainer': 'Section container component with title and actions.',
+    'padropdown': 'Dropdown menu component with positioning options.',
+    'pasegmentedcontrol': 'Segmented control component for selecting between options.',
+    'patogglesegmentation': 'Toggle segmentation component for grouped selections.',
+    'patogglechip': 'Toggle chip component for tag-like selections.',
+    'pakebabmenu': 'Kebab menu component for action menus.',
+    'patabs': 'Tabs component for organizing content into panels.',
+    'pabreadcrumbs': 'Breadcrumbs component for navigation hierarchy.',
+    'pastepper': 'Stepper component for multi-step processes.',
+    'padrawer': 'Drawer component for slide-out panels.',
+    'pamodal': 'Modal component for dialog overlays.',
+    'patooltip': 'Tooltip component for contextual information.',
+    'pabadge': 'Badge component for status indicators and labels.',
+    'painlinemessage': 'Inline message component for feedback and alerts.',
+    'paloading': 'Loading component for indicating progress.',
+    'paemptystate': 'Empty state component for when no content is available.',
+    'paprogress': 'Progress component for showing completion status.',
+    'patable': 'Table component for displaying tabular data.',
+    'paaccordion': 'Accordion component for collapsible content sections.',
+    'papagination': 'Pagination component for navigating through pages.',
+    'paslider': 'Slider component for selecting numeric values.',
+    'parangeslider': 'Range slider component for selecting value ranges.'
+  }
+  return descriptions[componentId] || 'Component documentation coming soon.'
 }
 
 const toggleTheme = () => {
@@ -150,124 +273,87 @@ onMounted(() => {
       
       <div class="content-area">
         <div class="content-header">
-          <h1 class="content-title">Buttons</h1>
+          <h1 class="content-title">{{ activeSection }}</h1>
         </div>
         <div class="content-body">
           <div class="component-docs">
-            <div v-if="activeComponent === 'pabutton'" class="component-section">
-              <h2 class="component-name">PaButton</h2>
+            <!-- Get Started Sections -->
+            <div v-if="activeComponent === 'introduction'" class="component-section">
+              <h2 class="component-name">Introduction</h2>
               <p class="component-description">
-                A versatile button component with multiple variants and sizes for different use cases.
+                Welcome to the PA Design System documentation. This comprehensive component library provides a complete set of reusable UI components built with Vue 3, TypeScript, and a token-driven architecture.
               </p>
-              
               <div class="component-examples">
-                <h3 class="section-title">Variants</h3>
+                <h3 class="section-title">Features</h3>
                 <div class="example-group">
-                  <div class="example-item">
-                    <label>Primary</label>
-                    <PaButton variant="primary">Primary Button</PaButton>
-                  </div>
-                  <div class="example-item">
-                    <label>Secondary</label>
-                    <PaButton variant="secondary">Secondary Button</PaButton>
-                  </div>
-                  <div class="example-item">
-                    <label>Tertiary</label>
-                    <PaButton variant="tertiary">Tertiary Button</PaButton>
-                  </div>
-                  <div class="example-item">
-                    <label>Payment Navigation</label>
-                    <PaButton variant="payment-navigation">Payment Nav</PaButton>
-                  </div>
-                  <div class="example-item">
-                    <label>Action</label>
-                    <PaButton variant="action">Action Button</PaButton>
-                  </div>
-                </div>
-                
-                <h3 class="section-title">Sizes</h3>
-                <div class="example-group">
-                  <div class="example-item">
-                    <label>Small</label>
-                    <PaButton variant="primary" size="sm">Small Button</PaButton>
-                  </div>
-                  <div class="example-item">
-                    <label>Medium (Default)</label>
-                    <PaButton variant="primary" size="md">Medium Button</PaButton>
-                  </div>
-                  <div class="example-item">
-                    <label>Large</label>
-                    <PaButton variant="primary" size="lg">Large Button</PaButton>
-                  </div>
-                </div>
-                
-                <h3 class="section-title">States</h3>
-                <div class="example-group">
-                  <div class="example-item">
-                    <label>Default</label>
-                    <PaButton variant="primary">Default</PaButton>
-                  </div>
-                  <div class="example-item">
-                    <label>Disabled</label>
-                    <PaButton variant="primary" :disabled="true">Disabled</PaButton>
-                  </div>
+                  <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="padding: var(--pa-spacing-8, 8px) 0; color: var(--pa-color-surface-container-text, #cfd4d9);">• 42+ Components covering all UI needs</li>
+                    <li style="padding: var(--pa-spacing-8, 8px) 0; color: var(--pa-color-surface-container-text, #cfd4d9);">• Token-driven architecture for consistent styling</li>
+                    <li style="padding: var(--pa-spacing-8, 8px) 0; color: var(--pa-color-surface-container-text, #cfd4d9);">• Light and dark theme support</li>
+                    <li style="padding: var(--pa-spacing-8, 8px) 0; color: var(--pa-color-surface-container-text, #cfd4d9);">• Full TypeScript support</li>
+                    <li style="padding: var(--pa-spacing-8, 8px) 0; color: var(--pa-color-surface-container-text, #cfd4d9);">• Accessible components built with best practices</li>
+                  </ul>
                 </div>
               </div>
-              
-              <div class="component-props">
-                <h3 class="section-title">Props</h3>
-                <table class="props-table">
-                  <thead>
-                    <tr>
-                      <th>Prop</th>
-                      <th>Type</th>
-                      <th>Default</th>
-                      <th>Description</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><code>variant</code></td>
-                      <td><code>'primary' | 'secondary' | 'tertiary' | 'payment-navigation' | 'action'</code></td>
-                      <td><code>'primary'</code></td>
-                      <td>Button style variant</td>
-                    </tr>
-                    <tr>
-                      <td><code>size</code></td>
-                      <td><code>'sm' | 'md' | 'lg'</code></td>
-                      <td><code>'md'</code></td>
-                      <td>Button size</td>
-                    </tr>
-                    <tr>
-                      <td><code>disabled</code></td>
-                      <td><code>boolean</code></td>
-                      <td><code>false</code></td>
-                      <td>Disables the button</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              
-              <div class="component-usage">
-                <h3 class="section-title">Usage</h3>
-                <pre class="code-block"><code>&lt;PaButton variant="primary" size="md"&gt;
-  Click Me
-&lt;/PaButton&gt;
+            </div>
 
-&lt;PaButton variant="secondary" :disabled="false"&gt;
-  Secondary Action
-&lt;/PaButton&gt;</code></pre>
+            <div v-if="activeComponent === 'installation'" class="component-section">
+              <h2 class="component-name">Installation</h2>
+              <p class="component-description">
+                Get started with the PA Design System by installing the package and importing components.
+              </p>
+              <div class="component-usage">
+                <h3 class="section-title">Installation Steps</h3>
+                <pre class="code-block"><code># Install dependencies
+npm install
+
+# Build tokens (runs automatically before dev)
+npm run build:tokens
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build</code></pre>
               </div>
             </div>
-            
-            <div v-if="activeComponent === 'paactionbutton'" class="component-section">
-              <h2 class="component-name">PaActionButton</h2>
-              <p class="component-description">Coming soon...</p>
+
+            <div v-if="activeComponent === 'theming'" class="component-section">
+              <h2 class="component-name">Theming</h2>
+              <p class="component-description">
+                The PA Design System supports both light and dark themes through a comprehensive token system. Themes can be switched dynamically.
+              </p>
+              <div class="component-usage">
+                <h3 class="section-title">Theme Usage</h3>
+                <pre class="code-block"><code>import { setTheme, getTheme } from './utils/theme'
+
+// Set theme
+setTheme('dark') // or 'light'
+
+// Get current theme
+const currentTheme = getTheme()</code></pre>
+              </div>
             </div>
-            
-            <div v-if="activeComponent === 'paactionbuttongroup'" class="component-section">
-              <h2 class="component-name">PaActionButtonGroup</h2>
-              <p class="component-description">Coming soon...</p>
+
+            <!-- Component Documentation -->
+            <div v-if="activeComponentData && activeComponent !== 'introduction' && activeComponent !== 'installation' && activeComponent !== 'theming'" class="component-section">
+              <h2 class="component-name">{{ activeComponentData.label }}</h2>
+              <p class="component-description">
+                {{ getComponentDescription(activeComponentData.id) }}
+              </p>
+              <div class="component-examples">
+                <h3 class="section-title">Examples</h3>
+                <div class="example-group">
+                  <div class="example-item">
+                    <p style="color: var(--pa-color-surface-container-text, #cfd4d9);">
+                      Component examples and documentation coming soon. Use the component in your project by importing it:
+                    </p>
+                    <pre class="code-block" style="margin-top: var(--pa-spacing-16, 16px);"><code>import { {{ activeComponentData.label }} } from './components'
+
+&lt;{{ activeComponentData.label }} /&gt;</code></pre>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           
@@ -330,8 +416,7 @@ onMounted(() => {
 .sidebar-divider {
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #222529, transparent);
-  transform: rotate(90deg);
+  background: #000000;
   width: 252px;
 }
 
