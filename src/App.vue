@@ -49,6 +49,16 @@ const currentTheme = ref<'light' | 'dark'>(getTheme())
 const searchQuery = ref('')
 const activeComponent = ref('introduction')
 
+// Reactive values for components that use v-model
+const componentValues = ref<Record<string, any>>({
+  painput: '',
+  patextarea: '',
+  patimepicker: '',
+  pasegmentedcontrol: 'Option 1',
+  paslider: 50,
+  parangeslider: [20, 80]
+})
+
 const navigation = {
   'get-started': {
     title: 'Get Started',
@@ -212,17 +222,16 @@ const getComponent = (componentId: string): Component | null => {
 }
 
 const getComponentProps = (componentId: string): Record<string, any> => {
-  const propsMap: Record<string, Record<string, any>> = {
+  const baseProps: Record<string, Record<string, any>> = {
     'pabutton': { variant: 'primary', size: 'md' },
-    'painput': { placeholder: 'Enter text...', modelValue: '' },
+    'painput': { placeholder: 'Enter text...' },
     'pacheckbox': { label: 'Checkbox label' },
     'paradio': { label: 'Radio option', name: 'radio-demo', value: 'option1' },
     'paradiobuttongroup': { options: [{ label: 'Option 1', value: '1' }, { label: 'Option 2', value: '2' }] },
     'patoggleswitch': { label: 'Toggle switch' },
     'paselect': { options: [{ label: 'Option 1', value: '1' }], placeholder: 'Select...' },
-    'patextarea': { placeholder: 'Enter text...', modelValue: '' },
+    'patextarea': { placeholder: 'Enter text...' },
     'paautocomplete': { placeholder: 'Type to search...', options: ['Option 1', 'Option 2'] },
-    'patimepicker': { modelValue: '' },
     'pafileuploader': {},
     'paform': {},
     'pacard': {},
@@ -234,7 +243,7 @@ const getComponentProps = (componentId: string): Record<string, any> => {
     'paformcontainer': {},
     'pasectioncontainer': { title: 'Section Title' },
     'padropdown': { trigger: 'Dropdown' },
-    'pasegmentedcontrol': { options: ['Option 1', 'Option 2'], modelValue: 'Option 1' },
+    'pasegmentedcontrol': { options: ['Option 1', 'Option 2'] },
     'patogglesegmentation': { options: ['Option 1', 'Option 2'] },
     'patogglechip': { label: 'Chip' },
     'pakebabmenu': {},
@@ -252,10 +261,36 @@ const getComponentProps = (componentId: string): Record<string, any> => {
     'patable': { data: [], columns: [] },
     'paaccordion': { items: [{ title: 'Item 1', content: 'Content 1' }] },
     'papagination': { total: 100, pageSize: 10, current: 1 },
-    'paslider': { modelValue: 50, min: 0, max: 100 },
-    'parangeslider': { modelValue: [20, 80], min: 0, max: 100 }
+    'paslider': { min: 0, max: 100 },
+    'parangeslider': { min: 0, max: 100 }
   }
-  return propsMap[componentId] || {}
+  
+  const props = { ...baseProps[componentId] || {} }
+  
+  // Add modelValue for components that need it
+  if (['painput', 'patextarea', 'patimepicker'].includes(componentId)) {
+    props.modelValue = componentValues.value[componentId] || ''
+    props['onUpdate:modelValue'] = (val: any) => {
+      componentValues.value[componentId] = val
+    }
+  } else if (componentId === 'pasegmentedcontrol') {
+    props.modelValue = componentValues.value[componentId] || 'Option 1'
+    props['onUpdate:modelValue'] = (val: any) => {
+      componentValues.value[componentId] = val
+    }
+  } else if (componentId === 'paslider') {
+    props.modelValue = componentValues.value[componentId] || 50
+    props['onUpdate:modelValue'] = (val: any) => {
+      componentValues.value[componentId] = val
+    }
+  } else if (componentId === 'parangeslider') {
+    props.modelValue = componentValues.value[componentId] || [20, 80]
+    props['onUpdate:modelValue'] = (val: any) => {
+      componentValues.value[componentId] = val
+    }
+  }
+  
+  return props
 }
 
 const getComponentDescription = (componentId: string): string => {
