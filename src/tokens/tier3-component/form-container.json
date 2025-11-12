@@ -15,28 +15,28 @@
     "padding": {
       "x": {
         "$type": "dimension",
-        "$value": "{spacing.2xl}"
+        "$value": "{spacing.300}"
       },
       "y": {
         "$type": "dimension",
-        "$value": "{spacing.2xl}"
+        "$value": "{spacing.300}"
       }
     },
     "spacing": {
       "section": {
         "$type": "dimension",
-        "$value": "{spacing.3xl}"
+        "$value": "{spacing.400}"
       },
       "field": {
         "$type": "dimension",
-        "$value": "{spacing.lg}"
+        "$value": "{spacing.200}"
       }
     },
     "header": {
       "padding": {
         "bottom": {
           "$type": "dimension",
-          "$value": "{spacing.lg}"
+          "$value": "{spacing.200}"
         }
       },
       "border": {

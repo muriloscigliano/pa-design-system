@@ -23,11 +23,11 @@
     "padding": {
       "x": {
         "$type": "dimension",
-        "$value": "{spacing.md}"
+        "$value": "{spacing.150}"
       },
       "y": {
         "$type": "dimension",
-        "$value": "{spacing.sm}"
+        "$value": "{spacing.100}"
       }
     },
     "font": {

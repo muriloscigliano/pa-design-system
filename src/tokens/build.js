@@ -242,9 +242,9 @@ try {
         if (varNameMatch) {
           const varName = varNameMatch[1]
           // Check if this is a Tier 1 token
-          // Tier 2 semantic foundation tokens: border-width-thin/medium/thick, border-radius-small/medium/large/full, spacing-xs/sm/md/lg/xl/2xl/etc, font-size-xs/sm/md/lg/xl, icon-size-sm/md/lg/xl/2xl, z-index-base/dropdown/sticky/etc
+          // Tier 2 semantic foundation tokens: border-width-thin/medium/thick, border-radius-small/medium/large/full, spacing-50/100/150/200/250/300/400/450/500/600/700 (number-based for >5 sizes), font-size-xs/sm/md/lg/xl (t-shirt for ≤5 sizes), icon-size-sm/md/lg/xl/2xl (t-shirt for ≤5 sizes)
           // Tier 1 tokens: gray-*, blue-*, spacing-0/4/8/10/12/16/etc (numeric), font-size-50/75/100/etc (numeric), icon-size-100/200/etc (numeric), border-radius-50/100/etc (numeric), border-width-50/100/etc (numeric), Border-*, brand-*, layout-*
-          const tier2SemanticPatterns = ['border-width-thin', 'border-width-medium', 'border-width-thick', 'border-radius-small', 'border-radius-medium', 'border-radius-large', 'border-radius-full', 'spacing-xs', 'spacing-sm', 'spacing-md', 'spacing-lg', 'spacing-xl', 'spacing-2xl', 'spacing-3xl', 'spacing-4xl', 'spacing-5xl', 'spacing-6xl', 'spacing-7xl', 'font-size-xs', 'font-size-sm', 'font-size-md', 'font-size-lg', 'font-size-xl', 'icon-size-sm', 'icon-size-md', 'icon-size-lg', 'icon-size-xl', 'icon-size-2xl', 'z-index-base', 'z-index-dropdown', 'z-index-sticky', 'z-index-overlay', 'z-index-modal', 'z-index-popover']
+          const tier2SemanticPatterns = ['border-width-thin', 'border-width-medium', 'border-width-thick', 'border-radius-small', 'border-radius-medium', 'border-radius-large', 'border-radius-full', 'spacing-50', 'spacing-100', 'spacing-150', 'spacing-200', 'spacing-250', 'spacing-300', 'spacing-400', 'spacing-450', 'spacing-500', 'spacing-600', 'spacing-700', 'font-size-xs', 'font-size-sm', 'font-size-md', 'font-size-lg', 'font-size-xl', 'icon-size-sm', 'icon-size-md', 'icon-size-lg', 'icon-size-xl', 'icon-size-2xl']
           const isTier2Semantic = tier2SemanticPatterns.some(pattern => varName === pattern || varName.startsWith(pattern + '-'))
           
           // Tier 1 prefixes (exact numeric matches)

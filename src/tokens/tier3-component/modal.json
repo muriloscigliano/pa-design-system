@@ -7,7 +7,7 @@
       },
       "z-index": {
         "$type": "dimension",
-        "$value": "{z-index.modal}"
+        "$value": "{z-index.400}"
       }
     },
     "container": {
@@ -29,7 +29,7 @@
       },
       "z-index": {
         "$type": "dimension",
-        "$value": "{z-index.popover}"
+        "$value": "{z-index.500}"
       },
       "max-width": {
         "sm": {
@@ -62,11 +62,11 @@
       "padding": {
         "x": {
           "$type": "dimension",
-          "$value": "{spacing.2xl}"
+          "$value": "{spacing.300}"
         },
         "y": {
           "$type": "dimension",
-          "$value": "{spacing.lg}"
+          "$value": "{spacing.200}"
         }
       }
     },
@@ -74,11 +74,11 @@
       "padding": {
         "x": {
           "$type": "dimension",
-          "$value": "{spacing.2xl}"
+          "$value": "{spacing.300}"
         },
         "y": {
           "$type": "dimension",
-          "$value": "{spacing.lg}"
+          "$value": "{spacing.200}"
         }
       }
     },
@@ -94,11 +94,11 @@
       "padding": {
         "x": {
           "$type": "dimension",
-          "$value": "{spacing.2xl}"
+          "$value": "{spacing.300}"
         },
         "y": {
           "$type": "dimension",
-          "$value": "{spacing.lg}"
+          "$value": "{spacing.200}"
         }
       }
     }

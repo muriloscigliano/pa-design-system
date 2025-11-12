@@ -3,7 +3,7 @@
     "track": {
       "height": {
         "$type": "dimension",
-        "$value": "{spacing.xs}"
+        "$value": "{spacing.50}"
       },
       "background": {
         "$type": "color",
@@ -21,11 +21,11 @@
     "thumb": {
       "width": {
         "$type": "dimension",
-        "$value": "{spacing.xl}"
+        "$value": "{spacing.250}"
       },
       "height": {
         "$type": "dimension",
-        "$value": "{spacing.xl}"
+        "$value": "{spacing.250}"
       },
       "background": {
         "$type": "color",
@@ -57,7 +57,7 @@
       },
       "height": {
         "$type": "dimension",
-        "$value": "{spacing.sm}"
+        "$value": "{spacing.100}"
       },
       "background": {
         "$type": "color",

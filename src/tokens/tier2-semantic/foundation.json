@@ -34,47 +34,47 @@
     }
   },
   "spacing": {
-    "xs": {
+    "50": {
       "$type": "dimension",
       "$value": "{spacing.4}"
     },
-    "sm": {
+    "100": {
       "$type": "dimension",
       "$value": "{spacing.8}"
     },
-    "md": {
+    "150": {
       "$type": "dimension",
       "$value": "{spacing.12}"
     },
-    "lg": {
+    "200": {
       "$type": "dimension",
       "$value": "{spacing.16}"
     },
-    "xl": {
+    "250": {
       "$type": "dimension",
       "$value": "{spacing.18}"
     },
-    "2xl": {
+    "300": {
       "$type": "dimension",
       "$value": "{spacing.24}"
     },
-    "3xl": {
+    "400": {
       "$type": "dimension",
       "$value": "{spacing.32}"
     },
-    "4xl": {
+    "450": {
       "$type": "dimension",
       "$value": "{spacing.36}"
     },
-    "5xl": {
+    "500": {
       "$type": "dimension",
       "$value": "{spacing.48}"
     },
-    "6xl": {
+    "600": {
       "$type": "dimension",
       "$value": "{spacing.56}"
     },
-    "7xl": {
+    "700": {
       "$type": "dimension",
       "$value": "{spacing.64}"
     }
@@ -125,32 +125,6 @@
         "$type": "dimension",
         "$value": "{icon.size.500}"
       }
-    }
-  },
-  "z-index": {
-    "base": {
-      "$type": "dimension",
-      "$value": "{z-index.0}"
-    },
-    "dropdown": {
-      "$type": "dimension",
-      "$value": "{z-index.100}"
-    },
-    "sticky": {
-      "$type": "dimension",
-      "$value": "{z-index.200}"
-    },
-    "overlay": {
-      "$type": "dimension",
-      "$value": "{z-index.300}"
-    },
-    "modal": {
-      "$type": "dimension",
-      "$value": "{z-index.400}"
-    },
-    "popover": {
-      "$type": "dimension",
-      "$value": "{z-index.500}"
     }
   }
 }

@@ -23,7 +23,7 @@
     "spacing": {
       "item-gap": {
         "$type": "dimension",
-        "$value": "{spacing.sm}"
+        "$value": "{spacing.100}"
       }
     }
   }

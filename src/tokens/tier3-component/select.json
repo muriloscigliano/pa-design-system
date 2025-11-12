@@ -121,7 +121,7 @@
       },
       "z-index": {
         "$type": "dimension",
-        "$value": "{z-index.modal}"
+        "$value": "{z-index.400}"
       }
     },
     "option": {
@@ -155,11 +155,11 @@
         "padding": {
           "x": {
             "$type": "dimension",
-            "$value": "{spacing.md}"
+            "$value": "{spacing.150}"
           },
           "y": {
             "$type": "dimension",
-            "$value": "{spacing.xs}"
+            "$value": "{spacing.50}"
           }
         },
         "font": {
@@ -171,11 +171,11 @@
         "padding": {
           "x": {
             "$type": "dimension",
-            "$value": "{spacing.lg}"
+            "$value": "{spacing.200}"
           },
           "y": {
             "$type": "dimension",
-            "$value": "{spacing.sm}"
+            "$value": "{spacing.100}"
           }
         },
         "font": {
@@ -187,11 +187,11 @@
         "padding": {
           "x": {
             "$type": "dimension",
-            "$value": "{spacing.2xl}"
+            "$value": "{spacing.300}"
           },
           "y": {
             "$type": "dimension",
-            "$value": "{spacing.md}"
+            "$value": "{spacing.150}"
           }
         },
         "font": {

@@ -15,21 +15,21 @@
     "padding": {
       "x": {
         "$type": "dimension",
-        "$value": "{spacing.2xl}"
+        "$value": "{spacing.300}"
       },
       "y": {
         "$type": "dimension",
-        "$value": "{spacing.2xl}"
+        "$value": "{spacing.300}"
       }
     },
     "spacing": {
       "header": {
         "$type": "dimension",
-        "$value": "{spacing.lg}"
+        "$value": "{spacing.200}"
       },
       "content": {
         "$type": "dimension",
-        "$value": "{spacing.2xl}"
+        "$value": "{spacing.300}"
       }
     },
     "header": {

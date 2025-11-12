@@ -31,7 +31,7 @@
       },
       "z-index": {
         "$type": "dimension",
-        "$value": "{z-index.overlay}"
+        "$value": "{z-index.300}"
       }
     }
   }

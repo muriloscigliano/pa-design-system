@@ -22,31 +22,31 @@
       "sm": {
         "x": {
           "$type": "dimension",
-          "$value": "{spacing.lg}"
+          "$value": "{spacing.200}"
         },
         "y": {
           "$type": "dimension",
-          "$value": "{spacing.lg}"
+          "$value": "{spacing.200}"
         }
       },
       "md": {
         "x": {
           "$type": "dimension",
-          "$value": "{spacing.2xl}"
+          "$value": "{spacing.300}"
         },
         "y": {
           "$type": "dimension",
-          "$value": "{spacing.2xl}"
+          "$value": "{spacing.300}"
         }
       },
       "lg": {
         "x": {
           "$type": "dimension",
-          "$value": "{spacing.3xl}"
+          "$value": "{spacing.400}"
         },
         "y": {
           "$type": "dimension",
-          "$value": "{spacing.3xl}"
+          "$value": "{spacing.400}"
         }
       }
     },

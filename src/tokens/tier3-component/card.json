@@ -46,11 +46,11 @@
       "default": {
         "x": {
           "$type": "dimension",
-          "$value": "{spacing.lg}"
+          "$value": "{spacing.200}"
         },
         "y": {
           "$type": "dimension",
-          "$value": "{spacing.lg}"
+          "$value": "{spacing.200}"
         }
       }
     },

@@ -102,11 +102,11 @@
       "md": {
         "width": {
           "$type": "dimension",
-          "$value": "{spacing.xl}"
+          "$value": "{spacing.250}"
         },
         "height": {
           "$type": "dimension",
-          "$value": "{spacing.xl}"
+          "$value": "{spacing.250}"
         }
       },
       "lg": {

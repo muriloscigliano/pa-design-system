@@ -77,11 +77,11 @@
     "spacing": {
       "step-gap": {
         "$type": "dimension",
-        "$value": "{spacing.lg}"
+        "$value": "{spacing.200}"
       },
       "icon-text": {
         "$type": "dimension",
-        "$value": "{spacing.md}"
+        "$value": "{spacing.150}"
       }
     },
     "font": {

@@ -58,11 +58,11 @@
       "padding": {
         "x": {
           "$type": "dimension",
-          "$value": "{spacing.lg}"
+          "$value": "{spacing.200}"
         },
         "y": {
           "$type": "dimension",
-          "$value": "{spacing.md}"
+          "$value": "{spacing.150}"
         }
       },
       "font": {
@@ -84,14 +84,14 @@
       "spacing": {
         "icon-text": {
           "$type": "dimension",
-          "$value": "{spacing.sm}"
+          "$value": "{spacing.100}"
         }
       }
     },
     "content": {
       "padding": {
         "$type": "dimension",
-        "$value": "{spacing.lg}"
+        "$value": "{spacing.200}"
       }
     },
     "transition": {

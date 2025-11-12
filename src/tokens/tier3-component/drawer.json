@@ -55,7 +55,7 @@
     "header": {
       "padding": {
         "$type": "dimension",
-        "$value": "{spacing.lg}"
+        "$value": "{spacing.200}"
       },
       "border": {
         "$type": "color",
@@ -65,13 +65,13 @@
     "body": {
       "padding": {
         "$type": "dimension",
-        "$value": "{spacing.lg}"
+        "$value": "{spacing.200}"
       }
     },
     "footer": {
       "padding": {
         "$type": "dimension",
-        "$value": "{spacing.lg}"
+        "$value": "{spacing.200}"
       },
       "border": {
         "$type": "color",

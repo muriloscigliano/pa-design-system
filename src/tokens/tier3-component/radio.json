@@ -94,21 +94,21 @@
         },
         "dot": {
           "$type": "dimension",
-          "$value": "{spacing.sm}"
+          "$value": "{spacing.100}"
         }
       },
       "md": {
         "width": {
           "$type": "dimension",
-          "$value": "{spacing.xl}"
+          "$value": "{spacing.250}"
         },
         "height": {
           "$type": "dimension",
-          "$value": "{spacing.xl}"
+          "$value": "{spacing.250}"
         },
         "dot": {
           "$type": "dimension",
-          "$value": "{spacing.md}"
+          "$value": "{spacing.150}"
         }
       },
       "lg": {
@@ -122,7 +122,7 @@
         },
         "dot": {
           "$type": "dimension",
-          "$value": "{spacing.md}"
+          "$value": "{spacing.150}"
         }
       }
     }
