@@ -47,6 +47,10 @@
     "black": {
       "$type": "color",
       "$value": "#000000"
+    },
+    "container": {
+      "$type": "color",
+      "$value": "#151517"
     }
   },
   "blue": {

@@ -274,7 +274,7 @@
       "container": {
         "background": {
           "$type": "color",
-          "$value": "{gray.black}"
+          "$value": "{gray.container}"
         },
         "text": {
           "$type": "color",
