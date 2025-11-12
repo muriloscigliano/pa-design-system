@@ -1,7 +1,7 @@
 type Theme = 'light' | 'dark'
 
 const THEME_STORAGE_KEY = 'pa-ui-theme'
-const DEFAULT_THEME: Theme = 'light'
+const DEFAULT_THEME: Theme = 'dark'
 
 export function getTheme(): Theme {
   if (typeof window === 'undefined') {
