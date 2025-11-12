@@ -265,32 +265,7 @@ const getComponentProps = (componentId: string): Record<string, any> => {
     'parangeslider': { min: 0, max: 100 }
   }
   
-  const props = { ...baseProps[componentId] || {} }
-  
-  // Add modelValue for components that need it
-  if (['painput', 'patextarea', 'patimepicker'].includes(componentId)) {
-    props.modelValue = componentValues.value[componentId] || ''
-    props['onUpdate:modelValue'] = (val: any) => {
-      componentValues.value[componentId] = val
-    }
-  } else if (componentId === 'pasegmentedcontrol') {
-    props.modelValue = componentValues.value[componentId] || 'Option 1'
-    props['onUpdate:modelValue'] = (val: any) => {
-      componentValues.value[componentId] = val
-    }
-  } else if (componentId === 'paslider') {
-    props.modelValue = componentValues.value[componentId] || 50
-    props['onUpdate:modelValue'] = (val: any) => {
-      componentValues.value[componentId] = val
-    }
-  } else if (componentId === 'parangeslider') {
-    props.modelValue = componentValues.value[componentId] || [20, 80]
-    props['onUpdate:modelValue'] = (val: any) => {
-      componentValues.value[componentId] = val
-    }
-  }
-  
-  return props
+  return baseProps[componentId] || {}
 }
 
 const getComponentDescription = (componentId: string): string => {
@@ -550,8 +525,40 @@ const currentTheme = getTheme()</code></pre>
                     <div class="example-item">
                       <label>Default</label>
                       <div class="component-preview">
+                        <!-- Components with v-model -->
+                        <PaInput 
+                          v-if="activeComponent === 'painput'"
+                          v-model="componentValues.painput"
+                          v-bind="getComponentProps('painput')"
+                        />
+                        <PaTextarea 
+                          v-else-if="activeComponent === 'patextarea'"
+                          v-model="componentValues.patextarea"
+                          v-bind="getComponentProps('patextarea')"
+                        />
+                        <PaTimePicker 
+                          v-else-if="activeComponent === 'patimepicker'"
+                          v-model="componentValues.patimepicker"
+                          v-bind="getComponentProps('patimepicker')"
+                        />
+                        <PaSegmentedControl 
+                          v-else-if="activeComponent === 'pasegmentedcontrol'"
+                          v-model="componentValues.pasegmentedcontrol"
+                          :options="[{ label: 'Option 1', value: 'Option 1' }, { label: 'Option 2', value: 'Option 2' }]"
+                        />
+                        <PaSlider 
+                          v-else-if="activeComponent === 'paslider'"
+                          v-model="componentValues.paslider"
+                          v-bind="getComponentProps('paslider')"
+                        />
+                        <PaRangeSlider 
+                          v-else-if="activeComponent === 'parangeslider'"
+                          v-model="componentValues.parangeslider"
+                          v-bind="getComponentProps('parangeslider')"
+                        />
+                        <!-- Other components -->
                         <component 
-                          v-if="getComponent(activeComponentData.id)" 
+                          v-else-if="getComponent(activeComponentData.id)" 
                           :is="getComponent(activeComponentData.id)"
                           v-bind="getComponentProps(activeComponentData.id)"
                         >
@@ -559,6 +566,12 @@ const currentTheme = getTheme()</code></pre>
                           <template v-else-if="activeComponent === 'painlinemessage'">Message content</template>
                           <template v-else-if="activeComponent === 'patooltip'">
                             <span>Hover me</span>
+                          </template>
+                          <template v-else-if="activeComponent === 'pacard'">
+                            <div style="padding: var(--pa-spacing-16, 16px);">
+                              <h3 style="margin: 0 0 var(--pa-spacing-8, 8px) 0; color: var(--pa-color-surface-container-text, #cfd4d9);">Card Title</h3>
+                              <p style="margin: 0; color: var(--pa-color-surface-container-text, #cfd4d9);">Card content goes here.</p>
+                            </div>
                           </template>
                         </component>
                         <p v-else style="color: var(--pa-color-surface-container-text, #cfd4d9); padding: var(--pa-spacing-16, 16px);">
