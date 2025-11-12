@@ -293,17 +293,18 @@ onMounted(() => {
 }
 
 .sidebar {
-  background-color: #151517;
+  background-color: var(--pa-color-surface-container-background, #151517);
   border-radius: var(--pa-Border-radius-100, 8px);
   padding: var(--pa-spacing-24, 24px);
   width: 300px;
-  height: 1105px;
+  height: calc(100vh - var(--pa-spacing-12, 12px));
   display: flex;
   flex-direction: column;
   gap: var(--pa-spacing-36, 36px);
   align-items: center;
   flex-shrink: 0;
   overflow: hidden;
+  transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
 }
 
 .sidebar-logo {
