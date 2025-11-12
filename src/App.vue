@@ -676,7 +676,6 @@ const currentTheme = getTheme()</code></pre>
   height: 100%;
   position: relative;
   overflow-y: auto;
-  width: 1380px;
 }
 
 .component-docs {
