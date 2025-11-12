@@ -214,11 +214,46 @@ const getComponent = (componentId: string): Component | null => {
 const getComponentProps = (componentId: string): Record<string, any> => {
   const propsMap: Record<string, Record<string, any>> = {
     'pabutton': { variant: 'primary', size: 'md' },
-    'painput': { placeholder: 'Enter text...' },
+    'painput': { placeholder: 'Enter text...', modelValue: '' },
     'pacheckbox': { label: 'Checkbox label' },
-    'paradio': { label: 'Radio option' },
+    'paradio': { label: 'Radio option', name: 'radio-demo', value: 'option1' },
+    'paradiobuttongroup': { options: [{ label: 'Option 1', value: '1' }, { label: 'Option 2', value: '2' }] },
+    'patoggleswitch': { label: 'Toggle switch' },
+    'paselect': { options: [{ label: 'Option 1', value: '1' }], placeholder: 'Select...' },
+    'patextarea': { placeholder: 'Enter text...', modelValue: '' },
+    'paautocomplete': { placeholder: 'Type to search...', options: ['Option 1', 'Option 2'] },
+    'patimepicker': { modelValue: '' },
+    'pafileuploader': {},
+    'paform': {},
+    'pacard': {},
+    'paheader': {},
+    'palistitem': { title: 'List Item', description: 'Item description' },
+    'papagelayout': {},
+    'pacontentseparator': {},
+    'pacontainer': {},
+    'paformcontainer': {},
+    'pasectioncontainer': { title: 'Section Title' },
+    'padropdown': { trigger: 'Dropdown' },
+    'pasegmentedcontrol': { options: ['Option 1', 'Option 2'], modelValue: 'Option 1' },
+    'patogglesegmentation': { options: ['Option 1', 'Option 2'] },
+    'patogglechip': { label: 'Chip' },
+    'pakebabmenu': {},
+    'patabs': { tabs: [{ label: 'Tab 1', value: '1' }, { label: 'Tab 2', value: '2' }] },
+    'pabreadcrumbs': { items: [{ label: 'Home' }, { label: 'Page' }] },
+    'pastepper': { steps: [{ title: 'Step 1' }, { title: 'Step 2' }], current: 0 },
+    'padrawer': { visible: false },
+    'pamodal': { visible: false },
+    'patooltip': { content: 'Tooltip content' },
     'pabadge': { variant: 'default' },
-    'patooltip': { content: 'Tooltip content' }
+    'painlinemessage': { variant: 'info', message: 'This is an inline message' },
+    'paloading': {},
+    'paemptystate': { title: 'No data', description: 'There is no data to display' },
+    'paprogress': { percentage: 50 },
+    'patable': { data: [], columns: [] },
+    'paaccordion': { items: [{ title: 'Item 1', content: 'Content 1' }] },
+    'papagination': { total: 100, pageSize: 10, current: 1 },
+    'paslider': { modelValue: 50, min: 0, max: 100 },
+    'parangeslider': { modelValue: [20, 80], min: 0, max: 100 }
   }
   return propsMap[componentId] || {}
 }
@@ -485,9 +520,11 @@ const currentTheme = getTheme()</code></pre>
                           :is="getComponent(activeComponentData.id)"
                           v-bind="getComponentProps(activeComponentData.id)"
                         >
-                          <template v-if="activeComponent === 'pabutton'">Button Text</template>
-                          <template v-else-if="activeComponent === 'pabadge'">Badge</template>
+                          <template v-if="activeComponent === 'pabadge'">Badge</template>
                           <template v-else-if="activeComponent === 'painlinemessage'">Message content</template>
+                          <template v-else-if="activeComponent === 'patooltip'">
+                            <span>Hover me</span>
+                          </template>
                         </component>
                         <p v-else style="color: var(--pa-color-surface-container-text, #cfd4d9); padding: var(--pa-spacing-16, 16px);">
                           Component preview coming soon.
