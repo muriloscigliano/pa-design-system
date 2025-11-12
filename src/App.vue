@@ -9,12 +9,8 @@ const activeComponent = ref('pabutton')
 
 const handleSearch = () => {
   if (searchQuery.value.trim()) {
-    // Filter components based on search query
     const query = searchQuery.value.toLowerCase().trim()
-    const allComponents = [
-      ...navigation['get-started'],
-      ...navigation['buttons']
-    ]
+    const allComponents = Object.values(navigation).flatMap(section => section.items)
     const found = allComponents.find(item => 
       item.label.toLowerCase().includes(query)
     )
@@ -31,16 +27,22 @@ const handleSearchKeydown = (event: KeyboardEvent) => {
 }
 
 const navigation = {
-  'get-started': [
-    { label: 'Introduction', id: 'introduction' },
-    { label: 'Installation', id: 'installation' },
-    { label: 'Theming', id: 'theming' }
-  ],
-  'buttons': [
-    { label: 'PaButton', id: 'pabutton' },
-    { label: 'PaActionButton', id: 'paactionbutton' },
-    { label: 'PaActionButtonGroup', id: 'paactionbuttongroup' }
-  ]
+  'get-started': {
+    title: 'Get starter',
+    items: [
+      { label: 'Introduction', id: 'introduction' },
+      { label: 'Installation', id: 'installation' },
+      { label: 'Theming', id: 'theming' }
+    ]
+  },
+  'buttons': {
+    title: 'Buttons',
+    items: [
+      { label: 'PaButton', id: 'pabutton' },
+      { label: 'PaActionButton', id: 'paactionbutton' },
+      { label: 'PaActionButtonGroup', id: 'paactionbuttongroup' }
+    ]
+  }
 }
 
 const toggleTheme = () => {
@@ -79,20 +81,15 @@ onMounted(() => {
       <div class="sidebar-divider"></div>
       
       <nav class="sidebar-nav">
-        <div class="nav-section">
-          <h3 class="nav-section-title">Get starter</h3>
-          <ul class="nav-list">
-            <li v-for="item in navigation['get-started']" :key="item.id" class="nav-item">
-              {{ item.label }}
-            </li>
-          </ul>
-        </div>
-        
-        <div class="nav-section">
-          <h3 class="nav-section-title">Buttons</h3>
+        <div 
+          v-for="(section, sectionKey) in navigation" 
+          :key="sectionKey" 
+          class="nav-section"
+        >
+          <h3 class="nav-section-title">{{ section.title }}</h3>
           <ul class="nav-list">
             <li 
-              v-for="item in navigation['buttons']" 
+              v-for="item in section.items" 
               :key="item.id" 
               class="nav-item"
               :class="{ 'is-active': activeComponent === item.id }"
@@ -594,6 +591,7 @@ onMounted(() => {
   height: 100%;
   position: relative;
   overflow-y: auto;
+  width: 1380px;
 }
 
 .component-docs {
