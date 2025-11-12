@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 12 Nov 2025 02:58:34 GMT
+ * Generated on Wed, 12 Nov 2025 03:05:50 GMT
  */
 
 :root {
@@ -177,7 +177,7 @@
   --pa-layout-container-full: 100%;
   --pa-brand-red-100: #fbf2f2;
   --pa-brand-red-200: #e49599;
-  --pa-brand-red-300: #dc1E33;
+  --pa-brand-red-300: #dc3545;
   --pa-brand-red-500: #ae182a;
   --pa-brand-red-600: #7b111d;
   --pa-brand-gray-50: #f5fafd;
@@ -200,7 +200,7 @@
 
 /**
  * Do not edit directly
- * Generated on Wed, 12 Nov 2025 02:58:34 GMT
+ * Generated on Wed, 12 Nov 2025 03:05:50 GMT
  */
 
 :root {
@@ -249,13 +249,13 @@
   --pa-cursor-grabbing: grabbing;
   --pa-cursor-move: move;
   --pa-cursor-wait: wait;
-  --pa-color-action-primary-background-default: var(--pa-brand-red-300);
+  --pa-color-action-primary-background-default: var(--pa-brand-red-500);
   --pa-color-action-primary-background-hover: var(--pa-brand-red-600);
   --pa-color-action-primary-background-active: var(--pa-brand-red-500);
   --pa-color-action-primary-background-disable: var(--pa-gray-500);
   --pa-color-action-primary-text-default: var(--pa-gray-white);
   --pa-color-action-primary-text-disable: var(--pa-gray-700);
-  --pa-color-action-primary-border-default: var(--pa-brand-red-400);
+  --pa-color-action-primary-border-default: var(--pa-brand-red-500);
   --pa-color-action-primary-border-focus: var(--pa-brand-red-600);
   --pa-color-action-primary-border-disable: var(--pa-gray-700);
   --pa-color-action-secondary-background-default: var(--pa-gray-400);
@@ -1290,7 +1290,7 @@
 
 /**
  * Do not edit directly
- * Generated on Wed, 12 Nov 2025 02:58:34 GMT
+ * Generated on Wed, 12 Nov 2025 03:05:50 GMT
  */
 
 [data-theme="dark"] {

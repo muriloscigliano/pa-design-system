@@ -21,15 +21,9 @@ const emit = defineEmits<{
 }>()
 
 const textareaRef = ref<HTMLTextAreaElement>()
-const currentRows = ref(props.rows || 3)
 
 const characterCount = computed(() => {
   return props.modelValue?.length || 0
-})
-
-const remainingCount = computed(() => {
-  if (!props.maxLength) return null
-  return props.maxLength - characterCount.value
 })
 
 const isOverLimit = computed(() => {

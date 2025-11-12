@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, provide } from 'vue'
+import { computed, provide } from 'vue'
 import PaBadge from '../PaBadge/PaBadge.vue'
 
 interface Tab {

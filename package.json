@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "npm run build:tokens && vue-tsc && vite build",
     "preview": "vite preview",
     "build:tokens": "node src/tokens/build.js",
     "predev": "npm run build:tokens"

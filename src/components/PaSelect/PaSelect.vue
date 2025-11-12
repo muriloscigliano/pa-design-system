@@ -34,13 +34,6 @@ const searchQuery = ref('')
 const selectRef = ref<HTMLElement>()
 const menuRef = ref<HTMLElement>()
 
-const selectedValues = computed(() => {
-  if (props.multiple) {
-    return Array.isArray(props.modelValue) ? props.modelValue : []
-  }
-  return props.modelValue
-})
-
 const displayValue = computed(() => {
   if (props.multiple) {
     const selected = props.options.filter(opt => 

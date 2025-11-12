@@ -11,7 +11,7 @@ const isOpen = ref(false)
 </script>
 
 <template>
-  <PaDropdown v-model="isOpen" placement="bottom-right">
+  <PaDropdown v-model="isOpen" placement="bottom">
     <template #trigger>
       <button class="pa-kebab-menu-trigger" aria-label="Menu">
         <svg
