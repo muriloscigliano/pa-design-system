@@ -4,13 +4,13 @@
       "width": {
         "default": {
           "$type": "dimension",
-          "$value": "{Border.width.50}"
+          "$value": "{border.width.thin}"
         }
       },
       "radius": {
         "default": {
           "$type": "dimension",
-          "$value": "{Border.radius.100}"
+          "$value": "{border.radius.medium}"
         }
       }
     },
@@ -89,11 +89,11 @@
     "padding": {
       "x": {
         "$type": "dimension",
-        "$value": "{spacing.16}"
+        "$value": "{spacing.lg}"
       },
       "y": {
         "$type": "dimension",
-        "$value": "{spacing.12}"
+        "$value": "{spacing.md}"
       }
     }
   }

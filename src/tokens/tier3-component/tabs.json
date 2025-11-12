@@ -14,7 +14,7 @@
       "width": {
         "default": {
           "$type": "dimension",
-          "$value": "{Border.width.50}"
+          "$value": "{border.width.thin}"
         }
       },
       "default": {
@@ -58,17 +58,17 @@
       "padding": {
         "x": {
           "$type": "dimension",
-          "$value": "{spacing.16}"
+          "$value": "{spacing.lg}"
         },
         "y": {
           "$type": "dimension",
-          "$value": "{spacing.12}"
+          "$value": "{spacing.md}"
         }
       },
       "font": {
         "size": {
           "$type": "dimension",
-          "$value": "{font.size.200}"
+          "$value": "{font.size.lg}"
         },
         "weight": {
           "default": {
@@ -84,14 +84,14 @@
       "spacing": {
         "icon-text": {
           "$type": "dimension",
-          "$value": "{spacing.8}"
+          "$value": "{spacing.sm}"
         }
       }
     },
     "content": {
       "padding": {
         "$type": "dimension",
-        "$value": "{spacing.16}"
+        "$value": "{spacing.lg}"
       }
     },
     "transition": {

@@ -36,13 +36,13 @@
       "width": {
         "default": {
           "$type": "dimension",
-          "$value": "{Border.width.50}"
+          "$value": "{border.width.thin}"
         }
       },
       "radius": {
         "default": {
           "$type": "dimension",
-          "$value": "{Border.radius.100}"
+          "$value": "{border.radius.medium}"
         }
       },
       "default": {
@@ -81,7 +81,7 @@
       },
       "z-index": {
         "$type": "dimension",
-        "$value": "{z-index.400}"
+        "$value": "{z-index.modal}"
       }
     },
     "option": {
@@ -115,48 +115,48 @@
         "padding": {
           "x": {
             "$type": "dimension",
-            "$value": "{spacing.12}"
+            "$value": "{spacing.md}"
           },
           "y": {
             "$type": "dimension",
-            "$value": "{spacing.4}"
+            "$value": "{spacing.xs}"
           }
         },
         "font": {
           "$type": "dimension",
-          "$value": "{font.size.100}"
+          "$value": "{font.size.md}"
         }
       },
       "md": {
         "padding": {
           "x": {
             "$type": "dimension",
-            "$value": "{spacing.16}"
+            "$value": "{spacing.lg}"
           },
           "y": {
             "$type": "dimension",
-            "$value": "{spacing.8}"
+            "$value": "{spacing.sm}"
           }
         },
         "font": {
           "$type": "dimension",
-          "$value": "{font.size.200}"
+          "$value": "{font.size.lg}"
         }
       },
       "lg": {
         "padding": {
           "x": {
             "$type": "dimension",
-            "$value": "{spacing.24}"
+            "$value": "{spacing.2xl}"
           },
           "y": {
             "$type": "dimension",
-            "$value": "{spacing.12}"
+            "$value": "{spacing.md}"
           }
         },
         "font": {
           "$type": "dimension",
-          "$value": "{font.size.400}"
+          "$value": "{font.size.xl}"
         }
       }
     },

@@ -17,11 +17,11 @@
     "spacing": {
       "icon": {
         "$type": "dimension",
-        "$value": "{spacing.24}"
+        "$value": "{spacing.2xl}"
       },
       "text": {
         "$type": "dimension",
-        "$value": "{spacing.16}"
+        "$value": "{spacing.lg}"
       }
     }
   }

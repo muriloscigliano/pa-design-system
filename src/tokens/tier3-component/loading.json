@@ -13,15 +13,15 @@
     "size": {
       "sm": {
         "$type": "dimension",
-        "$value": "16px"
+        "$value": "{icon.size.sm}"
       },
       "md": {
         "$type": "dimension",
-        "$value": "24px"
+        "$value": "{icon.size.md}"
       },
       "lg": {
         "$type": "dimension",
-        "$value": "32px"
+        "$value": "{icon.size.lg}"
       }
     },
     "overlay": {
@@ -31,7 +31,7 @@
       },
       "z-index": {
         "$type": "dimension",
-        "$value": "{z-index.300}"
+        "$value": "{z-index.overlay}"
       }
     }
   }

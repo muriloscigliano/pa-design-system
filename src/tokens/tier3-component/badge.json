@@ -4,7 +4,7 @@
       "radius": {
         "default": {
           "$type": "dimension",
-          "$value": "{Border.radius.full}"
+          "$value": "{border.radius.full}"
         }
       }
     },
@@ -49,48 +49,48 @@
         "padding": {
           "x": {
             "$type": "dimension",
-            "$value": "{spacing.8}"
+            "$value": "{spacing.sm}"
           },
           "y": {
             "$type": "dimension",
-            "$value": "{spacing.4}"
+            "$value": "{spacing.xs}"
           }
         },
         "font": {
           "$type": "dimension",
-          "$value": "{font.size.75}"
+          "$value": "{font.size.sm}"
         }
       },
       "md": {
         "padding": {
           "x": {
             "$type": "dimension",
-            "$value": "{spacing.12}"
+            "$value": "{spacing.md}"
           },
           "y": {
             "$type": "dimension",
-            "$value": "{spacing.4}"
+            "$value": "{spacing.xs}"
           }
         },
         "font": {
           "$type": "dimension",
-          "$value": "{font.size.100}"
+          "$value": "{font.size.md}"
         }
       },
       "lg": {
         "padding": {
           "x": {
             "$type": "dimension",
-            "$value": "{spacing.16}"
+            "$value": "{spacing.lg}"
           },
           "y": {
             "$type": "dimension",
-            "$value": "{spacing.8}"
+            "$value": "{spacing.sm}"
           }
         },
         "font": {
           "$type": "dimension",
-          "$value": "{font.size.200}"
+          "$value": "{font.size.lg}"
         }
       }
     }

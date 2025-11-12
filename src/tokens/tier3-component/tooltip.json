@@ -16,24 +16,24 @@
       "radius": {
         "default": {
           "$type": "dimension",
-          "$value": "{Border.radius.100}"
+          "$value": "{border.radius.medium}"
         }
       }
     },
     "padding": {
       "x": {
         "$type": "dimension",
-        "$value": "{spacing.12}"
+        "$value": "{spacing.md}"
       },
       "y": {
         "$type": "dimension",
-        "$value": "{spacing.8}"
+        "$value": "{spacing.sm}"
       }
     },
     "font": {
       "size": {
         "$type": "dimension",
-        "$value": "{font.size.100}"
+        "$value": "{font.size.md}"
       }
     },
     "z-index": {

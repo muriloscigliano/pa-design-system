@@ -14,21 +14,21 @@
     },
     "height": {
       "$type": "dimension",
-      "$value": "64px"
+      "$value": "{spacing.7xl}"
     },
     "padding": {
       "x": {
         "$type": "dimension",
-        "$value": "{spacing.24}"
+        "$value": "{spacing.2xl}"
       },
       "y": {
         "$type": "dimension",
-        "$value": "{spacing.16}"
+        "$value": "{spacing.lg}"
       }
     },
     "z-index": {
       "$type": "dimension",
-      "$value": "{z-index.200}"
+      "$value": "{z-index.sticky}"
     }
   }
 }

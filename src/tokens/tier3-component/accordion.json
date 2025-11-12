@@ -22,11 +22,11 @@
       "padding": {
         "x": {
           "$type": "dimension",
-          "$value": "{spacing.16}"
+          "$value": "{spacing.lg}"
         },
         "y": {
           "$type": "dimension",
-          "$value": "{spacing.12}"
+          "$value": "{spacing.md}"
         }
       }
     },
@@ -42,11 +42,11 @@
       "padding": {
         "x": {
           "$type": "dimension",
-          "$value": "{spacing.16}"
+          "$value": "{spacing.lg}"
         },
         "y": {
           "$type": "dimension",
-          "$value": "{spacing.12}"
+          "$value": "{spacing.md}"
         }
       }
     },

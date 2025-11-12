@@ -4,13 +4,13 @@
       "width": {
         "default": {
           "$type": "dimension",
-          "$value": "{Border.width.50}"
+          "$value": "{border.width.thin}"
         }
       },
       "radius": {
         "default": {
           "$type": "dimension",
-          "$value": "{Border.radius.50}"
+          "$value": "{border.radius.small}"
         }
       }
     },
@@ -92,31 +92,31 @@
       "sm": {
         "width": {
           "$type": "dimension",
-          "$value": "16px"
+          "$value": "{icon.size.sm}"
         },
         "height": {
           "$type": "dimension",
-          "$value": "16px"
+          "$value": "{icon.size.sm}"
         }
       },
       "md": {
         "width": {
           "$type": "dimension",
-          "$value": "20px"
+          "$value": "{spacing.xl}"
         },
         "height": {
           "$type": "dimension",
-          "$value": "20px"
+          "$value": "{spacing.xl}"
         }
       },
       "lg": {
         "width": {
           "$type": "dimension",
-          "$value": "24px"
+          "$value": "{icon.size.md}"
         },
         "height": {
           "$type": "dimension",
-          "$value": "24px"
+          "$value": "{icon.size.md}"
         }
       }
     }

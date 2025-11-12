@@ -1756,5 +1756,67 @@
         }
       }
     }
+  },
+  "layout": {
+    "drawer": {
+      "size": {
+        "sm": {
+          "$type": "dimension",
+          "$value": "{layout.drawer.sm}"
+        },
+        "md": {
+          "$type": "dimension",
+          "$value": "{layout.drawer.md}"
+        },
+        "lg": {
+          "$type": "dimension",
+          "$value": "{layout.drawer.lg}"
+        }
+      }
+    },
+    "modal": {
+      "max-width": {
+        "sm": {
+          "$type": "dimension",
+          "$value": "{layout.modal.sm}"
+        },
+        "md": {
+          "$type": "dimension",
+          "$value": "{layout.modal.md}"
+        },
+        "lg": {
+          "$type": "dimension",
+          "$value": "{layout.modal.lg}"
+        },
+        "fullscreen": {
+          "$type": "dimension",
+          "$value": "{layout.container.full}"
+        }
+      }
+    },
+    "container": {
+      "max-width": {
+        "sm": {
+          "$type": "dimension",
+          "$value": "{layout.container.sm}"
+        },
+        "md": {
+          "$type": "dimension",
+          "$value": "{layout.container.md}"
+        },
+        "lg": {
+          "$type": "dimension",
+          "$value": "{layout.container.lg}"
+        },
+        "xl": {
+          "$type": "dimension",
+          "$value": "{layout.container.xl}"
+        },
+        "full": {
+          "$type": "dimension",
+          "$value": "{layout.container.full}"
+        }
+      }
+    }
   }
 }

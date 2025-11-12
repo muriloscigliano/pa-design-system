@@ -61,7 +61,7 @@
       },
       "size": {
         "$type": "dimension",
-        "$value": "{icon.size.300}"
+        "$value": "{icon.size.lg}"
       }
     },
     "line": {
@@ -77,21 +77,21 @@
     "spacing": {
       "step-gap": {
         "$type": "dimension",
-        "$value": "{spacing.16}"
+        "$value": "{spacing.lg}"
       },
       "icon-text": {
         "$type": "dimension",
-        "$value": "{spacing.12}"
+        "$value": "{spacing.md}"
       }
     },
     "font": {
       "title-size": {
         "$type": "dimension",
-        "$value": "{font.size.200}"
+        "$value": "{font.size.lg}"
       },
       "description-size": {
         "$type": "dimension",
-        "$value": "{font.size.100}"
+        "$value": "{font.size.md}"
       }
     }
   }

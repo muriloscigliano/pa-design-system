@@ -3,7 +3,7 @@
     "track": {
       "height": {
         "$type": "dimension",
-        "$value": "4px"
+        "$value": "{spacing.xs}"
       },
       "background": {
         "$type": "color",
@@ -15,17 +15,17 @@
       },
       "radius": {
         "$type": "dimension",
-        "$value": "{Border.radius.full}"
+        "$value": "{border.radius.full}"
       }
     },
     "thumb": {
       "width": {
         "$type": "dimension",
-        "$value": "20px"
+        "$value": "{spacing.xl}"
       },
       "height": {
         "$type": "dimension",
-        "$value": "20px"
+        "$value": "{spacing.xl}"
       },
       "background": {
         "$type": "color",
@@ -34,7 +34,7 @@
       "border": {
         "width": {
           "$type": "dimension",
-          "$value": "{Border.width.100}"
+          "$value": "{border.width.medium}"
         },
         "color": {
           "$type": "color",
@@ -47,17 +47,17 @@
       },
       "radius": {
         "$type": "dimension",
-        "$value": "{Border.radius.full}"
+        "$value": "{border.radius.full}"
       }
     },
     "mark": {
       "width": {
         "$type": "dimension",
-        "$value": "2px"
+        "$value": "{border.width.thin}"
       },
       "height": {
         "$type": "dimension",
-        "$value": "8px"
+        "$value": "{spacing.sm}"
       },
       "background": {
         "$type": "color",

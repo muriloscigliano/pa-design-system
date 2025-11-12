@@ -36,16 +36,16 @@
     },
     "border-radius": {
       "$type": "dimension",
-      "$value": "{Border.radius.full}"
+      "$value": "{border.radius.full}"
     },
     "padding": {
       "x": {
         "$type": "dimension",
-        "$value": "{spacing.12}"
+        "$value": "{spacing.md}"
       },
       "y": {
         "$type": "dimension",
-        "$value": "{spacing.8}"
+        "$value": "{spacing.sm}"
       }
     }
   }

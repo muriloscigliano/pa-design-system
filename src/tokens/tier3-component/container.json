@@ -16,60 +16,60 @@
     },
     "border-radius": {
       "$type": "dimension",
-      "$value": "{Border.radius.100}"
+      "$value": "{border.radius.medium}"
     },
     "padding": {
       "sm": {
         "x": {
           "$type": "dimension",
-          "$value": "{spacing.16}"
+          "$value": "{spacing.lg}"
         },
         "y": {
           "$type": "dimension",
-          "$value": "{spacing.16}"
+          "$value": "{spacing.lg}"
         }
       },
       "md": {
         "x": {
           "$type": "dimension",
-          "$value": "{spacing.24}"
+          "$value": "{spacing.2xl}"
         },
         "y": {
           "$type": "dimension",
-          "$value": "{spacing.24}"
+          "$value": "{spacing.2xl}"
         }
       },
       "lg": {
         "x": {
           "$type": "dimension",
-          "$value": "{spacing.32}"
+          "$value": "{spacing.3xl}"
         },
         "y": {
           "$type": "dimension",
-          "$value": "{spacing.32}"
+          "$value": "{spacing.3xl}"
         }
       }
     },
     "max-width": {
       "sm": {
         "$type": "dimension",
-        "$value": "640px"
+        "$value": "{layout.container.max-width.sm}"
       },
       "md": {
         "$type": "dimension",
-        "$value": "768px"
+        "$value": "{layout.container.max-width.md}"
       },
       "lg": {
         "$type": "dimension",
-        "$value": "1024px"
+        "$value": "{layout.container.max-width.lg}"
       },
       "xl": {
         "$type": "dimension",
-        "$value": "1280px"
+        "$value": "{layout.container.max-width.xl}"
       },
       "full": {
         "$type": "dimension",
-        "$value": "100%"
+        "$value": "{layout.container.max-width.full}"
       }
     }
   }

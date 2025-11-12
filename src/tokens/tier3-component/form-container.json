@@ -10,33 +10,33 @@
     },
     "border-radius": {
       "$type": "dimension",
-      "$value": "{Border.radius.100}"
+      "$value": "{border.radius.medium}"
     },
     "padding": {
       "x": {
         "$type": "dimension",
-        "$value": "{spacing.24}"
+        "$value": "{spacing.2xl}"
       },
       "y": {
         "$type": "dimension",
-        "$value": "{spacing.24}"
+        "$value": "{spacing.2xl}"
       }
     },
     "spacing": {
       "section": {
         "$type": "dimension",
-        "$value": "{spacing.32}"
+        "$value": "{spacing.3xl}"
       },
       "field": {
         "$type": "dimension",
-        "$value": "{spacing.16}"
+        "$value": "{spacing.lg}"
       }
     },
     "header": {
       "padding": {
         "bottom": {
           "$type": "dimension",
-          "$value": "{spacing.16}"
+          "$value": "{spacing.lg}"
         }
       },
       "border": {

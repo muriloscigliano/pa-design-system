@@ -17,13 +17,13 @@
     "font": {
       "size": {
         "$type": "dimension",
-        "$value": "{font.size.200}"
+        "$value": "{font.size.lg}"
       }
     },
     "spacing": {
       "item-gap": {
         "$type": "dimension",
-        "$value": "{spacing.8}"
+        "$value": "{spacing.sm}"
       }
     }
   }

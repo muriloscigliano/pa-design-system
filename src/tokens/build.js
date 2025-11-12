@@ -118,6 +118,7 @@ const brandMarshalFreeman = loadTokens(path.join(__dirname, 'tier1-core/brand-ma
 const semanticLight = loadTokens(path.join(__dirname, 'tier2-semantic/pay-advantage-light.json'))
 const semanticDark = loadTokens(path.join(__dirname, 'tier2-semantic/pay-advantage-dark.json'))
 const semanticTypography = loadTokens(path.join(__dirname, 'tier2-semantic/typography.json'))
+const semanticFoundation = loadTokens(path.join(__dirname, 'tier2-semantic/foundation.json'))
 
 // Load all component tokens
 const componentTokenFiles = fs.readdirSync(path.join(__dirname, 'tier3-component'))
@@ -155,7 +156,7 @@ try {
   
   // Build Tier 2 + Tier 3 (semantic + component tokens) - references Tier 1
   // For light theme
-  const tier2LightTokens = mergeTokens(semanticLight, semanticTypography)
+  const tier2LightTokens = mergeTokens(semanticLight, semanticTypography, semanticFoundation)
   const lightTier23Tokens = mergeTokens(tier2LightTokens, componentTokens)
   
   // Include Tier 1 tokens so references can be resolved, but we'll filter them out
@@ -181,7 +182,7 @@ try {
   }
   
   // For dark theme
-  const tier2DarkTokens = mergeTokens(semanticDark, semanticTypography)
+  const tier2DarkTokens = mergeTokens(semanticDark, semanticTypography, semanticFoundation)
   const darkTier23Tokens = mergeTokens(tier2DarkTokens, componentTokens)
   const darkAllTokens = mergeTokens(tier1Tokens, darkTier23Tokens)
   
@@ -240,12 +241,17 @@ try {
         const varNameMatch = line.match(/^[\s]*--pa-([^:]+):/)
         if (varNameMatch) {
           const varName = varNameMatch[1]
-          // Check if this is a Tier 1 token (starts with tier1 prefixes in the NAME only)
-          const tier1Prefixes = ['gray-', 'blue-', 'green-', 'yellow-', 'red-', 'spacing-', 'font-', 'text-', 'line-', 'letter-', 'icon-', 'border-', 'opacity-', 'shadow-', 'z-index-', 'brand-', 'transition-', 'outline-', 'Border-']
-          const isTier1 = tier1Prefixes.some(prefix => varName.startsWith(prefix))
+          // Check if this is a Tier 1 token
+          // Tier 2 semantic foundation tokens: border-width-thin/medium/thick, border-radius-small/medium/large/full, spacing-xs/sm/md/lg/xl/2xl/etc, font-size-xs/sm/md/lg/xl, icon-size-sm/md/lg/xl/2xl, z-index-base/dropdown/sticky/etc
+          // Tier 1 tokens: gray-*, blue-*, spacing-0/4/8/10/12/16/etc (numeric), font-size-50/75/100/etc (numeric), icon-size-100/200/etc (numeric), border-radius-50/100/etc (numeric), border-width-50/100/etc (numeric), Border-*, brand-*, layout-*
+          const tier2SemanticPatterns = ['border-width-thin', 'border-width-medium', 'border-width-thick', 'border-radius-small', 'border-radius-medium', 'border-radius-large', 'border-radius-full', 'spacing-xs', 'spacing-sm', 'spacing-md', 'spacing-lg', 'spacing-xl', 'spacing-2xl', 'spacing-3xl', 'spacing-4xl', 'spacing-5xl', 'spacing-6xl', 'spacing-7xl', 'font-size-xs', 'font-size-sm', 'font-size-md', 'font-size-lg', 'font-size-xl', 'icon-size-sm', 'icon-size-md', 'icon-size-lg', 'icon-size-xl', 'icon-size-2xl', 'z-index-base', 'z-index-dropdown', 'z-index-sticky', 'z-index-overlay', 'z-index-modal', 'z-index-popover']
+          const isTier2Semantic = tier2SemanticPatterns.some(pattern => varName === pattern || varName.startsWith(pattern + '-'))
           
-          // Include Tier 2/3 tokens (pa-color-action-*, pa-color-surface-*, pa-color-status-*, pa-button-*, pa-typography-*)
-          // Exclude Tier 1 tokens
+          // Tier 1 prefixes (exact numeric matches)
+          const tier1Prefixes = ['gray-', 'blue-', 'green-', 'yellow-', 'red-', 'spacing-0', 'spacing-4', 'spacing-8', 'spacing-10', 'spacing-12', 'spacing-16', 'spacing-18', 'spacing-24', 'spacing-32', 'spacing-36', 'spacing-48', 'spacing-56', 'spacing-64', 'font-size-50', 'font-size-75', 'font-size-100', 'font-size-200', 'font-size-250', 'font-size-400', 'font-size-500', 'font-size-600', 'font-size-700', 'font-size-800', 'font-size-900', 'text-', 'line-', 'letter-', 'icon-size-100', 'icon-size-200', 'icon-size-300', 'icon-size-400', 'icon-size-500', 'border-radius-50', 'border-radius-100', 'border-radius-150', 'border-radius-200', 'border-radius-250', 'border-radius-300', 'border-radius-none', 'border-radius-full', 'border-width-0', 'border-width-50', 'border-width-75', 'border-width-100', 'border-width-300', 'border-width-100-2', 'opacity-', 'shadow-sm-', 'shadow-md-', 'shadow-lg-', 'z-index-0', 'z-index-100', 'z-index-200', 'z-index-300', 'z-index-400', 'z-index-500', 'z-index-top', 'z-index-bottom', 'brand-', 'transition-', 'outline-', 'Border-', 'layout-']
+          const isTier1 = tier1Prefixes.some(prefix => varName.startsWith(prefix)) && !isTier2Semantic
+          
+          // Include Tier 2/3 tokens, exclude Tier 1 tokens
           if (!isTier1) {
             filtered.push(line)
           }

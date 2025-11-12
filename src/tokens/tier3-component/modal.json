@@ -7,7 +7,7 @@
       },
       "z-index": {
         "$type": "dimension",
-        "$value": "{z-index.400}"
+        "$value": "{z-index.modal}"
       }
     },
     "container": {
@@ -21,7 +21,7 @@
       },
       "border-radius": {
         "$type": "dimension",
-        "$value": "{Border.radius.200}"
+        "$value": "{border.radius.large}"
       },
       "shadow": {
         "$type": "shadow",
@@ -29,24 +29,24 @@
       },
       "z-index": {
         "$type": "dimension",
-        "$value": "{z-index.500}"
+        "$value": "{z-index.popover}"
       },
       "max-width": {
         "sm": {
           "$type": "dimension",
-          "$value": "400px"
+          "$value": "{layout.modal.max-width.sm}"
         },
         "md": {
           "$type": "dimension",
-          "$value": "600px"
+          "$value": "{layout.modal.max-width.md}"
         },
         "lg": {
           "$type": "dimension",
-          "$value": "800px"
+          "$value": "{layout.modal.max-width.lg}"
         },
         "fullscreen": {
           "$type": "dimension",
-          "$value": "100%"
+          "$value": "{layout.modal.max-width.fullscreen}"
         }
       }
     },
@@ -62,11 +62,11 @@
       "padding": {
         "x": {
           "$type": "dimension",
-          "$value": "{spacing.24}"
+          "$value": "{spacing.2xl}"
         },
         "y": {
           "$type": "dimension",
-          "$value": "{spacing.16}"
+          "$value": "{spacing.lg}"
         }
       }
     },
@@ -74,11 +74,11 @@
       "padding": {
         "x": {
           "$type": "dimension",
-          "$value": "{spacing.24}"
+          "$value": "{spacing.2xl}"
         },
         "y": {
           "$type": "dimension",
-          "$value": "{spacing.16}"
+          "$value": "{spacing.lg}"
         }
       }
     },
@@ -94,11 +94,11 @@
       "padding": {
         "x": {
           "$type": "dimension",
-          "$value": "{spacing.24}"
+          "$value": "{spacing.2xl}"
         },
         "y": {
           "$type": "dimension",
-          "$value": "{spacing.16}"
+          "$value": "{spacing.lg}"
         }
       }
     }

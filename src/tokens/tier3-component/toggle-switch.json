@@ -66,43 +66,43 @@
       "sm": {
         "width": {
           "$type": "dimension",
-          "$value": "32px"
+          "$value": "{spacing.3xl}"
         },
         "height": {
           "$type": "dimension",
-          "$value": "18px"
+          "$value": "{spacing.xl}"
         },
         "thumb": {
           "$type": "dimension",
-          "$value": "14px"
+          "$value": "{spacing.md}"
         }
       },
       "md": {
         "width": {
           "$type": "dimension",
-          "$value": "40px"
+          "$value": "{spacing.4xl}"
         },
         "height": {
           "$type": "dimension",
-          "$value": "22px"
+          "$value": "{spacing.2xl}"
         },
         "thumb": {
           "$type": "dimension",
-          "$value": "18px"
+          "$value": "{spacing.xl}"
         }
       },
       "lg": {
         "width": {
           "$type": "dimension",
-          "$value": "48px"
+          "$value": "{spacing.5xl}"
         },
         "height": {
           "$type": "dimension",
-          "$value": "26px"
+          "$value": "{spacing.2xl}"
         },
         "thumb": {
           "$type": "dimension",
-          "$value": "22px"
+          "$value": "{spacing.xl}"
         }
       }
     }

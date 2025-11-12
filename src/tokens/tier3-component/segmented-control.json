@@ -32,16 +32,16 @@
       "padding": {
         "x": {
           "$type": "dimension",
-          "$value": "{spacing.16}"
+          "$value": "{spacing.lg}"
         },
         "y": {
           "$type": "dimension",
-          "$value": "{spacing.8}"
+          "$value": "{spacing.sm}"
         }
       },
       "radius": {
         "$type": "dimension",
-        "$value": "{Border.radius.100}"
+        "$value": "{border.radius.medium}"
       }
     }
   }
