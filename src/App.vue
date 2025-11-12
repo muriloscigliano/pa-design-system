@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, nextTick, onMounted, computed, Component } from 'vue'
+import { ref, nextTick, onMounted, computed } from 'vue'
 import { setTheme, getTheme } from './utils/theme'
 import {
   PaButton,
@@ -174,8 +174,8 @@ const activeComponentData = computed(() => {
   return allComponents.find(item => item.id === activeComponent.value)
 })
 
-const getComponent = (componentId: string): Component | null => {
-  const componentMap: Record<string, Component> = {
+const getComponent = (componentId: string) => {
+  const componentMap: Record<string, any> = {
     'pabutton': PaButton,
     'painput': PaInput,
     'pacheckbox': PaCheckbox,
