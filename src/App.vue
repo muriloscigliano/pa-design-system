@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, nextTick, onMounted } from 'vue'
 import { setTheme, getTheme } from './utils/theme'
 import { PaButton } from './components'
 
@@ -24,11 +24,22 @@ const toggleTheme = () => {
   const newTheme = currentTheme.value === 'light' ? 'dark' : 'light'
   setTheme(newTheme)
   currentTheme.value = newTheme
+  // Force re-render to ensure theme is applied
+  nextTick(() => {
+    document.documentElement.setAttribute('data-theme', newTheme)
+  })
 }
 
 const selectComponent = (id: string) => {
   activeComponent.value = id
 }
+
+onMounted(() => {
+  // Ensure theme is applied on mount
+  const theme = getTheme()
+  setTheme(theme)
+  currentTheme.value = theme
+})
 </script>
 
 <template>
@@ -91,15 +102,25 @@ const selectComponent = (id: string) => {
         <div class="theme-toggle-container">
           <button 
             class="theme-toggle"
-            :class="{ 'is-dark': currentTheme === 'dark' }"
             @click="toggleTheme"
+            :aria-label="`Switch to ${currentTheme === 'dark' ? 'light' : 'dark'} mode`"
           >
             <div class="theme-toggle-slider" :class="{ 'is-dark': currentTheme === 'dark' }">
               <svg v-if="currentTheme === 'dark'" width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M8 2V4M8 12V14M2 8H4M12 8H14M3.757 3.757L5.172 5.172M10.828 10.828L12.243 12.243M3.757 12.243L5.172 10.828M10.828 5.172L12.243 3.757" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
               </svg>
-              <svg v-else width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M10 3C6.13401 3 3 6.13401 3 10C3 13.866 6.13401 17 10 17C13.866 17 17 13.866 17 10C17 6.13401 13.866 3 10 3Z" fill="white"/>
+              <svg v-else width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M8 3C5.23858 3 3 5.23858 3 8C3 10.7614 5.23858 13 8 13C10.7614 13 13 10.7614 13 8C13 5.23858 10.7614 3 8 3Z" fill="white"/>
+              </svg>
+            </div>
+            <div class="theme-toggle-icon theme-toggle-icon-light">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M8 2V4M8 12V14M2 8H4M12 8H14M3.757 3.757L5.172 5.172M10.828 10.828L12.243 12.243M3.757 12.243L5.172 10.828M10.828 5.172L12.243 3.757" stroke="#6e757c" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="theme-toggle-icon theme-toggle-icon-dark">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M8 3C5.23858 3 3 5.23858 3 8C3 10.7614 5.23858 13 8 13C10.7614 13 13 10.7614 13 8C13 5.23858 10.7614 3 8 3Z" fill="#6e757c"/>
               </svg>
             </div>
           </button>
@@ -447,18 +468,13 @@ const selectComponent = (id: string) => {
   border: 1px solid #222529;
   border-radius: 500px;
   height: 40px;
+  width: 76px;
   padding: var(--pa-spacing-2, 2px);
   display: flex;
   align-items: center;
   position: relative;
   cursor: pointer;
   transition: all var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
-  
-  &.is-dark {
-    .theme-toggle-slider {
-      transform: translateX(0);
-    }
-  }
 }
 
 .theme-toggle-slider {
@@ -471,14 +487,39 @@ const selectComponent = (id: string) => {
   align-items: center;
   justify-content: center;
   transition: transform var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
-  transform: translateX(0);
+  position: absolute;
+  left: var(--pa-spacing-2, 2px);
+  z-index: 2;
   
   &.is-dark {
     transform: translateX(0);
   }
   
   &:not(.is-dark) {
-    transform: translateX(calc(100% + var(--pa-spacing-2, 2px)));
+    transform: translateX(36px);
+  }
+  
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.theme-toggle-icon {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  
+  &.theme-toggle-icon-light {
+    left: var(--pa-spacing-2, 2px);
+  }
+  
+  &.theme-toggle-icon-dark {
+    right: var(--pa-spacing-2, 2px);
   }
   
   svg {
