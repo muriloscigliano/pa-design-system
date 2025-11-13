@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { navigation } from '../../config/navigation'
+import logoSvg from '../../assets/pa-desing-system-logo.svg'
 
 interface Props {
   activeComponent: string
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 
 const emit = defineEmits<{
   select: [id: string]
@@ -20,9 +21,7 @@ const handleSelect = (id: string) => {
   <aside class="sidebar">
     <div class="sidebar-logo">
       <div class="logo-circle">
-        <svg width="45" height="40" viewBox="0 0 45 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M22.5 0L45 40H0L22.5 0Z" fill="white"/>
-        </svg>
+        <img :src="logoSvg" alt="PA Design System Logo" class="logo-image" />
       </div>
     </div>
     
@@ -90,11 +89,12 @@ const handleSelect = (id: string) => {
   align-items: center;
   justify-content: center;
   box-shadow: 0px 5px 15px 5px rgba(152, 16, 32, 0.1);
-  
-  svg {
-    width: 45px;
-    height: 40px;
-  }
+}
+
+.logo-image {
+  width: 46px;
+  height: 41px;
+  object-fit: contain;
 }
 
 .sidebar-nav {

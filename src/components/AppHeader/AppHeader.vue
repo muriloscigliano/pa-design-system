@@ -5,7 +5,7 @@ interface Props {
   currentTheme: 'light' | 'dark'
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 
 const emit = defineEmits<{
   search: [query: string]
