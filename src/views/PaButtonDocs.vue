@@ -106,323 +106,68 @@ const getSizesCode = (): string => {
 }
 
 const getTokenSourceCode = (): string => {
-  return `{
-  "button": {
-    "border": {
-      "width": {
-        "default": {
-          "$type": "dimension",
-          "$value": "{border.width.thin}"
-        }
-      }
-    },
-    "transition": {
-      "duration": {
-        "default": {
-          "$type": "duration",
-          "$value": "{transition.duration.default}"
-        }
-      },
-      "easing": {
-        "default": {
-          "$type": "string",
-          "$value": "{transition.easing.default}"
-        }
-      }
-    },
-    "cursor": {
-      "default": {
-        "$type": "string",
-        "$value": "{cursor.pointer}"
-      },
-      "disabled": {
-        "$type": "string",
-        "$value": "{cursor.not-allowed}"
-      }
-    },
-    "outline": {
-      "width": {
-        "default": {
-          "$type": "dimension",
-          "$value": "{outline.width.default}"
-        }
-      },
-      "offset": {
-        "default": {
-          "$type": "dimension",
-          "$value": "{outline.offset.default}"
-        }
-      }
-    },
-    "primary": {
-      "background": {
-        "default": {
-          "$type": "color",
-          "$value": "{color.action.primary.background.default}"
-        },
-        "hover": {
-          "$type": "color",
-          "$value": "{color.action.primary.background.hover}"
-        },
-        "active": {
-          "$type": "color",
-          "$value": "{color.action.primary.background.active}"
-        },
-        "disabled": {
-          "$type": "color",
-          "$value": "{color.action.primary.background.disable}"
-        }
-      },
-      "text": {
-        "default": {
-          "$type": "color",
-          "$value": "{color.action.primary.text.default}"
-        },
-        "disabled": {
-          "$type": "color",
-          "$value": "{color.action.primary.text.disable}"
-        }
-      },
-      "border": {
-        "default": {
-          "$type": "color",
-          "$value": "{color.action.primary.border.default}"
-        },
-        "focus": {
-          "$type": "color",
-          "$value": "{color.action.primary.border.focus}"
-        },
-        "disabled": {
-          "$type": "color",
-          "$value": "{color.action.primary.border.disable}"
-        }
-      },
-      "radius": {
-        "$type": "dimension",
-        "$value": "{border.radius.medium}"
-      }
-    },
-    "secondary": {
-      "background": {
-        "default": {
-          "$type": "color",
-          "$value": "{color.action.secondary.background.default}"
-        },
-        "hover": {
-          "$type": "color",
-          "$value": "{color.action.secondary.background.hover}"
-        },
-        "active": {
-          "$type": "color",
-          "$value": "{color.action.secondary.background.active}"
-        },
-        "disabled": {
-          "$type": "color",
-          "$value": "{color.action.secondary.background.disable}"
-        }
-      },
-      "text": {
-        "default": {
-          "$type": "color",
-          "$value": "{color.action.secondary.text.default}"
-        },
-        "disabled": {
-          "$type": "color",
-          "$value": "{color.action.secondary.text.disable}"
-        }
-      },
-      "border": {
-        "default": {
-          "$type": "color",
-          "$value": "{color.action.secondary.border.default}"
-        },
-        "focus": {
-          "$type": "color",
-          "$value": "{color.action.secondary.border.focus}"
-        },
-        "disabled": {
-          "$type": "color",
-          "$value": "{color.action.secondary.border.disable}"
-        }
-      },
-      "radius": {
-        "$type": "dimension",
-        "$value": "{border.radius.medium}"
-      }
-    },
-    "tertiary": {
-      "background": {
-        "default": {
-          "$type": "color",
-          "$value": "{color.action.tertiary.background.default}"
-        },
-        "hover": {
-          "$type": "color",
-          "$value": "{color.action.tertiary.background.hover}"
-        },
-        "active": {
-          "$type": "color",
-          "$value": "{color.action.tertiary.background.active}"
-        },
-        "disabled": {
-          "$type": "color",
-          "$value": "{color.action.tertiary.background.disable}"
-        }
-      },
-      "text": {
-        "default": {
-          "$type": "color",
-          "$value": "{color.action.tertiary.text.default}"
-        },
-        "disabled": {
-          "$type": "color",
-          "$value": "{color.action.tertiary.text.disable}"
-        }
-      },
-      "border": {
-        "default": {
-          "$type": "color",
-          "$value": "{color.action.tertiary.border.default}"
-        },
-        "focus": {
-          "$type": "color",
-          "$value": "{color.action.tertiary.border.focus}"
-        },
-        "disabled": {
-          "$type": "color",
-          "$value": "{color.action.tertiary.border.disable}"
-        }
-      },
-      "radius": {
-        "$type": "dimension",
-        "$value": "{border.radius.medium}"
-      }
-    },
-    "link": {
-      "text": {
-        "default": {
-          "$type": "color",
-          "$value": "{color.action.primary.text.default}"
-        },
-        "hover": {
-          "$type": "color",
-          "$value": "{color.action.primary.background.hover}"
-        },
-        "active": {
-          "$type": "color",
-          "$value": "{color.action.primary.background.active}"
-        },
-        "disabled": {
-          "$type": "color",
-          "$value": "{color.action.primary.text.disable}"
-        }
-      },
-      "border": {
-        "focus": {
-          "$type": "color",
-          "$value": "{color.action.primary.border.focus}"
-        }
-      }
-    },
-    "action": {
-      "background": {
-        "default": {
-          "$type": "color",
-          "$value": "{color.action.secondary.background.default}"
-        },
-        "hover": {
-          "$type": "color",
-          "$value": "{color.action.secondary.background.hover}"
-        },
-        "active": {
-          "$type": "color",
-          "$value": "{color.action.secondary.background.active}"
-        },
-        "disabled": {
-          "$type": "color",
-          "$value": "{color.action.secondary.background.disable}"
-        }
-      },
-      "text": {
-        "default": {
-          "$type": "color",
-          "$value": "{color.action.secondary.text.default}"
-        },
-        "disabled": {
-          "$type": "color",
-          "$value": "{color.action.secondary.text.disable}"
-        }
-      },
-      "border": {
-        "default": {
-          "$type": "color",
-          "$value": "{color.action.secondary.border.default}"
-        },
-        "focus": {
-          "$type": "color",
-          "$value": "{color.action.secondary.border.focus}"
-        },
-        "disabled": {
-          "$type": "color",
-          "$value": "{color.action.secondary.border.disable}"
-        }
-      },
-      "radius": {
-        "$type": "dimension",
-        "$value": "{border.radius.medium}"
-      }
-    },
-    "size": {
-      "sm": {
-        "padding": {
-          "x": {
-            "$type": "dimension",
-            "$value": "{spacing.150}"
-          },
-          "y": {
-            "$type": "dimension",
-            "$value": "{spacing.50}"
-          }
-        },
-        "font": {
-          "$type": "dimension",
-          "$value": "{font.size.md}"
-        }
-      },
-      "md": {
-        "padding": {
-          "x": {
-            "$type": "dimension",
-            "$value": "{spacing.200}"
-          },
-          "y": {
-            "$type": "dimension",
-            "$value": "{spacing.100}"
-          }
-        },
-        "font": {
-          "$type": "dimension",
-          "$value": "{font.size.lg}"
-        }
-      },
-      "lg": {
-        "padding": {
-          "x": {
-            "$type": "dimension",
-            "$value": "{spacing.300}"
-          },
-          "y": {
-            "$type": "dimension",
-            "$value": "{spacing.150}"
-          }
-        },
-        "font": {
-          "$type": "dimension",
-          "$value": "{font.size.xl}"
-        }
-      }
-    }
-  }
+  return `:root {
+  --pa-button-border-width-default: var(--pa-border-width-thin);
+  --pa-button-transition-duration-default: var(--pa-transition-duration-default);
+  --pa-button-transition-easing-default: var(--pa-transition-easing-default);
+  --pa-button-cursor-default: var(--pa-cursor-pointer);
+  --pa-button-cursor-disabled: var(--pa-cursor-not-allowed);
+  --pa-button-outline-width-default: var(--pa-outline-width-default);
+  --pa-button-outline-offset-default: var(--pa-outline-offset-default);
+  --pa-button-primary-background-default: var(--pa-color-action-primary-background-default);
+  --pa-button-primary-background-hover: var(--pa-color-action-primary-background-hover);
+  --pa-button-primary-background-active: var(--pa-color-action-primary-background-active);
+  --pa-button-primary-background-disabled: var(--pa-color-action-primary-background-disable);
+  --pa-button-primary-text-default: var(--pa-color-action-primary-text-default);
+  --pa-button-primary-text-disabled: var(--pa-color-action-primary-text-disable);
+  --pa-button-primary-border-default: var(--pa-color-action-primary-border-default);
+  --pa-button-primary-border-focus: var(--pa-color-action-primary-border-focus);
+  --pa-button-primary-border-disabled: var(--pa-color-action-primary-border-disable);
+  --pa-button-primary-radius: var(--pa-border-radius-medium);
+  --pa-button-secondary-background-default: var(--pa-color-action-secondary-background-default);
+  --pa-button-secondary-background-hover: var(--pa-color-action-secondary-background-hover);
+  --pa-button-secondary-background-active: var(--pa-color-action-secondary-background-active);
+  --pa-button-secondary-background-disabled: var(--pa-color-action-secondary-background-disable);
+  --pa-button-secondary-text-default: var(--pa-color-action-secondary-text-default);
+  --pa-button-secondary-text-disabled: var(--pa-color-action-secondary-text-disable);
+  --pa-button-secondary-border-default: var(--pa-color-action-secondary-border-default);
+  --pa-button-secondary-border-focus: var(--pa-color-action-secondary-border-focus);
+  --pa-button-secondary-border-disabled: var(--pa-color-action-secondary-border-disable);
+  --pa-button-secondary-radius: var(--pa-border-radius-medium);
+  --pa-button-tertiary-background-default: var(--pa-color-action-tertiary-background-default);
+  --pa-button-tertiary-background-hover: var(--pa-color-action-tertiary-background-hover);
+  --pa-button-tertiary-background-active: var(--pa-color-action-tertiary-background-active);
+  --pa-button-tertiary-background-disabled: var(--pa-color-action-tertiary-background-disable);
+  --pa-button-tertiary-text-default: var(--pa-color-action-tertiary-text-default);
+  --pa-button-tertiary-text-disabled: var(--pa-color-action-tertiary-text-disable);
+  --pa-button-tertiary-border-default: var(--pa-color-action-tertiary-border-default);
+  --pa-button-tertiary-border-focus: var(--pa-color-action-tertiary-border-focus);
+  --pa-button-tertiary-border-disabled: var(--pa-color-action-tertiary-border-disable);
+  --pa-button-tertiary-radius: var(--pa-border-radius-medium);
+  --pa-button-link-text-default: var(--pa-color-action-primary-text-default);
+  --pa-button-link-text-hover: var(--pa-color-action-primary-background-hover);
+  --pa-button-link-text-active: var(--pa-color-action-primary-background-active);
+  --pa-button-link-text-disabled: var(--pa-color-action-primary-text-disable);
+  --pa-button-link-border-focus: var(--pa-color-action-primary-border-focus);
+  --pa-button-action-background-default: var(--pa-color-action-secondary-background-default);
+  --pa-button-action-background-hover: var(--pa-color-action-secondary-background-hover);
+  --pa-button-action-background-active: var(--pa-color-action-secondary-background-active);
+  --pa-button-action-background-disabled: var(--pa-color-action-secondary-background-disable);
+  --pa-button-action-text-default: var(--pa-color-action-secondary-text-default);
+  --pa-button-action-text-disabled: var(--pa-color-action-secondary-text-disable);
+  --pa-button-action-border-default: var(--pa-color-action-secondary-border-default);
+  --pa-button-action-border-focus: var(--pa-color-action-secondary-border-focus);
+  --pa-button-action-border-disabled: var(--pa-color-action-secondary-border-disable);
+  --pa-button-action-radius: var(--pa-border-radius-medium);
+  --pa-button-size-sm-padding-x: var(--pa-spacing-150);
+  --pa-button-size-sm-padding-y: var(--pa-spacing-50);
+  --pa-button-size-sm-font: var(--pa-font-size-md);
+  --pa-button-size-md-padding-x: var(--pa-spacing-200);
+  --pa-button-size-md-padding-y: var(--pa-spacing-100);
+  --pa-button-size-md-font: var(--pa-font-size-lg);
+  --pa-button-size-lg-padding-x: var(--pa-spacing-300);
+  --pa-button-size-lg-padding-y: var(--pa-spacing-150);
+  --pa-button-size-lg-font: var(--pa-font-size-xl);
 }`
 }
 </script>
@@ -809,34 +554,26 @@ const getTokenSourceCode = (): string => {
       <p class="documentation-section-description">
         The complete source code for the PaButton component.
       </p>
-      <div class="example-preview-container">
-        <div class="example-preview">
-          <CodeBlock 
-            :code="getComponentSourceCode('pabutton')"
-            copy-key="pabutton-component-source"
-            :show-line-numbers="true"
-            language="vue"
-          />
-        </div>
-      </div>
+      <CodeBlock 
+        :code="getComponentSourceCode('pabutton')"
+        copy-key="pabutton-component-source"
+        :show-line-numbers="true"
+        language="vue"
+      />
     </div>
 
     <!-- Token Source Section -->
     <div class="documentation-section">
       <h3 class="documentation-section-title">Token Source</h3>
       <p class="documentation-section-description">
-        Design tokens used by the PaButton component.
+        CSS custom properties (design tokens) used by the PaButton component.
       </p>
-      <div class="example-preview-container">
-        <div class="example-preview">
-          <CodeBlock 
-            :code="getTokenSourceCode()"
-            copy-key="pabutton-token-source"
-            :show-line-numbers="true"
-            language="json"
-          />
-        </div>
-      </div>
+      <CodeBlock 
+        :code="getTokenSourceCode()"
+        copy-key="pabutton-token-source"
+        :show-line-numbers="true"
+        language="css"
+      />
     </div>
   </div>
 </template>
