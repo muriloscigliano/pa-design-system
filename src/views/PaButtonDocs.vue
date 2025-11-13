@@ -6,12 +6,12 @@ import { getComponentExamples } from '../config/componentExamples'
 import { useCodeCopy } from '../composables/useCodeCopy'
 
 const { showCode, toggleShowCode, getCodeTextForCopy } = useCodeCopy()
-const activeHierarchyTab = ref('primary')
+const activeVariantsTab = ref('primary')
 const activeMultipleCTAsTab = ref('primary-secondary')
 const activeIconsTab = ref('left')
 const activeStatesTab = ref('default')
 
-const getHierarchyCode = (tab: string): string => {
+const getVariantsCode = (tab: string): string => {
   const codes: Record<string, string> = {
     'primary': '<PaButton variant="primary">Primary</PaButton>',
     'secondary': '<PaButton variant="secondary">Secondary</PaButton>',
@@ -101,74 +101,42 @@ const getStatesCode = (tab: string): string => {
     <div class="documentation-section">
       <h3 class="documentation-section-title">Variants</h3>
       <p class="documentation-section-description">
-        Each variant serves a specific purpose in the interface hierarchy. Select the variant that matches the importance and context of the action.
-      </p>
-      <div class="example-preview-container">
-        <div class="example-preview">
-          <div class="component-preview" style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px);">
-            <PaButton variant="primary">Primary</PaButton>
-            <PaButton variant="secondary">Secondary</PaButton>
-            <PaButton variant="tertiary">Tertiary</PaButton>
-            <PaButton variant="link">Link</PaButton>
-            <PaButton variant="action">Action</PaButton>
-          </div>
-        </div>
-        <button 
-          class="show-code-button"
-          @click="toggleShowCode('pabutton-variants')"
-        >
-          {{ showCode['pabutton-variants'] ? 'Hide code' : 'Show code' }}
-        </button>
-        <div v-if="showCode['pabutton-variants']" class="code-preview">
-          <CodeBlock 
-            :code="getCodeTextForCopy(getComponentExamples('pabutton').find(e => e.render === 'variants')?.code)"
-            copy-key="pabutton-variants"
-            :show-line-numbers="true"
-          />
-        </div>
-      </div>
-    </div>
-
-    <!-- Hierarchy Section -->
-    <div class="documentation-section">
-      <h3 class="documentation-section-title">Hierarchy</h3>
-      <p class="documentation-section-description">
-        Button variants follow a clear hierarchical order from highest to lowest priority. Use this hierarchy to guide users through your interface and establish clear visual importance.
+        Button variants follow a clear hierarchical order from highest to lowest priority. Each variant serves a specific purpose in the interface hierarchy. Select the variant that matches the importance and context of the action.
       </p>
       
       <div class="example-tabs">
         <button
           class="example-tab"
-          :class="{ 'is-active': activeHierarchyTab === 'primary' }"
-          @click="activeHierarchyTab = 'primary'"
+          :class="{ 'is-active': activeVariantsTab === 'primary' }"
+          @click="activeVariantsTab = 'primary'"
         >
           1. Primary
         </button>
         <button
           class="example-tab"
-          :class="{ 'is-active': activeHierarchyTab === 'secondary' }"
-          @click="activeHierarchyTab = 'secondary'"
+          :class="{ 'is-active': activeVariantsTab === 'secondary' }"
+          @click="activeVariantsTab = 'secondary'"
         >
           2. Secondary
         </button>
         <button
           class="example-tab"
-          :class="{ 'is-active': activeHierarchyTab === 'tertiary' }"
-          @click="activeHierarchyTab = 'tertiary'"
+          :class="{ 'is-active': activeVariantsTab === 'tertiary' }"
+          @click="activeVariantsTab = 'tertiary'"
         >
           3. Tertiary
         </button>
         <button
           class="example-tab"
-          :class="{ 'is-active': activeHierarchyTab === 'link' }"
-          @click="activeHierarchyTab = 'link'"
+          :class="{ 'is-active': activeVariantsTab === 'link' }"
+          @click="activeVariantsTab = 'link'"
         >
           4. Link
         </button>
         <button
           class="example-tab"
-          :class="{ 'is-active': activeHierarchyTab === 'action' }"
-          @click="activeHierarchyTab = 'action'"
+          :class="{ 'is-active': activeVariantsTab === 'action' }"
+          @click="activeVariantsTab = 'action'"
         >
           5. Action
         </button>
@@ -177,7 +145,7 @@ const getStatesCode = (tab: string): string => {
       <div class="example-preview-container">
         <div class="example-preview">
           <div class="component-preview" style="display: flex; flex-direction: column; gap: var(--pa-spacing-16, 16px);">
-            <template v-if="activeHierarchyTab === 'primary'">
+            <template v-if="activeVariantsTab === 'primary'">
               <div style="display: flex; flex-direction: column; gap: var(--pa-spacing-8, 8px);">
                 <div style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px);">
                   <PaButton variant="primary">Primary</PaButton>
@@ -187,7 +155,7 @@ const getStatesCode = (tab: string): string => {
                 </p>
               </div>
             </template>
-            <template v-else-if="activeHierarchyTab === 'secondary'">
+            <template v-else-if="activeVariantsTab === 'secondary'">
               <div style="display: flex; flex-direction: column; gap: var(--pa-spacing-8, 8px);">
                 <div style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px);">
                   <PaButton variant="secondary">Secondary</PaButton>
@@ -197,7 +165,7 @@ const getStatesCode = (tab: string): string => {
                 </p>
               </div>
             </template>
-            <template v-else-if="activeHierarchyTab === 'tertiary'">
+            <template v-else-if="activeVariantsTab === 'tertiary'">
               <div style="display: flex; flex-direction: column; gap: var(--pa-spacing-8, 8px);">
                 <div style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px);">
                   <PaButton variant="tertiary">Tertiary</PaButton>
@@ -207,7 +175,7 @@ const getStatesCode = (tab: string): string => {
                 </p>
               </div>
             </template>
-            <template v-else-if="activeHierarchyTab === 'link'">
+            <template v-else-if="activeVariantsTab === 'link'">
               <div style="display: flex; flex-direction: column; gap: var(--pa-spacing-8, 8px);">
                 <div style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px);">
                   <PaButton variant="link">Link</PaButton>
@@ -217,7 +185,7 @@ const getStatesCode = (tab: string): string => {
                 </p>
               </div>
             </template>
-            <template v-else-if="activeHierarchyTab === 'action'">
+            <template v-else-if="activeVariantsTab === 'action'">
               <div style="display: flex; flex-direction: column; gap: var(--pa-spacing-8, 8px);">
                 <div style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px);">
                   <PaButton variant="action">Action</PaButton>
@@ -231,14 +199,14 @@ const getStatesCode = (tab: string): string => {
         </div>
         <button 
           class="show-code-button"
-          @click="toggleShowCode(`pabutton-hierarchy-${activeHierarchyTab}`)"
+          @click="toggleShowCode(`pabutton-variants-${activeVariantsTab}`)"
         >
-          {{ showCode[`pabutton-hierarchy-${activeHierarchyTab}`] ? 'Hide code' : 'Show code' }}
+          {{ showCode[`pabutton-variants-${activeVariantsTab}`] ? 'Hide code' : 'Show code' }}
         </button>
-        <div v-if="showCode[`pabutton-hierarchy-${activeHierarchyTab}`]" class="code-preview">
+        <div v-if="showCode[`pabutton-variants-${activeVariantsTab}`]" class="code-preview">
           <CodeBlock 
-            :code="getHierarchyCode(activeHierarchyTab)"
-            :copy-key="`pabutton-hierarchy-${activeHierarchyTab}`"
+            :code="getVariantsCode(activeVariantsTab)"
+            :copy-key="`pabutton-variants-${activeVariantsTab}`"
             :show-line-numbers="true"
           />
         </div>
