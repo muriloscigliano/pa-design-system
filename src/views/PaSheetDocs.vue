@@ -35,7 +35,7 @@ const getUsageCode = (tab: string): string => {
       <div class="example-preview-container">
         <div class="example-preview">
           <div class="component-preview" style="display: flex; flex-direction: column; gap: var(--pa-spacing-16, 16px);">
-            <PaSheet />
+            <PaSheet :model-value="false" />
           </div>
         </div>
         <button 
