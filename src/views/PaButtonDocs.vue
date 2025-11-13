@@ -2,11 +2,10 @@
 import { ref } from 'vue'
 import { PaButton } from '../components'
 import { CodeBlock } from '../components'
-import { getComponentExamples } from '../config/componentExamples'
 import { useCodeCopy } from '../composables/useCodeCopy'
 import { getComponentSourceCode } from '../config/componentSourceCode'
 
-const { showCode, toggleShowCode, getCodeTextForCopy } = useCodeCopy()
+const { showCode, toggleShowCode } = useCodeCopy()
 const activeVariantsTab = ref('primary')
 const activeMultipleCTAsTab = ref('primary-secondary')
 const activeIconsTab = ref('left')
@@ -14,11 +13,21 @@ const activeStatesTab = ref('default')
 
 const getVariantsCode = (tab: string): string => {
   const codes: Record<string, string> = {
-    'primary': '<PaButton variant="primary">Primary</PaButton>',
-    'secondary': '<PaButton variant="secondary">Secondary</PaButton>',
-    'tertiary': '<PaButton variant="tertiary">Tertiary</PaButton>',
-    'link': '<PaButton variant="link">Link</PaButton>',
-    'action': '<PaButton variant="action">Action</PaButton>'
+    'primary': `import { PaButton } from './components'
+
+<PaButton variant="primary">Primary</PaButton>`,
+    'secondary': `import { PaButton } from './components'
+
+<PaButton variant="secondary">Secondary</PaButton>`,
+    'tertiary': `import { PaButton } from './components'
+
+<PaButton variant="tertiary">Tertiary</PaButton>`,
+    'link': `import { PaButton } from './components'
+
+<PaButton variant="link">Link</PaButton>`,
+    'action': `import { PaButton } from './components'
+
+<PaButton variant="action">Action</PaButton>`
   }
   return codes[tab] || ''
 }
@@ -26,28 +35,44 @@ const getVariantsCode = (tab: string): string => {
 
 const getMultipleCTAsCode = (tab: string): string => {
   const codes: Record<string, string> = {
-    'primary-secondary': '<PaButton variant="primary">Save Changes</PaButton>\n<PaButton variant="secondary">Cancel</PaButton>',
-    'primary-tertiary': '<PaButton variant="primary">Submit</PaButton>\n<PaButton variant="tertiary">Skip</PaButton>',
-    'three-actions': '<PaButton variant="primary">Confirm</PaButton>\n<PaButton variant="secondary">Edit</PaButton>\n<PaButton variant="tertiary">Cancel</PaButton>'
+    'primary-secondary': `import { PaButton } from './components'
+
+<PaButton variant="primary">Save Changes</PaButton>
+<PaButton variant="secondary">Cancel</PaButton>`,
+    'primary-tertiary': `import { PaButton } from './components'
+
+<PaButton variant="primary">Submit</PaButton>
+<PaButton variant="tertiary">Skip</PaButton>`,
+    'three-actions': `import { PaButton } from './components'
+
+<PaButton variant="primary">Confirm</PaButton>
+<PaButton variant="secondary">Edit</PaButton>
+<PaButton variant="tertiary">Cancel</PaButton>`
   }
   return codes[tab] || ''
 }
 
 const getIconsCode = (tab: string): string => {
   const codes: Record<string, string> = {
-    'left': `<PaButton variant="primary" icon-position="left">
+    'left': `import { PaButton } from './components'
+
+<PaButton variant="primary" icon-position="left">
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
     <path d="M8 2V4M8 12V14M2 8H4M12 8H14M3.757 3.757L5.172 5.172M10.828 10.828L12.243 12.243M3.757 12.243L5.172 10.828M10.828 5.172L12.243 3.757" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
   </svg>
   <span>Icon Left</span>
 </PaButton>`,
-    'center': `<PaButton variant="primary" icon-position="center">
+    'center': `import { PaButton } from './components'
+
+<PaButton variant="primary" icon-position="center">
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
     <path d="M8 2V4M8 12V14M2 8H4M12 8H14M3.757 3.757L5.172 5.172M10.828 10.828L12.243 12.243M3.757 12.243L5.172 10.828M10.828 5.172L12.243 3.757" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
   </svg>
   <span>Icon Center</span>
 </PaButton>`,
-    'right': `<PaButton variant="primary" icon-position="right">
+    'right': `import { PaButton } from './components'
+
+<PaButton variant="primary" icon-position="right">
   <span>Icon Right</span>
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
     <path d="M8 2V4M8 12V14M2 8H4M12 8H14M3.757 3.757L5.172 5.172M10.828 10.828L12.243 12.243M3.757 12.243L5.172 10.828M10.828 5.172L12.243 3.757" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -59,11 +84,25 @@ const getIconsCode = (tab: string): string => {
 
 const getStatesCode = (tab: string): string => {
   const codes: Record<string, string> = {
-    'default': '<PaButton variant="primary">Default</PaButton>',
-    'disabled': '<PaButton variant="primary" :disabled="true">Disabled</PaButton>',
-    'loading': '<PaButton variant="primary" :loading="true">Loading</PaButton>'
+    'default': `import { PaButton } from './components'
+
+<PaButton variant="primary">Default</PaButton>`,
+    'disabled': `import { PaButton } from './components'
+
+<PaButton variant="primary" :disabled="true">Disabled</PaButton>`,
+    'loading': `import { PaButton } from './components'
+
+<PaButton variant="primary" :loading="true">Loading</PaButton>`
   }
   return codes[tab] || ''
+}
+
+const getSizesCode = (): string => {
+  return `import { PaButton } from './components'
+
+<PaButton variant="primary" size="sm">Small</PaButton>
+<PaButton variant="primary" size="md">Medium</PaButton>
+<PaButton variant="primary" size="lg">Large</PaButton>`
 }
 </script>
 
@@ -90,11 +129,24 @@ const getStatesCode = (tab: string): string => {
           {{ showCode['pabutton-sizes'] ? 'Hide code' : 'Show code' }}
         </button>
         <div v-if="showCode['pabutton-sizes']" class="code-preview">
-          <CodeBlock 
-            :code="getCodeTextForCopy(getComponentExamples('pabutton').find(e => e.render === 'sizes')?.code)"
-            copy-key="pabutton-sizes"
-            :show-line-numbers="true"
-          />
+          <div class="code-split-container">
+            <div class="code-section">
+              <h4 class="code-section-title">Implementation</h4>
+              <CodeBlock 
+                :code="getSizesCode()"
+                copy-key="pabutton-sizes-usage"
+                :show-line-numbers="true"
+              />
+            </div>
+            <div class="code-section">
+              <h4 class="code-section-title">Component Source</h4>
+              <CodeBlock 
+                :code="getComponentSourceCode('pabutton')"
+                copy-key="pabutton-sizes-component-source"
+                :show-line-numbers="true"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -305,11 +357,24 @@ const getStatesCode = (tab: string): string => {
           {{ showCode[`pabutton-multiple-ctas-${activeMultipleCTAsTab}`] ? 'Hide code' : 'Show code' }}
         </button>
         <div v-if="showCode[`pabutton-multiple-ctas-${activeMultipleCTAsTab}`]" class="code-preview">
-          <CodeBlock 
-            :code="getMultipleCTAsCode(activeMultipleCTAsTab)"
-            :copy-key="`pabutton-multiple-ctas-${activeMultipleCTAsTab}`"
-            :show-line-numbers="true"
-          />
+          <div class="code-split-container">
+            <div class="code-section">
+              <h4 class="code-section-title">Implementation</h4>
+              <CodeBlock 
+                :code="getMultipleCTAsCode(activeMultipleCTAsTab)"
+                :copy-key="`pabutton-multiple-ctas-usage-${activeMultipleCTAsTab}`"
+                :show-line-numbers="true"
+              />
+            </div>
+            <div class="code-section">
+              <h4 class="code-section-title">Component Source</h4>
+              <CodeBlock 
+                :code="getComponentSourceCode('pabutton')"
+                :copy-key="`pabutton-multiple-ctas-component-source-${activeMultipleCTAsTab}`"
+                :show-line-numbers="true"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -381,11 +446,24 @@ const getStatesCode = (tab: string): string => {
           {{ showCode[`pabutton-icons-${activeIconsTab}`] ? 'Hide code' : 'Show code' }}
         </button>
         <div v-if="showCode[`pabutton-icons-${activeIconsTab}`]" class="code-preview">
-          <CodeBlock 
-            :code="getIconsCode(activeIconsTab)"
-            :copy-key="`pabutton-icons-${activeIconsTab}`"
-            :show-line-numbers="true"
-          />
+          <div class="code-split-container">
+            <div class="code-section">
+              <h4 class="code-section-title">Implementation</h4>
+              <CodeBlock 
+                :code="getIconsCode(activeIconsTab)"
+                :copy-key="`pabutton-icons-usage-${activeIconsTab}`"
+                :show-line-numbers="true"
+              />
+            </div>
+            <div class="code-section">
+              <h4 class="code-section-title">Component Source</h4>
+              <CodeBlock 
+                :code="getComponentSourceCode('pabutton')"
+                :copy-key="`pabutton-icons-component-source-${activeIconsTab}`"
+                :show-line-numbers="true"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -442,11 +520,24 @@ const getStatesCode = (tab: string): string => {
           {{ showCode[`pabutton-states-${activeStatesTab}`] ? 'Hide code' : 'Show code' }}
         </button>
         <div v-if="showCode[`pabutton-states-${activeStatesTab}`]" class="code-preview">
-          <CodeBlock 
-            :code="getStatesCode(activeStatesTab)"
-            :copy-key="`pabutton-states-${activeStatesTab}`"
-            :show-line-numbers="true"
-          />
+          <div class="code-split-container">
+            <div class="code-section">
+              <h4 class="code-section-title">Implementation</h4>
+              <CodeBlock 
+                :code="getStatesCode(activeStatesTab)"
+                :copy-key="`pabutton-states-usage-${activeStatesTab}`"
+                :show-line-numbers="true"
+              />
+            </div>
+            <div class="code-section">
+              <h4 class="code-section-title">Component Source</h4>
+              <CodeBlock 
+                :code="getComponentSourceCode('pabutton')"
+                :copy-key="`pabutton-states-component-source-${activeStatesTab}`"
+                :show-line-numbers="true"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
