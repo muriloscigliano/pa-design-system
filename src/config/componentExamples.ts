@@ -18,8 +18,8 @@ export const componentExamples: Record<string, ExampleConfig[]> = {
 <!-- 3. Tertiary - Tertiary action, minimal emphasis -->
 <PaButton variant="tertiary">Tertiary</PaButton>
 
-<!-- 4. Payment Navigation - Specialized for payment flows -->
-<PaButton variant="payment-navigation">Payment Nav</PaButton>
+<!-- 4. Link - Text link style button -->
+<PaButton variant="link">Link</PaButton>
 
 <!-- 5. Action - General action button -->
 <PaButton variant="action">Action</PaButton>`,
@@ -32,15 +32,15 @@ export const componentExamples: Record<string, ExampleConfig[]> = {
 <PaButton variant="primary" size="lg">Large</PaButton>`,
       render: 'sizes'
     },
-    {
-      label: 'Variants',
-      code: `<PaButton variant="primary">Primary</PaButton>
+      {
+        label: 'Variants',
+        code: `<PaButton variant="primary">Primary</PaButton>
 <PaButton variant="secondary">Secondary</PaButton>
 <PaButton variant="tertiary">Tertiary</PaButton>
-<PaButton variant="payment-navigation">Payment Nav</PaButton>
+<PaButton variant="link">Link</PaButton>
 <PaButton variant="action">Action</PaButton>`,
-      render: 'variants'
-    },
+        render: 'variants'
+      },
     {
       label: 'Multiple CTAs',
       code: `<!-- Example: Primary + Secondary -->
@@ -57,12 +57,13 @@ export const componentExamples: Record<string, ExampleConfig[]> = {
 <PaButton variant="tertiary">Cancel</PaButton>`,
       render: 'multiple-ctas'
     },
-    {
-      label: 'States',
-      code: `<PaButton variant="primary">Default</PaButton>
-<PaButton variant="primary" :disabled="true">Disabled</PaButton>`,
-      render: 'states'
-    }
+      {
+        label: 'States',
+        code: `<PaButton variant="primary">Default</PaButton>
+<PaButton variant="primary" :disabled="true">Disabled</PaButton>
+<PaButton variant="primary" :loading="true">Loading</PaButton>`,
+        render: 'states'
+      }
   ],
   'painput': [
     {

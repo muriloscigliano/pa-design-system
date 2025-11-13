@@ -1,5 +1,5 @@
 export const componentDescriptions: Record<string, string> = {
-  'pabutton': 'A versatile button component with multiple variants and sizes. Button variants follow a clear hierarchy: Primary (highest priority) → Secondary → Tertiary → Payment Navigation → Action (lowest priority). Use Primary for the main call-to-action, Secondary for secondary actions, and Tertiary for less emphasized actions.',
+  'pabutton': 'A versatile button component with multiple variants and sizes. Button variants follow a clear hierarchy: Primary (highest priority) → Secondary → Tertiary → Link → Action (lowest priority). Use Primary for the main call-to-action, Secondary for secondary actions, Tertiary for less emphasized actions, and Link for text-style buttons. Supports loading state for async operations.',
   'painput': 'Text input component with validation states, sizes, and icon support.',
   'pacheckbox': 'Checkbox input component with checked, unchecked, and indeterminate states.',
   'paradio': 'Radio button component for single selection in forms.',

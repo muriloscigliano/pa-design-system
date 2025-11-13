@@ -27,11 +27,19 @@ const routes = [
 Object.values(navigation).forEach(section => {
   section.items.forEach(item => {
     if (!['introduction', 'installation', 'theming'].includes(item.id)) {
-      routes.push({
-        path: `/components/${item.id}`,
-        name: item.id,
-        component: () => import('../views/ComponentDocs.vue')
-      })
+      if (item.id === 'pabutton') {
+        routes.push({
+          path: `/components/${item.id}`,
+          name: item.id,
+          component: () => import('../views/PaButtonDocs.vue')
+        })
+      } else {
+        routes.push({
+          path: `/components/${item.id}`,
+          name: item.id,
+          component: () => import('../views/ComponentDocs.vue')
+        })
+      }
     }
   })
 })

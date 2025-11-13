@@ -1,8 +1,9 @@
 <script setup lang="ts">
 defineProps<{
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'payment-navigation' | 'action'
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'link' | 'action'
   size?: 'sm' | 'md' | 'lg'
   disabled?: boolean
+  loading?: boolean
 }>()
 </script>
 
@@ -12,10 +13,14 @@ defineProps<{
       'pa-button',
       `pa-button--${variant || 'primary'}`,
       `pa-button--${size || 'md'}`,
-      { 'is-disabled': disabled }
+      { 
+        'is-disabled': disabled || loading,
+        'is-loading': loading
+      }
     ]"
-    :disabled="disabled"
+    :disabled="disabled || loading"
   >
+    <span v-if="loading" class="pa-button-loader" aria-hidden="true"></span>
     <slot />
   </button>
 </template>
@@ -112,30 +117,35 @@ defineProps<{
     }
   }
 
-  &--payment-navigation {
-    background-color: var(--pa-button-payment-navigation-background-default);
-    color: var(--pa-button-payment-navigation-text-default);
-    border: var(--pa-button-border-width-default, var(--pa-Border-width-50, 1px)) solid var(--pa-button-payment-navigation-border-default);
-    border-radius: var(--pa-button-payment-navigation-radius, var(--pa-Border-radius-100, 8px));
+  &--link {
+    background-color: transparent;
+    color: var(--pa-button-link-text-default, var(--pa-color-action-primary-text-default));
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    text-decoration: underline;
+    text-underline-offset: var(--pa-spacing-4, 4px);
 
     &:hover:not(.is-disabled) {
-      background-color: var(--pa-button-payment-navigation-background-hover);
+      color: var(--pa-button-link-text-hover, var(--pa-color-action-primary-text-hover));
+      text-decoration-thickness: 2px;
     }
 
     &:active:not(.is-disabled) {
-      background-color: var(--pa-button-payment-navigation-background-active);
+      color: var(--pa-button-link-text-active, var(--pa-color-action-primary-text-active));
     }
 
     &:focus-visible {
-      outline: var(--pa-button-outline-width-default, var(--pa-outline-width-default, 2px)) solid var(--pa-button-payment-navigation-border-focus);
+      outline: var(--pa-button-outline-width-default, var(--pa-outline-width-default, 2px)) solid var(--pa-button-link-border-focus, var(--pa-color-action-primary-border-focus));
       outline-offset: var(--pa-button-outline-offset-default, var(--pa-outline-offset-default, 2px));
+      border-radius: var(--pa-Border-radius-50, 4px);
     }
 
     &.is-disabled,
     &:disabled {
-      background-color: var(--pa-button-payment-navigation-background-disabled);
-      color: var(--pa-button-payment-navigation-text-disabled);
-      border-color: var(--pa-button-payment-navigation-border-disabled);
+      color: var(--pa-button-link-text-disabled, var(--pa-color-action-primary-text-disabled));
+      text-decoration: none;
+      opacity: calc(var(--pa-opacity-60, 60) / 100);
     }
   }
 
@@ -185,6 +195,28 @@ defineProps<{
   &:disabled {
     cursor: var(--pa-button-cursor-disabled, var(--pa-cursor-not-allowed, not-allowed));
     opacity: calc(var(--pa-opacity-60, 60) / 100);
+  }
+
+  &.is-loading {
+    position: relative;
+    pointer-events: none;
+    
+    .pa-button-loader {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid currentColor;
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: pa-button-spin 0.6s linear infinite;
+      margin-right: var(--pa-spacing-8, 8px);
+    }
+  }
+}
+
+@keyframes pa-button-spin {
+  to {
+    transform: rotate(360deg);
   }
 }
 </style>
