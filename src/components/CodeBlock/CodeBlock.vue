@@ -190,19 +190,6 @@ const handleCopy = async () => {
     }
   }
   
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 48px;
-    background-color: var(--pa-color-surface-container-background, #ffffff);
-    border-right: 1px solid var(--pa-color-surface-container-border, #e9ecef);
-    border-radius: var(--pa-Border-radius-100, 8px) 0 0 var(--pa-Border-radius-100, 8px);
-    transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease), border-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
-    z-index: 0;
-  }
 }
 
 [data-theme="dark"] .code-block {
@@ -215,11 +202,6 @@ const handleCopy = async () => {
     :deep(.line-number) {
       color: #6e757c;
     }
-  }
-  
-  &::before {
-    background-color: #151517;
-    border-color: #222529;
   }
 }
 
