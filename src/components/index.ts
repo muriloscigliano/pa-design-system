@@ -39,4 +39,5 @@ export { PaToggleChip } from './PaToggleChip'
 export { PaToggleSegmentation } from './PaToggleSegmentation'
 export { PaToggleSwitch } from './PaToggleSwitch'
 export { PaTooltip } from './PaTooltip'
+export { CodeBlock } from './CodeBlock'
 

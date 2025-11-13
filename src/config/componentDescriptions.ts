@@ -1,0 +1,48 @@
+export const componentDescriptions: Record<string, string> = {
+  'pabutton': 'A versatile button component with multiple variants and sizes. Button variants follow a clear hierarchy: Primary (highest priority) → Secondary → Tertiary → Payment Navigation → Action (lowest priority). Use Primary for the main call-to-action, Secondary for secondary actions, and Tertiary for less emphasized actions.',
+  'painput': 'Text input component with validation states, sizes, and icon support.',
+  'pacheckbox': 'Checkbox input component with checked, unchecked, and indeterminate states.',
+  'paradio': 'Radio button component for single selection in forms.',
+  'paradiobuttongroup': 'Group of radio buttons for managing single selection.',
+  'patoggleswitch': 'Toggle switch component for boolean inputs.',
+  'paselect': 'Dropdown select component with single and multi-select support.',
+  'patextarea': 'Multi-line text input component with resize options.',
+  'paautocomplete': 'Input component with autocomplete suggestions.',
+  'patimepicker': 'Time picker component for selecting time values.',
+  'pafileuploader': 'File upload component with drag and drop support.',
+  'paform': 'Form wrapper component for managing form state and validation.',
+  'pacard': 'Card component for displaying content in a contained format.',
+  'paheader': 'Header component for application navigation and branding.',
+  'palistitem': 'List item component for displaying items in lists.',
+  'papagelayout': 'Page layout component for structuring page content.',
+  'pacontentseparator': 'Separator component for dividing content sections.',
+  'pacontainer': 'Container component for wrapping and constraining content.',
+  'paformcontainer': 'Form container component for grouping form fields.',
+  'pasectioncontainer': 'Section container component with title and actions.',
+  'padropdown': 'Dropdown menu component with positioning options.',
+  'pasegmentedcontrol': 'Segmented control component for selecting between options.',
+  'patogglesegmentation': 'Toggle segmentation component for grouped selections.',
+  'patogglechip': 'Toggle chip component for tag-like selections.',
+  'pakebabmenu': 'Kebab menu component for action menus.',
+  'patabs': 'Tabs component for organizing content into panels.',
+  'pabreadcrumbs': 'Breadcrumbs component for navigation hierarchy.',
+  'pastepper': 'Stepper component for multi-step processes.',
+  'padrawer': 'Drawer component for slide-out panels.',
+  'pamodal': 'Modal component for dialog overlays.',
+  'patooltip': 'Tooltip component for contextual information.',
+  'pabadge': 'Badge component for status indicators and labels.',
+  'painlinemessage': 'Inline message component for feedback and alerts.',
+  'paloading': 'Loading component for indicating progress.',
+  'paemptystate': 'Empty state component for when no content is available.',
+  'paprogress': 'Progress component for showing completion status.',
+  'patable': 'Table component for displaying tabular data.',
+  'paaccordion': 'Accordion component for collapsible content sections.',
+  'papagination': 'Pagination component for navigating through pages.',
+  'paslider': 'Slider component for selecting numeric values.',
+  'parangeslider': 'Range slider component for selecting value ranges.'
+}
+
+export const getComponentDescription = (componentId: string): string => {
+  return componentDescriptions[componentId] || 'Component documentation coming soon.'
+}
+

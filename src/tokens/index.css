@@ -1,11 +1,11 @@
 /**
  * Do not edit directly
- * Generated on Wed, 12 Nov 2025 05:30:03 GMT
+ * Generated on Wed, 12 Nov 2025 23:50:57 GMT
  */
 
 :root {
-  --pa-gray-50: #d9d9d9;
-  --pa-gray-100: #ffffff;
+  --pa-gray-50: #F9F9F9;
+  --pa-gray-100: #F8F9FA;
   --pa-gray-200: #e9ecef;
   --pa-gray-300: #dee2e6;
   --pa-gray-400: #ced4da;
@@ -55,6 +55,7 @@
   --pa-spacing-48: 48px;
   --pa-spacing-56: 56px;
   --pa-spacing-64: 64px;
+  --pa-spacing-00: 0px;
   --pa-font-family-roboto: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --pa-font-size-50: 10px;
   --pa-font-size-75: 12px;
@@ -181,7 +182,7 @@
   --pa-brand-red-100: #fbf2f2;
   --pa-brand-red-200: #e49599;
   --pa-brand-red-300: #dc3545;
-  --pa-brand-red-500: #ae182a;
+  --pa-brand-red-500: #D51E33;
   --pa-brand-red-600: #7b111d;
   --pa-brand-gray-50: #f5fafd;
   --pa-brand-gray-100: #e8f0f7;
@@ -203,7 +204,7 @@
 
 /**
  * Do not edit directly
- * Generated on Wed, 12 Nov 2025 05:30:03 GMT
+ * Generated on Wed, 12 Nov 2025 23:50:57 GMT
  */
 
 :root {
@@ -296,12 +297,12 @@
   --pa-color-status-info-text-default: var(--pa-gray-white);
   --pa-color-status-info-text-inverse: var(--pa-gray-900);
   --pa-color-status-info-border-default: var(--pa-blue-300);
-  --pa-color-surface-base-background: var(--pa-gray-50);
+  --pa-color-surface-base-background: var(--pa-gray-100);
   --pa-color-surface-base-text: var(--pa-gray-900);
   --pa-color-surface-base-icon: var(--pa-red-500);
   --pa-color-surface-base-divider: var(--pa-gray-200);
   --pa-color-surface-base-border: var(--pa-gray-200);
-  --pa-color-surface-container-background: var(--pa-gray-100);
+  --pa-color-surface-container-background: var(--pa-gray-white);
   --pa-color-surface-container-text: var(--pa-gray-900);
   --pa-color-surface-container-icon: var(--pa-red-500);
   --pa-color-surface-container-divider: var(--pa-gray-300);
@@ -1290,7 +1291,7 @@
 
 /**
  * Do not edit directly
- * Generated on Wed, 12 Nov 2025 05:30:03 GMT
+ * Generated on Wed, 12 Nov 2025 23:50:57 GMT
  */
 
 [data-theme="dark"] {
@@ -1336,14 +1337,14 @@
   --pa-cursor-grabbing: grabbing;
   --pa-cursor-move: move;
   --pa-cursor-wait: wait;
-  --pa-color-action-primary-background-default: var(--pa-gray-white);
-  --pa-color-action-primary-background-hover: var(--pa-gray-300);
-  --pa-color-action-primary-background-active: var(--pa-gray-white);
+  --pa-color-action-primary-background-default: var(--pa-brand-red-500);
+  --pa-color-action-primary-background-hover: var(--pa-brand-red-600);
+  --pa-color-action-primary-background-active: var(--pa-brand-red-500);
   --pa-color-action-primary-background-disable: var(--pa-gray-800);
-  --pa-color-action-primary-text-default: var(--pa-gray-900);
+  --pa-color-action-primary-text-default: var(--pa-gray-white);
   --pa-color-action-primary-text-disable: var(--pa-gray-800);
-  --pa-color-action-primary-border-default: var(--pa-gray-800);
-  --pa-color-action-primary-border-focus: var(--pa-gray-200);
+  --pa-color-action-primary-border-default: var(--pa-brand-red-500);
+  --pa-color-action-primary-border-focus: var(--pa-brand-red-600);
   --pa-color-action-primary-border-disable: var(--pa-gray-800);
   --pa-color-action-secondary-background-default: var(--pa-gray-black);
   --pa-color-action-secondary-background-hover: var(--pa-gray-500);

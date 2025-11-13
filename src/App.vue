@@ -48,6 +48,10 @@ import {
 const currentTheme = ref<'light' | 'dark'>(getTheme())
 const searchQuery = ref('')
 const activeComponent = ref('introduction')
+const activeExampleGroup = ref<string>('')
+const showCode = ref<Record<string, boolean>>({})
+const activeHierarchyTab = ref('primary')
+const activeMultipleCTAsTab = ref('primary-secondary')
 
 // Reactive values for components that use v-model
 const componentValues = ref<Record<string, any>>({
@@ -270,7 +274,7 @@ const getComponentProps = (componentId: string): Record<string, any> => {
 
 const getComponentDescription = (componentId: string): string => {
   const descriptions: Record<string, string> = {
-    'pabutton': 'A versatile button component with multiple variants and sizes for different use cases.',
+    'pabutton': 'A versatile button component with multiple variants and sizes. Button variants follow a clear hierarchy: Primary (highest priority) → Secondary → Tertiary → Payment Navigation → Action (lowest priority). Use Primary for the main call-to-action, Secondary for secondary actions, and Tertiary for less emphasized actions.',
     'painput': 'Text input component with validation states, sizes, and icon support.',
     'pacheckbox': 'Checkbox input component with checked, unchecked, and indeterminate states.',
     'paradio': 'Radio button component for single selection in forms.',
@@ -325,8 +329,150 @@ const toggleTheme = () => {
   })
 }
 
+type ExampleConfig = {
+  label: string
+  code: string
+  render: string
+}
+
+const getComponentExamples = (componentId: string): ExampleConfig[] => {
+  const examples: Record<string, ExampleConfig[]> = {
+    'pabutton': [
+      {
+        label: 'Hierarchy',
+        code: `<!-- Button Variant Hierarchy (Highest to Lowest Priority) -->
+<!-- 1. Primary - Main call-to-action, most important action -->
+<PaButton variant="primary">Primary</PaButton>
+
+<!-- 2. Secondary - Secondary action, less emphasis -->
+<PaButton variant="secondary">Secondary</PaButton>
+
+<!-- 3. Tertiary - Tertiary action, minimal emphasis -->
+<PaButton variant="tertiary">Tertiary</PaButton>
+
+<!-- 4. Payment Navigation - Specialized for payment flows -->
+<PaButton variant="payment-navigation">Payment Nav</PaButton>
+
+<!-- 5. Action - General action button -->
+<PaButton variant="action">Action</PaButton>`,
+        render: 'hierarchy'
+      },
+      {
+        label: 'Sizes',
+        code: `<PaButton variant="primary" size="sm">Small</PaButton>
+<PaButton variant="primary" size="md">Medium</PaButton>
+<PaButton variant="primary" size="lg">Large</PaButton>`,
+        render: 'sizes'
+      },
+      {
+        label: 'Variants',
+        code: `<PaButton variant="primary">Primary</PaButton>
+<PaButton variant="secondary">Secondary</PaButton>
+<PaButton variant="tertiary">Tertiary</PaButton>
+<PaButton variant="payment-navigation">Payment Nav</PaButton>
+<PaButton variant="action">Action</PaButton>`,
+        render: 'variants'
+      },
+      {
+        label: 'Multiple CTAs',
+        code: `<!-- Example: Primary + Secondary -->
+<PaButton variant="primary">Save Changes</PaButton>
+<PaButton variant="secondary">Cancel</PaButton>
+
+<!-- Example: Primary + Tertiary -->
+<PaButton variant="primary">Submit</PaButton>
+<PaButton variant="tertiary">Skip</PaButton>
+
+<!-- Example: Three actions -->
+<PaButton variant="primary">Confirm</PaButton>
+<PaButton variant="secondary">Edit</PaButton>
+<PaButton variant="tertiary">Cancel</PaButton>`,
+        render: 'multiple-ctas'
+      },
+      {
+        label: 'States',
+        code: `<PaButton variant="primary">Default</PaButton>
+<PaButton variant="primary" :disabled="true">Disabled</PaButton>`,
+        render: 'states'
+      }
+    ],
+    'painput': [
+      {
+        label: 'Default',
+        code: `<PaInput placeholder="Enter text..." />`,
+        render: 'default'
+      }
+    ]
+  }
+  return examples[componentId] || []
+}
+
+const currentExamples = computed(() => {
+  return getComponentExamples(activeComponent.value)
+})
+
 const selectComponent = (id: string) => {
   activeComponent.value = id
+  const examples = getComponentExamples(id)
+  if (examples.length > 0) {
+    activeExampleGroup.value = examples[0].label
+  } else {
+    activeExampleGroup.value = ''
+  }
+}
+
+const currentExample = computed(() => {
+  return currentExamples.value.find(ex => ex.label === activeExampleGroup.value)
+})
+
+const toggleShowCode = (key: string) => {
+  showCode.value[key] = !showCode.value[key]
+}
+
+const formatCodeWithLineNumbers = (code: string): string => {
+  const lines = code.split('\n')
+  const maxDigits = String(lines.length).length
+  return lines.map((line, index) => {
+    const lineNumber = String(index + 1).padStart(maxDigits, ' ')
+    return `${lineNumber}  ${line}`
+  }).join('\n')
+}
+
+const copyToClipboard = async (text: string, key: string) => {
+  try {
+    await navigator.clipboard.writeText(text)
+    showCode.value[`copied-${key}`] = true
+    setTimeout(() => {
+      showCode.value[`copied-${key}`] = false
+    }, 2000)
+  } catch (err) {
+    console.error('Failed to copy:', err)
+  }
+}
+
+const getCodeTextForCopy = (code: string | undefined): string => {
+  if (!code) return ''
+  return code.trim()
+}
+
+const getHierarchyCode = (tab: string): string => {
+  const codes: Record<string, string> = {
+    'primary': '<PaButton variant="primary">Primary</PaButton>',
+    'secondary': '<PaButton variant="secondary">Secondary</PaButton>',
+    'tertiary': '<PaButton variant="tertiary">Tertiary</PaButton>',
+    'payment-navigation': '<PaButton variant="payment-navigation">Payment Nav</PaButton>',
+    'action': '<PaButton variant="action">Action</PaButton>'
+  }
+  return codes[tab] || ''
+}
+
+const getMultipleCTAsCode = (tab: string): string => {
+  const codes: Record<string, string> = {
+    'primary-secondary': '<PaButton variant="primary">Save Changes</PaButton>\n<PaButton variant="secondary">Cancel</PaButton>',
+    'primary-tertiary': '<PaButton variant="primary">Submit</PaButton>\n<PaButton variant="tertiary">Skip</PaButton>',
+    'three-actions': '<PaButton variant="primary">Confirm</PaButton>\n<PaButton variant="secondary">Edit</PaButton>\n<PaButton variant="tertiary">Cancel</PaButton>'
+  }
+  return codes[tab] || ''
 }
 
 onMounted(() => {
@@ -451,7 +597,21 @@ onMounted(() => {
               </p>
               <div class="component-usage">
                 <h3 class="section-title">Installation Steps</h3>
-                <pre class="code-block"><code># Install dependencies
+                <pre class="code-block">
+                  <button 
+                    class="copy-code-button"
+                    @click="copyToClipboard('# Install dependencies\nnpm install\n\n# Build tokens (runs automatically before dev)\nnpm run build:tokens\n\n# Start development server\nnpm run dev\n\n# Build for production\nnpm run build', 'installation')"
+                    :aria-label="showCode['copied-installation'] ? 'Copied!' : 'Copy code'"
+                  >
+                    <svg v-if="!showCode['copied-installation']" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M5.5 3.5H3.5C2.67157 3.5 2 4.17157 2 5V12.5C2 13.3284 2.67157 14 3.5 14H11C11.8284 14 12.5 13.3284 12.5 12.5V10.5M5.5 3.5C5.5 2.67157 6.17157 2 7 2H9.5M5.5 3.5C5.5 4.32843 6.17157 5 7 5H9.5M9.5 5H11C11.8284 5 12.5 5.67157 12.5 6.5V10.5M9.5 5V6.5C9.5 7.32843 10.1716 8 11 8H12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <svg v-else width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M13.5 4L6 11.5L2.5 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>{{ showCode['copied-installation'] ? 'Copied!' : 'Copy' }}</span>
+                  </button>
+                  <code># Install dependencies
 npm install
 
 # Build tokens (runs automatically before dev)
@@ -472,7 +632,21 @@ npm run build</code></pre>
               </p>
               <div class="component-usage">
                 <h3 class="section-title">Theme Usage</h3>
-                <pre class="code-block"><code>import { setTheme, getTheme } from './utils/theme'
+                <pre class="code-block">
+                  <button 
+                    class="copy-code-button"
+                    @click="copyToClipboard('import { setTheme, getTheme } from \'./utils/theme\'\n\n// Set theme\nsetTheme(\'dark\') // or \'light\'\n\n// Get current theme\nconst currentTheme = getTheme()', 'theming')"
+                    :aria-label="showCode['copied-theming'] ? 'Copied!' : 'Copy code'"
+                  >
+                    <svg v-if="!showCode['copied-theming']" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M5.5 3.5H3.5C2.67157 3.5 2 4.17157 2 5V12.5C2 13.3284 2.67157 14 3.5 14H11C11.8284 14 12.5 13.3284 12.5 12.5V10.5M5.5 3.5C5.5 2.67157 6.17157 2 7 2H9.5M5.5 3.5C5.5 4.32843 6.17157 5 7 5H9.5M9.5 5H11C11.8284 5 12.5 5.67157 12.5 6.5V10.5M9.5 5V6.5C9.5 7.32843 10.1716 8 11 8H12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <svg v-else width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M13.5 4L6 11.5L2.5 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>{{ showCode['copied-theming'] ? 'Copied!' : 'Copy' }}</span>
+                  </button>
+                  <code>import { setTheme, getTheme } from './utils/theme'
 
 // Set theme
 setTheme('dark') // or 'light'
@@ -488,14 +662,58 @@ const currentTheme = getTheme()</code></pre>
               <p class="component-description">
                 {{ getComponentDescription(activeComponentData.id) }}
               </p>
-              <div class="component-examples">
-                <h3 class="section-title">Examples</h3>
-                <div class="example-group">
-                  <!-- PaButton Special Case -->
-                  <template v-if="activeComponent === 'pabutton'">
-                    <div class="example-item">
-                      <label>Variants</label>
-                      <div class="component-preview" style="flex-wrap: wrap; gap: var(--pa-spacing-8, 8px);">
+              
+              <!-- PaButton: Separate Documentation Sections -->
+              <template v-if="activeComponent === 'pabutton'">
+                <!-- Sizes Section -->
+                <div class="documentation-section">
+                  <h3 class="documentation-section-title">Sizes</h3>
+                  <p class="documentation-section-description">
+                    Buttons are available in three sizes: small, medium, and large. Choose the size that best fits your layout and the importance of the action. Medium is the default size.
+                  </p>
+                  <div class="example-preview-container">
+                    <div class="example-preview">
+                      <div class="component-preview" style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px); align-items: center;">
+                        <PaButton variant="primary" size="sm">Small</PaButton>
+                        <PaButton variant="primary" size="md">Medium</PaButton>
+                        <PaButton variant="primary" size="lg">Large</PaButton>
+                      </div>
+                    </div>
+                    <button 
+                      class="show-code-button"
+                      @click="toggleShowCode('pabutton-sizes')"
+                    >
+                      {{ showCode['pabutton-sizes'] ? 'Hide code' : 'Show code' }}
+                    </button>
+                    <div v-if="showCode['pabutton-sizes']" class="code-preview">
+                      <pre class="code-block">
+                        <button 
+                          class="copy-code-button"
+                          @click="copyToClipboard(getCodeTextForCopy(getComponentExamples('pabutton').find(e => e.render === 'sizes')?.code), 'pabutton-sizes')"
+                          :aria-label="showCode['copied-pabutton-sizes'] ? 'Copied!' : 'Copy code'"
+                        >
+                          <svg v-if="!showCode['copied-pabutton-sizes']" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M5.5 3.5H3.5C2.67157 3.5 2 4.17157 2 5V12.5C2 13.3284 2.67157 14 3.5 14H11C11.8284 14 12.5 13.3284 12.5 12.5V10.5M5.5 3.5C5.5 2.67157 6.17157 2 7 2H9.5M5.5 3.5C5.5 4.32843 6.17157 5 7 5H9.5M9.5 5H11C11.8284 5 12.5 5.67157 12.5 6.5V10.5M9.5 5V6.5C9.5 7.32843 10.1716 8 11 8H12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <svg v-else width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M13.5 4L6 11.5L2.5 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <span>{{ showCode['copied-pabutton-sizes'] ? 'Copied!' : 'Copy' }}</span>
+                        </button>
+                        <code>{{ getComponentExamples('pabutton').find(e => e.render === 'sizes')?.code }}</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Variants Section -->
+                <div class="documentation-section">
+                  <h3 class="documentation-section-title">Variants</h3>
+                  <p class="documentation-section-description">
+                    Each variant serves a specific purpose in the interface hierarchy. Select the variant that matches the importance and context of the action.
+                  </p>
+                  <div class="example-preview-container">
+                    <div class="example-preview">
+                      <div class="component-preview" style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px);">
                         <PaButton variant="primary">Primary</PaButton>
                         <PaButton variant="secondary">Secondary</PaButton>
                         <PaButton variant="tertiary">Tertiary</PaButton>
@@ -503,36 +721,328 @@ const currentTheme = getTheme()</code></pre>
                         <PaButton variant="action">Action</PaButton>
                       </div>
                     </div>
-                    <div class="example-item">
-                      <label>Sizes</label>
-                      <div class="component-preview" style="flex-wrap: wrap; gap: var(--pa-spacing-8, 8px); align-items: center;">
-                        <PaButton variant="primary" size="sm">Small</PaButton>
-                        <PaButton variant="primary" size="md">Medium</PaButton>
-                        <PaButton variant="primary" size="lg">Large</PaButton>
+                    <button 
+                      class="show-code-button"
+                      @click="toggleShowCode('pabutton-variants')"
+                    >
+                      {{ showCode['pabutton-variants'] ? 'Hide code' : 'Show code' }}
+                    </button>
+                    <div v-if="showCode['pabutton-variants']" class="code-preview">
+                      <pre class="code-block">
+                        <button 
+                          class="copy-code-button"
+                          @click="copyToClipboard(getCodeTextForCopy(getComponentExamples('pabutton').find(e => e.render === 'variants')?.code), 'pabutton-variants')"
+                          :aria-label="showCode['copied-pabutton-variants'] ? 'Copied!' : 'Copy code'"
+                        >
+                          <svg v-if="!showCode['copied-pabutton-variants']" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M5.5 3.5H3.5C2.67157 3.5 2 4.17157 2 5V12.5C2 13.3284 2.67157 14 3.5 14H11C11.8284 14 12.5 13.3284 12.5 12.5V10.5M5.5 3.5C5.5 2.67157 6.17157 2 7 2H9.5M5.5 3.5C5.5 4.32843 6.17157 5 7 5H9.5M9.5 5H11C11.8284 5 12.5 5.67157 12.5 6.5V10.5M9.5 5V6.5C9.5 7.32843 10.1716 8 11 8H12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <svg v-else width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M13.5 4L6 11.5L2.5 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <span>{{ showCode['copied-pabutton-variants'] ? 'Copied!' : 'Copy' }}</span>
+                        </button>
+                        <code>{{ getComponentExamples('pabutton').find(e => e.render === 'variants')?.code }}</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Hierarchy Section -->
+                <div class="documentation-section">
+                  <h3 class="documentation-section-title">Hierarchy</h3>
+                  <p class="documentation-section-description">
+                    Button variants follow a clear hierarchical order from highest to lowest priority. Use this hierarchy to guide users through your interface and establish clear visual importance.
+                  </p>
+                  
+                  <div class="example-tabs">
+                    <button
+                      class="example-tab"
+                      :class="{ 'is-active': activeHierarchyTab === 'primary' }"
+                      @click="activeHierarchyTab = 'primary'"
+                    >
+                      1. Primary
+                    </button>
+                    <button
+                      class="example-tab"
+                      :class="{ 'is-active': activeHierarchyTab === 'secondary' }"
+                      @click="activeHierarchyTab = 'secondary'"
+                    >
+                      2. Secondary
+                    </button>
+                    <button
+                      class="example-tab"
+                      :class="{ 'is-active': activeHierarchyTab === 'tertiary' }"
+                      @click="activeHierarchyTab = 'tertiary'"
+                    >
+                      3. Tertiary
+                    </button>
+                    <button
+                      class="example-tab"
+                      :class="{ 'is-active': activeHierarchyTab === 'payment-navigation' }"
+                      @click="activeHierarchyTab = 'payment-navigation'"
+                    >
+                      4. Payment Nav
+                    </button>
+                    <button
+                      class="example-tab"
+                      :class="{ 'is-active': activeHierarchyTab === 'action' }"
+                      @click="activeHierarchyTab = 'action'"
+                    >
+                      5. Action
+                    </button>
+                  </div>
+
+                  <div class="example-preview-container">
+                    <div class="example-preview">
+                      <div class="component-preview" style="display: flex; flex-direction: column; gap: var(--pa-spacing-16, 16px);">
+                        <template v-if="activeHierarchyTab === 'primary'">
+                          <div style="display: flex; flex-direction: column; gap: var(--pa-spacing-8, 8px);">
+                            <div style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px);">
+                              <PaButton variant="primary">Primary</PaButton>
+                            </div>
+                            <p style="margin: 0; font-size: var(--pa-font-size-100, 14px); color: var(--pa-color-surface-container-text-secondary, #6c757d); line-height: 1.5;">
+                              The main call-to-action. Use for the most important action users should take (e.g., "Submit", "Save", "Confirm"). Only one Primary button should be visible per section or modal.
+                            </p>
+                          </div>
+                        </template>
+                        <template v-else-if="activeHierarchyTab === 'secondary'">
+                          <div style="display: flex; flex-direction: column; gap: var(--pa-spacing-8, 8px);">
+                            <div style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px);">
+                              <PaButton variant="secondary">Secondary</PaButton>
+                            </div>
+                            <p style="margin: 0; font-size: var(--pa-font-size-100, 14px); color: var(--pa-color-surface-container-text-secondary, #6c757d); line-height: 1.5;">
+                              Secondary actions that are important but not the primary focus. Common use cases include "Cancel", "Back", "Edit", or alternative actions to the primary button.
+                            </p>
+                          </div>
+                        </template>
+                        <template v-else-if="activeHierarchyTab === 'tertiary'">
+                          <div style="display: flex; flex-direction: column; gap: var(--pa-spacing-8, 8px);">
+                            <div style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px);">
+                              <PaButton variant="tertiary">Tertiary</PaButton>
+                            </div>
+                            <p style="margin: 0; font-size: var(--pa-font-size-100, 14px); color: var(--pa-color-surface-container-text-secondary, #6c757d); line-height: 1.5;">
+                              Less emphasized actions that are optional or supplementary. Use for actions like "Skip", "Learn More", or when you need a third action option.
+                            </p>
+                          </div>
+                        </template>
+                        <template v-else-if="activeHierarchyTab === 'payment-navigation'">
+                          <div style="display: flex; flex-direction: column; gap: var(--pa-spacing-8, 8px);">
+                            <div style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px);">
+                              <PaButton variant="payment-navigation">Payment Nav</PaButton>
+                            </div>
+                            <p style="margin: 0; font-size: var(--pa-font-size-100, 14px); color: var(--pa-color-surface-container-text-secondary, #6c757d); line-height: 1.5;">
+                              Specialized variant for payment flows and financial transactions. Use in checkout processes, payment forms, or transaction-related interfaces.
+                            </p>
+                          </div>
+                        </template>
+                        <template v-else-if="activeHierarchyTab === 'action'">
+                          <div style="display: flex; flex-direction: column; gap: var(--pa-spacing-8, 8px);">
+                            <div style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px);">
+                              <PaButton variant="action">Action</PaButton>
+                            </div>
+                            <p style="margin: 0; font-size: var(--pa-font-size-100, 14px); color: var(--pa-color-surface-container-text-secondary, #6c757d); line-height: 1.5;">
+                              General-purpose action button for contexts where the specialized variants don't fit. Use for standard actions that don't require specific emphasis.
+                            </p>
+                          </div>
+                        </template>
                       </div>
                     </div>
-                    <div class="example-item">
-                      <label>States</label>
-                      <div class="component-preview" style="flex-wrap: wrap; gap: var(--pa-spacing-8, 8px);">
+                    <button 
+                      class="show-code-button"
+                      @click="toggleShowCode(`pabutton-hierarchy-${activeHierarchyTab}`)"
+                    >
+                      {{ showCode[`pabutton-hierarchy-${activeHierarchyTab}`] ? 'Hide code' : 'Show code' }}
+                    </button>
+                    <div v-if="showCode[`pabutton-hierarchy-${activeHierarchyTab}`]" class="code-preview">
+                      <pre class="code-block">
+                        <button 
+                          class="copy-code-button"
+                          @click="copyToClipboard(getHierarchyCode(activeHierarchyTab), `pabutton-hierarchy-${activeHierarchyTab}`)"
+                          :aria-label="showCode[`copied-pabutton-hierarchy-${activeHierarchyTab}`] ? 'Copied!' : 'Copy code'"
+                        >
+                          <svg v-if="!showCode[`copied-pabutton-hierarchy-${activeHierarchyTab}`]" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M5.5 3.5H3.5C2.67157 3.5 2 4.17157 2 5V12.5C2 13.3284 2.67157 14 3.5 14H11C11.8284 14 12.5 13.3284 12.5 12.5V10.5M5.5 3.5C5.5 2.67157 6.17157 2 7 2H9.5M5.5 3.5C5.5 4.32843 6.17157 5 7 5H9.5M9.5 5H11C11.8284 5 12.5 5.67157 12.5 6.5V10.5M9.5 5V6.5C9.5 7.32843 10.1716 8 11 8H12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <svg v-else width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M13.5 4L6 11.5L2.5 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <span>{{ showCode[`copied-pabutton-hierarchy-${activeHierarchyTab}`] ? 'Copied!' : 'Copy' }}</span>
+                        </button>
+                        <code>{{ activeHierarchyTab === 'primary' ? '<PaButton variant="primary">Primary</PaButton>' : activeHierarchyTab === 'secondary' ? '<PaButton variant="secondary">Secondary</PaButton>' : activeHierarchyTab === 'tertiary' ? '<PaButton variant="tertiary">Tertiary</PaButton>' : activeHierarchyTab === 'payment-navigation' ? '<PaButton variant="payment-navigation">Payment Nav</PaButton>' : '<PaButton variant="action">Action</PaButton>' }}</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Multiple CTAs Section -->
+                <div class="documentation-section">
+                  <h3 class="documentation-section-title">Multiple CTAs</h3>
+                  <p class="documentation-section-description">
+                    When multiple actions are available, use the variant hierarchy to establish clear visual importance. Follow these patterns for common scenarios.
+                  </p>
+                  
+                  <div class="example-tabs">
+                    <button
+                      class="example-tab"
+                      :class="{ 'is-active': activeMultipleCTAsTab === 'primary-secondary' }"
+                      @click="activeMultipleCTAsTab = 'primary-secondary'"
+                    >
+                      Primary + Secondary
+                    </button>
+                    <button
+                      class="example-tab"
+                      :class="{ 'is-active': activeMultipleCTAsTab === 'primary-tertiary' }"
+                      @click="activeMultipleCTAsTab = 'primary-tertiary'"
+                    >
+                      Primary + Tertiary
+                    </button>
+                    <button
+                      class="example-tab"
+                      :class="{ 'is-active': activeMultipleCTAsTab === 'three-actions' }"
+                      @click="activeMultipleCTAsTab = 'three-actions'"
+                    >
+                      Three Actions
+                    </button>
+                  </div>
+
+                  <div class="example-preview-container">
+                    <div class="example-preview">
+                      <div class="component-preview" style="display: flex; flex-direction: column; gap: var(--pa-spacing-16, 16px);">
+                        <template v-if="activeMultipleCTAsTab === 'primary-secondary'">
+                          <div style="display: flex; flex-direction: column; gap: var(--pa-spacing-8, 8px);">
+                            <div style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px);">
+                              <PaButton variant="primary">Save Changes</PaButton>
+                              <PaButton variant="secondary">Cancel</PaButton>
+                            </div>
+                            <p style="margin: 0; font-size: var(--pa-font-size-100, 14px); color: var(--pa-color-surface-container-text-secondary, #6c757d); line-height: 1.5;">
+                              Use when you have a main action and a secondary action. The Primary button should be placed on the right (or left in RTL layouts).
+                            </p>
+                          </div>
+                        </template>
+                        <template v-else-if="activeMultipleCTAsTab === 'primary-tertiary'">
+                          <div style="display: flex; flex-direction: column; gap: var(--pa-spacing-8, 8px);">
+                            <div style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px);">
+                              <PaButton variant="primary">Submit</PaButton>
+                              <PaButton variant="tertiary">Skip</PaButton>
+                            </div>
+                            <p style="margin: 0; font-size: var(--pa-font-size-100, 14px); color: var(--pa-color-surface-container-text-secondary, #6c757d); line-height: 1.5;">
+                              Use when the secondary action is less important or optional. Tertiary provides minimal emphasis while still being accessible.
+                            </p>
+                          </div>
+                        </template>
+                        <template v-else-if="activeMultipleCTAsTab === 'three-actions'">
+                          <div style="display: flex; flex-direction: column; gap: var(--pa-spacing-8, 8px);">
+                            <div style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px);">
+                              <PaButton variant="primary">Confirm</PaButton>
+                              <PaButton variant="secondary">Edit</PaButton>
+                              <PaButton variant="tertiary">Cancel</PaButton>
+                            </div>
+                            <p style="margin: 0; font-size: var(--pa-font-size-100, 14px); color: var(--pa-color-surface-container-text-secondary, #6c757d); line-height: 1.5;">
+                              Use when you need three distinct action levels. Always maintain visual hierarchy: Primary should be most prominent, followed by Secondary, then Tertiary. Limit to maximum 3 buttons per action group.
+                            </p>
+                          </div>
+                        </template>
+                      </div>
+                    </div>
+                    <button 
+                      class="show-code-button"
+                      @click="toggleShowCode(`pabutton-multiple-ctas-${activeMultipleCTAsTab}`)"
+                    >
+                      {{ showCode[`pabutton-multiple-ctas-${activeMultipleCTAsTab}`] ? 'Hide code' : 'Show code' }}
+                    </button>
+                    <div v-if="showCode[`pabutton-multiple-ctas-${activeMultipleCTAsTab}`]" class="code-preview">
+                      <pre class="code-block">
+                        <button 
+                          class="copy-code-button"
+                          @click="copyToClipboard(getMultipleCTAsCode(activeMultipleCTAsTab), `pabutton-multiple-ctas-${activeMultipleCTAsTab}`)"
+                          :aria-label="showCode[`copied-pabutton-multiple-ctas-${activeMultipleCTAsTab}`] ? 'Copied!' : 'Copy code'"
+                        >
+                          <svg v-if="!showCode[`copied-pabutton-multiple-ctas-${activeMultipleCTAsTab}`]" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M5.5 3.5H3.5C2.67157 3.5 2 4.17157 2 5V12.5C2 13.3284 2.67157 14 3.5 14H11C11.8284 14 12.5 13.3284 12.5 12.5V10.5M5.5 3.5C5.5 2.67157 6.17157 2 7 2H9.5M5.5 3.5C5.5 4.32843 6.17157 5 7 5H9.5M9.5 5H11C11.8284 5 12.5 5.67157 12.5 6.5V10.5M9.5 5V6.5C9.5 7.32843 10.1716 8 11 8H12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <svg v-else width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M13.5 4L6 11.5L2.5 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <span>{{ showCode[`copied-pabutton-multiple-ctas-${activeMultipleCTAsTab}`] ? 'Copied!' : 'Copy' }}</span>
+                        </button>
+                        <code>{{ activeMultipleCTAsTab === 'primary-secondary' ? '<PaButton variant="primary">Save Changes</PaButton>\n<PaButton variant="secondary">Cancel</PaButton>' : activeMultipleCTAsTab === 'primary-tertiary' ? '<PaButton variant="primary">Submit</PaButton>\n<PaButton variant="tertiary">Skip</PaButton>' : '<PaButton variant="primary">Confirm</PaButton>\n<PaButton variant="secondary">Edit</PaButton>\n<PaButton variant="tertiary">Cancel</PaButton>' }}</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- States Section -->
+                <div class="documentation-section">
+                  <h3 class="documentation-section-title">States</h3>
+                  <p class="documentation-section-description">
+                    Buttons support different states to provide feedback and control user interactions. Use the disabled state when an action is not available.
+                  </p>
+                  <div class="example-preview-container">
+                    <div class="example-preview">
+                      <div class="component-preview" style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px);">
                         <PaButton variant="primary">Default</PaButton>
                         <PaButton variant="primary" :disabled="true">Disabled</PaButton>
                       </div>
                     </div>
-                  </template>
-                  
-                  <!-- Other Components -->
-                  <template v-else>
-                    <div class="example-item">
-                      <label>Default</label>
-                      <div class="component-preview">
-                        <!-- Components with v-model -->
-                        <PaInput 
-                          v-if="activeComponent === 'painput'"
+                    <button 
+                      class="show-code-button"
+                      @click="toggleShowCode('pabutton-states')"
+                    >
+                      {{ showCode['pabutton-states'] ? 'Hide code' : 'Show code' }}
+                    </button>
+                    <div v-if="showCode['pabutton-states']" class="code-preview">
+                      <pre class="code-block">
+                        <button 
+                          class="copy-code-button"
+                          @click="copyToClipboard(getCodeTextForCopy(getComponentExamples('pabutton').find(e => e.render === 'states')?.code), 'pabutton-states')"
+                          :aria-label="showCode['copied-pabutton-states'] ? 'Copied!' : 'Copy code'"
+                        >
+                          <svg v-if="!showCode['copied-pabutton-states']" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M5.5 3.5H3.5C2.67157 3.5 2 4.17157 2 5V12.5C2 13.3284 2.67157 14 3.5 14H11C11.8284 14 12.5 13.3284 12.5 12.5V10.5M5.5 3.5C5.5 2.67157 6.17157 2 7 2H9.5M5.5 3.5C5.5 4.32843 6.17157 5 7 5H9.5M9.5 5H11C11.8284 5 12.5 5.67157 12.5 6.5V10.5M9.5 5V6.5C9.5 7.32843 10.1716 8 11 8H12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <svg v-else width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M13.5 4L6 11.5L2.5 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <span>{{ showCode['copied-pabutton-states'] ? 'Copied!' : 'Copy' }}</span>
+                        </button>
+                        <code>{{ getComponentExamples('pabutton').find(e => e.render === 'states')?.code }}</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </template>
+
+              <!-- Other Components: Tab-based Examples -->
+              <template v-else>
+                <!-- Example Groups Tabs -->
+                <div v-if="currentExamples.length > 0" class="example-tabs">
+                  <button
+                    v-for="example in currentExamples"
+                    :key="example.label"
+                    class="example-tab"
+                    :class="{ 'is-active': activeExampleGroup === example.label }"
+                    @click="activeExampleGroup = example.label"
+                  >
+                    {{ example.label }}
+                  </button>
+                </div>
+
+                <!-- Current Example Display -->
+                <div v-if="currentExamples.length > 0 && currentExample" class="component-example-showcase">
+                  <div class="example-preview-container">
+                    <div class="example-preview">
+                      <!-- PaInput Examples -->
+                      <template v-if="activeComponent === 'painput'">
+                        <div class="component-preview">
+                          <PaInput 
                           v-model="componentValues.painput"
                           v-bind="getComponentProps('painput')"
                         />
+                      </div>
+                    </template>
+                    
+                    <!-- Other Components (fallback) -->
+                    <template v-else>
+                      <div class="component-preview">
                         <PaTextarea 
-                          v-else-if="activeComponent === 'patextarea'"
+                          v-if="activeComponent === 'patextarea'"
                           v-model="componentValues.patextarea"
                           v-bind="getComponentProps('patextarea')"
                         />
@@ -556,7 +1066,6 @@ const currentTheme = getTheme()</code></pre>
                           v-model="componentValues.parangeslider"
                           v-bind="getComponentProps('parangeslider')"
                         />
-                        <!-- Other components -->
                         <component 
                           v-else-if="getComponent(activeComponentData.id)" 
                           :is="getComponent(activeComponentData.id)"
@@ -578,25 +1087,127 @@ const currentTheme = getTheme()</code></pre>
                           Component preview coming soon.
                         </p>
                       </div>
+                    </template>
+                  </div>
+                  
+                  <button 
+                    class="show-code-button"
+                    @click="toggleShowCode(`${activeComponent}-${activeExampleGroup}`)"
+                  >
+                    {{ showCode[`${activeComponent}-${activeExampleGroup}`] ? 'Hide code' : 'Show code' }}
+                  </button>
+                </div>
+                
+                <div 
+                  v-if="showCode[`${activeComponent}-${activeExampleGroup}`]"
+                  class="code-preview"
+                >
+                  <pre class="code-block">
+                    <button 
+                      class="copy-code-button"
+                      @click="copyToClipboard(getCodeTextForCopy(currentExample.code), `${activeComponent}-${activeExampleGroup}`)"
+                      :aria-label="showCode[`copied-${activeComponent}-${activeExampleGroup}`] ? 'Copied!' : 'Copy code'"
+                    >
+                      <svg v-if="!showCode[`copied-${activeComponent}-${activeExampleGroup}`]" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M5.5 3.5H3.5C2.67157 3.5 2 4.17157 2 5V12.5C2 13.3284 2.67157 14 3.5 14H11C11.8284 14 12.5 13.3284 12.5 12.5V10.5M5.5 3.5C5.5 2.67157 6.17157 2 7 2H9.5M5.5 3.5C5.5 4.32843 6.17157 5 7 5H9.5M9.5 5H11C11.8284 5 12.5 5.67157 12.5 6.5V10.5M9.5 5V6.5C9.5 7.32843 10.1716 8 11 8H12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                      <svg v-else width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M13.5 4L6 11.5L2.5 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                      <span>{{ showCode[`copied-${activeComponent}-${activeExampleGroup}`] ? 'Copied!' : 'Copy' }}</span>
+                    </button>
+                    <code>{{ formatCodeWithLineNumbers(currentExample.code) }}</code></pre>
+                </div>
+              </div>
+              </template>
+
+              <!-- Fallback for components without examples -->
+              <div v-if="currentExamples.length === 0" class="component-example-showcase">
+                <div class="example-preview-container">
+                  <div class="example-preview">
+                    <div class="component-preview">
+                      <PaInput 
+                        v-if="activeComponent === 'painput'"
+                        v-model="componentValues.painput"
+                        v-bind="getComponentProps('painput')"
+                      />
+                      <PaTextarea 
+                        v-if="activeComponent === 'patextarea'"
+                        v-model="componentValues.patextarea"
+                        v-bind="getComponentProps('patextarea')"
+                      />
+                      <PaTimePicker 
+                        v-else-if="activeComponent === 'patimepicker'"
+                        v-model="componentValues.patimepicker"
+                        v-bind="getComponentProps('patimepicker')"
+                      />
+                      <PaSegmentedControl 
+                        v-else-if="activeComponent === 'pasegmentedcontrol'"
+                        v-model="componentValues.pasegmentedcontrol"
+                        :options="[{ label: 'Option 1', value: 'Option 1' }, { label: 'Option 2', value: 'Option 2' }]"
+                      />
+                      <PaSlider 
+                        v-else-if="activeComponent === 'paslider'"
+                        v-model="componentValues.paslider"
+                        v-bind="getComponentProps('paslider')"
+                      />
+                      <PaRangeSlider 
+                        v-else-if="activeComponent === 'parangeslider'"
+                        v-model="componentValues.parangeslider"
+                        v-bind="getComponentProps('parangeslider')"
+                      />
+                      <component 
+                        v-else-if="getComponent(activeComponentData.id)" 
+                        :is="getComponent(activeComponentData.id)"
+                        v-bind="getComponentProps(activeComponentData.id)"
+                      >
+                        <template v-if="activeComponent === 'pabadge'">Badge</template>
+                        <template v-else-if="activeComponent === 'painlinemessage'">Message content</template>
+                        <template v-else-if="activeComponent === 'patooltip'">
+                          <span>Hover me</span>
+                        </template>
+                        <template v-else-if="activeComponent === 'pacard'">
+                          <div style="padding: var(--pa-spacing-16, 16px);">
+                            <h3 style="margin: 0 0 var(--pa-spacing-8, 8px) 0; color: var(--pa-color-surface-container-text, #cfd4d9);">Card Title</h3>
+                            <p style="margin: 0; color: var(--pa-color-surface-container-text, #cfd4d9);">Card content goes here.</p>
+                          </div>
+                        </template>
+                      </component>
+                      <p v-else style="color: var(--pa-color-surface-container-text, #cfd4d9); padding: var(--pa-spacing-16, 16px);">
+                        Component preview coming soon.
+                      </p>
                     </div>
-                  </template>
+                  </div>
                 </div>
               </div>
               
               <div class="component-usage">
                 <h3 class="section-title">Usage</h3>
-                <pre class="code-block"><code>import { {{ activeComponentData.label }} } from './components'
+                <pre class="code-block">
+                  <button 
+                    class="copy-code-button"
+                    @click="copyToClipboard(`import { ${activeComponentData.label} } from './components'\n\n<${activeComponentData.label} />`, `fallback-${activeComponentData.id}`)"
+                    :aria-label="showCode[`copied-fallback-${activeComponentData.id}`] ? 'Copied!' : 'Copy code'"
+                  >
+                    <svg v-if="!showCode[`copied-fallback-${activeComponentData.id}`]" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M5.5 3.5H3.5C2.67157 3.5 2 4.17157 2 5V12.5C2 13.3284 2.67157 14 3.5 14H11C11.8284 14 12.5 13.3284 12.5 12.5V10.5M5.5 3.5C5.5 2.67157 6.17157 2 7 2H9.5M5.5 3.5C5.5 4.32843 6.17157 5 7 5H9.5M9.5 5H11C11.8284 5 12.5 5.67157 12.5 6.5V10.5M9.5 5V6.5C9.5 7.32843 10.1716 8 11 8H12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <svg v-else width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M13.5 4L6 11.5L2.5 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>{{ showCode[`copied-fallback-${activeComponentData.id}`] ? 'Copied!' : 'Copy' }}</span>
+                  </button>
+                  <code>{{ formatCodeWithLineNumbers(`import { ${activeComponentData.label} } from './components'
 
-&lt;{{ activeComponentData.label }} /&gt;</code></pre>
+<${activeComponentData.label} />`) }}</code></pre>
               </div>
             </div>
           </div>
-          
-          <div class="version-badge">v2.0</div>
         </div>
       </div>
     </main>
   </div>
+  <div class="version-badge">v2.0</div>
 </template>
 
 <style lang="scss" scoped>
@@ -607,7 +1218,7 @@ const currentTheme = getTheme()</code></pre>
   padding: var(--pa-spacing-6, 6px);
   background-color: var(--pa-color-surface-base-background, #000000);
   min-height: 100vh;
-  width: 100%;
+  // width: 100%;
   transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
 }
 
@@ -622,14 +1233,23 @@ const currentTheme = getTheme()</code></pre>
   gap: var(--pa-spacing-36, 36px);
   align-items: center;
   flex-shrink: 0;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
 }
+
 
 .sidebar-logo {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.sidebar-divider {
+  width: 100%;
+  height: 1px;
+  background: #000000;
+  width: 252px;
 }
 
 .logo-circle {
@@ -646,13 +1266,6 @@ const currentTheme = getTheme()</code></pre>
     width: 45px;
     height: 40px;
   }
-}
-
-.sidebar-divider {
-  width: 100%;
-  height: 1px;
-  background: #000000;
-  width: 252px;
 }
 
 .sidebar-nav {
@@ -678,10 +1291,15 @@ const currentTheme = getTheme()</code></pre>
   font-weight: 500;
   font-size: var(--pa-font-size-200, 16px);
   line-height: normal;
-  color: #6e757c;
+  color: var(--pa-color-surface-container-text-secondary, #6c757d);
   text-transform: uppercase;
   margin: 0;
   white-space: nowrap;
+  transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+}
+
+[data-theme="dark"] .nav-section-title {
+  color: #6e757c;
 }
 
 .nav-list {
@@ -702,8 +1320,13 @@ const currentTheme = getTheme()</code></pre>
     top: 0;
     bottom: 0;
     width: 1px;
-    background: linear-gradient(180deg, transparent, #222529, transparent);
+    background: linear-gradient(180deg, transparent, var(--pa-color-surface-container-border, #dee2e6), transparent);
+    transition: background var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
   }
+}
+
+[data-theme="dark"] .nav-list::before {
+  background: linear-gradient(180deg, transparent, #222529, transparent);
 }
 
 .nav-item {
@@ -711,10 +1334,23 @@ const currentTheme = getTheme()</code></pre>
   font-weight: 500;
   font-size: var(--pa-font-size-200, 16px);
   line-height: normal;
-  color: #eaecef;
+  color: var(--pa-color-surface-container-text, #212529);
   white-space: nowrap;
   cursor: pointer;
   transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  
+  &:hover {
+    color: var(--pa-color-surface-container-text-hover, #495057);
+  }
+  
+  &.is-active {
+    color: var(--pa-color-surface-container-text-active, #212529);
+    font-weight: 600;
+  }
+}
+
+[data-theme="dark"] .nav-item {
+  color: #eaecef;
   
   &:hover {
     color: #cfd4d9;
@@ -722,7 +1358,6 @@ const currentTheme = getTheme()</code></pre>
   
   &.is-active {
     color: #cfd4d9;
-    font-weight: 600;
   }
 }
 
@@ -747,17 +1382,24 @@ const currentTheme = getTheme()</code></pre>
   transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
 }
 
+
 .search-container {
   backdrop-filter: blur(20px);
-  background-color: #0e0e0f;
-  border: 1px solid #222529;
+  background-color: var(--pa-color-surface-base-background, #f7f7f8);
+  border: 1px solid var(--pa-color-surface-container-border, #dee2e6);
   border-radius: 250px;
   display: flex;
   gap: var(--pa-spacing-8, 8px);
   align-items: center;
-  padding: var(--pa-spacing-12, 12px) var(--pa-spacing-4, 4px);
-  height: 48px;
+  padding: var(--pa-spacing-12, 12px) var(--pa-spacing-6, 6px);
+  height: 32px;
   width: 300px;
+  transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease), border-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+}
+
+[data-theme="dark"] .search-container {
+  background-color: #0e0e0f;
+  border-color: #222529;
 }
 
 .search-input {
@@ -769,13 +1411,34 @@ const currentTheme = getTheme()</code></pre>
   font-weight: 500;
   font-size: var(--pa-font-size-200, 16px);
   line-height: 0.965;
-  color: #cfd4d9;
+  color: var(--pa-color-surface-container-text, #212529);
   padding: var(--pa-spacing-8, 8px) var(--pa-spacing-18, 18px);
   min-width: 0;
+  border-radius: 250px;
+  text-align: center;
+  transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  
+  &::placeholder {
+    color: var(--pa-color-surface-container-text-secondary, #6c757d);
+    text-align: center;
+    white-space: nowrap;
+    transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  }
+  
+  &:focus {
+    text-align: left;
+    
+    &::placeholder {
+      opacity: 0;
+    }
+  }
+}
+
+[data-theme="dark"] .search-input {
+  color: #cfd4d9;
   
   &::placeholder {
     color: #cfd4d9;
-    text-align: center;
   }
 }
 
@@ -880,17 +1543,20 @@ const currentTheme = getTheme()</code></pre>
   display: flex;
   flex-direction: column;
   gap: var(--pa-spacing-10, 10px);
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   position: relative;
   transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
 }
+
 
 .content-header {
   display: flex;
   flex-direction: column;
   gap: var(--pa-spacing-10, 10px);
-  flex: 1;
-  min-height: 0;
+  flex-shrink: 0;
+  margin-bottom: var(--pa-spacing-24, 24px);
+  width: 1000px;
 }
 
 .content-title {
@@ -898,19 +1564,25 @@ const currentTheme = getTheme()</code></pre>
   font-weight: 700;
   font-size: 36px;
   line-height: normal;
-  color: #ffffff;
+  color: var(--pa-color-surface-container-text, #212529);
   text-transform: uppercase;
   white-space: nowrap;
   margin: 0;
+  transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+}
+
+[data-theme="dark"] .content-title {
+  color: #ffffff;
 }
 
 .content-body {
   display: flex;
   flex-direction: column;
   gap: var(--pa-spacing-10, 10px);
-  height: 100%;
+  flex: 1;
+  min-height: 0;
   position: relative;
-  overflow-y: auto;
+  width: 1000px;
 }
 
 .component-docs {
@@ -931,17 +1603,27 @@ const currentTheme = getTheme()</code></pre>
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: var(--pa-font-size-500, 24px);
-  color: #ffffff;
+  color: var(--pa-color-surface-container-text, #212529);
   margin: 0;
+  transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+}
+
+[data-theme="dark"] .component-name {
+  color: #ffffff;
 }
 
 .component-description {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: var(--pa-font-size-200, 16px);
-  color: #cfd4d9;
+  color: var(--pa-color-surface-container-text-secondary, #6c757d);
   line-height: 1.5;
   margin: 0;
+  transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+}
+
+[data-theme="dark"] .component-description {
+  color: #cfd4d9;
 }
 
 .component-examples {
@@ -950,14 +1632,208 @@ const currentTheme = getTheme()</code></pre>
   gap: var(--pa-spacing-24, 24px);
 }
 
+.example-tabs {
+  display: flex;
+  gap: var(--pa-spacing-8, 8px);
+  margin-bottom: var(--pa-spacing-24, 24px);
+  border-bottom: 1px solid var(--pa-color-surface-container-border, #dee2e6);
+  padding-bottom: var(--pa-spacing-8, 8px);
+  transition: border-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+}
+
+[data-theme="dark"] .example-tabs {
+  border-bottom-color: #222529;
+}
+
+.example-tab {
+  background: none;
+  border: none;
+  padding: var(--pa-spacing-8, 8px) var(--pa-spacing-16, 16px);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: var(--pa-font-size-200, 16px);
+  color: var(--pa-color-surface-container-text-secondary, #6c757d);
+  cursor: pointer;
+  transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  position: relative;
+  
+  &:hover {
+    color: var(--pa-color-surface-container-text-hover, #495057);
+  }
+  
+  &.is-active {
+    color: var(--pa-color-surface-container-text, #212529);
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: calc(-1 * var(--pa-spacing-8, 8px) - 1px);
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(-85.36deg, #c10505 7.68%, #d51e33 92.47%);
+    }
+  }
+}
+
+[data-theme="dark"] .example-tab {
+  color: #6e757c;
+  
+  &:hover {
+    color: #cfd4d9;
+  }
+  
+  &.is-active {
+    color: #ffffff;
+  }
+}
+
+.component-example-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pa-spacing-16, 16px);
+  margin-bottom: var(--pa-spacing-24, 24px);
+}
+
+.example-preview-container {
+  background-color: var(--pa-color-surface-base-background, #f7f7f8);
+  border: 1px solid var(--pa-color-surface-container-border, #e9ecef);
+  border-radius: var(--pa-Border-radius-100, 8px);
+  padding: var(--pa-spacing-24, 24px);
+  position: relative;
+  transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease), border-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+}
+
+[data-theme="dark"] .example-preview-container {
+  background-color: #0e0e0f;
+  border-color: #222529;
+}
+
+.example-preview {
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.show-code-button {
+  position: absolute;
+  top: var(--pa-spacing-16, 16px);
+  right: var(--pa-spacing-16, 16px);
+  background: none;
+  border: 1px solid var(--pa-color-surface-container-border, #dee2e6);
+  border-radius: var(--pa-Border-radius-50, 4px);
+  padding: var(--pa-spacing-6, 6px) var(--pa-spacing-12, 12px);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: var(--pa-font-size-100, 14px);
+  color: var(--pa-color-surface-container-text-secondary, #6c757d);
+  cursor: pointer;
+  transition: all var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  
+  &:hover {
+    background-color: var(--pa-color-surface-container-border, #dee2e6);
+    color: var(--pa-color-surface-container-text, #212529);
+  }
+}
+
+[data-theme="dark"] .show-code-button {
+  border-color: #222529;
+  color: #cfd4d9;
+  
+  &:hover {
+    background-color: #222529;
+    color: #ffffff;
+  }
+}
+
+.code-preview {
+  margin-top: var(--pa-spacing-8, 8px);
+}
+
 .section-title {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: var(--pa-font-size-200, 16px);
-  color: #eaecef;
+  color: var(--pa-color-surface-container-text, #212529);
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+}
+
+[data-theme="dark"] .section-title {
+  color: #eaecef;
+}
+
+.documentation-section {
+  margin-top: var(--pa-spacing-32, 32px);
+  
+  &:first-of-type {
+    margin-top: var(--pa-spacing-24, 24px);
+  }
+}
+
+.documentation-section-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: var(--pa-font-size-300, 20px);
+  color: var(--pa-color-surface-container-text, #212529);
+  margin: 0 0 var(--pa-spacing-8, 8px) 0;
+  transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+}
+
+[data-theme="dark"] .documentation-section-title {
+  color: #ffffff;
+}
+
+.documentation-section-description {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--pa-font-size-100, 14px);
+  color: var(--pa-color-surface-container-text-secondary, #6c757d);
+  line-height: 1.6;
+  margin: 0 0 var(--pa-spacing-16, 16px) 0;
+  transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+}
+
+[data-theme="dark"] .documentation-section-description {
+  color: #cfd4d9;
+}
+
+.component-usage {
+  h4 {
+    transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  }
+  
+  p, li {
+    transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  }
+  
+  strong {
+    transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  }
+  
+  ul {
+    border-color: var(--pa-color-surface-container-border, #dee2e6);
+    transition: border-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  }
+}
+
+[data-theme="dark"] .component-usage {
+  h4 {
+    color: #eaecef;
+  }
+  
+  p, li {
+    color: #cfd4d9;
+  }
+  
+  strong {
+    color: #ffffff;
+  }
+  
+  > div:last-child {
+    border-top-color: #222529;
+  }
 }
 
 .example-group {
@@ -965,9 +1841,15 @@ const currentTheme = getTheme()</code></pre>
   flex-direction: column;
   gap: var(--pa-spacing-16, 16px);
   padding: var(--pa-spacing-24, 24px);
-  background-color: #0e0e0f;
-  border: 1px solid #222529;
+  background-color: var(--pa-color-surface-base-background, #f7f7f8);
+  border: 1px solid var(--pa-color-surface-container-border, #dee2e6);
   border-radius: var(--pa-Border-radius-100, 8px);
+  transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease), border-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+}
+
+[data-theme="dark"] .example-group {
+  background-color: #0e0e0f;
+  border-color: #222529;
 }
 
 .example-item {
@@ -979,10 +1861,15 @@ const currentTheme = getTheme()</code></pre>
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: var(--pa-font-size-100, 14px);
-    color: #6e757c;
+    color: var(--pa-color-surface-container-text-secondary, #6c757d);
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
   }
+}
+
+[data-theme="dark"] .example-item label {
+  color: #6e757c;
 }
 
 .component-preview {
@@ -1046,26 +1933,141 @@ const currentTheme = getTheme()</code></pre>
 }
 
 .code-block {
-  background-color: #0e0e0f;
-  border: 1px solid #222529;
+  background-color: var(--pa-color-surface-base-background, #f7f7f8);
+  border: 1px solid var(--pa-color-surface-container-border, #e9ecef);
   border-radius: var(--pa-Border-radius-100, 8px);
-  padding: var(--pa-spacing-24, 24px);
+  padding: 0;
   overflow-x: auto;
   margin: 0;
+  position: relative;
+  transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease), border-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  
+  &:hover .copy-code-button {
+    opacity: 1;
+  }
   
   code {
-    font-family: 'Roboto Mono', monospace;
+    display: block;
+    font-family: 'Roboto Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
     font-size: var(--pa-font-size-100, 14px);
-    color: #cfd4d9;
     line-height: 1.6;
     white-space: pre;
+    padding: var(--pa-spacing-24, 24px);
+    padding-left: calc(48px + var(--pa-spacing-16, 16px));
+    padding-right: calc(var(--pa-spacing-12, 12px) + 80px);
+    margin: 0;
+    color: var(--pa-color-surface-container-text, #495057);
+    transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+    background-color: transparent;
+    background-image: 
+      linear-gradient(
+        to right,
+        transparent 0,
+        transparent 48px,
+        var(--pa-color-surface-container-border, #e9ecef) 48px,
+        var(--pa-color-surface-container-border, #e9ecef) 49px,
+        transparent 49px
+      );
+    background-clip: padding-box;
+    position: relative;
+    z-index: 1;
+    
+    &::selection {
+      background-color: rgba(193, 5, 5, 0.2);
+    }
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 48px;
+    background-color: var(--pa-color-surface-container-background, #ffffff);
+    border-right: 1px solid var(--pa-color-surface-container-border, #e9ecef);
+    border-radius: var(--pa-Border-radius-100, 8px) 0 0 var(--pa-Border-radius-100, 8px);
+    transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease), border-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+    z-index: 0;
+  }
+}
+
+[data-theme="dark"] .code-block {
+  background-color: #0e0e0f;
+  border-color: #222529;
+  
+  code {
+    color: #cfd4d9;
+    background-image: 
+      linear-gradient(
+        to right,
+        transparent 0,
+        transparent 48px,
+        #222529 48px,
+        #222529 49px,
+        transparent 49px
+      );
+  }
+  
+  &::before {
+    background-color: #151517;
+    border-color: #222529;
+  }
+}
+
+.copy-code-button {
+  position: absolute;
+  top: var(--pa-spacing-12, 12px);
+  right: var(--pa-spacing-12, 12px);
+  background-color: var(--pa-color-surface-container-background, #ffffff);
+  border: 1px solid var(--pa-color-surface-container-border, #e9ecef);
+  border-radius: var(--pa-Border-radius-50, 4px);
+  padding: var(--pa-spacing-6, 6px) var(--pa-spacing-10, 10px);
+  font-family: 'Inter', sans-serif;
+  font-size: var(--pa-font-size-100, 14px);
+  font-weight: 500;
+  color: var(--pa-color-surface-container-text-secondary, #6c757d);
+  cursor: pointer;
+  opacity: 0;
+  transition: all var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: var(--pa-spacing-6, 6px);
+  
+  &:hover {
+    background-color: var(--pa-color-surface-container-border, #e9ecef);
+    color: var(--pa-color-surface-container-text, #212529);
+    border-color: var(--pa-color-surface-container-border, #e9ecef);
+  }
+  
+  &:active {
+    transform: scale(0.98);
+  }
+  
+  svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+}
+
+[data-theme="dark"] .copy-code-button {
+  background-color: #151517;
+  border-color: #222529;
+  color: #cfd4d9;
+  
+  &:hover {
+    background-color: #222529;
+    color: #ffffff;
+    border-color: #222529;
   }
 }
 
 .version-badge {
   position: absolute;
-  bottom: var(--pa-spacing-36, 36px);
-  right: var(--pa-spacing-36, 36px);
+  bottom: var(--pa-spacing-24, 24px);
+  right: var(--pa-spacing-24, 24px);
   background-color: #0e0e0f;
   border: 1px solid #222529;
   border-radius: 100px;
@@ -1079,3 +2081,4 @@ const currentTheme = getTheme()</code></pre>
   font-variation-settings: 'wdth' 100;
 }
 </style>
+

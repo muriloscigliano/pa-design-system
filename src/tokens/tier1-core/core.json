@@ -2,11 +2,11 @@
   "gray": {
     "50": {
       "$type": "color",
-      "$value": "#d9d9d9"
+      "$value": "#F9F9F9"
     },
     "100": {
       "$type": "color",
-      "$value": "#ffffff"
+      "$value": "#F8F9FA"
     },
     "200": {
       "$type": "color",
@@ -159,6 +159,10 @@
   },
   "spacing": {
     "0": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "00": {
       "$type": "dimension",
       "$value": "0px"
     },

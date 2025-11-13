@@ -1,0 +1,98 @@
+import {
+  PaButton,
+  PaInput,
+  PaCheckbox,
+  PaRadio,
+  PaRadioButtonGroup,
+  PaToggleSwitch,
+  PaSelect,
+  PaTextarea,
+  PaAutocomplete,
+  PaTimePicker,
+  PaFileUploader,
+  PaForm,
+  PaCard,
+  PaHeader,
+  PaListItem,
+  PaPageLayout,
+  PaContentSeparator,
+  PaContainer,
+  PaFormContainer,
+  PaSectionContainer,
+  PaDropdown,
+  PaSegmentedControl,
+  PaToggleSegmentation,
+  PaToggleChip,
+  PaKebabMenu,
+  PaTabs,
+  PaBreadcrumbs,
+  PaStepper,
+  PaDrawer,
+  PaModal,
+  PaTooltip,
+  PaBadge,
+  PaInlineMessage,
+  PaLoading,
+  PaEmptyState,
+  PaProgress,
+  PaTable,
+  PaAccordion,
+  PaPagination,
+  PaSlider,
+  PaRangeSlider
+} from '../components'
+
+export function useComponentRegistry() {
+  const componentMap: Record<string, any> = {
+    'pabutton': PaButton,
+    'painput': PaInput,
+    'pacheckbox': PaCheckbox,
+    'paradio': PaRadio,
+    'paradiobuttongroup': PaRadioButtonGroup,
+    'patoggleswitch': PaToggleSwitch,
+    'paselect': PaSelect,
+    'patextarea': PaTextarea,
+    'paautocomplete': PaAutocomplete,
+    'patimepicker': PaTimePicker,
+    'pafileuploader': PaFileUploader,
+    'paform': PaForm,
+    'pacard': PaCard,
+    'paheader': PaHeader,
+    'palistitem': PaListItem,
+    'papagelayout': PaPageLayout,
+    'pacontentseparator': PaContentSeparator,
+    'pacontainer': PaContainer,
+    'paformcontainer': PaFormContainer,
+    'pasectioncontainer': PaSectionContainer,
+    'padropdown': PaDropdown,
+    'pasegmentedcontrol': PaSegmentedControl,
+    'patogglesegmentation': PaToggleSegmentation,
+    'patogglechip': PaToggleChip,
+    'pakebabmenu': PaKebabMenu,
+    'patabs': PaTabs,
+    'pabreadcrumbs': PaBreadcrumbs,
+    'pastepper': PaStepper,
+    'padrawer': PaDrawer,
+    'pamodal': PaModal,
+    'patooltip': PaTooltip,
+    'pabadge': PaBadge,
+    'painlinemessage': PaInlineMessage,
+    'paloading': PaLoading,
+    'paemptystate': PaEmptyState,
+    'paprogress': PaProgress,
+    'patable': PaTable,
+    'paaccordion': PaAccordion,
+    'papagination': PaPagination,
+    'paslider': PaSlider,
+    'parangeslider': PaRangeSlider
+  }
+
+  const getComponent = (componentId: string) => {
+    return componentMap[componentId] || null
+  }
+
+  return {
+    getComponent
+  }
+}
+

@@ -5,15 +5,15 @@
         "background": {
           "default": {
             "$type": "color",
-            "$value": "{gray.white}"
+            "$value": "{brand.red.500}"
           },
           "hover": {
             "$type": "color",
-            "$value": "{gray.300}"
+            "$value": "{brand.red.600}"
           },
           "active": {
             "$type": "color",
-            "$value": "{gray.white}"
+            "$value": "{brand.red.500}"
           },
           "disable": {
             "$type": "color",
@@ -23,7 +23,7 @@
         "text": {
           "default": {
             "$type": "color",
-            "$value": "{gray.900}"
+            "$value": "{gray.white}"
           },
           "disable": {
             "$type": "color",
@@ -33,11 +33,11 @@
         "border": {
           "default": {
             "$type": "color",
-            "$value": "{gray.800}"
+            "$value": "{brand.red.500}"
           },
           "focus": {
             "$type": "color",
-            "$value": "{gray.200}"
+            "$value": "{brand.red.600}"
           },
           "disable": {
             "$type": "color",

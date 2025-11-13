@@ -1,0 +1,47 @@
+export const componentProps: Record<string, Record<string, any>> = {
+  'pabutton': { variant: 'primary', size: 'md' },
+  'painput': { placeholder: 'Enter text...' },
+  'pacheckbox': { label: 'Checkbox label' },
+  'paradio': { label: 'Radio option', name: 'radio-demo', value: 'option1' },
+  'paradiobuttongroup': { options: [{ label: 'Option 1', value: '1' }, { label: 'Option 2', value: '2' }] },
+  'patoggleswitch': { label: 'Toggle switch' },
+  'paselect': { options: [{ label: 'Option 1', value: '1' }], placeholder: 'Select...' },
+  'patextarea': { placeholder: 'Enter text...' },
+  'paautocomplete': { placeholder: 'Type to search...', options: ['Option 1', 'Option 2'] },
+  'pafileuploader': {},
+  'paform': {},
+  'pacard': {},
+  'paheader': {},
+  'palistitem': { title: 'List Item', description: 'Item description' },
+  'papagelayout': {},
+  'pacontentseparator': {},
+  'pacontainer': {},
+  'paformcontainer': {},
+  'pasectioncontainer': { title: 'Section Title' },
+  'padropdown': { trigger: 'Dropdown' },
+  'pasegmentedcontrol': { options: ['Option 1', 'Option 2'] },
+  'patogglesegmentation': { options: ['Option 1', 'Option 2'] },
+  'patogglechip': { label: 'Chip' },
+  'pakebabmenu': {},
+  'patabs': { tabs: [{ label: 'Tab 1', value: '1' }, { label: 'Tab 2', value: '2' }] },
+  'pabreadcrumbs': { items: [{ label: 'Home' }, { label: 'Page' }] },
+  'pastepper': { steps: [{ title: 'Step 1' }, { title: 'Step 2' }], current: 0 },
+  'padrawer': { visible: false },
+  'pamodal': { visible: false },
+  'patooltip': { content: 'Tooltip content' },
+  'pabadge': { variant: 'default' },
+  'painlinemessage': { variant: 'info', message: 'This is an inline message' },
+  'paloading': {},
+  'paemptystate': { title: 'No data', description: 'There is no data to display' },
+  'paprogress': { percentage: 50 },
+  'patable': { data: [], columns: [] },
+  'paaccordion': { items: [{ title: 'Item 1', content: 'Content 1' }] },
+  'papagination': { total: 100, pageSize: 10, current: 1 },
+  'paslider': { min: 0, max: 100 },
+  'parangeslider': { min: 0, max: 100 }
+}
+
+export const getComponentProps = (componentId: string): Record<string, any> => {
+  return componentProps[componentId] || {}
+}
+

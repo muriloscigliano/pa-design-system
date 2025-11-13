@@ -252,7 +252,7 @@
       "base": {
         "background": {
           "$type": "color",
-          "$value": "{gray.50}"
+          "$value": "{gray.100}"
         },
         "text": {
           "$type": "color",
@@ -274,7 +274,7 @@
       "container": {
         "background": {
           "$type": "color",
-          "$value": "{gray.100}"
+          "$value": "{gray.white}"
         },
         "text": {
           "$type": "color",
