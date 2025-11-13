@@ -5,6 +5,7 @@ import { CodeBlock } from '../components'
 import { useCodeCopy } from '../composables/useCodeCopy'
 import { getComponentSourceCode } from '../config/componentSourceCode'
 import { getComponentTokens } from '../utils/tokenExtractor'
+import { getComponentStyleSource } from '../config/componentStyleSource'
 
 const { showCode, toggleShowCode } = useCodeCopy()
 const activeStatesTab = ref('default')
@@ -97,7 +98,49 @@ const getStatesCode = (tab: string): string => {
       />
     </div>
 
-    <!-- Token Source Section -->
+    <!-- Style Source Section -->
+
+
+    <div class="documentation-section">
+
+
+      <h3 class="documentation-section-title">Style Source</h3>
+
+
+      <p class="documentation-section-description">
+
+
+        The complete SCSS styles for the PaRadioButtonGroup component.
+
+
+      </p>
+
+
+      <CodeBlock 
+
+
+        :code="getComponentStyleSource('paradiobuttongroup')"
+
+
+        copy-key="paradiobuttongroup-style-source"
+
+
+        :show-line-numbers="true"
+
+
+        language="scss"
+
+
+      />
+
+
+    </div>
+
+
+    
+
+
+    
     <div class="documentation-section">
       <h3 class="documentation-section-title">Token Source</h3>
       <p class="documentation-section-description">

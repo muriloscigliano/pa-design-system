@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { PaToggleSwitch } from '../components'
+import { PaActionButton } from '../components'
 import { CodeBlock } from '../components'
 import { useCodeCopy } from '../composables/useCodeCopy'
 import { getComponentSourceCode } from '../config/componentSourceCode'
@@ -10,38 +10,37 @@ const { showCode, toggleShowCode } = useCodeCopy()
 const activeSizesTab = ref('sm')
 const activeStatesTab = ref('default')
 const tokenSource = ref('')
-const toggleValue = ref(false)
 
 onMounted(async () => {
-  tokenSource.value = await getComponentTokens('patoggleswitch')
+  tokenSource.value = await getComponentTokens('paactionbutton')
 })
 
 const getSizesCode = (tab: string): string => {
   const codes: Record<string, string> = {
-    'sm': `import { PaToggleSwitch } from './components'
+    'sm': `import { PaActionButton } from './components'
 
-<PaToggleSwitch size="sm" v-model="value" label="Small toggle" />`,
-    'md': `import { PaToggleSwitch } from './components'
+<PaActionButton size="sm">Small Action</PaActionButton>`,
+    'md': `import { PaActionButton } from './components'
 
-<PaToggleSwitch size="md" v-model="value" label="Medium toggle" />`,
-    'lg': `import { PaToggleSwitch } from './components'
+<PaActionButton size="md">Medium Action</PaActionButton>`,
+    'lg': `import { PaActionButton } from './components'
 
-<PaToggleSwitch size="lg" v-model="value" label="Large toggle" />`
+<PaActionButton size="lg">Large Action</PaActionButton>`
   }
   return codes[tab] || ''
 }
 
 const getStatesCode = (tab: string): string => {
   const codes: Record<string, string> = {
-    'default': `import { PaToggleSwitch } from './components'
+    'default': `import { PaActionButton } from './components'
 
-<PaToggleSwitch v-model="value" label="Default toggle" />`,
-    'on': `import { PaToggleSwitch } from './components'
+<PaActionButton>Default Action</PaActionButton>`,
+    'disabled': `import { PaActionButton } from './components'
 
-<PaToggleSwitch v-model="value" label="Toggle ON" />`,
-    'disabled': `import { PaToggleSwitch } from './components'
+<PaActionButton :disabled="true">Disabled Action</PaActionButton>`,
+    'loading': `import { PaActionButton } from './components'
 
-<PaToggleSwitch :disabled="true" v-model="value" label="Disabled toggle" />`
+<PaActionButton :loading="true">Loading Action</PaActionButton>`
   }
   return codes[tab] || ''
 }
@@ -49,11 +48,10 @@ const getStatesCode = (tab: string): string => {
 
 <template>
   <div class="component-docs">
-    <!-- Sizes Section -->
     <div class="documentation-section">
       <h3 class="documentation-section-title">Sizes</h3>
       <p class="documentation-section-description">
-        Toggle switches are available in three sizes: small, medium, and large. Choose the size that best fits your layout. Medium is the default size.
+        Action buttons are available in three sizes: small, medium, and large.
       </p>
       
       <div class="example-tabs">
@@ -84,26 +82,26 @@ const getStatesCode = (tab: string): string => {
         <div class="example-preview">
           <div class="component-preview" style="display: flex; flex-direction: column; gap: var(--pa-spacing-16, 16px);">
             <template v-if="activeSizesTab === 'sm'">
-              <PaToggleSwitch size="sm" v-model="toggleValue" label="Small toggle" />
+              <PaActionButton size="sm">Small Action</PaActionButton>
             </template>
             <template v-else-if="activeSizesTab === 'md'">
-              <PaToggleSwitch size="md" v-model="toggleValue" label="Medium toggle" />
+              <PaActionButton size="md">Medium Action</PaActionButton>
             </template>
             <template v-else-if="activeSizesTab === 'lg'">
-              <PaToggleSwitch size="lg" v-model="toggleValue" label="Large toggle" />
+              <PaActionButton size="lg">Large Action</PaActionButton>
             </template>
           </div>
         </div>
         <button 
           class="show-code-button"
-          @click="toggleShowCode(`patoggleswitch-sizes-${activeSizesTab}`)"
+          @click="toggleShowCode(`paactionbutton-sizes-${activeSizesTab}`)"
         >
-          {{ showCode[`patoggleswitch-sizes-${activeSizesTab}`] ? 'Hide code' : 'Show code' }}
+          {{ showCode[`paactionbutton-sizes-${activeSizesTab}`] ? 'Hide code' : 'Show code' }}
         </button>
-        <div v-if="showCode[`patoggleswitch-sizes-${activeSizesTab}`]" class="code-preview">
+        <div v-if="showCode[`paactionbutton-sizes-${activeSizesTab}`]" class="code-preview">
           <CodeBlock 
             :code="getSizesCode(activeSizesTab)"
-            :copy-key="`patoggleswitch-sizes-usage-${activeSizesTab}`"
+            :copy-key="`paactionbutton-sizes-usage-${activeSizesTab}`"
             :show-line-numbers="true"
             language="vue"
           />
@@ -111,11 +109,10 @@ const getStatesCode = (tab: string): string => {
       </div>
     </div>
 
-    <!-- States Section -->
     <div class="documentation-section">
       <h3 class="documentation-section-title">States</h3>
       <p class="documentation-section-description">
-        Toggle switches support different states: default (OFF), ON, and disabled. Use toggle switches for binary settings or on/off controls.
+        Action buttons support different states: default, disabled, and loading.
       </p>
 
       <div class="example-tabs">
@@ -128,17 +125,17 @@ const getStatesCode = (tab: string): string => {
         </button>
         <button
           class="example-tab"
-          :class="{ 'is-active': activeStatesTab === 'on' }"
-          @click="activeStatesTab = 'on'"
-        >
-          ON
-        </button>
-        <button
-          class="example-tab"
           :class="{ 'is-active': activeStatesTab === 'disabled' }"
           @click="activeStatesTab = 'disabled'"
         >
           Disabled
+        </button>
+        <button
+          class="example-tab"
+          :class="{ 'is-active': activeStatesTab === 'loading' }"
+          @click="activeStatesTab = 'loading'"
+        >
+          Loading
         </button>
       </div>
 
@@ -146,26 +143,26 @@ const getStatesCode = (tab: string): string => {
         <div class="example-preview">
           <div class="component-preview" style="display: flex; flex-direction: column; gap: var(--pa-spacing-16, 16px);">
             <template v-if="activeStatesTab === 'default'">
-              <PaToggleSwitch v-model="toggleValue" label="Default toggle" />
-            </template>
-            <template v-else-if="activeStatesTab === 'on'">
-              <PaToggleSwitch :model-value="true" label="Toggle ON" />
+              <PaActionButton>Default Action</PaActionButton>
             </template>
             <template v-else-if="activeStatesTab === 'disabled'">
-              <PaToggleSwitch :disabled="true" :model-value="false" label="Disabled toggle" />
+              <PaActionButton :disabled="true">Disabled Action</PaActionButton>
+            </template>
+            <template v-else-if="activeStatesTab === 'loading'">
+              <PaActionButton :loading="true">Loading Action</PaActionButton>
             </template>
           </div>
         </div>
         <button 
           class="show-code-button"
-          @click="toggleShowCode(`patoggleswitch-states-${activeStatesTab}`)"
+          @click="toggleShowCode(`paactionbutton-states-${activeStatesTab}`)"
         >
-          {{ showCode[`patoggleswitch-states-${activeStatesTab}`] ? 'Hide code' : 'Show code' }}
+          {{ showCode[`paactionbutton-states-${activeStatesTab}`] ? 'Hide code' : 'Show code' }}
         </button>
-        <div v-if="showCode[`patoggleswitch-states-${activeStatesTab}`]" class="code-preview">
+        <div v-if="showCode[`paactionbutton-states-${activeStatesTab}`]" class="code-preview">
           <CodeBlock 
             :code="getStatesCode(activeStatesTab)"
-            :copy-key="`patoggleswitch-states-usage-${activeStatesTab}`"
+            :copy-key="`paactionbutton-states-usage-${activeStatesTab}`"
             :show-line-numbers="true"
             language="vue"
           />
@@ -173,29 +170,27 @@ const getStatesCode = (tab: string): string => {
       </div>
     </div>
 
-    <!-- Component Source Section -->
     <div class="documentation-section">
       <h3 class="documentation-section-title">Component Source</h3>
       <p class="documentation-section-description">
-        The complete source code for the PaToggleSwitch component.
+        The complete source code for the PaActionButton component.
       </p>
       <CodeBlock 
-        :code="getComponentSourceCode('patoggleswitch')"
-        copy-key="patoggleswitch-component-source"
+        :code="getComponentSourceCode('paactionbutton')"
+        copy-key="paactionbutton-component-source"
         :show-line-numbers="true"
         language="vue"
       />
     </div>
 
-    <!-- Token Source Section -->
     <div class="documentation-section">
       <h3 class="documentation-section-title">Token Source</h3>
       <p class="documentation-section-description">
-        CSS custom properties (design tokens) used by the PaToggleSwitch component.
+        CSS custom properties (design tokens) used by the PaActionButton component.
       </p>
       <CodeBlock 
         :code="tokenSource"
-        copy-key="patoggleswitch-token-source"
+        copy-key="paactionbutton-token-source"
         :show-line-numbers="true"
         language="css"
       />

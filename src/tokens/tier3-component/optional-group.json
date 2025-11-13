@@ -1,0 +1,15 @@
+{
+  "optional-group": {
+    "gap": {
+      "$type": "dimension",
+      "$value": "{spacing.100}"
+    },
+    "badge": {
+      "font-size": {
+        "$type": "dimension",
+        "$value": "{font.size.sm}"
+      }
+    }
+  }
+}
+

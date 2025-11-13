@@ -18,7 +18,7 @@ const getStatesCode = (tab: string): string => {
   const codes: Record<string, string> = {
     'default': `import { PaBreadcrumbs } from './components'
 
-<PaBreadcrumbs />`
+<PaBreadcrumbs :items="[{ label: 'Home' }, { label: 'Components' }]" />`
   }
   return codes[tab] || ''
 }
@@ -46,7 +46,7 @@ const getStatesCode = (tab: string): string => {
         <div class="example-preview">
           <div class="component-preview" style="display: flex; flex-direction: column; gap: var(--pa-spacing-16, 16px);">
             <template v-if="activeStatesTab === 'default'">
-              <PaBreadcrumbs />
+              <PaBreadcrumbs :items="[{ label: 'Home' }, { label: 'Components' }]" />
             </template>
           </div>
         </div>

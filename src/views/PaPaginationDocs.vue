@@ -5,6 +5,7 @@ import { CodeBlock } from '../components'
 import { useCodeCopy } from '../composables/useCodeCopy'
 import { getComponentSourceCode } from '../config/componentSourceCode'
 import { getComponentTokens } from '../utils/tokenExtractor'
+import { getComponentStyleSource } from '../config/componentStyleSource'
 
 const { showCode, toggleShowCode } = useCodeCopy()
 const activeStatesTab = ref('default')
@@ -18,7 +19,7 @@ const getStatesCode = (tab: string): string => {
   const codes: Record<string, string> = {
     'default': `import { PaPagination } from './components'
 
-<PaPagination />`
+<PaPagination :model-value="1" :total="100" />`
   }
   return codes[tab] || ''
 }
@@ -46,7 +47,7 @@ const getStatesCode = (tab: string): string => {
         <div class="example-preview">
           <div class="component-preview" style="display: flex; flex-direction: column; gap: var(--pa-spacing-16, 16px);">
             <template v-if="activeStatesTab === 'default'">
-              <PaPagination />
+              <PaPagination :model-value="1" :total="100" />
             </template>
           </div>
         </div>

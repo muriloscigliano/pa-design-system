@@ -5,6 +5,7 @@ import { CodeBlock } from '../components'
 import { useCodeCopy } from '../composables/useCodeCopy'
 import { getComponentSourceCode } from '../config/componentSourceCode'
 import { getComponentTokens } from '../utils/tokenExtractor'
+import { getComponentStyleSource } from '../config/componentStyleSource'
 
 const { showCode, toggleShowCode } = useCodeCopy()
 const activeStatesTab = ref('default')
@@ -18,7 +19,7 @@ const getStatesCode = (tab: string): string => {
   const codes: Record<string, string> = {
     'default': `import { PaKebabMenu } from './components'
 
-<PaKebabMenu />`
+<PaKebabMenu :options="[{ label: 'Edit', action: () => {} }, { label: 'Delete', action: () => {} }]" />`
   }
   return codes[tab] || ''
 }
@@ -46,7 +47,7 @@ const getStatesCode = (tab: string): string => {
         <div class="example-preview">
           <div class="component-preview" style="display: flex; flex-direction: column; gap: var(--pa-spacing-16, 16px);">
             <template v-if="activeStatesTab === 'default'">
-              <PaKebabMenu />
+              <PaKebabMenu :options="[{ label: 'Edit', action: () => {} }, { label: 'Delete', action: () => {} }]" />
             </template>
           </div>
         </div>

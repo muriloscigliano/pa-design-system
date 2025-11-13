@@ -2,6 +2,8 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { navigation } from '../../config/navigation'
+import darkModeIcon from '../../assets/dark-mode-icon.svg'
+import lightModeIcon from '../../assets/light-mode-icon.svg'
 
 interface Props {
   currentTheme: 'light' | 'dark'
@@ -70,22 +72,14 @@ const handleToggleTheme = () => {
         :aria-label="`Switch to ${currentTheme === 'dark' ? 'light' : 'dark'} mode`"
       >
         <div class="theme-toggle-slider" :class="{ 'is-dark': currentTheme === 'dark' }">
-          <svg v-if="currentTheme === 'dark'" width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M8 2V4M8 12V14M2 8H4M12 8H14M3.757 3.757L5.172 5.172M10.828 10.828L12.243 12.243M3.757 12.243L5.172 10.828M10.828 5.172L12.243 3.757" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-          <svg v-else width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M8 3C5.23858 3 3 5.23858 3 8C3 10.7614 5.23858 13 8 13C10.7614 13 13 10.7614 13 8C13 5.23858 10.7614 3 8 3Z" fill="white"/>
-          </svg>
-        </div>
-        <div class="theme-toggle-icon theme-toggle-icon-light">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M8 2V4M8 12V14M2 8H4M12 8H14M3.757 3.757L5.172 5.172M10.828 10.828L12.243 12.243M3.757 12.243L5.172 10.828M10.828 5.172L12.243 3.757" stroke="#6e757c" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
+          <img v-if="currentTheme === 'dark'" :src="darkModeIcon" alt="Dark mode" width="16" height="16" />
+          <img v-else :src="lightModeIcon" alt="Light mode" width="20" height="20" />
         </div>
         <div class="theme-toggle-icon theme-toggle-icon-dark">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M8 3C5.23858 3 3 5.23858 3 8C3 10.7614 5.23858 13 8 13C10.7614 13 13 10.7614 13 8C13 5.23858 10.7614 3 8 3Z" fill="#6e757c"/>
-          </svg>
+          <img :src="darkModeIcon" alt="Dark mode" width="16" height="16" />
+        </div>
+        <div class="theme-toggle-icon theme-toggle-icon-light">
+          <img :src="lightModeIcon" alt="Light mode" width="20" height="20" />
         </div>
       </button>
     </div>
@@ -233,9 +227,10 @@ const handleToggleTheme = () => {
     transform: translateX(36px);
   }
   
-  svg {
+  img {
     width: 16px;
     height: 16px;
+    display: block;
   }
 }
 
@@ -248,17 +243,26 @@ const handleToggleTheme = () => {
   justify-content: center;
   z-index: 1;
   
-  &.theme-toggle-icon-light {
-    left: var(--pa-spacing-2, 2px);
-  }
-  
   &.theme-toggle-icon-dark {
-    right: var(--pa-spacing-2, 2px);
+    left: var(--pa-spacing-2, 2px);
+    
+    img {
+      width: 16px;
+      height: 16px;
+    }
   }
   
-  svg {
-    width: 16px;
-    height: 16px;
+  &.theme-toggle-icon-light {
+    right: var(--pa-spacing-2, 2px);
+    
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  
+  img {
+    display: block;
   }
 }
 </style>

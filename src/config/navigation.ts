@@ -20,7 +20,11 @@ export const navigation: Record<string, NavigationSection> = {
   'buttons': {
     title: 'Buttons',
     items: [
-      { label: 'PaButton', id: 'pabutton' }
+      { label: 'PaButton', id: 'pabutton' },
+      { label: 'PaActionButton', id: 'paactionbutton' },
+      { label: 'PaActionButtonGroup', id: 'paactionbuttongroup' },
+      { label: 'PaActionGroup', id: 'paactiongroup' },
+      { label: 'PaButtonDropdown', id: 'pabuttondropdown' }
     ]
   },
   'form-inputs': {
@@ -30,17 +34,19 @@ export const navigation: Record<string, NavigationSection> = {
       { label: 'PaTextarea', id: 'patextarea' },
       { label: 'PaAutocomplete', id: 'paautocomplete' },
       { label: 'PaTimePicker', id: 'patimepicker' },
-      { label: 'PaFileUploader', id: 'pafileuploader' }
+      { label: 'PaFileUploader', id: 'pafileuploader' },
+      { label: 'PaCurrencyInput', id: 'pacurrencyinput' },
+      { label: 'PaDatePicker', id: 'padatepicker' },
+      { label: 'PaInputGroup', id: 'painputgroup' },
+      { label: 'PaPhoneNumberInputGroup', id: 'paphonenumberinputgroup' }
     ]
   },
   'form-controls': {
     title: 'Form Controls',
     items: [
-      { label: 'PaCheckbox', id: 'pacheckbox' },
-      { label: 'PaRadio', id: 'paradio' },
-      { label: 'PaRadioButtonGroup', id: 'paradiobuttongroup' },
-      { label: 'PaToggleSwitch', id: 'patoggleswitch' },
-      { label: 'PaSelect', id: 'paselect' }
+      { label: 'PaSelect', id: 'paselect' },
+      { label: 'PaToggleInputGroup', id: 'patoggleinputgroup' },
+      { label: 'PaOptionalGroup', id: 'paoptionalgroup' }
     ]
   },
   'form-layout': {
@@ -48,7 +54,8 @@ export const navigation: Record<string, NavigationSection> = {
     items: [
       { label: 'PaForm', id: 'paform' },
       { label: 'PaFormContainer', id: 'paformcontainer' },
-      { label: 'PaSectionContainer', id: 'pasectioncontainer' }
+      { label: 'PaSectionContainer', id: 'pasectioncontainer' },
+      { label: 'PaFormDivider', id: 'paformdivider' }
     ]
   },
   'layout': {
@@ -59,7 +66,12 @@ export const navigation: Record<string, NavigationSection> = {
       { label: 'PaPageLayout', id: 'papagelayout' },
       { label: 'PaContentSeparator', id: 'pacontentseparator' },
       { label: 'PaHeader', id: 'paheader' },
-      { label: 'PaListItem', id: 'palistitem' }
+      { label: 'PaListItem', id: 'palistitem' },
+      { label: 'PaPageDivider', id: 'papagedivider' },
+      { label: 'PaTextContainer', id: 'patextcontainer' },
+      { label: 'PaTextDivider', id: 'patextdivider' },
+      { label: 'PaSlottedLayout', id: 'paslottedlayout' },
+      { label: 'PaSlottedLayoutHeader', id: 'paslottedlayoutheader' }
     ]
   },
   'navigation': {
@@ -70,12 +82,19 @@ export const navigation: Record<string, NavigationSection> = {
       { label: 'PaStepper', id: 'pastepper' },
       { label: 'PaDrawer', id: 'padrawer' },
       { label: 'PaDropdown', id: 'padropdown' },
-      { label: 'PaKebabMenu', id: 'pakebabmenu' }
+      { label: 'PaKebabMenu', id: 'pakebabmenu' },
+      { label: 'PaNavButton', id: 'panavbutton' },
+      { label: 'PaNavButtonGroup', id: 'panavbuttongroup' }
     ]
   },
   'selection': {
     title: 'Selection',
     items: [
+      { label: 'PaCheckbox', id: 'pacheckbox' },
+      { label: 'PaRadio', id: 'paradio' },
+      { label: 'PaRadioButtonGroup', id: 'paradiobuttongroup' },
+      { label: 'PaSwitch', id: 'paswitch' },
+      { label: 'PaCheckboxGroup', id: 'pacheckboxgroup' },
       { label: 'PaSegmentedControl', id: 'pasegmentedcontrol' },
       { label: 'PaToggleSegmentation', id: 'patogglesegmentation' },
       { label: 'PaToggleChip', id: 'patogglechip' }
@@ -101,6 +120,32 @@ export const navigation: Record<string, NavigationSection> = {
       { label: 'PaPagination', id: 'papagination' },
       { label: 'PaSlider', id: 'paslider' },
       { label: 'PaRangeSlider', id: 'parangeslider' }
+    ]
+  },
+  'hero': {
+    title: 'Hero',
+    items: [
+      { label: 'PaHeroHeader', id: 'paheroheader' },
+      { label: 'PaHeroIcon', id: 'paheroicon' },
+      { label: 'PaHeroSubheader', id: 'paherosubheader' },
+      { label: 'PaHeroSubheaderGroup', id: 'paherosubheadergroup' }
+    ]
+  },
+  'shapes': {
+    title: 'Shapes',
+    items: [
+      { label: 'PaCircle', id: 'pacircle' },
+      { label: 'PaSquare', id: 'pasquare' }
+    ]
+  },
+  'utilities': {
+    title: 'Utilities',
+    items: [
+      { label: 'PaDivider', id: 'padivider' },
+      { label: 'PaIcon', id: 'paicon' },
+      { label: 'PaColorPicker', id: 'pacolorpicker' },
+      { label: 'PaSheet', id: 'pasheet' },
+      { label: 'PaToggle', id: 'patoggle' }
     ]
   }
 }

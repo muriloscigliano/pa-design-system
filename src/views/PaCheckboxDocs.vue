@@ -5,6 +5,7 @@ import { CodeBlock } from '../components'
 import { useCodeCopy } from '../composables/useCodeCopy'
 import { getComponentSourceCode } from '../config/componentSourceCode'
 import { getComponentTokens } from '../utils/tokenExtractor'
+import { getComponentStyleSource } from '../config/componentStyleSource'
 
 const { showCode, toggleShowCode } = useCodeCopy()
 const activeSizesTab = ref('sm')
@@ -196,6 +197,20 @@ const getStatesCode = (tab: string): string => {
         copy-key="pacheckbox-component-source"
         :show-line-numbers="true"
         language="vue"
+      />
+    </div>
+
+    <!-- Style Source Section -->
+    <div class="documentation-section">
+      <h3 class="documentation-section-title">Style Source</h3>
+      <p class="documentation-section-description">
+        The complete SCSS styles for the PaCheckbox component.
+      </p>
+      <CodeBlock 
+        :code="getComponentStyleSource('pacheckbox')"
+        copy-key="pacheckbox-style-source"
+        :show-line-numbers="true"
+        language="scss"
       />
     </div>
 

@@ -18,7 +18,7 @@ const getStatesCode = (tab: string): string => {
   const codes: Record<string, string> = {
     'default': `import { PaToggleSegmentation } from './components'
 
-<PaToggleSegmentation />`
+<PaToggleSegmentation :model-value="null" :options="[{ label: 'Option 1', value: 1 }, { label: 'Option 2', value: 2 }]" />`
   }
   return codes[tab] || ''
 }
@@ -46,7 +46,7 @@ const getStatesCode = (tab: string): string => {
         <div class="example-preview">
           <div class="component-preview" style="display: flex; flex-direction: column; gap: var(--pa-spacing-16, 16px);">
             <template v-if="activeStatesTab === 'default'">
-              <PaToggleSegmentation />
+              <PaToggleSegmentation :model-value="null" :options="[{ label: 'Option 1', value: 1 }, { label: 'Option 2', value: 2 }]" />
             </template>
           </div>
         </div>

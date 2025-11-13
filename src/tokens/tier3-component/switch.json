@@ -1,5 +1,5 @@
 {
-  "toggle-switch": {
+  "switch": {
     "transition": {
       "duration": {
         "default": {

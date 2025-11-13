@@ -5,12 +5,12 @@ import { CodeBlock } from '../components'
 import { useCodeCopy } from '../composables/useCodeCopy'
 import { getComponentSourceCode } from '../config/componentSourceCode'
 import { getComponentTokens } from '../utils/tokenExtractor'
+import { getComponentStyleSource } from '../config/componentStyleSource'
 
 const { showCode, toggleShowCode } = useCodeCopy()
 const activeStatesTab = ref('default')
 const activeVariantsTab = ref('basic')
 const tokenSource = ref('')
-const inputValue = ref('')
 const searchValue = ref('')
 const errorValue = ref('')
 const validValue = ref('test@example.com')
@@ -337,6 +337,20 @@ const getVariantsCode = (tab: string): string => {
         copy-key="painput-component-source"
         :show-line-numbers="true"
         language="vue"
+      />
+    </div>
+
+    <!-- Style Source Section -->
+    <div class="documentation-section">
+      <h3 class="documentation-section-title">Style Source</h3>
+      <p class="documentation-section-description">
+        The complete SCSS styles for the PaInput component.
+      </p>
+      <CodeBlock 
+        :code="getComponentStyleSource('painput')"
+        copy-key="painput-style-source"
+        :show-line-numbers="true"
+        language="scss"
       />
     </div>
 

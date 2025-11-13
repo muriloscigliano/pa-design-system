@@ -5,6 +5,7 @@ import { CodeBlock } from '../components'
 import { useCodeCopy } from '../composables/useCodeCopy'
 import { getComponentSourceCode } from '../config/componentSourceCode'
 import { getComponentTokens } from '../utils/tokenExtractor'
+import { getComponentStyleSource } from '../config/componentStyleSource'
 
 const { showCode, toggleShowCode } = useCodeCopy()
 const activeVariantsTab = ref('primary')
@@ -500,6 +501,20 @@ const getSizesCode = (): string => {
         copy-key="pabutton-component-source"
         :show-line-numbers="true"
         language="vue"
+      />
+    </div>
+
+    <!-- Style Source Section -->
+    <div class="documentation-section">
+      <h3 class="documentation-section-title">Style Source</h3>
+      <p class="documentation-section-description">
+        The complete SCSS styles for the PaButton component.
+      </p>
+      <CodeBlock 
+        :code="getComponentStyleSource('pabutton')"
+        copy-key="pabutton-style-source"
+        :show-line-numbers="true"
+        language="scss"
       />
     </div>
 
