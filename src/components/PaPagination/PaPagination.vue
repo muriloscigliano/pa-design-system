@@ -123,15 +123,15 @@ const pages = computed(() => {
   padding: var(--pa-pagination-item-padding-y) var(--pa-pagination-item-padding-x);
   background-color: var(--pa-pagination-item-background-default, var(--pa-color-surface-base-background));
   color: var(--pa-pagination-item-text-default, var(--pa-color-surface-base-text));
-  border: 1px solid var(--pa-pagination-item-border, var(--pa-color-surface-container-border));
+  border: var(--pa-Border-width-50, 1px) solid var(--pa-pagination-item-border, var(--pa-color-surface-container-border));
   border-radius: var(--pa-pagination-item-radius, var(--pa-Border-radius-100, 8px));
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
   font-size: var(--pa-font-size-200, 16px);
   font-weight: var(--pa-font-weight-400, 400);
   cursor: var(--pa-cursor-pointer, pointer);
   transition: all var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
-  min-width: 40px;
-  height: 40px;
+  min-width: var(--pa-spacing-100, var(--pa-spacing-10, 10px));
+  height: var(--pa-spacing-100, var(--pa-spacing-10, 10px));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -155,8 +155,8 @@ const pages = computed(() => {
 .pa-pagination-ellipsis {
   padding: var(--pa-pagination-item-padding-y) var(--pa-pagination-item-padding-x);
   color: var(--pa-pagination-item-text-default, var(--pa-color-surface-base-text));
-  min-width: 40px;
-  height: 40px;
+  min-width: var(--pa-spacing-100, var(--pa-spacing-10, 10px));
+  height: var(--pa-spacing-100, var(--pa-spacing-10, 10px));
   display: flex;
   align-items: center;
   justify-content: center;

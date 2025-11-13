@@ -25,7 +25,7 @@ const handleChange = (value: string | number) => {
 </script>
 
 <template>
-  <div
+  <fieldset
     :class="[
       'pa-radio-button-group',
       `pa-radio-button-group--${direction || 'horizontal'}`
@@ -44,7 +44,7 @@ const handleChange = (value: string | number) => {
       @update:model-value="handleChange"
       @change="handleChange"
     />
-  </div>
+  </fieldset>
 </template>
 
 <style lang="scss" scoped>

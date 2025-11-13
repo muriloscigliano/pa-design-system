@@ -31,6 +31,8 @@ const toggle = () => {
   >
     <button
       class="pa-accordion-header"
+      :aria-expanded="isOpen"
+      :aria-controls="`pa-accordion-content-${Math.random().toString(36).substr(2, 9)}`"
       @click="toggle"
     >
       <span class="pa-accordion-header-content">
@@ -50,7 +52,7 @@ const toggle = () => {
       </span>
     </button>
     <Transition name="pa-accordion-content">
-      <div v-if="isOpen" class="pa-accordion-content">
+      <div v-if="isOpen" class="pa-accordion-content" role="region">
         <div class="pa-accordion-content-inner">
           <slot />
         </div>
@@ -61,7 +63,7 @@ const toggle = () => {
 
 <style lang="scss" scoped>
 .pa-accordion {
-  border: 1px solid var(--pa-accordion-header-border, var(--pa-color-surface-base-border));
+  border: var(--pa-Border-width-50, 1px) solid var(--pa-accordion-header-border, var(--pa-color-surface-base-border));
   border-radius: var(--pa-Border-radius-100, 8px);
   overflow: hidden;
 }

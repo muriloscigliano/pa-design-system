@@ -30,6 +30,7 @@ defineEmits<{
       :checked="modelValue"
       :disabled="disabled"
       :indeterminate="indeterminate"
+      :aria-checked="indeterminate ? 'mixed' : modelValue"
       class="pa-checkbox-input"
       @change="$emit('update:modelValue', ($event.target as HTMLInputElement).checked); $emit('change', ($event.target as HTMLInputElement).checked)"
     />
@@ -125,18 +126,18 @@ defineEmits<{
 }
 
 .pa-checkbox-checkmark {
-  width: 12px;
-  height: 12px;
+  width: var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px));
+  height: var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px));
   color: var(--pa-checkbox-checkmark-default);
 
   .pa-checkbox--sm & {
-    width: 10px;
-    height: 10px;
+    width: calc(var(--pa-checkbox-size-sm-width, var(--pa-icon-size-sm, 16px)) * 0.625);
+    height: calc(var(--pa-checkbox-size-sm-width, var(--pa-icon-size-sm, 16px)) * 0.625);
   }
 
   .pa-checkbox--lg & {
-    width: 14px;
-    height: 14px;
+    width: calc(var(--pa-checkbox-size-lg-width, var(--pa-icon-size-md, 24px)) * 0.583);
+    height: calc(var(--pa-checkbox-size-lg-width, var(--pa-icon-size-md, 24px)) * 0.583);
   }
 
   .pa-checkbox.is-disabled & {
@@ -145,10 +146,10 @@ defineEmits<{
 }
 
 .pa-checkbox-indeterminate {
-  width: 8px;
-  height: 2px;
+  width: calc(var(--pa-checkbox-size-md-width, var(--pa-spacing-250, 18px)) * 0.444);
+  height: var(--pa-Border-width-50, 1px);
   background-color: var(--pa-checkbox-checkmark-default);
-  border-radius: 1px;
+  border-radius: var(--pa-Border-radius-50, 4px);
 
   .pa-checkbox.is-disabled & {
     background-color: var(--pa-checkbox-checkmark-disabled);

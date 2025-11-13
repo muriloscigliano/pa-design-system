@@ -38,7 +38,7 @@ defineProps<{
   padding: var(--pa-list-item-padding-y) var(--pa-list-item-padding-x);
   background-color: var(--pa-list-item-background-default, var(--pa-color-surface-base-background));
   color: var(--pa-list-item-text, var(--pa-color-surface-base-text));
-  border-bottom: 1px solid var(--pa-list-item-border, var(--pa-color-surface-base-divider));
+  border-bottom: var(--pa-Border-width-50, 1px) solid var(--pa-list-item-border, var(--pa-color-surface-base-divider));
   transition: all var(--pa-list-item-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-list-item-transition-easing-default, var(--pa-transition-easing-default, ease));
 
   &:last-child {

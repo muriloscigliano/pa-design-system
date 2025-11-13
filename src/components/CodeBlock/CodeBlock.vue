@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, onMounted } from 'vue'
+import { computed, ref, onMounted, watch } from 'vue'
 import { createHighlighter, type Highlighter } from 'shiki'
 
 interface Props {
@@ -17,8 +17,29 @@ const props = withDefaults(defineProps<Props>(), {
 const copied = ref(false)
 const highlighter = ref<Highlighter | null>(null)
 const highlightedCode = ref('')
+const currentTheme = ref<'light' | 'dark'>('light')
+
+const getCurrentTheme = (): 'light' | 'dark' => {
+  return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
+}
 
 onMounted(async () => {
+  currentTheme.value = getCurrentTheme()
+  
+  // Watch for theme changes
+  const observer = new MutationObserver(() => {
+    const newTheme = getCurrentTheme()
+    if (newTheme !== currentTheme.value) {
+      currentTheme.value = newTheme
+      highlightCode()
+    }
+  })
+  
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-theme']
+  })
+  
   try {
     highlighter.value = await createHighlighter({
       themes: ['github-dark', 'github-light'],
@@ -31,6 +52,14 @@ onMounted(async () => {
   }
 })
 
+watch(() => props.code, () => {
+  highlightCode()
+})
+
+watch(() => props.language, () => {
+  highlightCode()
+})
+
 const highlightCode = async () => {
   if (!highlighter.value || !props.code) {
     highlightedCode.value = props.code
@@ -38,7 +67,7 @@ const highlightCode = async () => {
   }
 
   try {
-    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'github-dark' : 'github-light'
+    const theme = currentTheme.value === 'dark' ? 'github-dark' : 'github-light'
     const html = highlighter.value.codeToHtml(props.code, {
       lang: props.language,
       theme: theme
@@ -118,8 +147,8 @@ const handleCopy = async () => {
 
 <style lang="scss" scoped>
 .code-block {
-  background-color: var(--pa-color-surface-base-background, #f7f7f8);
-  border: 1px solid var(--pa-color-surface-container-border, #e9ecef);
+  background-color: var(--pa-color-surface-base-background);
+  border: 1px solid var(--pa-color-surface-container-border);
   border-radius: var(--pa-Border-radius-100, 8px);
   padding: 0;
   overflow-x: auto;
@@ -140,7 +169,7 @@ const handleCopy = async () => {
     padding: var(--pa-spacing-24, 24px);
     padding-right: calc(var(--pa-spacing-12, 12px) + 80px);
     margin: 0;
-    color: var(--pa-color-surface-container-text, #495057);
+    color: var(--pa-color-surface-container-text);
     transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
     background-color: transparent !important;
     position: relative;
@@ -179,7 +208,8 @@ const handleCopy = async () => {
       padding-left: 76px;
       min-height: 1.5em;
       white-space: pre;
-      margin-bottom: 4px;
+      margin-bottom: -20px;
+      margin-left: -12px;
       
       &:last-child {
         margin-bottom: 0;
@@ -196,10 +226,11 @@ const handleCopy = async () => {
       font-family: 'Roboto Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
       font-size: var(--pa-font-size-100, 14px);
       line-height: 1.5;
-      color: var(--pa-color-surface-container-text-secondary, #6c757d);
+      color: var(--pa-color-surface-container-text-secondary);
       user-select: none;
       pointer-events: none;
       white-space: pre;
+      transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
     }
   }
   
@@ -210,8 +241,8 @@ const handleCopy = async () => {
     top: 0;
     bottom: 0;
     width: 48px;
-    background-color: var(--pa-color-surface-container-background, #ffffff);
-    border-right: 1px solid var(--pa-color-surface-container-border, #e9ecef);
+    background-color: var(--pa-color-surface-container-background);
+    border-right: 1px solid var(--pa-color-surface-container-border);
     border-radius: var(--pa-Border-radius-100, 8px) 0 0 var(--pa-Border-radius-100, 8px);
     transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease), border-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
     z-index: 0;
@@ -219,36 +250,18 @@ const handleCopy = async () => {
   }
 }
 
-[data-theme="dark"] .code-block {
-  background-color: #0e0e0f;
-  border-color: #222529;
-  
-  code {
-    color: #cfd4d9;
-
-    :deep(.line-number) {
-      color: #6e757c;
-    }
-  }
-  
-  &::before {
-    background-color: #151517;
-    border-color: #222529;
-  }
-}
-
 .copy-code-button {
   position: absolute;
   top: var(--pa-spacing-12, 12px);
   right: var(--pa-spacing-12, 12px);
-  background-color: var(--pa-color-surface-container-background, #ffffff);
-  border: 1px solid var(--pa-color-surface-container-border, #e9ecef);
+  background-color: var(--pa-color-surface-container-background);
+  border: 1px solid var(--pa-color-surface-container-border);
   border-radius: var(--pa-Border-radius-50, 4px);
   padding: var(--pa-spacing-6, 6px) var(--pa-spacing-10, 10px);
   font-family: 'Inter', sans-serif;
   font-size: var(--pa-font-size-100, 14px);
   font-weight: 500;
-  color: var(--pa-color-surface-container-text-secondary, #6c757d);
+  color: var(--pa-color-surface-container-text-secondary);
   cursor: pointer;
   opacity: 0;
   transition: all var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
@@ -259,9 +272,9 @@ const handleCopy = async () => {
   margin: 0;
   
   &:hover {
-    background-color: var(--pa-color-surface-container-border, #e9ecef);
-    color: var(--pa-color-surface-container-text, #212529);
-    border-color: var(--pa-color-surface-container-border, #e9ecef);
+    background-color: var(--pa-color-surface-cards-hover-background, var(--pa-color-surface-container-border));
+    color: var(--pa-color-surface-container-text);
+    border-color: var(--pa-color-surface-container-border);
   }
   
   &:active {
@@ -272,18 +285,6 @@ const handleCopy = async () => {
     width: 16px;
     height: 16px;
     flex-shrink: 0;
-  }
-}
-
-[data-theme="dark"] .copy-code-button {
-  background-color: #151517;
-  border-color: #222529;
-  color: #cfd4d9;
-  
-  &:hover {
-    background-color: #222529;
-    color: #ffffff;
-    border-color: #222529;
   }
 }
 </style>

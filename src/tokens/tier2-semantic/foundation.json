@@ -105,6 +105,24 @@
         "$type": "dimension",
         "$value": "{font.size.400}"
       }
+    },
+    "weight": {
+      "regular": {
+        "$type": "number",
+        "$value": "{font.weight.400}"
+      },
+      "medium": {
+        "$type": "number",
+        "$value": "{font.weight.500}"
+      },
+      "semibold": {
+        "$type": "number",
+        "$value": "{font.weight.600}"
+      },
+      "bold": {
+        "$type": "number",
+        "$value": "{font.weight.700}"
+      }
     }
   },
   "icon": {

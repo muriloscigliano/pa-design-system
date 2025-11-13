@@ -15,8 +15,8 @@ const defaultSeparator = props.separator || '/'
 </script>
 
 <template>
-  <nav class="pa-breadcrumbs">
-    <ol class="pa-breadcrumbs-list">
+  <nav class="pa-breadcrumbs" aria-label="Breadcrumb">
+    <ol class="pa-breadcrumbs-list" role="list">
       <li
         v-for="(item, index) in items"
         :key="index"

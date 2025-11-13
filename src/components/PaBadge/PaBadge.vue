@@ -71,9 +71,9 @@ defineProps<{
 
   &.is-dot {
     padding: 0;
-    width: 8px;
-    height: 8px;
-    min-width: 8px;
+    width: var(--pa-spacing-8, 8px);
+    height: var(--pa-spacing-8, 8px);
+    min-width: var(--pa-spacing-8, 8px);
   }
 }
 
@@ -83,8 +83,8 @@ defineProps<{
 }
 
 .pa-badge-dot {
-  width: 8px;
-  height: 8px;
+  width: var(--pa-spacing-8, 8px);
+  height: var(--pa-spacing-8, 8px);
   border-radius: var(--pa-Border-radius-full, 99999px);
   background-color: currentColor;
 }

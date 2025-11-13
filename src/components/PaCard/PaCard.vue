@@ -65,7 +65,7 @@ defineProps<{
 .pa-card-header {
   margin-bottom: var(--pa-spacing-16, 16px);
   padding-bottom: var(--pa-spacing-16, 16px);
-  border-bottom: 1px solid var(--pa-color-surface-base-divider, var(--pa-gray-200, #e9ecef));
+  border-bottom: var(--pa-Border-width-50, 1px) solid var(--pa-color-surface-base-divider, var(--pa-gray-200, #e9ecef));
 }
 
 .pa-card-body {
@@ -75,7 +75,7 @@ defineProps<{
 .pa-card-footer {
   margin-top: var(--pa-spacing-16, 16px);
   padding-top: var(--pa-spacing-16, 16px);
-  border-top: 1px solid var(--pa-color-surface-base-divider, var(--pa-gray-200, #e9ecef));
+  border-top: var(--pa-Border-width-50, 1px) solid var(--pa-color-surface-base-divider, var(--pa-gray-200, #e9ecef));
 }
 </style>
 

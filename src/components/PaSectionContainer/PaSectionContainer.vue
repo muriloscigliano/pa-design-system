@@ -27,7 +27,7 @@ defineProps<{
 <style lang="scss" scoped>
 .pa-section-container {
   background-color: var(--pa-section-container-background, var(--pa-color-surface-container-background));
-  border: 1px solid var(--pa-section-container-border, var(--pa-color-surface-container-border));
+  border: var(--pa-Border-width-50, 1px) solid var(--pa-section-container-border, var(--pa-color-surface-container-border));
   border-radius: var(--pa-section-container-border-radius, var(--pa-Border-radius-100, 8px));
   padding: var(--pa-section-container-padding-y) var(--pa-section-container-padding-x);
   width: 100%;
@@ -39,7 +39,7 @@ defineProps<{
   justify-content: space-between;
   gap: var(--pa-spacing-16, 16px);
   padding-bottom: var(--pa-section-container-spacing-header, var(--pa-spacing-16, 16px));
-  border-bottom: 1px solid var(--pa-section-container-header-border, var(--pa-color-surface-base-divider));
+  border-bottom: var(--pa-Border-width-50, 1px) solid var(--pa-section-container-header-border, var(--pa-color-surface-base-divider));
   margin-bottom: var(--pa-section-container-spacing-content, var(--pa-spacing-24, 24px));
 }
 

@@ -53,6 +53,9 @@ onUnmounted(() => {
             'pa-modal-container',
             `pa-modal-container--${size || 'md'}`
           ]"
+          role="dialog"
+          :aria-modal="true"
+          :aria-labelledby="modelValue ? 'pa-modal-title' : undefined"
           @click.stop
         >
           <div v-if="$slots.header || $slots.close" class="pa-modal-header">
@@ -94,7 +97,7 @@ onUnmounted(() => {
 
 .pa-modal-container {
   background-color: var(--pa-modal-container-background);
-  border: 1px solid var(--pa-modal-container-border);
+  border: var(--pa-Border-width-50, 1px) solid var(--pa-modal-container-border);
   border-radius: var(--pa-modal-container-border-radius, var(--pa-Border-radius-200, 24px));
   box-shadow: var(--pa-modal-container-shadow, var(--pa-shadow-lg));
   z-index: var(--pa-modal-container-z-index, var(--pa-z-index-500, 500));
@@ -135,7 +138,7 @@ onUnmounted(() => {
   background-color: var(--pa-modal-header-background);
   color: var(--pa-modal-header-text);
   padding: var(--pa-modal-header-padding-y) var(--pa-modal-header-padding-x);
-  border-bottom: 1px solid var(--pa-modal-footer-border, var(--pa-color-surface-base-divider));
+  border-bottom: var(--pa-Border-width-50, 1px) solid var(--pa-modal-footer-border, var(--pa-color-surface-base-divider));
   flex-shrink: 0;
 }
 

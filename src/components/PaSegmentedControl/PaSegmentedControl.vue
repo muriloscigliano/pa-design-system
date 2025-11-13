@@ -18,7 +18,7 @@ const selectOption = (option: { label: string; value: string | number; disabled?
 </script>
 
 <template>
-  <div class="pa-segmented-control">
+  <div class="pa-segmented-control" role="radiogroup">
     <button
       v-for="option in options"
       :key="String(option.value)"
@@ -30,6 +30,9 @@ const selectOption = (option: { label: string; value: string | number; disabled?
         }
       ]"
       :disabled="option.disabled"
+      :aria-pressed="modelValue === option.value"
+      role="radio"
+      :aria-checked="modelValue === option.value"
       @click="selectOption(option)"
     >
       {{ option.label }}
@@ -41,7 +44,7 @@ const selectOption = (option: { label: string; value: string | number; disabled?
 .pa-segmented-control {
   display: inline-flex;
   background-color: var(--pa-segmented-control-background, var(--pa-color-surface-container-background));
-  border: 1px solid var(--pa-segmented-control-item-border, var(--pa-color-surface-container-border));
+  border: var(--pa-Border-width-50, 1px) solid var(--pa-segmented-control-item-border, var(--pa-color-surface-container-border));
   border-radius: var(--pa-segmented-control-item-radius, var(--pa-Border-radius-100, 8px));
   padding: var(--pa-spacing-4, 4px);
   gap: var(--pa-spacing-4, 4px);

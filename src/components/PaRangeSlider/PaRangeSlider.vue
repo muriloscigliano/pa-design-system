@@ -85,6 +85,10 @@ const handleMaxInput = (event: Event) => {
         :max="max"
         :step="step"
         :disabled="disabled"
+        :aria-valuenow="minValue"
+        :aria-valuemin="min"
+        :aria-valuemax="max"
+        :aria-label="`Minimum value: ${minValue}`"
         class="pa-range-slider-input pa-range-slider-input--min"
         @input="handleMinInput"
       />
@@ -95,6 +99,10 @@ const handleMaxInput = (event: Event) => {
         :max="max"
         :step="step"
         :disabled="disabled"
+        :aria-valuenow="maxValue"
+        :aria-valuemin="min"
+        :aria-valuemax="max"
+        :aria-label="`Maximum value: ${maxValue}`"
         class="pa-range-slider-input pa-range-slider-input--max"
         @input="handleMaxInput"
       />

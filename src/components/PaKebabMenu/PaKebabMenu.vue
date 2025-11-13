@@ -48,8 +48,8 @@ const isOpen = ref(false)
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: var(--pa-icon-size-lg, var(--pa-icon-size-300, 32px));
+  height: var(--pa-icon-size-lg, var(--pa-icon-size-300, 32px));
   border-radius: var(--pa-Border-radius-50, 4px);
   transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
 
@@ -58,8 +58,8 @@ const isOpen = ref(false)
   }
 
   svg {
-    width: 16px;
-    height: 16px;
+    width: var(--pa-icon-size-sm, var(--pa-icon-size-100, 16px));
+    height: var(--pa-icon-size-sm, var(--pa-icon-size-100, 16px));
   }
 }
 </style>

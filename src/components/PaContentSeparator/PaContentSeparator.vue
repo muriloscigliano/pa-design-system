@@ -26,8 +26,8 @@ defineProps<{
 
   &--horizontal {
     width: 100%;
-    height: 1px;
-    border-top: 1px solid var(--pa-color-surface-base-divider, var(--pa-gray-200, #e9ecef));
+    height: var(--pa-Border-width-50, 1px);
+    border-top: var(--pa-Border-width-50, 1px) solid var(--pa-color-surface-base-divider, var(--pa-gray-200, #e9ecef));
     display: flex;
     align-items: center;
 
@@ -39,16 +39,16 @@ defineProps<{
       &::after {
         content: '';
         flex: 1;
-        height: 1px;
+        height: var(--pa-Border-width-50, 1px);
         background-color: var(--pa-color-surface-base-divider, var(--pa-gray-200, #e9ecef));
       }
     }
   }
 
   &--vertical {
-    width: 1px;
+    width: var(--pa-Border-width-50, 1px);
     height: 100%;
-    border-left: 1px solid var(--pa-color-surface-base-divider, var(--pa-gray-200, #e9ecef));
+    border-left: var(--pa-Border-width-50, 1px) solid var(--pa-color-surface-base-divider, var(--pa-gray-200, #e9ecef));
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -61,7 +61,7 @@ defineProps<{
       &::after {
         content: '';
         flex: 1;
-        width: 1px;
+        width: var(--pa-Border-width-50, 1px);
         background-color: var(--pa-color-surface-base-divider, var(--pa-gray-200, #e9ecef));
       }
     }

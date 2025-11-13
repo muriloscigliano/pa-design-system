@@ -153,6 +153,11 @@ onUnmounted(() => {
   >
     <div
       class="pa-select-trigger"
+      role="combobox"
+      :aria-expanded="isOpen"
+      :aria-haspopup="true"
+      :aria-invalid="error"
+      :aria-disabled="disabled"
       @click="toggle"
     >
       <span
@@ -173,11 +178,12 @@ onUnmounted(() => {
         >
           ×
         </button>
-        <span class="pa-select-arrow">
+        <span class="pa-select-arrow" aria-hidden="true">
           <svg
             viewBox="0 0 12 12"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
           >
             <path
               d="M6 9L1 4h10L6 9z"
@@ -385,8 +391,8 @@ onUnmounted(() => {
   }
 
   svg {
-    width: 12px;
-    height: 12px;
+    width: var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px));
+    height: var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px));
   }
 }
 
@@ -397,23 +403,23 @@ onUnmounted(() => {
   right: 0;
   margin-top: var(--pa-spacing-4, 4px);
   background-color: var(--pa-select-menu-background, var(--pa-color-surface-container-background));
-  border: 1px solid var(--pa-select-menu-border, var(--pa-color-surface-container-border));
+  border: var(--pa-Border-width-50, 1px) solid var(--pa-select-menu-border, var(--pa-color-surface-container-border));
   border-radius: var(--pa-select-border-radius-default, var(--pa-Border-radius-100, 8px));
   box-shadow: var(--pa-select-menu-shadow, var(--pa-shadow-md));
   z-index: var(--pa-select-menu-z-index, var(--pa-z-index-400, 400));
-  max-height: 300px;
+  max-height: var(--pa-spacing-700, var(--pa-spacing-64, 64px));
   overflow-y: auto;
 }
 
 .pa-select-search {
   padding: var(--pa-spacing-8, 8px);
-  border-bottom: 1px solid var(--pa-color-surface-base-divider, var(--pa-gray-200, #e9ecef));
+  border-bottom: var(--pa-Border-width-50, 1px) solid var(--pa-color-surface-base-divider, var(--pa-gray-200, #e9ecef));
 }
 
 .pa-select-search-input {
   width: 100%;
   padding: var(--pa-spacing-8, 8px);
-  border: 1px solid var(--pa-select-border-default);
+  border: var(--pa-Border-width-50, 1px) solid var(--pa-select-border-default);
   border-radius: var(--pa-Border-radius-50, 4px);
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
   font-size: var(--pa-font-size-200, 16px);
@@ -441,7 +447,7 @@ onUnmounted(() => {
   font-weight: var(--pa-font-weight-600, 600);
   color: var(--pa-gray-500, #adb5bd);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: var(--pa-letter-spacing-300, 0.5px);
 }
 
 .pa-select-option {
@@ -499,7 +505,7 @@ onUnmounted(() => {
 .pa-select-menu-enter-from,
 .pa-select-menu-leave-to {
   opacity: 0;
-  transform: translateY(-4px);
+  transform: translateY(calc(var(--pa-spacing-4, 4px) * -1));
 }
 </style>
 

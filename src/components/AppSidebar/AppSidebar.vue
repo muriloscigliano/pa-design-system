@@ -57,7 +57,7 @@ const isActive = (id: string): boolean => {
 .sidebar {
   background-color: var(--pa-color-surface-container-background, #151517);
   border-radius: var(--pa-Border-radius-100, 8px);
-  padding: var(--pa-spacing-24, 24px);
+  padding: var(--pa-spacing-36, 36px);
   width: 300px;
   height: calc(100vh - var(--pa-spacing-12, 12px));
   display: flex;
@@ -103,7 +103,7 @@ const isActive = (id: string): boolean => {
 .sidebar-nav {
   display: flex;
   flex-direction: column;
-  gap: var(--pa-spacing-24, 24px);
+  gap: var(--pa-spacing-36, 36px);
   width: 100%;
   align-items: flex-start;
   justify-content: flex-end;
@@ -152,18 +152,18 @@ const isActive = (id: string): boolean => {
     top: 0;
     bottom: 0;
     width: 1px;
-    background: linear-gradient(180deg, transparent, var(--pa-color-surface-container-border, #dee2e6), transparent);
-    transition: background var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+    background: var(--pa-color-surface-container-border);
+    // transition: background var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
   }
 }
 
 [data-theme="dark"] .nav-list::before {
-  background: linear-gradient(180deg, transparent, #222529, transparent);
+  background:var(--pa-color-surface-container-border);
 }
 
 .nav-item {
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
+  font-weight: 300;
   font-size: var(--pa-font-size-200, 16px);
   line-height: normal;
   white-space: nowrap;

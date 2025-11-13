@@ -65,6 +65,9 @@ onUnmounted(() => {
             `pa-drawer-container--${placement || 'right'}`,
             `pa-drawer-container--${size || 'md'}`
           ]"
+          role="dialog"
+          :aria-modal="true"
+          :aria-labelledby="modelValue ? 'pa-drawer-title' : undefined"
           @click.stop
         >
           <div v-if="$slots.header" class="pa-drawer-header">
@@ -98,7 +101,7 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   background-color: var(--pa-drawer-container-background, var(--pa-color-modal-container-background));
-  border: 1px solid var(--pa-drawer-container-border, var(--pa-color-modal-container-border));
+  border: var(--pa-Border-width-50, 1px) solid var(--pa-drawer-container-border, var(--pa-color-modal-container-border));
   box-shadow: var(--pa-drawer-container-shadow, var(--pa-shadow-300));
   overflow: hidden;
 
@@ -107,7 +110,7 @@ onUnmounted(() => {
     left: 0;
     bottom: 0;
     width: var(--pa-drawer-size-md-width, 400px);
-    border-right: 1px solid var(--pa-drawer-container-border, var(--pa-color-modal-container-border));
+    border-right: var(--pa-Border-width-50, 1px) solid var(--pa-drawer-container-border, var(--pa-color-modal-container-border));
   }
 
   &--right {
@@ -115,7 +118,7 @@ onUnmounted(() => {
     right: 0;
     bottom: 0;
     width: var(--pa-drawer-size-md-width, 400px);
-    border-left: 1px solid var(--pa-drawer-container-border, var(--pa-color-modal-container-border));
+    border-left: var(--pa-Border-width-50, 1px) solid var(--pa-drawer-container-border, var(--pa-color-modal-container-border));
   }
 
   &--top {
@@ -123,7 +126,7 @@ onUnmounted(() => {
     left: 0;
     right: 0;
     height: var(--pa-drawer-size-md-height, 400px);
-    border-bottom: 1px solid var(--pa-drawer-container-border, var(--pa-color-modal-container-border));
+    border-bottom: var(--pa-Border-width-50, 1px) solid var(--pa-drawer-container-border, var(--pa-color-modal-container-border));
   }
 
   &--bottom {
@@ -131,7 +134,7 @@ onUnmounted(() => {
     left: 0;
     right: 0;
     height: var(--pa-drawer-size-md-height, 400px);
-    border-top: 1px solid var(--pa-drawer-container-border, var(--pa-color-modal-container-border));
+    border-top: var(--pa-Border-width-50, 1px) solid var(--pa-drawer-container-border, var(--pa-color-modal-container-border));
   }
 
   &--sm {
@@ -159,7 +162,7 @@ onUnmounted(() => {
 
 .pa-drawer-header {
   padding: var(--pa-drawer-header-padding, var(--pa-spacing-16, 16px));
-  border-bottom: 1px solid var(--pa-drawer-header-border, var(--pa-color-surface-base-divider));
+  border-bottom: var(--pa-Border-width-50, 1px) solid var(--pa-drawer-header-border, var(--pa-color-surface-base-divider));
 }
 
 .pa-drawer-body {
@@ -170,7 +173,7 @@ onUnmounted(() => {
 
 .pa-drawer-footer {
   padding: var(--pa-drawer-footer-padding, var(--pa-spacing-16, 16px));
-  border-top: 1px solid var(--pa-drawer-footer-border, var(--pa-color-surface-base-divider));
+  border-top: var(--pa-Border-width-50, 1px) solid var(--pa-drawer-footer-border, var(--pa-color-surface-base-divider));
 }
 
 .pa-drawer-enter-active,

@@ -38,8 +38,8 @@ defineProps<{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
+  width: var(--pa-icon-size-xl, var(--pa-icon-size-400, 64px));
+  height: var(--pa-icon-size-xl, var(--pa-icon-size-400, 64px));
 }
 
 .pa-empty-state-title {
@@ -56,7 +56,7 @@ defineProps<{
   font-size: var(--pa-font-size-200, 16px);
   font-weight: var(--pa-font-weight-400, 400);
   margin: 0 0 var(--pa-empty-state-spacing-text, var(--pa-spacing-16, 16px)) 0;
-  max-width: 400px;
+  max-width: var(--pa-spacing-800, var(--pa-spacing-100, 100px));
 }
 
 .pa-empty-state-action {

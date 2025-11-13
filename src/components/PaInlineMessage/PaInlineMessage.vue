@@ -36,6 +36,7 @@ const dismiss = () => {
       <button
         v-if="dismissible"
         class="pa-inline-message-close"
+        aria-label="Dismiss message"
         @click="dismiss"
       >
         ×
@@ -120,8 +121,8 @@ const dismiss = () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: var(--pa-icon-size-md, var(--pa-icon-size-200, 24px));
+  height: var(--pa-icon-size-md, var(--pa-icon-size-200, 24px));
   flex-shrink: 0;
   opacity: 0.7;
   transition: opacity var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);

@@ -75,6 +75,10 @@ provide('closeTab', closeTab)
               'is-disabled': tab.disabled
             }
           ]"
+          role="tab"
+          :aria-selected="activeTab === tab.value"
+          :aria-disabled="tab.disabled"
+          :tabindex="tab.disabled ? -1 : (activeTab === tab.value ? 0 : -1)"
           @click="selectTab(tab, $event)"
         >
           <span v-if="tab.icon" class="pa-tabs-tab-icon">{{ tab.icon }}</span>
@@ -104,7 +108,7 @@ provide('closeTab', closeTab)
         </div>
       </div>
     </div>
-    <div class="pa-tabs-content">
+    <div class="pa-tabs-content" role="tabpanel">
       <slot />
     </div>
   </div>
@@ -229,7 +233,7 @@ provide('closeTab', closeTab)
 }
 
 .pa-tabs-tab-add {
-  min-width: 40px;
+  min-width: var(--pa-spacing-100, var(--pa-spacing-10, 10px));
   justify-content: center;
   font-size: var(--pa-font-size-500, 24px);
   font-weight: var(--pa-font-weight-400, 400);

@@ -97,7 +97,7 @@ onUnmounted(() => {
   z-index: var(--pa-tooltip-z-index, var(--pa-z-index-top, 99999));
   white-space: nowrap;
   pointer-events: none;
-  max-width: 200px;
+  max-width: var(--pa-spacing-500, var(--pa-spacing-48, 48px));
   word-wrap: break-word;
   white-space: normal;
 }

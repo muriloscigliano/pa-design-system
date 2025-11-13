@@ -31,6 +31,7 @@ defineEmits<{
       :disabled="disabled"
       :name="name"
       :value="value"
+      :aria-checked="modelValue === value"
       class="pa-radio-input"
       @change="$emit('update:modelValue', value); $emit('change', value)"
     />

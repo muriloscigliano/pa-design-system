@@ -27,43 +27,58 @@ export const navigation: Record<string, NavigationSection> = {
     title: 'Form Inputs',
     items: [
       { label: 'PaInput', id: 'painput' },
+      { label: 'PaTextarea', id: 'patextarea' },
+      { label: 'PaAutocomplete', id: 'paautocomplete' },
+      { label: 'PaTimePicker', id: 'patimepicker' },
+      { label: 'PaFileUploader', id: 'pafileuploader' }
+    ]
+  },
+  'form-controls': {
+    title: 'Form Controls',
+    items: [
       { label: 'PaCheckbox', id: 'pacheckbox' },
       { label: 'PaRadio', id: 'paradio' },
       { label: 'PaRadioButtonGroup', id: 'paradiobuttongroup' },
       { label: 'PaToggleSwitch', id: 'patoggleswitch' },
-      { label: 'PaSelect', id: 'paselect' },
-      { label: 'PaTextarea', id: 'patextarea' },
-      { label: 'PaAutocomplete', id: 'paautocomplete' },
-      { label: 'PaTimePicker', id: 'patimepicker' },
-      { label: 'PaFileUploader', id: 'pafileuploader' },
-      { label: 'PaForm', id: 'paform' }
+      { label: 'PaSelect', id: 'paselect' }
+    ]
+  },
+  'form-layout': {
+    title: 'Form Layout',
+    items: [
+      { label: 'PaForm', id: 'paform' },
+      { label: 'PaFormContainer', id: 'paformcontainer' },
+      { label: 'PaSectionContainer', id: 'pasectioncontainer' }
     ]
   },
   'layout': {
     title: 'Layout',
     items: [
       { label: 'PaCard', id: 'pacard' },
-      { label: 'PaHeader', id: 'paheader' },
-      { label: 'PaListItem', id: 'palistitem' },
+      { label: 'PaContainer', id: 'pacontainer' },
       { label: 'PaPageLayout', id: 'papagelayout' },
       { label: 'PaContentSeparator', id: 'pacontentseparator' },
-      { label: 'PaContainer', id: 'pacontainer' },
-      { label: 'PaFormContainer', id: 'paformcontainer' },
-      { label: 'PaSectionContainer', id: 'pasectioncontainer' }
+      { label: 'PaHeader', id: 'paheader' },
+      { label: 'PaListItem', id: 'palistitem' }
     ]
   },
   'navigation': {
     title: 'Navigation',
     items: [
-      { label: 'PaDropdown', id: 'padropdown' },
-      { label: 'PaSegmentedControl', id: 'pasegmentedcontrol' },
-      { label: 'PaToggleSegmentation', id: 'patogglesegmentation' },
-      { label: 'PaToggleChip', id: 'patogglechip' },
-      { label: 'PaKebabMenu', id: 'pakebabmenu' },
       { label: 'PaTabs', id: 'patabs' },
       { label: 'PaBreadcrumbs', id: 'pabreadcrumbs' },
       { label: 'PaStepper', id: 'pastepper' },
-      { label: 'PaDrawer', id: 'padrawer' }
+      { label: 'PaDrawer', id: 'padrawer' },
+      { label: 'PaDropdown', id: 'padropdown' },
+      { label: 'PaKebabMenu', id: 'pakebabmenu' }
+    ]
+  },
+  'selection': {
+    title: 'Selection',
+    items: [
+      { label: 'PaSegmentedControl', id: 'pasegmentedcontrol' },
+      { label: 'PaToggleSegmentation', id: 'patogglesegmentation' },
+      { label: 'PaToggleChip', id: 'patogglechip' }
     ]
   },
   'feedback': {
@@ -89,4 +104,3 @@ export const navigation: Record<string, NavigationSection> = {
     ]
   }
 }
-

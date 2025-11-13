@@ -156,6 +156,11 @@ onUnmounted(() => {
     <div
       ref="inputRef"
       class="pa-time-picker-input"
+      role="combobox"
+      :aria-expanded="isOpen"
+      :aria-haspopup="true"
+      :aria-invalid="error"
+      :aria-disabled="disabled"
       @click="toggle"
     >
       <input
@@ -171,6 +176,7 @@ onUnmounted(() => {
         :placeholder="placeholder || 'Select time'"
         :disabled="disabled"
         readonly
+        aria-readonly="true"
       />
       <span class="pa-time-picker-icon">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -306,19 +312,19 @@ onUnmounted(() => {
 
   .pa-time-picker--sm & {
     padding: var(--pa-time-picker-size-sm-padding-y) var(--pa-time-picker-size-sm-padding-x);
-    padding-right: calc(var(--pa-time-picker-size-sm-padding-x, var(--pa-spacing-12, 12px)) + 24px);
+    padding-right: calc(var(--pa-time-picker-size-sm-padding-x, var(--pa-spacing-12, 12px)) + var(--pa-icon-size-md, var(--pa-icon-size-200, 24px)));
     font-size: var(--pa-time-picker-size-sm-font, var(--pa-font-size-100, 14px));
   }
 
   .pa-time-picker--md & {
     padding: var(--pa-time-picker-size-md-padding-y) var(--pa-time-picker-size-md-padding-x);
-    padding-right: calc(var(--pa-time-picker-size-md-padding-x, var(--pa-spacing-16, 16px)) + 24px);
+    padding-right: calc(var(--pa-time-picker-size-md-padding-x, var(--pa-spacing-16, 16px)) + var(--pa-icon-size-md, var(--pa-icon-size-200, 24px)));
     font-size: var(--pa-time-picker-size-md-font, var(--pa-font-size-200, 16px));
   }
 
   .pa-time-picker--lg & {
     padding: var(--pa-time-picker-size-lg-padding-y) var(--pa-time-picker-size-lg-padding-x);
-    padding-right: calc(var(--pa-time-picker-size-lg-padding-x, var(--pa-spacing-24, 24px)) + 24px);
+    padding-right: calc(var(--pa-time-picker-size-lg-padding-x, var(--pa-spacing-24, 24px)) + var(--pa-icon-size-md, var(--pa-icon-size-200, 24px)));
     font-size: var(--pa-time-picker-size-lg-font, var(--pa-font-size-400, 20px));
   }
 
@@ -359,8 +365,8 @@ onUnmounted(() => {
   pointer-events: none;
 
   svg {
-    width: 16px;
-    height: 16px;
+    width: var(--pa-icon-size-sm, var(--pa-icon-size-100, 16px));
+    height: var(--pa-icon-size-sm, var(--pa-icon-size-100, 16px));
   }
 }
 

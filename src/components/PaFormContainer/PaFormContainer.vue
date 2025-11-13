@@ -36,7 +36,7 @@ defineProps<{
   width: 100%;
 
   &--outlined {
-    border: 1px solid var(--pa-form-container-border, var(--pa-color-surface-container-border));
+    border: var(--pa-Border-width-50, 1px) solid var(--pa-form-container-border, var(--pa-color-surface-container-border));
   }
 
   &--elevated {
@@ -46,7 +46,7 @@ defineProps<{
 
 .pa-form-container-header {
   padding-bottom: var(--pa-form-container-header-padding-bottom);
-  border-bottom: 1px solid var(--pa-form-container-header-border, var(--pa-color-surface-base-divider));
+  border-bottom: var(--pa-Border-width-50, 1px) solid var(--pa-form-container-header-border, var(--pa-color-surface-base-divider));
   margin-bottom: var(--pa-form-container-spacing-section, var(--pa-spacing-32, 32px));
 }
 
@@ -75,7 +75,7 @@ defineProps<{
 .pa-form-container-footer {
   margin-top: var(--pa-form-container-spacing-section, var(--pa-spacing-32, 32px));
   padding-top: var(--pa-form-container-spacing-section, var(--pa-spacing-32, 32px));
-  border-top: 1px solid var(--pa-form-container-header-border, var(--pa-color-surface-base-divider));
+  border-top: var(--pa-Border-width-50, 1px) solid var(--pa-form-container-header-border, var(--pa-color-surface-base-divider));
   display: flex;
   gap: var(--pa-spacing-8, 8px);
   justify-content: flex-end;

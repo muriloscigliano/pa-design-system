@@ -35,7 +35,7 @@ defineProps<{
   }
 
   &--outlined {
-    border: 1px solid var(--pa-container-border, var(--pa-color-surface-container-border));
+    border: var(--pa-Border-width-50, 1px) solid var(--pa-container-border, var(--pa-color-surface-container-border));
     border-radius: var(--pa-container-border-radius, var(--pa-Border-radius-100, 8px));
   }
 

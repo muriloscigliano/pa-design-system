@@ -27,6 +27,8 @@ defineEmits<{
       type="checkbox"
       :checked="modelValue"
       :disabled="disabled"
+      :aria-checked="modelValue"
+      role="switch"
       class="pa-toggle-switch-input"
       @change="$emit('update:modelValue', ($event.target as HTMLInputElement).checked); $emit('change', ($event.target as HTMLInputElement).checked)"
     />
@@ -102,7 +104,7 @@ defineEmits<{
   background-color: var(--pa-toggle-switch-thumb-off);
   border-radius: var(--pa-Border-radius-full, 99999px);
   transition: all var(--pa-toggle-switch-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-toggle-switch-transition-easing-default, var(--pa-transition-easing-default, ease));
-  left: 2px;
+  left: var(--pa-spacing-2, 2px);
 
   .pa-toggle-switch--sm & {
     width: var(--pa-toggle-switch-size-sm-thumb, 14px);
@@ -121,15 +123,15 @@ defineEmits<{
 
   .pa-toggle-switch.is-on & {
     background-color: var(--pa-toggle-switch-thumb-on);
-    transform: translateX(calc(var(--pa-toggle-switch-size-md-width, 40px) - var(--pa-toggle-switch-size-md-thumb, 18px) - 4px));
+    transform: translateX(calc(var(--pa-toggle-switch-size-md-width, 40px) - var(--pa-toggle-switch-size-md-thumb, 18px) - var(--pa-spacing-4, 4px)));
   }
 
   .pa-toggle-switch--sm.is-on & {
-    transform: translateX(calc(var(--pa-toggle-switch-size-sm-width, 32px) - var(--pa-toggle-switch-size-sm-thumb, 14px) - 4px));
+    transform: translateX(calc(var(--pa-toggle-switch-size-sm-width, 32px) - var(--pa-toggle-switch-size-sm-thumb, 14px) - var(--pa-spacing-4, 4px)));
   }
 
   .pa-toggle-switch--lg.is-on & {
-    transform: translateX(calc(var(--pa-toggle-switch-size-lg-width, 48px) - var(--pa-toggle-switch-size-lg-thumb, 22px) - 4px));
+    transform: translateX(calc(var(--pa-toggle-switch-size-lg-width, 48px) - var(--pa-toggle-switch-size-lg-thumb, 22px) - var(--pa-spacing-4, 4px)));
   }
 
   .pa-toggle-switch.is-disabled & {

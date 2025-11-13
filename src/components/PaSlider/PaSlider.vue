@@ -57,6 +57,10 @@ const handleInput = (event: Event) => {
         :max="max"
         :step="step"
         :disabled="disabled"
+        :aria-valuenow="value"
+        :aria-valuemin="min"
+        :aria-valuemax="max"
+        :aria-label="`Slider value: ${value}`"
         class="pa-slider-input"
         @input="handleInput"
       />

@@ -25,6 +25,8 @@ defineProps<{
       }
     ]"
     :disabled="disabled || loading"
+    :aria-busy="loading"
+    :aria-live="loading ? 'polite' : undefined"
   >
     <span v-if="loading" class="pa-button-loader" aria-hidden="true"></span>
     <slot />
@@ -224,9 +226,9 @@ defineProps<{
     
     .pa-button-loader {
       display: inline-block;
-      width: 16px;
-      height: 16px;
-      border: 2px solid currentColor;
+      width: var(--pa-icon-size-sm, var(--pa-icon-size-100, 16px));
+      height: var(--pa-icon-size-sm, var(--pa-icon-size-100, 16px));
+      border: var(--pa-button-border-width-default, var(--pa-Border-width-50, 1px)) solid currentColor;
       border-top-color: transparent;
       border-radius: 50%;
       animation: pa-button-spin 0.6s linear infinite;
@@ -238,6 +240,12 @@ defineProps<{
 @keyframes pa-button-spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .pa-button {
+    width: 100%;
   }
 }
 </style>

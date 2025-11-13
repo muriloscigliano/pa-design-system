@@ -39,6 +39,8 @@ const handleStepClick = (index: number, step: Step) => {
       'pa-stepper',
       `pa-stepper--${direction || 'horizontal'}`
     ]"
+    role="navigation"
+    aria-label="Steps"
   >
     <div
       v-for="(step, index) in steps"
@@ -51,7 +53,13 @@ const handleStepClick = (index: number, step: Step) => {
           'is-disabled': step.disabled
         }
       ]"
+      role="button"
+      :aria-current="index === current ? 'step' : undefined"
+      :aria-disabled="step.disabled || (clickable && index > current)"
+      :tabindex="(clickable && !step.disabled && index <= current) ? 0 : -1"
       @click="handleStepClick(index, step)"
+      @keydown.enter="handleStepClick(index, step)"
+      @keydown.space.prevent="handleStepClick(index, step)"
     >
       <div class="pa-stepper-step-icon">
         <span v-if="step.icon" class="pa-stepper-step-icon-custom">{{ step.icon }}</span>

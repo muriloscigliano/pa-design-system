@@ -44,7 +44,7 @@ defineProps<{
 .pa-table-header {
   background-color: var(--pa-table-header-background, var(--pa-color-surface-container-background));
   color: var(--pa-table-header-text, var(--pa-color-surface-container-text));
-  border-bottom: 2px solid var(--pa-table-header-border, var(--pa-color-surface-container-border));
+  border-bottom: var(--pa-Border-width-100, 2px) solid var(--pa-table-header-border, var(--pa-color-surface-container-border));
 }
 
 .pa-table-header :deep(th) {
@@ -58,7 +58,7 @@ defineProps<{
 }
 
 .pa-table-body :deep(tr) {
-  border-bottom: 1px solid var(--pa-table-row-border, var(--pa-color-surface-base-divider));
+  border-bottom: var(--pa-Border-width-50, 1px) solid var(--pa-table-row-border, var(--pa-color-surface-base-divider));
   transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
 
   &:last-child {
@@ -85,7 +85,7 @@ defineProps<{
 }
 
 .pa-table-footer {
-  border-top: 2px solid var(--pa-table-header-border, var(--pa-color-surface-container-border));
+  border-top: var(--pa-Border-width-100, 2px) solid var(--pa-table-header-border, var(--pa-color-surface-container-border));
 }
 </style>
 

@@ -31,7 +31,7 @@ defineProps<{
 .pa-header {
   background-color: var(--pa-header-background, var(--pa-color-surface-container-background));
   color: var(--pa-header-text, var(--pa-color-surface-container-text));
-  border-bottom: 1px solid var(--pa-header-border, var(--pa-color-surface-container-border));
+  border-bottom: var(--pa-Border-width-50, 1px) solid var(--pa-header-border, var(--pa-color-surface-container-border));
   height: var(--pa-header-height, 64px);
   padding: var(--pa-header-padding-y) var(--pa-header-padding-x);
 

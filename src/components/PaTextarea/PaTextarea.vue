@@ -93,6 +93,8 @@ const handleBlur = (event: FocusEvent) => {
       :disabled="disabled"
       :rows="autoResize ? undefined : (rows || 3)"
       :maxlength="maxLength"
+      :aria-invalid="error"
+      :aria-describedby="error ? 'pa-textarea-error' : undefined"
       @input="handleInput"
       @focus="handleFocus"
       @blur="handleBlur"

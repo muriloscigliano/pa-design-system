@@ -21,6 +21,8 @@ defineProps<{
         'pa-loading-spinner',
         `pa-loading-spinner--${variant || 'primary'}`
       ]"
+      role="status"
+      aria-label="Loading"
     >
       <svg
         viewBox="0 0 24 24"

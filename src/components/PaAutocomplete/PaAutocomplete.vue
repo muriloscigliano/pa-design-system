@@ -190,6 +190,11 @@ onUnmounted(() => {
         :value="displayValue"
         :placeholder="placeholder"
         :disabled="disabled"
+        :aria-invalid="error"
+        :aria-expanded="isOpen"
+        :aria-haspopup="true"
+        :aria-autocomplete="'list'"
+        role="combobox"
         @input="handleInput"
         @focus="handleFocus"
         @blur="handleBlur"
@@ -208,7 +213,7 @@ onUnmounted(() => {
         <div v-if="loading" class="pa-autocomplete-loading-menu">
           <PaLoading size="sm" />
         </div>
-        <div v-else class="pa-autocomplete-options">
+        <div v-else class="pa-autocomplete-options" role="listbox">
           <div
             v-for="(option, index) in filteredOptions"
             :key="String(option.value)"
@@ -219,6 +224,9 @@ onUnmounted(() => {
                 'is-disabled': option.disabled
               }
             ]"
+            role="option"
+            :aria-selected="selectedIndex === index"
+            :aria-disabled="option.disabled"
             @click="selectOption(option)"
             @mouseenter="selectedIndex = index"
           >
@@ -316,11 +324,11 @@ onUnmounted(() => {
   right: 0;
   margin-top: var(--pa-spacing-4, 4px);
   background-color: var(--pa-autocomplete-menu-background, var(--pa-color-surface-container-background));
-  border: 1px solid var(--pa-autocomplete-menu-border, var(--pa-color-surface-container-border));
+  border: var(--pa-Border-width-50, 1px) solid var(--pa-autocomplete-menu-border, var(--pa-color-surface-container-border));
   border-radius: var(--pa-autocomplete-border-radius-default, var(--pa-Border-radius-100, 8px));
   box-shadow: var(--pa-autocomplete-menu-shadow, var(--pa-shadow-md));
   z-index: var(--pa-autocomplete-menu-z-index, var(--pa-z-index-400, 400));
-  max-height: 300px;
+  max-height: var(--pa-spacing-700, var(--pa-spacing-64, 64px));
   overflow-y: auto;
 }
 

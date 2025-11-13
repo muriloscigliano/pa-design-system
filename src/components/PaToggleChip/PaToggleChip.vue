@@ -35,7 +35,13 @@ const remove = (event: MouseEvent) => {
         'is-removable': removable
       }
     ]"
+    role="button"
+    :aria-pressed="modelValue"
+    :aria-disabled="disabled"
+    :tabindex="disabled ? -1 : 0"
     @click="toggle"
+    @keydown.enter="toggle"
+    @keydown.space.prevent="toggle"
   >
     <slot />
     <button
@@ -56,7 +62,7 @@ const remove = (event: MouseEvent) => {
   padding: var(--pa-toggle-chip-padding-y) var(--pa-toggle-chip-padding-x);
   background-color: var(--pa-toggle-chip-background-default, var(--pa-color-surface-container-background));
   color: var(--pa-toggle-chip-text-default, var(--pa-color-surface-container-text));
-  border: 1px solid var(--pa-toggle-chip-border-default, var(--pa-color-surface-container-border));
+  border: var(--pa-Border-width-50, 1px) solid var(--pa-toggle-chip-border-default, var(--pa-color-surface-container-border));
   border-radius: var(--pa-toggle-chip-border-radius, var(--pa-Border-radius-full, 99999px));
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
   font-size: var(--pa-font-size-200, 16px);
@@ -92,8 +98,8 @@ const remove = (event: MouseEvent) => {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 16px;
-  height: 16px;
+  width: var(--pa-icon-size-sm, var(--pa-icon-size-100, 16px));
+  height: var(--pa-icon-size-sm, var(--pa-icon-size-100, 16px));
   opacity: 0.7;
   transition: opacity var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
 

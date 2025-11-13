@@ -39,9 +39,18 @@ const triggerFileInput = () => {
       :multiple="multiple"
       :disabled="disabled"
       class="pa-file-uploader-input"
+      aria-label="File upload"
       @change="handleFileChange"
     />
-    <div class="pa-file-uploader-dropzone" @click="triggerFileInput">
+    <div 
+      class="pa-file-uploader-dropzone" 
+      role="button"
+      :aria-disabled="disabled"
+      :tabindex="disabled ? -1 : 0"
+      @click="triggerFileInput"
+      @keydown.enter="triggerFileInput"
+      @keydown.space.prevent="triggerFileInput"
+    >
       <slot>
         <div class="pa-file-uploader-content">
           <span class="pa-file-uploader-icon">📎</span>

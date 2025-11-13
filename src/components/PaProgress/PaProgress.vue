@@ -38,7 +38,7 @@ const strokeDashoffset = computed(() => {
       }
     ]"
   >
-    <div v-if="type === 'line'" class="pa-progress-line">
+    <div v-if="type === 'line'" class="pa-progress-line" role="progressbar" :aria-valuenow="displayPercentage" aria-valuemin="0" aria-valuemax="100">
       <div class="pa-progress-line-track">
         <div
           :class="[

@@ -30,10 +30,10 @@ defineProps<{
 }
 
 .pa-page-layout-sidebar {
-  width: 280px;
+  width: var(--pa-layout-drawer-sm, 300px);
   flex-shrink: 0;
   background-color: var(--pa-color-surface-container-background, var(--pa-gray-white, #ffffff));
-  border-right: 1px solid var(--pa-color-surface-container-border, var(--pa-gray-200, #e9ecef));
+  border-right: var(--pa-Border-width-50, 1px) solid var(--pa-color-surface-container-border, var(--pa-gray-200, #e9ecef));
 }
 
 .pa-page-layout-main {
