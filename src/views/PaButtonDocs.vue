@@ -8,6 +8,8 @@ import { useCodeCopy } from '../composables/useCodeCopy'
 const { showCode, toggleShowCode, getCodeTextForCopy } = useCodeCopy()
 const activeHierarchyTab = ref('primary')
 const activeMultipleCTAsTab = ref('primary-secondary')
+const activeIconsTab = ref('left')
+const activeStatesTab = ref('default')
 
 const getHierarchyCode = (tab: string): string => {
   const codes: Record<string, string> = {
@@ -25,6 +27,39 @@ const getMultipleCTAsCode = (tab: string): string => {
     'primary-secondary': '<PaButton variant="primary">Save Changes</PaButton>\n<PaButton variant="secondary">Cancel</PaButton>',
     'primary-tertiary': '<PaButton variant="primary">Submit</PaButton>\n<PaButton variant="tertiary">Skip</PaButton>',
     'three-actions': '<PaButton variant="primary">Confirm</PaButton>\n<PaButton variant="secondary">Edit</PaButton>\n<PaButton variant="tertiary">Cancel</PaButton>'
+  }
+  return codes[tab] || ''
+}
+
+const getIconsCode = (tab: string): string => {
+  const codes: Record<string, string> = {
+    'left': `<PaButton variant="primary" icon-position="left">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <path d="M8 2V4M8 12V14M2 8H4M12 8H14M3.757 3.757L5.172 5.172M10.828 10.828L12.243 12.243M3.757 12.243L5.172 10.828M10.828 5.172L12.243 3.757" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  </svg>
+  <span>Icon Left</span>
+</PaButton>`,
+    'center': `<PaButton variant="primary" icon-position="center">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <path d="M8 2V4M8 12V14M2 8H4M12 8H14M3.757 3.757L5.172 5.172M10.828 10.828L12.243 12.243M3.757 12.243L5.172 10.828M10.828 5.172L12.243 3.757" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  </svg>
+  <span>Icon Center</span>
+</PaButton>`,
+    'right': `<PaButton variant="primary" icon-position="right">
+  <span>Icon Right</span>
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <path d="M8 2V4M8 12V14M2 8H4M12 8H14M3.757 3.757L5.172 5.172M10.828 10.828L12.243 12.243M3.757 12.243L5.172 10.828M10.828 5.172L12.243 3.757" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  </svg>
+</PaButton>`
+  }
+  return codes[tab] || ''
+}
+
+const getStatesCode = (tab: string): string => {
+  const codes: Record<string, string> = {
+    'default': '<PaButton variant="primary">Default</PaButton>',
+    'disabled': '<PaButton variant="primary" :disabled="true">Disabled</PaButton>',
+    'loading': '<PaButton variant="primary" :loading="true">Loading</PaButton>'
   }
   return codes[tab] || ''
 }
@@ -302,45 +337,70 @@ const getMultipleCTAsCode = (tab: string): string => {
       <p class="documentation-section-description">
         Buttons can include icons positioned on the left, center, or right. Icons help communicate the action and improve visual clarity.
       </p>
+
+      <div class="example-tabs">
+        <button
+          class="example-tab"
+          :class="{ 'is-active': activeIconsTab === 'left' }"
+          @click="activeIconsTab = 'left'"
+        >
+          Left
+        </button>
+        <button
+          class="example-tab"
+          :class="{ 'is-active': activeIconsTab === 'center' }"
+          @click="activeIconsTab = 'center'"
+        >
+          Center
+        </button>
+        <button
+          class="example-tab"
+          :class="{ 'is-active': activeIconsTab === 'right' }"
+          @click="activeIconsTab = 'right'"
+        >
+          Right
+        </button>
+      </div>
+
       <div class="example-preview-container">
         <div class="example-preview">
-          <div class="component-preview" style="display: flex; flex-direction: column; gap: var(--pa-spacing-16, 16px);">
-            <div style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px); align-items: center;">
+          <div class="component-preview" style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px); align-items: center;">
+            <template v-if="activeIconsTab === 'left'">
               <PaButton variant="primary" icon-position="left">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink: 0;">
                   <path d="M8 2V4M8 12V14M2 8H4M12 8H14M3.757 3.757L5.172 5.172M10.828 10.828L12.243 12.243M3.757 12.243L5.172 10.828M10.828 5.172L12.243 3.757" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
                 </svg>
                 <span>Icon Left</span>
               </PaButton>
-            </div>
-            <div style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px); align-items: center;">
+            </template>
+            <template v-else-if="activeIconsTab === 'center'">
               <PaButton variant="primary" icon-position="center">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink: 0;">
                   <path d="M8 2V4M8 12V14M2 8H4M12 8H14M3.757 3.757L5.172 5.172M10.828 10.828L12.243 12.243M3.757 12.243L5.172 10.828M10.828 5.172L12.243 3.757" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
                 </svg>
                 <span>Icon Center</span>
               </PaButton>
-            </div>
-            <div style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px); align-items: center;">
+            </template>
+            <template v-else-if="activeIconsTab === 'right'">
               <PaButton variant="primary" icon-position="right">
                 <span>Icon Right</span>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink: 0;">
                   <path d="M8 2V4M8 12V14M2 8H4M12 8H14M3.757 3.757L5.172 5.172M10.828 10.828L12.243 12.243M3.757 12.243L5.172 10.828M10.828 5.172L12.243 3.757" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
                 </svg>
               </PaButton>
-            </div>
+            </template>
           </div>
         </div>
         <button 
           class="show-code-button"
-          @click="toggleShowCode('pabutton-icons')"
+          @click="toggleShowCode(`pabutton-icons-${activeIconsTab}`)"
         >
-          {{ showCode['pabutton-icons'] ? 'Hide code' : 'Show code' }}
+          {{ showCode[`pabutton-icons-${activeIconsTab}`] ? 'Hide code' : 'Show code' }}
         </button>
-        <div v-if="showCode['pabutton-icons']" class="code-preview">
+        <div v-if="showCode[`pabutton-icons-${activeIconsTab}`]" class="code-preview">
           <CodeBlock 
-            :code="getCodeTextForCopy(getComponentExamples('pabutton').find(e => e.render === 'icons')?.code)"
-            copy-key="pabutton-icons"
+            :code="getIconsCode(activeIconsTab)"
+            :copy-key="`pabutton-icons-${activeIconsTab}`"
             :show-line-numbers="true"
           />
         </div>
@@ -353,24 +413,55 @@ const getMultipleCTAsCode = (tab: string): string => {
       <p class="documentation-section-description">
         Buttons support different states to provide feedback and control user interactions. Use the disabled state when an action is not available, and the loading state for async operations.
       </p>
+
+      <div class="example-tabs">
+        <button
+          class="example-tab"
+          :class="{ 'is-active': activeStatesTab === 'default' }"
+          @click="activeStatesTab = 'default'"
+        >
+          Default
+        </button>
+        <button
+          class="example-tab"
+          :class="{ 'is-active': activeStatesTab === 'disabled' }"
+          @click="activeStatesTab = 'disabled'"
+        >
+          Disabled
+        </button>
+        <button
+          class="example-tab"
+          :class="{ 'is-active': activeStatesTab === 'loading' }"
+          @click="activeStatesTab = 'loading'"
+        >
+          Loading
+        </button>
+      </div>
+
       <div class="example-preview-container">
         <div class="example-preview">
           <div class="component-preview" style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px);">
-            <PaButton variant="primary">Default</PaButton>
-            <PaButton variant="primary" :disabled="true">Disabled</PaButton>
-            <PaButton variant="primary" :loading="true">Loading</PaButton>
+            <template v-if="activeStatesTab === 'default'">
+              <PaButton variant="primary">Default</PaButton>
+            </template>
+            <template v-else-if="activeStatesTab === 'disabled'">
+              <PaButton variant="primary" :disabled="true">Disabled</PaButton>
+            </template>
+            <template v-else-if="activeStatesTab === 'loading'">
+              <PaButton variant="primary" :loading="true">Loading</PaButton>
+            </template>
           </div>
         </div>
         <button 
           class="show-code-button"
-          @click="toggleShowCode('pabutton-states')"
+          @click="toggleShowCode(`pabutton-states-${activeStatesTab}`)"
         >
-          {{ showCode['pabutton-states'] ? 'Hide code' : 'Show code' }}
+          {{ showCode[`pabutton-states-${activeStatesTab}`] ? 'Hide code' : 'Show code' }}
         </button>
-        <div v-if="showCode['pabutton-states']" class="code-preview">
+        <div v-if="showCode[`pabutton-states-${activeStatesTab}`]" class="code-preview">
           <CodeBlock 
-            :code="getCodeTextForCopy(getComponentExamples('pabutton').find(e => e.render === 'states')?.code)"
-            copy-key="pabutton-states"
+            :code="getStatesCode(activeStatesTab)"
+            :copy-key="`pabutton-states-${activeStatesTab}`"
             :show-line-numbers="true"
           />
         </div>
