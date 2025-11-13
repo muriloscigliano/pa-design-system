@@ -4,6 +4,7 @@ import { PaButton } from '../components'
 import { CodeBlock } from '../components'
 import { getComponentExamples } from '../config/componentExamples'
 import { useCodeCopy } from '../composables/useCodeCopy'
+import { getComponentSourceCode } from '../config/componentSourceCode'
 
 const { showCode, toggleShowCode, getCodeTextForCopy } = useCodeCopy()
 const activeVariantsTab = ref('primary')
@@ -21,6 +22,7 @@ const getVariantsCode = (tab: string): string => {
   }
   return codes[tab] || ''
 }
+
 
 const getMultipleCTAsCode = (tab: string): string => {
   const codes: Record<string, string> = {
@@ -204,11 +206,24 @@ const getStatesCode = (tab: string): string => {
           {{ showCode[`pabutton-variants-${activeVariantsTab}`] ? 'Hide code' : 'Show code' }}
         </button>
         <div v-if="showCode[`pabutton-variants-${activeVariantsTab}`]" class="code-preview">
-          <CodeBlock 
-            :code="getVariantsCode(activeVariantsTab)"
-            :copy-key="`pabutton-variants-${activeVariantsTab}`"
-            :show-line-numbers="true"
-          />
+          <div class="code-split-container">
+            <div class="code-section">
+              <h4 class="code-section-title">Implementation</h4>
+              <CodeBlock 
+                :code="getVariantsCode(activeVariantsTab)"
+                :copy-key="`pabutton-variants-usage-${activeVariantsTab}`"
+                :show-line-numbers="true"
+              />
+            </div>
+            <div class="code-section">
+              <h4 class="code-section-title">Component Source</h4>
+              <CodeBlock 
+                :code="getComponentSourceCode('pabutton')"
+                copy-key="pabutton-component-source"
+                :show-line-numbers="true"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -597,6 +612,33 @@ const getStatesCode = (tab: string): string => {
 
 .code-preview {
   margin-top: var(--pa-spacing-8, 8px);
+}
+
+.code-split-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pa-spacing-16, 16px);
+}
+
+.code-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pa-spacing-8, 8px);
+}
+
+.code-section-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: var(--pa-font-size-100, 14px);
+  color: var(--pa-color-surface-container-text-secondary, #6c757d);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+}
+
+[data-theme="dark"] .code-section-title {
+  color: #6e757c;
 }
 </style>
 
