@@ -112,7 +112,7 @@ const handleCopy = async () => {
       </svg>
       <span>{{ copied ? 'Copied!' : 'Copy' }}</span>
     </button>
-    <code v-html="formattedCode"></code>
+    <code id="code" v-html="formattedCode"></code>
   </pre>
 </template>
 
@@ -176,7 +176,7 @@ const handleCopy = async () => {
     :deep(.line) {
       display: block;
       position: relative;
-      padding-left: 48px;
+      padding-left: 76px;
       min-height: 1.5em;
       white-space: pre;
     }
@@ -210,6 +210,7 @@ const handleCopy = async () => {
     border-radius: var(--pa-Border-radius-100, 8px) 0 0 var(--pa-Border-radius-100, 8px);
     transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease), border-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
     z-index: 0;
+    margin-right: 28px;
   }
 }
 
@@ -229,6 +230,14 @@ const handleCopy = async () => {
     background-color: #151517;
     border-color: #222529;
   }
+}
+
+#code {
+  background: transparent !important;
+  display: flex;
+  flex-direction: column;
+  margin-left: -10px;
+  gap: 4px;
 }
 
 .copy-code-button {
