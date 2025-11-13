@@ -142,7 +142,7 @@ const handleCopy = async () => {
     margin: 0;
     color: var(--pa-color-surface-container-text, #495057);
     transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
-    background-color: transparent;
+    background-color: transparent !important;
     position: relative;
     z-index: 1;
     
@@ -161,8 +161,16 @@ const handleCopy = async () => {
     :deep(pre) {
       margin: 0;
       padding: 0;
-      background: transparent;
+      background: transparent !important;
       position: relative;
+    }
+
+    :deep(pre code) {
+      background: transparent !important;
+    }
+
+    :deep([style*="background-color"]) {
+      background-color: transparent !important;
     }
 
     :deep(.line) {
