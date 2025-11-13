@@ -40,4 +40,6 @@ export { PaToggleSegmentation } from './PaToggleSegmentation'
 export { PaToggleSwitch } from './PaToggleSwitch'
 export { PaTooltip } from './PaTooltip'
 export { CodeBlock } from './CodeBlock'
+export { AppSidebar } from './AppSidebar'
+export { AppHeader } from './AppHeader'
 

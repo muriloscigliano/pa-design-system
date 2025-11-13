@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 interface Props {
   code: string
@@ -11,10 +11,7 @@ const props = withDefaults(defineProps<Props>(), {
   showLineNumbers: false
 })
 
-const emit = defineEmits<{
-  copy: [text: string, key: string]
-  toggleShow: [key: string]
-}>()
+const copied = ref(false)
 
 const formatCodeWithLineNumbers = (code: string): string => {
   const lines = code.split('\n')
@@ -33,19 +30,34 @@ const getCodeTextForCopy = (code: string): string => {
   if (!code) return ''
   return code.trim()
 }
+
+const handleCopy = async () => {
+  try {
+    await navigator.clipboard.writeText(getCodeTextForCopy(props.code))
+    copied.value = true
+    setTimeout(() => {
+      copied.value = false
+    }, 2000)
+  } catch (err) {
+    console.error('Failed to copy:', err)
+  }
+}
 </script>
 
 <template>
   <pre class="code-block">
     <button 
       class="copy-code-button"
-      @click="emit('copy', getCodeTextForCopy(code), copyKey)"
-      :aria-label="`Copy code`"
+      @click="handleCopy"
+      :aria-label="copied ? 'Copied!' : 'Copy code'"
     >
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <svg v-if="!copied" width="16" height="16" viewBox="0 0 16 16" fill="none">
         <path d="M5.5 3.5H3.5C2.67157 3.5 2 4.17157 2 5V12.5C2 13.3284 2.67157 14 3.5 14H11C11.8284 14 12.5 13.3284 12.5 12.5V10.5M5.5 3.5C5.5 2.67157 6.17157 2 7 2H9.5M5.5 3.5C5.5 4.32843 6.17157 5 7 5H9.5M9.5 5H11C11.8284 5 12.5 5.67157 12.5 6.5V10.5M9.5 5V6.5C9.5 7.32843 10.1716 8 11 8H12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <span>Copy</span>
+      <svg v-else width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M13.5 4L6 11.5L2.5 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>{{ copied ? 'Copied!' : 'Copy' }}</span>
     </button>
     <code>{{ formattedCode }}</code>
   </pre>

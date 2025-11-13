@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { navigation } from '../../config/navigation'
 
 interface Props {
   currentTheme: 'light' | 'dark'
@@ -8,15 +10,27 @@ interface Props {
 defineProps<Props>()
 
 const emit = defineEmits<{
-  search: [query: string]
   toggleTheme: []
 }>()
 
+const router = useRouter()
 const searchQuery = ref('')
 
 const handleSearch = () => {
   if (searchQuery.value.trim()) {
-    emit('search', searchQuery.value.trim())
+    const query = searchQuery.value.toLowerCase().trim()
+    const allComponents = Object.values(navigation).flatMap(section => section.items)
+    const found = allComponents.find(item => 
+      item.label.toLowerCase().includes(query)
+    )
+    if (found) {
+      if (['introduction', 'installation', 'theming'].includes(found.id)) {
+        router.push(`/${found.id}`)
+      } else {
+        router.push(`/components/${found.id}`)
+      }
+      searchQuery.value = ''
+    }
   }
 }
 

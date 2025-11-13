@@ -1,28 +1,30 @@
 <script setup lang="ts">
+import { useRoute } from 'vue-router'
 import { navigation } from '../../config/navigation'
 import logoSvg from '../../assets/pa-desing-system-logo.svg'
 
-interface Props {
-  activeComponent: string
+const route = useRoute()
+
+const getRoutePath = (id: string): string => {
+  if (['introduction', 'installation', 'theming'].includes(id)) {
+    return `/${id}`
+  }
+  return `/components/${id}`
 }
 
-defineProps<Props>()
-
-const emit = defineEmits<{
-  select: [id: string]
-}>()
-
-const handleSelect = (id: string) => {
-  emit('select', id)
+const isActive = (id: string): boolean => {
+  return route.name === id || route.path === getRoutePath(id)
 }
 </script>
 
 <template>
   <aside class="sidebar">
     <div class="sidebar-logo">
-      <div class="logo-circle">
-        <img :src="logoSvg" alt="PA Design System Logo" class="logo-image" />
-      </div>
+      <router-link to="/" class="logo-link">
+        <div class="logo-circle">
+          <img :src="logoSvg" alt="PA Design System Logo" class="logo-image" />
+        </div>
+      </router-link>
     </div>
     
     <div class="sidebar-divider"></div>
@@ -39,10 +41,11 @@ const handleSelect = (id: string) => {
             v-for="item in section.items" 
             :key="item.id" 
             class="nav-item"
-            :class="{ 'is-active': activeComponent === item.id }"
-            @click="handleSelect(item.id)"
+            :class="{ 'is-active': isActive(item.id) }"
           >
-            {{ item.label }}
+            <router-link :to="getRoutePath(item.id)" class="nav-link">
+              {{ item.label }}
+            </router-link>
           </li>
         </ul>
       </div>
@@ -163,31 +166,43 @@ const handleSelect = (id: string) => {
   font-weight: 500;
   font-size: var(--pa-font-size-200, 16px);
   line-height: normal;
-  color: var(--pa-color-surface-container-text, #212529);
   white-space: nowrap;
+}
+
+.nav-link {
+  color: var(--pa-color-surface-container-text, #212529);
+  text-decoration: none;
   cursor: pointer;
   transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  display: block;
   
   &:hover {
     color: var(--pa-color-surface-container-text-hover, #495057);
   }
-  
-  &.is-active {
-    color: var(--pa-color-surface-container-text-active, #212529);
-    font-weight: 600;
-  }
 }
 
-[data-theme="dark"] .nav-item {
+.nav-item.is-active .nav-link {
+  color: var(--pa-color-surface-container-text-active, #212529);
+  font-weight: 600;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+[data-theme="dark"] .nav-link {
   color: #eaecef;
   
   &:hover {
     color: #cfd4d9;
   }
-  
-  &.is-active {
-    color: #cfd4d9;
-  }
+}
+
+[data-theme="dark"] .nav-item.is-active .nav-link {
+  color: #cfd4d9;
 }
 </style>
 
