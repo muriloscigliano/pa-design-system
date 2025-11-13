@@ -179,6 +179,11 @@ const handleCopy = async () => {
       padding-left: 76px;
       min-height: 1.5em;
       white-space: pre;
+      margin-bottom: 4px;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
 
     :deep(.line-number) {
@@ -230,14 +235,6 @@ const handleCopy = async () => {
     background-color: #151517;
     border-color: #222529;
   }
-}
-
-#code {
-  background: transparent !important;
-  display: flex;
-  flex-direction: column;
-  margin-left: -10px;
-  gap: 4px;
 }
 
 .copy-code-button {
