@@ -1542,6 +1542,7 @@ const currentTheme = getTheme()</code></pre>
   padding: var(--pa-spacing-36, 36px);
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--pa-spacing-10, 10px);
   overflow-y: auto;
   overflow-x: hidden;
