@@ -58,6 +58,33 @@ export const componentExamples: Record<string, ExampleConfig[]> = {
       render: 'multiple-ctas'
     },
       {
+        label: 'Icons',
+        code: `<!-- Icon on the left (close to edge) -->
+<PaButton variant="primary" icon-position="left">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <path d="M8 2V4M8 12V14M2 8H4M12 8H14M3.757 3.757L5.172 5.172M10.828 10.828L12.243 12.243M3.757 12.243L5.172 10.828M10.828 5.172L12.243 3.757" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  </svg>
+  <span>Icon Left</span>
+</PaButton>
+
+<!-- Icon centered -->
+<PaButton variant="primary" icon-position="center">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <path d="M8 2V4M8 12V14M2 8H4M12 8H14M3.757 3.757L5.172 5.172M10.828 10.828L12.243 12.243M3.757 12.243L5.172 10.828M10.828 5.172L12.243 3.757" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  </svg>
+  <span>Icon Center</span>
+</PaButton>
+
+<!-- Icon on the right (close to edge) -->
+<PaButton variant="primary" icon-position="right">
+  <span>Icon Right</span>
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <path d="M8 2V4M8 12V14M2 8H4M12 8H14M3.757 3.757L5.172 5.172M10.828 10.828L12.243 12.243M3.757 12.243L5.172 10.828M10.828 5.172L12.243 3.757" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  </svg>
+</PaButton>`,
+        render: 'icons'
+      },
+      {
         label: 'States',
         code: `<PaButton variant="primary">Default</PaButton>
 <PaButton variant="primary" :disabled="true">Disabled</PaButton>

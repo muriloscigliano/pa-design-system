@@ -296,6 +296,57 @@ const getMultipleCTAsCode = (tab: string): string => {
       </div>
     </div>
 
+    <!-- Icons Section -->
+    <div class="documentation-section">
+      <h3 class="documentation-section-title">Icons</h3>
+      <p class="documentation-section-description">
+        Buttons can include icons positioned on the left, center, or right. Icons help communicate the action and improve visual clarity.
+      </p>
+      <div class="example-preview-container">
+        <div class="example-preview">
+          <div class="component-preview" style="display: flex; flex-direction: column; gap: var(--pa-spacing-16, 16px);">
+            <div style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px); align-items: center;">
+              <PaButton variant="primary" icon-position="left">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink: 0;">
+                  <path d="M8 2V4M8 12V14M2 8H4M12 8H14M3.757 3.757L5.172 5.172M10.828 10.828L12.243 12.243M3.757 12.243L5.172 10.828M10.828 5.172L12.243 3.757" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span>Icon Left</span>
+              </PaButton>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px); align-items: center;">
+              <PaButton variant="primary" icon-position="center">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink: 0;">
+                  <path d="M8 2V4M8 12V14M2 8H4M12 8H14M3.757 3.757L5.172 5.172M10.828 10.828L12.243 12.243M3.757 12.243L5.172 10.828M10.828 5.172L12.243 3.757" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span>Icon Center</span>
+              </PaButton>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--pa-spacing-8, 8px); align-items: center;">
+              <PaButton variant="primary" icon-position="right">
+                <span>Icon Right</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink: 0;">
+                  <path d="M8 2V4M8 12V14M2 8H4M12 8H14M3.757 3.757L5.172 5.172M10.828 10.828L12.243 12.243M3.757 12.243L5.172 10.828M10.828 5.172L12.243 3.757" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </PaButton>
+            </div>
+          </div>
+        </div>
+        <button 
+          class="show-code-button"
+          @click="toggleShowCode('pabutton-icons')"
+        >
+          {{ showCode['pabutton-icons'] ? 'Hide code' : 'Show code' }}
+        </button>
+        <div v-if="showCode['pabutton-icons']" class="code-preview">
+          <CodeBlock 
+            :code="getCodeTextForCopy(getComponentExamples('pabutton').find(e => e.render === 'icons')?.code)"
+            copy-key="pabutton-icons"
+            :show-line-numbers="true"
+          />
+        </div>
+      </div>
+    </div>
+
     <!-- States Section -->
     <div class="documentation-section">
       <h3 class="documentation-section-title">States</h3>

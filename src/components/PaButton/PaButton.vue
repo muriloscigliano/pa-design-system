@@ -4,6 +4,7 @@ defineProps<{
   size?: 'sm' | 'md' | 'lg'
   disabled?: boolean
   loading?: boolean
+  iconPosition?: 'left' | 'center' | 'right'
 }>()
 </script>
 
@@ -13,6 +14,11 @@ defineProps<{
       'pa-button',
       `pa-button--${variant || 'primary'}`,
       `pa-button--${size || 'md'}`,
+      {
+        'has-icon-left': iconPosition === 'left',
+        'has-icon-center': iconPosition === 'center',
+        'has-icon-right': iconPosition === 'right'
+      },
       { 
         'is-disabled': disabled || loading,
         'is-loading': loading
@@ -35,6 +41,19 @@ defineProps<{
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: var(--pa-spacing-8, 8px);
+  
+  &.has-icon-left {
+    justify-content: flex-start;
+  }
+  
+  &.has-icon-center {
+    justify-content: center;
+  }
+  
+  &.has-icon-right {
+    justify-content: flex-end;
+  }
 
   &--primary {
     background-color: var(--pa-button-primary-background-default);
