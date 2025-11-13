@@ -135,7 +135,7 @@ const handleCopy = async () => {
     display: block;
     font-family: 'Roboto Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
     font-size: var(--pa-font-size-100, 14px);
-    line-height: 1.6;
+    line-height: 1.5;
     white-space: pre;
     padding: var(--pa-spacing-24, 24px);
     padding-right: calc(var(--pa-spacing-12, 12px) + 80px);
@@ -169,7 +169,7 @@ const handleCopy = async () => {
       display: block;
       position: relative;
       padding-left: 48px;
-      min-height: 1.6em;
+      min-height: 1.5em;
       white-space: pre;
     }
 
@@ -182,7 +182,7 @@ const handleCopy = async () => {
       text-align: right;
       font-family: 'Roboto Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
       font-size: var(--pa-font-size-100, 14px);
-      line-height: 1.6;
+      line-height: 1.5;
       color: var(--pa-color-surface-container-text-secondary, #6c757d);
       user-select: none;
       pointer-events: none;
