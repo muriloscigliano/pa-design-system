@@ -45,6 +45,7 @@ defineProps<{
   
   &.has-icon-left {
     justify-content: flex-start;
+    gap: var(--pa-spacing-8, 8px);
   }
   
   &.has-icon-center {
@@ -53,6 +54,7 @@ defineProps<{
   
   &.has-icon-right {
     justify-content: flex-end;
+    gap: var(--pa-spacing-8, 8px);
   }
 
   &--primary {
