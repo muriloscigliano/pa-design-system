@@ -47,14 +47,25 @@ const highlightCode = async () => {
     if (props.showLineNumbers) {
       const lines = props.code.split('\n')
       const maxDigits = String(lines.length).length
-      const lineNumbers = lines.map((_, index) => {
-        const lineNum = String(index + 1).padStart(maxDigits, ' ')
-        return `<span class="line-number">${lineNum}</span>`
-      }).join('')
       
-      highlightedCode.value = html.replace(/<pre[^>]*>/, (match) => {
-        return `${match}<span class="line-numbers">${lineNumbers}</span>`
+      // Add line numbers to each line element
+      let lineIndex = 0
+      highlightedCode.value = html.replace(/<span class="line">/g, (match) => {
+        const lineNum = String(lineIndex + 1).padStart(maxDigits, ' ')
+        lineIndex++
+        return `${match}<span class="line-number">${lineNum}</span>`
       })
+      
+      // If Shiki doesn't use .line class, wrap each line manually
+      if (!html.includes('class="line"')) {
+        const numberedLines = lines.map((line, index) => {
+          const lineNum = String(index + 1).padStart(maxDigits, ' ')
+          return `<span class="line"><span class="line-number">${lineNum}</span>${line || ' '}</span>`
+        }).join('\n')
+        highlightedCode.value = html.replace(/<pre[^>]*>[\s\S]*?<\/pre>/, () => {
+          return `<pre>${numberedLines}</pre>`
+        })
+      }
     } else {
       highlightedCode.value = html
     }
@@ -127,24 +138,21 @@ const handleCopy = async () => {
     line-height: 1.6;
     white-space: pre;
     padding: var(--pa-spacing-24, 24px);
-    padding-left: calc(48px + var(--pa-spacing-16, 16px));
     padding-right: calc(var(--pa-spacing-12, 12px) + 80px);
     margin: 0;
     color: var(--pa-color-surface-container-text, #495057);
     transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
     background-color: transparent;
-    background-image: 
-      linear-gradient(
-        to right,
-        transparent 0,
-        transparent 48px,
-        var(--pa-color-surface-container-border, #e9ecef) 48px,
-        var(--pa-color-surface-container-border, #e9ecef) 49px,
-        transparent 49px
-      );
-    background-clip: padding-box;
     position: relative;
     z-index: 1;
+    
+    &:has(.line-number) {
+      padding-left: 0;
+    }
+    
+    &:not(:has(.line-number)) {
+      padding-left: var(--pa-spacing-24, 24px);
+    }
     
     &::selection {
       background-color: rgba(193, 5, 5, 0.2);
@@ -157,13 +165,19 @@ const handleCopy = async () => {
       position: relative;
     }
 
-    :deep(.line-numbers) {
+    :deep(.line) {
+      display: block;
+      position: relative;
+      padding-left: 48px;
+      min-height: 1.6em;
+      white-space: pre;
+    }
+
+    :deep(.line-number) {
       position: absolute;
       left: 0;
-      top: var(--pa-spacing-24, 24px);
-      bottom: var(--pa-spacing-24, 24px);
+      top: 0;
       width: 48px;
-      border-right: 1px solid var(--pa-color-surface-container-border, #e9ecef);
       padding-right: var(--pa-spacing-16, 16px);
       text-align: right;
       font-family: 'Roboto Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
@@ -172,12 +186,7 @@ const handleCopy = async () => {
       color: var(--pa-color-surface-container-text-secondary, #6c757d);
       user-select: none;
       pointer-events: none;
-      z-index: 1;
-    }
-
-    :deep(.line-number) {
-      display: block;
-      line-height: 1.6;
+      white-space: pre;
     }
   }
   
@@ -202,18 +211,8 @@ const handleCopy = async () => {
   
   code {
     color: #cfd4d9;
-    background-image: 
-      linear-gradient(
-        to right,
-        transparent 0,
-        transparent 48px,
-        #222529 48px,
-        #222529 49px,
-        transparent 49px
-      );
 
-    :deep(.line-numbers) {
-      border-color: #222529;
+    :deep(.line-number) {
       color: #6e757c;
     }
   }
