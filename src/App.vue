@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, nextTick, onMounted, computed } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { setTheme, getTheme } from './utils/theme'
 import { AppSidebar } from './components/AppSidebar'
@@ -23,11 +23,8 @@ const activeSection = computed(() => {
 
 const toggleTheme = () => {
   const newTheme = currentTheme.value === 'light' ? 'dark' : 'light'
-  setTheme(newTheme)
   currentTheme.value = newTheme
-  nextTick(() => {
-    document.documentElement.setAttribute('data-theme', newTheme)
-  })
+  setTheme(newTheme)
 }
 
 onMounted(() => {
@@ -87,6 +84,7 @@ onMounted(() => {
   padding: var(--pa-spacing-36, 36px);
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--pa-spacing-10, 10px);
   overflow: hidden;
   position: relative;

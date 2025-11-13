@@ -190,11 +190,11 @@
         "$value": "{border.radius.medium}"
       }
     },
-    "payment-navigation": {
-      "background": {
+    "link": {
+      "text": {
         "default": {
           "$type": "color",
-          "$value": "{color.action.primary.background.default}"
+          "$value": "{color.action.primary.text.default}"
         },
         "hover": {
           "$type": "color",
@@ -206,36 +206,14 @@
         },
         "disabled": {
           "$type": "color",
-          "$value": "{color.action.primary.background.disable}"
-        }
-      },
-      "text": {
-        "default": {
-          "$type": "color",
-          "$value": "{color.action.primary.text.default}"
-        },
-        "disabled": {
-          "$type": "color",
           "$value": "{color.action.primary.text.disable}"
         }
       },
       "border": {
-        "default": {
-          "$type": "color",
-          "$value": "{color.action.primary.border.default}"
-        },
         "focus": {
           "$type": "color",
           "$value": "{color.action.primary.border.focus}"
-        },
-        "disabled": {
-          "$type": "color",
-          "$value": "{color.action.primary.border.disable}"
         }
-      },
-      "radius": {
-        "$type": "dimension",
-        "$value": "{border.radius.medium}"
       }
     },
     "action": {

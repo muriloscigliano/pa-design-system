@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 13 Nov 2025 00:52:09 GMT
+ * Generated on Thu, 13 Nov 2025 00:55:15 GMT
  */
 
 :root {
@@ -204,7 +204,7 @@
 
 /**
  * Do not edit directly
- * Generated on Thu, 13 Nov 2025 00:52:09 GMT
+ * Generated on Thu, 13 Nov 2025 00:55:15 GMT
  */
 
 :root {
@@ -802,16 +802,11 @@
   --pa-button-tertiary-border-focus: var(--pa-color-action-tertiary-border-focus);
   --pa-button-tertiary-border-disabled: var(--pa-color-action-tertiary-border-disable);
   --pa-button-tertiary-radius: var(--pa-border-radius-medium);
-  --pa-button-payment-navigation-background-default: var(--pa-color-action-primary-background-default);
-  --pa-button-payment-navigation-background-hover: var(--pa-color-action-primary-background-hover);
-  --pa-button-payment-navigation-background-active: var(--pa-color-action-primary-background-active);
-  --pa-button-payment-navigation-background-disabled: var(--pa-color-action-primary-background-disable);
-  --pa-button-payment-navigation-text-default: var(--pa-color-action-primary-text-default);
-  --pa-button-payment-navigation-text-disabled: var(--pa-color-action-primary-text-disable);
-  --pa-button-payment-navigation-border-default: var(--pa-color-action-primary-border-default);
-  --pa-button-payment-navigation-border-focus: var(--pa-color-action-primary-border-focus);
-  --pa-button-payment-navigation-border-disabled: var(--pa-color-action-primary-border-disable);
-  --pa-button-payment-navigation-radius: var(--pa-border-radius-medium);
+  --pa-button-link-text-default: var(--pa-color-action-primary-text-default);
+  --pa-button-link-text-hover: var(--pa-color-action-primary-background-hover);
+  --pa-button-link-text-active: var(--pa-color-action-primary-background-active);
+  --pa-button-link-text-disabled: var(--pa-color-action-primary-text-disable);
+  --pa-button-link-border-focus: var(--pa-color-action-primary-border-focus);
   --pa-button-action-background-default: var(--pa-color-action-secondary-background-default);
   --pa-button-action-background-hover: var(--pa-color-action-secondary-background-hover);
   --pa-button-action-background-active: var(--pa-color-action-secondary-background-active);
@@ -1291,7 +1286,7 @@
 
 /**
  * Do not edit directly
- * Generated on Thu, 13 Nov 2025 00:52:09 GMT
+ * Generated on Thu, 13 Nov 2025 00:55:15 GMT
  */
 
 [data-theme="dark"] {
@@ -1889,16 +1884,11 @@
   --pa-button-tertiary-border-focus: var(--pa-color-action-tertiary-border-focus);
   --pa-button-tertiary-border-disabled: var(--pa-color-action-tertiary-border-disable);
   --pa-button-tertiary-radius: var(--pa-border-radius-medium);
-  --pa-button-payment-navigation-background-default: var(--pa-color-action-primary-background-default);
-  --pa-button-payment-navigation-background-hover: var(--pa-color-action-primary-background-hover);
-  --pa-button-payment-navigation-background-active: var(--pa-color-action-primary-background-active);
-  --pa-button-payment-navigation-background-disabled: var(--pa-color-action-primary-background-disable);
-  --pa-button-payment-navigation-text-default: var(--pa-color-action-primary-text-default);
-  --pa-button-payment-navigation-text-disabled: var(--pa-color-action-primary-text-disable);
-  --pa-button-payment-navigation-border-default: var(--pa-color-action-primary-border-default);
-  --pa-button-payment-navigation-border-focus: var(--pa-color-action-primary-border-focus);
-  --pa-button-payment-navigation-border-disabled: var(--pa-color-action-primary-border-disable);
-  --pa-button-payment-navigation-radius: var(--pa-border-radius-medium);
+  --pa-button-link-text-default: var(--pa-color-action-primary-text-default);
+  --pa-button-link-text-hover: var(--pa-color-action-primary-background-hover);
+  --pa-button-link-text-active: var(--pa-color-action-primary-background-active);
+  --pa-button-link-text-disabled: var(--pa-color-action-primary-text-disable);
+  --pa-button-link-border-focus: var(--pa-color-action-primary-border-focus);
   --pa-button-action-background-default: var(--pa-color-action-secondary-background-default);
   --pa-button-action-background-hover: var(--pa-color-action-secondary-background-hover);
   --pa-button-action-background-active: var(--pa-color-action-secondary-background-active);
