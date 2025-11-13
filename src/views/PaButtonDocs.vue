@@ -104,6 +104,327 @@ const getSizesCode = (): string => {
 <PaButton variant="primary" size="md">Medium</PaButton>
 <PaButton variant="primary" size="lg">Large</PaButton>`
 }
+
+const getTokenSourceCode = (): string => {
+  return `{
+  "button": {
+    "border": {
+      "width": {
+        "default": {
+          "$type": "dimension",
+          "$value": "{border.width.thin}"
+        }
+      }
+    },
+    "transition": {
+      "duration": {
+        "default": {
+          "$type": "duration",
+          "$value": "{transition.duration.default}"
+        }
+      },
+      "easing": {
+        "default": {
+          "$type": "string",
+          "$value": "{transition.easing.default}"
+        }
+      }
+    },
+    "cursor": {
+      "default": {
+        "$type": "string",
+        "$value": "{cursor.pointer}"
+      },
+      "disabled": {
+        "$type": "string",
+        "$value": "{cursor.not-allowed}"
+      }
+    },
+    "outline": {
+      "width": {
+        "default": {
+          "$type": "dimension",
+          "$value": "{outline.width.default}"
+        }
+      },
+      "offset": {
+        "default": {
+          "$type": "dimension",
+          "$value": "{outline.offset.default}"
+        }
+      }
+    },
+    "primary": {
+      "background": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.action.primary.background.default}"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.action.primary.background.hover}"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{color.action.primary.background.active}"
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.action.primary.background.disable}"
+        }
+      },
+      "text": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.action.primary.text.default}"
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.action.primary.text.disable}"
+        }
+      },
+      "border": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.action.primary.border.default}"
+        },
+        "focus": {
+          "$type": "color",
+          "$value": "{color.action.primary.border.focus}"
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.action.primary.border.disable}"
+        }
+      },
+      "radius": {
+        "$type": "dimension",
+        "$value": "{border.radius.medium}"
+      }
+    },
+    "secondary": {
+      "background": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.action.secondary.background.default}"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.action.secondary.background.hover}"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{color.action.secondary.background.active}"
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.action.secondary.background.disable}"
+        }
+      },
+      "text": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.action.secondary.text.default}"
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.action.secondary.text.disable}"
+        }
+      },
+      "border": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.action.secondary.border.default}"
+        },
+        "focus": {
+          "$type": "color",
+          "$value": "{color.action.secondary.border.focus}"
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.action.secondary.border.disable}"
+        }
+      },
+      "radius": {
+        "$type": "dimension",
+        "$value": "{border.radius.medium}"
+      }
+    },
+    "tertiary": {
+      "background": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.action.tertiary.background.default}"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.action.tertiary.background.hover}"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{color.action.tertiary.background.active}"
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.action.tertiary.background.disable}"
+        }
+      },
+      "text": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.action.tertiary.text.default}"
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.action.tertiary.text.disable}"
+        }
+      },
+      "border": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.action.tertiary.border.default}"
+        },
+        "focus": {
+          "$type": "color",
+          "$value": "{color.action.tertiary.border.focus}"
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.action.tertiary.border.disable}"
+        }
+      },
+      "radius": {
+        "$type": "dimension",
+        "$value": "{border.radius.medium}"
+      }
+    },
+    "link": {
+      "text": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.action.primary.text.default}"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.action.primary.background.hover}"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{color.action.primary.background.active}"
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.action.primary.text.disable}"
+        }
+      },
+      "border": {
+        "focus": {
+          "$type": "color",
+          "$value": "{color.action.primary.border.focus}"
+        }
+      }
+    },
+    "action": {
+      "background": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.action.secondary.background.default}"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.action.secondary.background.hover}"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{color.action.secondary.background.active}"
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.action.secondary.background.disable}"
+        }
+      },
+      "text": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.action.secondary.text.default}"
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.action.secondary.text.disable}"
+        }
+      },
+      "border": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.action.secondary.border.default}"
+        },
+        "focus": {
+          "$type": "color",
+          "$value": "{color.action.secondary.border.focus}"
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.action.secondary.border.disable}"
+        }
+      },
+      "radius": {
+        "$type": "dimension",
+        "$value": "{border.radius.medium}"
+      }
+    },
+    "size": {
+      "sm": {
+        "padding": {
+          "x": {
+            "$type": "dimension",
+            "$value": "{spacing.150}"
+          },
+          "y": {
+            "$type": "dimension",
+            "$value": "{spacing.50}"
+          }
+        },
+        "font": {
+          "$type": "dimension",
+          "$value": "{font.size.md}"
+        }
+      },
+      "md": {
+        "padding": {
+          "x": {
+            "$type": "dimension",
+            "$value": "{spacing.200}"
+          },
+          "y": {
+            "$type": "dimension",
+            "$value": "{spacing.100}"
+          }
+        },
+        "font": {
+          "$type": "dimension",
+          "$value": "{font.size.lg}"
+        }
+      },
+      "lg": {
+        "padding": {
+          "x": {
+            "$type": "dimension",
+            "$value": "{spacing.300}"
+          },
+          "y": {
+            "$type": "dimension",
+            "$value": "{spacing.150}"
+          }
+        },
+        "font": {
+          "$type": "dimension",
+          "$value": "{font.size.xl}"
+        }
+      }
+    }
+  }
+}`
+}
 </script>
 
 <template>
@@ -129,24 +450,12 @@ const getSizesCode = (): string => {
           {{ showCode['pabutton-sizes'] ? 'Hide code' : 'Show code' }}
         </button>
         <div v-if="showCode['pabutton-sizes']" class="code-preview">
-          <div class="code-split-container">
-            <div class="code-section">
-              <h4 class="code-section-title">Implementation</h4>
-              <CodeBlock 
-                :code="getSizesCode()"
-                copy-key="pabutton-sizes-usage"
-                :show-line-numbers="true"
-              />
-            </div>
-            <div class="code-section">
-              <h4 class="code-section-title">Component Source</h4>
-              <CodeBlock 
-                :code="getComponentSourceCode('pabutton')"
-                copy-key="pabutton-sizes-component-source"
-                :show-line-numbers="true"
-              />
-            </div>
-          </div>
+          <CodeBlock 
+            :code="getSizesCode()"
+            copy-key="pabutton-sizes-usage"
+            :show-line-numbers="true"
+            language="vue"
+          />
         </div>
       </div>
     </div>
@@ -258,24 +567,12 @@ const getSizesCode = (): string => {
           {{ showCode[`pabutton-variants-${activeVariantsTab}`] ? 'Hide code' : 'Show code' }}
         </button>
         <div v-if="showCode[`pabutton-variants-${activeVariantsTab}`]" class="code-preview">
-          <div class="code-split-container">
-            <div class="code-section">
-              <h4 class="code-section-title">Implementation</h4>
-              <CodeBlock 
-                :code="getVariantsCode(activeVariantsTab)"
-                :copy-key="`pabutton-variants-usage-${activeVariantsTab}`"
-                :show-line-numbers="true"
-              />
-            </div>
-            <div class="code-section">
-              <h4 class="code-section-title">Component Source</h4>
-              <CodeBlock 
-                :code="getComponentSourceCode('pabutton')"
-                copy-key="pabutton-component-source"
-                :show-line-numbers="true"
-              />
-            </div>
-          </div>
+          <CodeBlock 
+            :code="getVariantsCode(activeVariantsTab)"
+            :copy-key="`pabutton-variants-usage-${activeVariantsTab}`"
+            :show-line-numbers="true"
+            language="vue"
+          />
         </div>
       </div>
     </div>
@@ -357,24 +654,12 @@ const getSizesCode = (): string => {
           {{ showCode[`pabutton-multiple-ctas-${activeMultipleCTAsTab}`] ? 'Hide code' : 'Show code' }}
         </button>
         <div v-if="showCode[`pabutton-multiple-ctas-${activeMultipleCTAsTab}`]" class="code-preview">
-          <div class="code-split-container">
-            <div class="code-section">
-              <h4 class="code-section-title">Implementation</h4>
-              <CodeBlock 
-                :code="getMultipleCTAsCode(activeMultipleCTAsTab)"
-                :copy-key="`pabutton-multiple-ctas-usage-${activeMultipleCTAsTab}`"
-                :show-line-numbers="true"
-              />
-            </div>
-            <div class="code-section">
-              <h4 class="code-section-title">Component Source</h4>
-              <CodeBlock 
-                :code="getComponentSourceCode('pabutton')"
-                :copy-key="`pabutton-multiple-ctas-component-source-${activeMultipleCTAsTab}`"
-                :show-line-numbers="true"
-              />
-            </div>
-          </div>
+          <CodeBlock 
+            :code="getMultipleCTAsCode(activeMultipleCTAsTab)"
+            :copy-key="`pabutton-multiple-ctas-usage-${activeMultipleCTAsTab}`"
+            :show-line-numbers="true"
+            language="vue"
+          />
         </div>
       </div>
     </div>
@@ -446,24 +731,12 @@ const getSizesCode = (): string => {
           {{ showCode[`pabutton-icons-${activeIconsTab}`] ? 'Hide code' : 'Show code' }}
         </button>
         <div v-if="showCode[`pabutton-icons-${activeIconsTab}`]" class="code-preview">
-          <div class="code-split-container">
-            <div class="code-section">
-              <h4 class="code-section-title">Implementation</h4>
-              <CodeBlock 
-                :code="getIconsCode(activeIconsTab)"
-                :copy-key="`pabutton-icons-usage-${activeIconsTab}`"
-                :show-line-numbers="true"
-              />
-            </div>
-            <div class="code-section">
-              <h4 class="code-section-title">Component Source</h4>
-              <CodeBlock 
-                :code="getComponentSourceCode('pabutton')"
-                :copy-key="`pabutton-icons-component-source-${activeIconsTab}`"
-                :show-line-numbers="true"
-              />
-            </div>
-          </div>
+          <CodeBlock 
+            :code="getIconsCode(activeIconsTab)"
+            :copy-key="`pabutton-icons-usage-${activeIconsTab}`"
+            :show-line-numbers="true"
+            language="vue"
+          />
         </div>
       </div>
     </div>
@@ -520,24 +793,48 @@ const getSizesCode = (): string => {
           {{ showCode[`pabutton-states-${activeStatesTab}`] ? 'Hide code' : 'Show code' }}
         </button>
         <div v-if="showCode[`pabutton-states-${activeStatesTab}`]" class="code-preview">
-          <div class="code-split-container">
-            <div class="code-section">
-              <h4 class="code-section-title">Implementation</h4>
-              <CodeBlock 
-                :code="getStatesCode(activeStatesTab)"
-                :copy-key="`pabutton-states-usage-${activeStatesTab}`"
-                :show-line-numbers="true"
-              />
-            </div>
-            <div class="code-section">
-              <h4 class="code-section-title">Component Source</h4>
-              <CodeBlock 
-                :code="getComponentSourceCode('pabutton')"
-                :copy-key="`pabutton-states-component-source-${activeStatesTab}`"
-                :show-line-numbers="true"
-              />
-            </div>
-          </div>
+          <CodeBlock 
+            :code="getStatesCode(activeStatesTab)"
+            :copy-key="`pabutton-states-usage-${activeStatesTab}`"
+            :show-line-numbers="true"
+            language="vue"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Component Source Section -->
+    <div class="documentation-section">
+      <h3 class="documentation-section-title">Component Source</h3>
+      <p class="documentation-section-description">
+        The complete source code for the PaButton component.
+      </p>
+      <div class="example-preview-container">
+        <div class="example-preview">
+          <CodeBlock 
+            :code="getComponentSourceCode('pabutton')"
+            copy-key="pabutton-component-source"
+            :show-line-numbers="true"
+            language="vue"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Token Source Section -->
+    <div class="documentation-section">
+      <h3 class="documentation-section-title">Token Source</h3>
+      <p class="documentation-section-description">
+        Design tokens used by the PaButton component.
+      </p>
+      <div class="example-preview-container">
+        <div class="example-preview">
+          <CodeBlock 
+            :code="getTokenSourceCode()"
+            copy-key="pabutton-token-source"
+            :show-line-numbers="true"
+            language="json"
+          />
         </div>
       </div>
     </div>

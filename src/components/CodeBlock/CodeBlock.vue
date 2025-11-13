@@ -1,29 +1,71 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted } from 'vue'
+import { createHighlighter, type Highlighter } from 'shiki'
 
 interface Props {
   code: string
   copyKey: string
   showLineNumbers?: boolean
+  language?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  showLineNumbers: false
+  showLineNumbers: false,
+  language: 'vue'
 })
 
 const copied = ref(false)
+const highlighter = ref<Highlighter | null>(null)
+const highlightedCode = ref('')
 
-const formatCodeWithLineNumbers = (code: string): string => {
-  const lines = code.split('\n')
-  const maxDigits = String(lines.length).length
-  return lines.map((line, index) => {
-    const lineNumber = String(index + 1).padStart(maxDigits, ' ')
-    return `${lineNumber}  ${line}`
-  }).join('\n')
+onMounted(async () => {
+  try {
+    highlighter.value = await createHighlighter({
+      themes: ['github-dark', 'github-light'],
+      langs: ['vue', 'typescript', 'javascript', 'json', 'scss', 'css', 'html']
+    })
+    highlightCode()
+  } catch (err) {
+    console.error('Failed to initialize highlighter:', err)
+    highlightedCode.value = props.code
+  }
+})
+
+const highlightCode = async () => {
+  if (!highlighter.value || !props.code) {
+    highlightedCode.value = props.code
+    return
+  }
+
+  try {
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'github-dark' : 'github-light'
+    const html = highlighter.value.codeToHtml(props.code, {
+      lang: props.language,
+      theme: theme
+    })
+    
+    if (props.showLineNumbers) {
+      const lines = props.code.split('\n')
+      const maxDigits = String(lines.length).length
+      const lineNumbers = lines.map((_, index) => {
+        const lineNum = String(index + 1).padStart(maxDigits, ' ')
+        return `<span class="line-number">${lineNum}</span>`
+      }).join('')
+      
+      highlightedCode.value = html.replace(/<pre[^>]*>/, (match) => {
+        return `${match}<span class="line-numbers">${lineNumbers}</span>`
+      })
+    } else {
+      highlightedCode.value = html
+    }
+  } catch (err) {
+    console.error('Failed to highlight code:', err)
+    highlightedCode.value = props.code
+  }
 }
 
 const formattedCode = computed(() => {
-  return props.showLineNumbers ? formatCodeWithLineNumbers(props.code) : props.code
+  return highlightedCode.value || props.code
 })
 
 const getCodeTextForCopy = (code: string): string => {
@@ -59,7 +101,7 @@ const handleCopy = async () => {
       </svg>
       <span>{{ copied ? 'Copied!' : 'Copy' }}</span>
     </button>
-    <code>{{ formattedCode }}</code>
+    <code v-html="formattedCode"></code>
   </pre>
 </template>
 
@@ -107,6 +149,36 @@ const handleCopy = async () => {
     &::selection {
       background-color: rgba(193, 5, 5, 0.2);
     }
+
+    :deep(pre) {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      position: relative;
+    }
+
+    :deep(.line-numbers) {
+      position: absolute;
+      left: 0;
+      top: var(--pa-spacing-24, 24px);
+      bottom: var(--pa-spacing-24, 24px);
+      width: 48px;
+      border-right: 1px solid var(--pa-color-surface-container-border, #e9ecef);
+      padding-right: var(--pa-spacing-16, 16px);
+      text-align: right;
+      font-family: 'Roboto Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+      font-size: var(--pa-font-size-100, 14px);
+      line-height: 1.6;
+      color: var(--pa-color-surface-container-text-secondary, #6c757d);
+      user-select: none;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    :deep(.line-number) {
+      display: block;
+      line-height: 1.6;
+    }
   }
   
   &::before {
@@ -139,6 +211,11 @@ const handleCopy = async () => {
         #222529 49px,
         transparent 49px
       );
+
+    :deep(.line-numbers) {
+      border-color: #222529;
+      color: #6e757c;
+    }
   }
   
   &::before {

@@ -81,7 +81,9 @@ onMounted(() => {
   flex: 1;
   background-color: var(--pa-color-surface-container-background, #151517);
   border-radius: var(--pa-Border-radius-100, 8px);
-  padding: var(--pa-spacing-36, 36px);
+  padding-left: var(--pa-spacing-36, 36px);
+  padding-right: var(--pa-spacing-36, 36px);
+  padding-top: var(--pa-spacing-36, 36px);
   display: flex;
   flex-direction: column;
   align-items: center;
