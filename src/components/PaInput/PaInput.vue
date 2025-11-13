@@ -224,11 +224,11 @@ const handleBlur = (event: FocusEvent) => {
 }
 
 .pa-input-wrapper.has-icon-left .pa-input-label {
-  left: calc(var(--pa-input-icon-spacing-left, var(--pa-spacing-200, 16px)) + var(--pa-input-icon-size, var(--pa-spacing-200, 20px)) + var(--pa-spacing-100, 8px));
-  max-width: calc(100% - calc(var(--pa-input-padding-x, var(--pa-spacing-200, 16px)) * 2) - var(--pa-input-icon-size, var(--pa-spacing-200, 20px)) - var(--pa-input-icon-spacing-left, var(--pa-spacing-200, 16px)) - var(--pa-spacing-100, 8px));
+  left: calc(var(--pa-input-icon-spacing-left, var(--pa-spacing-200, 16px)) + var(--pa-input-icon-size, var(--pa-spacing-200, 20px)) + var(--pa-spacing-200, 16px));
+  max-width: calc(100% - calc(var(--pa-input-padding-x, var(--pa-spacing-200, 16px)) * 2) - var(--pa-input-icon-size, var(--pa-spacing-200, 20px)) - var(--pa-input-icon-spacing-left, var(--pa-spacing-200, 16px)) - var(--pa-spacing-200, 16px));
 
   &.is-floating {
-    left: calc(var(--pa-input-icon-spacing-left, var(--pa-spacing-200, 16px)) + var(--pa-input-icon-size, var(--pa-spacing-200, 20px)) + var(--pa-spacing-100, 8px));
+    left: calc(var(--pa-input-icon-spacing-left, var(--pa-spacing-200, 16px)) + var(--pa-input-icon-size, var(--pa-spacing-200, 20px)) + var(--pa-spacing-200, 16px));
   }
 }
 
