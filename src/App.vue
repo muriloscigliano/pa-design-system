@@ -53,11 +53,11 @@ onMounted(() => {
         </div>
         <div class="content-body">
           <router-view />
-          <div class="version-badge">v2.0</div>
         </div>
       </div>
     </main>
   </div>
+  <div class="version-badge">v2.0</div>
 </template>
 
 <style lang="scss" scoped>
@@ -88,9 +88,9 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   gap: var(--pa-spacing-10, 10px);
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
   position: relative;
+  min-height: 0;
   transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
 }
 
@@ -127,12 +127,14 @@ onMounted(() => {
   min-height: 0;
   position: relative;
   width: 1000px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .version-badge {
   position: absolute;
-  bottom: var(--pa-spacing-00, 0px);
-  right: var(--pa-spacing-00, 0px);
+  bottom: var(--pa-spacing-24, 24px);
+  right: var(--pa-spacing-24, 24px);
   background-color: #0e0e0f;
   border: 1px solid #222529;
   border-radius: 100px;
