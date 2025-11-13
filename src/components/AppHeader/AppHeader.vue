@@ -193,8 +193,8 @@ const handleToggleTheme = () => {
 }
 
 .theme-toggle {
-  background-color: #0e0e0f;
-  border: 1px solid #222529;
+  background-color: var(--pa-color-surface-base-background, #f7f7f8);
+  border: 1px solid var(--pa-color-surface-container-border, #dee2e6);
   border-radius: 500px;
   height: 40px;
   width: 76px;
@@ -203,7 +203,12 @@ const handleToggleTheme = () => {
   align-items: center;
   position: relative;
   cursor: pointer;
-  transition: all var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease), border-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+}
+
+[data-theme="dark"] .theme-toggle {
+  background-color: #0e0e0f;
+  border-color: #222529;
 }
 
 .theme-toggle-slider {
