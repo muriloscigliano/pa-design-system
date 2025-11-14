@@ -128,74 +128,74 @@ const handleBlur = (event: FocusEvent) => {
 
 .pa-textarea {
   width: 100%;
-  background-color: var(--pa-textarea-background-default, var(--pa-color-input-background-default));
-  color: var(--pa-textarea-text-default, var(--pa-color-input-text-default));
-  border: var(--pa-textarea-border-width-default, var(--pa-Border-width-50, 1px)) solid var(--pa-textarea-border-default, var(--pa-color-input-border-default));
-  border-radius: var(--pa-textarea-border-radius-default, var(--pa-Border-radius-100, 8px));
+  background-color: var(--pa-textarea-background-default);
+  color: var(--pa-textarea-text-default);
+  border: var(--pa-textarea-border-width-default) solid var(--pa-textarea-border-default);
+  border-radius: var(--pa-textarea-border-radius-default);
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-weight: var(--pa-font-weight-400, 400);
-  line-height: var(--pa-line-height-200, 1.5);
+  font-weight: var(--pa-font-weight-regular);
+  line-height: var(--pa-line-height-200);
   resize: vertical;
-  transition: all var(--pa-textarea-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-textarea-transition-easing-default, var(--pa-transition-easing-default, ease));
+  transition: all var(--pa-textarea-transition-duration-default) var(--pa-textarea-transition-easing-default);
   outline: none;
 
   &::placeholder {
-    color: var(--pa-textarea-text-placeholder, var(--pa-color-input-text-placeholder));
+    color: var(--pa-textarea-text-placeholder);
   }
 
   .pa-textarea-wrapper--sm & {
     padding: var(--pa-textarea-size-sm-padding-y) var(--pa-textarea-size-sm-padding-x);
-    font-size: var(--pa-textarea-size-sm-font, var(--pa-font-size-100, 14px));
-    min-height: var(--pa-textarea-size-sm-min-height, 60px);
+    font-size: var(--pa-textarea-size-sm-font);
+    min-height: var(--pa-textarea-size-sm-min-height);
   }
 
   .pa-textarea-wrapper--md & {
     padding: var(--pa-textarea-size-md-padding-y) var(--pa-textarea-size-md-padding-x);
-    font-size: var(--pa-textarea-size-md-font, var(--pa-font-size-200, 16px));
-    min-height: var(--pa-textarea-size-md-min-height, 80px);
+    font-size: var(--pa-textarea-size-md-font);
+    min-height: var(--pa-textarea-size-md-min-height);
   }
 
   .pa-textarea-wrapper--lg & {
     padding: var(--pa-textarea-size-lg-padding-y) var(--pa-textarea-size-lg-padding-x);
-    font-size: var(--pa-textarea-size-lg-font, var(--pa-font-size-400, 20px));
-    min-height: var(--pa-textarea-size-lg-min-height, 120px);
+    font-size: var(--pa-textarea-size-lg-font);
+    min-height: var(--pa-textarea-size-lg-min-height);
   }
 
   &:hover:not(.is-disabled) {
-    background-color: var(--pa-textarea-background-hover, var(--pa-color-input-background-hover));
-    border-color: var(--pa-textarea-border-hover, var(--pa-color-input-border-hover));
+    background-color: var(--pa-textarea-background-hover);
+    border-color: var(--pa-textarea-border-hover);
   }
 
   &:focus:not(.is-disabled) {
-    background-color: var(--pa-textarea-background-focus, var(--pa-color-input-background-focus));
-    border-color: var(--pa-textarea-border-focus, var(--pa-color-input-border-focus));
-    outline: var(--pa-textarea-outline-width-default, var(--pa-outline-width-default, 2px)) solid var(--pa-textarea-border-focus, var(--pa-color-input-border-focus));
-    outline-offset: var(--pa-textarea-outline-offset-default, var(--pa-outline-offset-default, 2px));
+    background-color: var(--pa-textarea-background-focus);
+    border-color: var(--pa-textarea-border-focus);
+    outline: var(--pa-textarea-outline-width-default) solid var(--pa-textarea-border-focus);
+    outline-offset: var(--pa-textarea-outline-offset-default);
   }
 
   &.is-error {
-    border-color: var(--pa-textarea-border-error, var(--pa-color-input-border-error));
+    border-color: var(--pa-textarea-border-error);
   }
 
   &.is-disabled {
-    background-color: var(--pa-textarea-background-disabled, var(--pa-color-input-background-disabled));
-    color: var(--pa-textarea-text-disabled, var(--pa-color-input-text-disabled));
-    border-color: var(--pa-textarea-border-disabled, var(--pa-color-input-border-disabled));
-    cursor: var(--pa-cursor-not-allowed, not-allowed);
-    opacity: calc(var(--pa-opacity-60, 60) / 100);
+    background-color: var(--pa-textarea-background-disabled);
+    color: var(--pa-textarea-text-disabled);
+    border-color: var(--pa-textarea-border-disabled);
+    cursor: var(--pa-cursor-not-allowed);
+    opacity: calc(var(--pa-opacity-60) / 100);
     resize: none;
   }
 }
 
 .pa-textarea-counter {
-  margin-top: var(--pa-spacing-4, 4px);
+  margin-top: var(--pa-textarea-counter-spacing-top);
   text-align: right;
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-size: var(--pa-textarea-counter-font-size, var(--pa-font-size-100, 14px));
-  color: var(--pa-textarea-counter-text, var(--pa-color-surface-container-text));
+  font-size: var(--pa-textarea-counter-font-size);
+  color: var(--pa-textarea-counter-text);
 
   &.is-over-limit {
-    color: var(--pa-color-status-error-default, var(--pa-red-500, #d51e33));
+    color: var(--pa-textarea-counter-error-color);
   }
 }
 </style>

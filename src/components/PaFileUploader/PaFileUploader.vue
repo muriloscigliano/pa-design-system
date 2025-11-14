@@ -71,22 +71,22 @@ const triggerFileInput = () => {
 }
 
 .pa-file-uploader-dropzone {
-  border: var(--pa-spacing-25, var(--pa-spacing-2, 2px)) dashed var(--pa-color-surface-container-border, var(--pa-gray-300, #dee2e6));
-  border-radius: var(--pa-Border-radius-100, 8px);
-  padding: var(--pa-spacing-32, 32px);
+  border: var(--pa-file-uploader-dropzone-border-width) dashed var(--pa-file-uploader-dropzone-border-color-default);
+  border-radius: var(--pa-file-uploader-dropzone-radius);
+  padding: var(--pa-file-uploader-dropzone-padding);
   text-align: center;
-  cursor: var(--pa-cursor-pointer, pointer);
-  transition: all var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
-  background-color: var(--pa-color-surface-container-background, var(--pa-gray-white, #ffffff));
+  cursor: var(--pa-file-uploader-dropzone-cursor-default);
+  transition: all var(--pa-transition-duration-default) var(--pa-transition-easing-default);
+  background-color: var(--pa-file-uploader-dropzone-background-default);
 
   &:hover:not(.is-disabled) {
-    border-color: var(--pa-color-action-primary-border-default);
-    background-color: var(--pa-color-surface-cards-hover-background, var(--pa-gray-100, #f7f7f8));
+    border-color: var(--pa-file-uploader-dropzone-border-color-hover);
+    background-color: var(--pa-file-uploader-dropzone-background-hover);
   }
 
   .pa-file-uploader.is-disabled & {
-    opacity: calc(var(--pa-opacity-60, 60) / 100);
-    cursor: var(--pa-cursor-not-allowed, not-allowed);
+    opacity: calc(var(--pa-opacity-60) / 100);
+    cursor: var(--pa-file-uploader-dropzone-cursor-disabled);
   }
 }
 
@@ -94,18 +94,18 @@ const triggerFileInput = () => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--pa-spacing-8, 8px);
+  gap: var(--pa-file-uploader-content-gap);
 }
 
 .pa-file-uploader-icon {
-  font-size: var(--pa-font-size-500, 24px);
+  font-size: var(--pa-file-uploader-icon-font-size);
 }
 
 .pa-file-uploader-text {
-  color: var(--pa-color-surface-container-text, var(--pa-gray-900, #212529));
+  color: var(--pa-file-uploader-text-color);
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-size: var(--pa-font-size-200, 16px);
-  font-weight: var(--pa-font-weight-400, 400);
+  font-size: var(--pa-file-uploader-text-font-size);
+  font-weight: var(--pa-file-uploader-text-font-weight);
 }
 </style>
 

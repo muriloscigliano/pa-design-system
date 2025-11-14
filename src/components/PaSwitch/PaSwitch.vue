@@ -43,14 +43,14 @@ defineEmits<{
 .pa-switch {
   display: inline-flex;
   align-items: center;
-  gap: var(--pa-spacing-8, 8px);
-  cursor: var(--pa-cursor-pointer, pointer);
+  gap: var(--pa-switch-gap);
+  cursor: var(--pa-cursor-pointer);
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-weight: var(--pa-font-weight-400, 400);
+  font-weight: var(--pa-font-weight-regular);
 
   &.is-disabled {
-    cursor: var(--pa-cursor-not-allowed, not-allowed);
-    opacity: calc(var(--pa-opacity-60, 60) / 100);
+    cursor: var(--pa-cursor-not-allowed);
+    opacity: calc(var(--pa-opacity-60) / 100);
   }
 }
 
@@ -66,23 +66,23 @@ defineEmits<{
   display: inline-flex;
   align-items: center;
   background-color: var(--pa-switch-background-off);
-  border-radius: var(--pa-Border-radius-full, 99999px);
-  transition: all var(--pa-switch-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-switch-transition-easing-default, var(--pa-transition-easing-default, ease));
+  border-radius: var(--pa-switch-border-radius);
+  transition: all var(--pa-switch-transition-duration-default) var(--pa-switch-transition-easing-default);
   flex-shrink: 0;
 
   .pa-switch--sm & {
-    width: var(--pa-switch-size-sm-width, 32px);
-    height: var(--pa-switch-size-sm-height, 18px);
+    width: var(--pa-switch-size-sm-width);
+    height: var(--pa-switch-size-sm-height);
   }
 
   .pa-switch--md & {
-    width: var(--pa-switch-size-md-width, 40px);
-    height: var(--pa-switch-size-md-height, 22px);
+    width: var(--pa-switch-size-md-width);
+    height: var(--pa-switch-size-md-height);
   }
 
   .pa-switch--lg & {
-    width: var(--pa-switch-size-lg-width, 48px);
-    height: var(--pa-switch-size-lg-height, 26px);
+    width: var(--pa-switch-size-lg-width);
+    height: var(--pa-switch-size-lg-height);
   }
 
   .pa-switch.is-on & {
@@ -94,44 +94,44 @@ defineEmits<{
   }
 
   .pa-switch-input:focus-visible + & {
-    outline: var(--pa-switch-outline-width-default, var(--pa-outline-width-default, 2px)) solid var(--pa-switch-border-focus);
-    outline-offset: var(--pa-switch-outline-offset-default, var(--pa-outline-offset-default, 2px));
+    outline: var(--pa-switch-outline-width-default) solid var(--pa-switch-border-focus);
+    outline-offset: var(--pa-switch-outline-offset-default);
   }
 }
 
 .pa-switch-thumb {
   position: absolute;
   background-color: var(--pa-switch-thumb-off);
-  border-radius: var(--pa-Border-radius-full, 99999px);
-  transition: all var(--pa-switch-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-switch-transition-easing-default, var(--pa-transition-easing-default, ease));
-  left: var(--pa-spacing-2, 2px);
+  border-radius: var(--pa-switch-border-radius);
+  transition: all var(--pa-switch-transition-duration-default) var(--pa-switch-transition-easing-default);
+  left: var(--pa-switch-thumb-spacing-left);
 
   .pa-switch--sm & {
-    width: var(--pa-switch-size-sm-thumb, 14px);
-    height: var(--pa-switch-size-sm-thumb, 14px);
+    width: var(--pa-switch-size-sm-thumb);
+    height: var(--pa-switch-size-sm-thumb);
   }
 
   .pa-switch--md & {
-    width: var(--pa-switch-size-md-thumb, 18px);
-    height: var(--pa-switch-size-md-thumb, 18px);
+    width: var(--pa-switch-size-md-thumb);
+    height: var(--pa-switch-size-md-thumb);
   }
 
   .pa-switch--lg & {
-    width: var(--pa-switch-size-lg-thumb, 22px);
-    height: var(--pa-switch-size-lg-thumb, 22px);
+    width: var(--pa-switch-size-lg-thumb);
+    height: var(--pa-switch-size-lg-thumb);
   }
 
   .pa-switch.is-on & {
     background-color: var(--pa-switch-thumb-on);
-    transform: translateX(calc(var(--pa-switch-size-md-width, 40px) - var(--pa-switch-size-md-thumb, 18px) - var(--pa-spacing-4, 4px)));
+    transform: translateX(calc(var(--pa-switch-size-md-width) - var(--pa-switch-size-md-thumb) - var(--pa-switch-thumb-spacing-right)));
   }
 
   .pa-switch--sm.is-on & {
-    transform: translateX(calc(var(--pa-switch-size-sm-width, 32px) - var(--pa-switch-size-sm-thumb, 14px) - var(--pa-spacing-4, 4px)));
+    transform: translateX(calc(var(--pa-switch-size-sm-width) - var(--pa-switch-size-sm-thumb) - var(--pa-switch-thumb-spacing-right)));
   }
 
   .pa-switch--lg.is-on & {
-    transform: translateX(calc(var(--pa-switch-size-lg-width, 48px) - var(--pa-switch-size-lg-thumb, 22px) - var(--pa-spacing-4, 4px)));
+    transform: translateX(calc(var(--pa-switch-size-lg-width) - var(--pa-switch-size-lg-thumb) - var(--pa-switch-thumb-spacing-right)));
   }
 
   .pa-switch.is-disabled & {
@@ -140,7 +140,7 @@ defineEmits<{
 }
 
 .pa-switch-label {
-  color: var(--pa-input-text-default, var(--pa-color-surface-container-text));
+  color: var(--pa-input-text-default);
   user-select: none;
 }
 </style>

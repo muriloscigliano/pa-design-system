@@ -63,6 +63,32 @@
         "$type": "color",
         "$value": "{color.slider.mark.background}"
       }
+    },
+    "padding": {
+      "y": {
+        "$type": "dimension",
+        "$value": "{spacing.100}"
+      }
+    },
+    "input": {
+      "height": {
+        "$type": "dimension",
+        "$value": "{icon.size.xs}"
+      }
+    },
+    "transition": {
+      "duration": {
+        "default": {
+          "$type": "duration",
+          "$value": "{transition.duration.default}"
+        }
+      },
+      "easing": {
+        "default": {
+          "$type": "string",
+          "$value": "{transition.easing.default}"
+        }
+      }
     }
   }
 }

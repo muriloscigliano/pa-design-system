@@ -166,6 +166,18 @@
           "$type": "dimension",
           "$value": "{font.size.md}"
         }
+      },
+      "spacing": {
+        "top": {
+          "$type": "dimension",
+          "$value": "{spacing.50}"
+        }
+      },
+      "error": {
+        "color": {
+          "$type": "color",
+          "$value": "{color.status.error.border.default}"
+        }
       }
     }
   }

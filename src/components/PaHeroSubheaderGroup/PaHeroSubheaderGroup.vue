@@ -21,15 +21,15 @@ defineProps<{
   flex-direction: column;
 
   &--gap-sm {
-    gap: var(--pa-hero-subheader-group-gap-sm, var(--pa-spacing-8, 8px));
+    gap: var(--pa-hero-subheader-group-gap-sm);
   }
 
   &--gap-md {
-    gap: var(--pa-hero-subheader-group-gap-md, var(--pa-spacing-16, 16px));
+    gap: var(--pa-hero-subheader-group-gap-md);
   }
 
   &--gap-lg {
-    gap: var(--pa-hero-subheader-group-gap-lg, var(--pa-spacing-24, 24px));
+    gap: var(--pa-hero-subheader-group-gap-lg);
   }
 }
 </style>

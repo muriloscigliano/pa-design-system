@@ -66,6 +66,18 @@
         "$value": "{color.input.border.disabled}"
       }
     },
+    "icon": {
+      "size": {
+        "$type": "dimension",
+        "$value": "{icon.size.xs}"
+      },
+      "spacing": {
+        "right": {
+          "$type": "dimension",
+          "$value": "{spacing.150}"
+        }
+      }
+    },
     "panel": {
       "background": {
         "$type": "color",

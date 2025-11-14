@@ -60,14 +60,14 @@ defineEmits<{
 .pa-checkbox {
   display: inline-flex;
   align-items: center;
-  gap: var(--pa-spacing-8, 8px);
-  cursor: var(--pa-cursor-pointer, pointer);
+  gap: var(--pa-checkbox-gap);
+  cursor: var(--pa-cursor-pointer);
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-weight: var(--pa-font-weight-400, 400);
+  font-weight: var(--pa-font-weight-regular);
 
   &.is-disabled {
-    cursor: var(--pa-cursor-not-allowed, not-allowed);
-    opacity: calc(var(--pa-opacity-60, 60) / 100);
+    cursor: var(--pa-cursor-not-allowed);
+    opacity: calc(var(--pa-opacity-60) / 100);
   }
 }
 
@@ -84,24 +84,24 @@ defineEmits<{
   align-items: center;
   justify-content: center;
   background-color: var(--pa-checkbox-background-default);
-  border: var(--pa-checkbox-border-width-default, var(--pa-Border-width-50, 1px)) solid var(--pa-checkbox-border-default);
-  border-radius: var(--pa-checkbox-border-radius-default, var(--pa-Border-radius-50, 4px));
-  transition: all var(--pa-checkbox-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-checkbox-transition-easing-default, var(--pa-transition-easing-default, ease));
+  border: var(--pa-checkbox-border-width-default) solid var(--pa-checkbox-border-default);
+  border-radius: var(--pa-checkbox-border-radius-default);
+  transition: all var(--pa-checkbox-transition-duration-default) var(--pa-checkbox-transition-easing-default);
   flex-shrink: 0;
 
   .pa-checkbox--sm & {
-    width: var(--pa-checkbox-size-sm-width, 16px);
-    height: var(--pa-checkbox-size-sm-height, 16px);
+    width: var(--pa-checkbox-size-sm-width);
+    height: var(--pa-checkbox-size-sm-height);
   }
 
   .pa-checkbox--md & {
-    width: var(--pa-checkbox-size-md-width, 20px);
-    height: var(--pa-checkbox-size-md-height, 20px);
+    width: var(--pa-checkbox-size-md-width);
+    height: var(--pa-checkbox-size-md-height);
   }
 
   .pa-checkbox--lg & {
-    width: var(--pa-checkbox-size-lg-width, 24px);
-    height: var(--pa-checkbox-size-lg-height, 24px);
+    width: var(--pa-checkbox-size-lg-width);
+    height: var(--pa-checkbox-size-lg-height);
   }
 
   .pa-checkbox:not(.is-disabled):hover & {
@@ -110,8 +110,8 @@ defineEmits<{
   }
 
   .pa-checkbox-input:focus-visible + & {
-    outline: var(--pa-checkbox-outline-width-default, var(--pa-outline-width-default, 2px)) solid var(--pa-checkbox-border-focus);
-    outline-offset: var(--pa-checkbox-outline-offset-default, var(--pa-outline-offset-default, 2px));
+    outline: var(--pa-checkbox-outline-width-default) solid var(--pa-checkbox-border-focus);
+    outline-offset: var(--pa-checkbox-outline-offset-default);
   }
 
   .pa-checkbox.is-checked & {
@@ -126,18 +126,18 @@ defineEmits<{
 }
 
 .pa-checkbox-checkmark {
-  width: var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px));
-  height: var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px));
+  width: var(--pa-icon-size-xs);
+  height: var(--pa-icon-size-xs);
   color: var(--pa-checkbox-checkmark-default);
 
   .pa-checkbox--sm & {
-    width: calc(var(--pa-checkbox-size-sm-width, var(--pa-icon-size-sm, 16px)) * 0.625);
-    height: calc(var(--pa-checkbox-size-sm-width, var(--pa-icon-size-sm, 16px)) * 0.625);
+    width: calc(var(--pa-checkbox-size-sm-width) * 0.625);
+    height: calc(var(--pa-checkbox-size-sm-width) * 0.625);
   }
 
   .pa-checkbox--lg & {
-    width: calc(var(--pa-checkbox-size-lg-width, var(--pa-icon-size-md, 24px)) * 0.583);
-    height: calc(var(--pa-checkbox-size-lg-width, var(--pa-icon-size-md, 24px)) * 0.583);
+    width: calc(var(--pa-checkbox-size-lg-width) * 0.583);
+    height: calc(var(--pa-checkbox-size-lg-width) * 0.583);
   }
 
   .pa-checkbox.is-disabled & {
@@ -146,10 +146,10 @@ defineEmits<{
 }
 
 .pa-checkbox-indeterminate {
-  width: calc(var(--pa-checkbox-size-md-width, var(--pa-spacing-250, 18px)) * 0.444);
-  height: var(--pa-Border-width-50, 1px);
+  width: calc(var(--pa-checkbox-size-md-width) * 0.444);
+  height: var(--pa-checkbox-border-width-default);
   background-color: var(--pa-checkbox-checkmark-default);
-  border-radius: var(--pa-Border-radius-50, 4px);
+  border-radius: var(--pa-checkbox-border-radius-default);
 
   .pa-checkbox.is-disabled & {
     background-color: var(--pa-checkbox-checkmark-disabled);
@@ -157,7 +157,7 @@ defineEmits<{
 }
 
 .pa-checkbox-label {
-  color: var(--pa-input-text-default, var(--pa-color-surface-container-text));
+  color: var(--pa-input-text-default);
   user-select: none;
 }
 </style>

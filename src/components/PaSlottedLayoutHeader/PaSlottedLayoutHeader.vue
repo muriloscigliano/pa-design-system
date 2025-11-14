@@ -21,7 +21,7 @@ defineProps<{
 .pa-slotted-layout-header {
   display: flex;
   flex-direction: column;
-  gap: var(--pa-slotted-layout-header-gap, var(--pa-spacing-8, 8px));
+  gap: var(--pa-slotted-layout-header-gap);
 
   &--align-left {
     align-items: flex-start;
@@ -40,11 +40,11 @@ defineProps<{
 
   &-title {
     margin: 0;
-    font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-    font-size: var(--pa-slotted-layout-header-font-size, var(--pa-font-size-400, 32px));
-    font-weight: var(--pa-font-weight-700, 700);
-    color: var(--pa-slotted-layout-header-text, var(--pa-color-surface-base-text));
-    line-height: var(--pa-slotted-layout-header-line-height, 1.2);
+    font-family: var(--pa-font-family-roboto);
+    font-size: var(--pa-slotted-layout-header-font-size);
+    font-weight: var(--pa-slotted-layout-header-font-weight);
+    color: var(--pa-slotted-layout-header-text);
+    line-height: var(--pa-slotted-layout-header-line-height);
   }
 }
 </style>

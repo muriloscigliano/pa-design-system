@@ -15,6 +15,12 @@
     "gap": {
       "$type": "dimension",
       "$value": "{spacing.100}"
+    },
+    "font": {
+      "weight": {
+        "$type": "string",
+        "$value": "{font.weight.bold}"
+      }
     }
   }
 }

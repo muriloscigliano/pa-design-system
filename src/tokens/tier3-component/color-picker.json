@@ -15,6 +15,16 @@
     "radius": {
       "$type": "dimension",
       "$value": "{border.radius.medium}"
+    },
+    "cursor": {
+      "default": {
+        "$type": "string",
+        "$value": "{cursor.pointer}"
+      },
+      "disabled": {
+        "$type": "string",
+        "$value": "{cursor.not-allowed}"
+      }
     }
   }
 }

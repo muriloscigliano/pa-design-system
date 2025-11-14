@@ -69,7 +69,7 @@
     "height": {
       "default": {
         "$type": "dimension",
-        "$value": "{spacing.700}"
+        "$value": "{spacing.600}"
       }
     },
     "padding": {
@@ -123,6 +123,10 @@
         "bottom": {
           "$type": "dimension",
           "$value": "{spacing.50}"
+        },
+        "gap": {
+          "$type": "dimension",
+          "$value": "{spacing.100}"
         }
       }
     },

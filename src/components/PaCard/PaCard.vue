@@ -32,14 +32,14 @@ defineProps<{
 <style lang="scss" scoped>
 .pa-card {
   background-color: var(--pa-card-background-default);
-  border: var(--pa-card-border-width-default, var(--pa-Border-width-50, 1px)) solid var(--pa-card-border-default);
-  border-radius: var(--pa-card-border-radius-default, var(--pa-Border-radius-100, 8px));
+  border: var(--pa-card-border-width-default) solid var(--pa-card-border-default);
+  border-radius: var(--pa-card-border-radius-default);
   padding: var(--pa-card-padding-y) var(--pa-card-padding-x);
-  transition: all var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  transition: all var(--pa-transition-duration-default) var(--pa-transition-easing-default);
   box-shadow: var(--pa-card-shadow-default);
 
   &--outlined {
-    border-width: var(--pa-Border-width-100, 2px);
+    border-width: var(--pa-card-outlined-border-width);
   }
 
   &--elevated {
@@ -47,7 +47,7 @@ defineProps<{
   }
 
   &.is-hoverable {
-    cursor: var(--pa-cursor-pointer, pointer);
+    cursor: var(--pa-cursor-pointer);
 
     &:hover {
       background-color: var(--pa-card-background-hover);
@@ -63,9 +63,9 @@ defineProps<{
 }
 
 .pa-card-header {
-  margin-bottom: var(--pa-spacing-16, 16px);
-  padding-bottom: var(--pa-spacing-16, 16px);
-  border-bottom: var(--pa-Border-width-50, 1px) solid var(--pa-color-surface-base-divider, var(--pa-gray-200, #e9ecef));
+  margin-bottom: var(--pa-card-header-spacing-bottom);
+  padding-bottom: var(--pa-card-header-padding-bottom);
+  border-bottom: var(--pa-card-header-border-width) solid var(--pa-card-header-border-color);
 }
 
 .pa-card-body {
@@ -73,9 +73,9 @@ defineProps<{
 }
 
 .pa-card-footer {
-  margin-top: var(--pa-spacing-16, 16px);
-  padding-top: var(--pa-spacing-16, 16px);
-  border-top: var(--pa-Border-width-50, 1px) solid var(--pa-color-surface-base-divider, var(--pa-gray-200, #e9ecef));
+  margin-top: var(--pa-card-footer-spacing-top);
+  padding-top: var(--pa-card-footer-padding-top);
+  border-top: var(--pa-card-footer-border-width) solid var(--pa-card-footer-border-color);
 }
 </style>
 

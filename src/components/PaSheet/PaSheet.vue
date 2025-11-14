@@ -69,14 +69,14 @@ onUnmounted(() => {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--pa-sheet-overlay-background, rgba(0, 0, 0, 0.5));
-  z-index: var(--pa-z-index-400, 400);
+  background-color: var(--pa-sheet-overlay-background);
+  z-index: var(--pa-sheet-overlay-z-index);
   display: flex;
 }
 
 .pa-sheet {
-  background-color: var(--pa-sheet-background, var(--pa-color-surface-container-background));
-  box-shadow: var(--pa-shadow-lg-x, 4px) var(--pa-shadow-lg-y, 4px) var(--pa-shadow-lg-blur, 30px) var(--pa-shadow-lg-spread, 5px) var(--pa-shadow-lg-Color, #616161);
+  background-color: var(--pa-sheet-background);
+  box-shadow: var(--pa-sheet-shadow);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -84,7 +84,7 @@ onUnmounted(() => {
   &--left {
     justify-content: flex-start;
     align-items: flex-start;
-    width: var(--pa-sheet-size-md-width, 400px);
+    width: var(--pa-sheet-size-md-width);
     height: 100%;
   }
 
@@ -92,7 +92,7 @@ onUnmounted(() => {
     justify-content: flex-start;
     align-items: flex-end;
     margin-left: auto;
-    width: var(--pa-sheet-size-md-width, 400px);
+    width: var(--pa-sheet-size-md-width);
     height: 100%;
   }
 
@@ -100,7 +100,7 @@ onUnmounted(() => {
     justify-content: flex-start;
     align-items: flex-start;
     width: 100%;
-    height: var(--pa-sheet-size-md-height, 400px);
+    height: var(--pa-sheet-size-md-height);
   }
 
   &--bottom {
@@ -108,22 +108,22 @@ onUnmounted(() => {
     align-items: flex-start;
     margin-top: auto;
     width: 100%;
-    height: var(--pa-sheet-size-md-height, 400px);
+    height: var(--pa-sheet-size-md-height);
   }
 
   &--sm {
-    width: var(--pa-sheet-size-sm-width, 300px);
-    height: var(--pa-sheet-size-sm-height, 300px);
+    width: var(--pa-sheet-size-sm-width);
+    height: var(--pa-sheet-size-sm-height);
   }
 
   &--md {
-    width: var(--pa-sheet-size-md-width, 400px);
-    height: var(--pa-sheet-size-md-height, 400px);
+    width: var(--pa-sheet-size-md-width);
+    height: var(--pa-sheet-size-md-height);
   }
 
   &--lg {
-    width: var(--pa-sheet-size-lg-width, 600px);
-    height: var(--pa-sheet-size-lg-height, 600px);
+    width: var(--pa-sheet-size-lg-width);
+    height: var(--pa-sheet-size-lg-height);
   }
 
   &--full {
@@ -134,7 +134,7 @@ onUnmounted(() => {
 
 .pa-sheet-enter-active,
 .pa-sheet-leave-active {
-  transition: opacity var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  transition: opacity var(--pa-sheet-transition-duration-default) var(--pa-sheet-transition-easing-default);
 }
 
 .pa-sheet-enter-from,

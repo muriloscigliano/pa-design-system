@@ -34,12 +34,12 @@ defineProps<{
 .pa-list-item {
   display: flex;
   align-items: center;
-  gap: var(--pa-spacing-12, 12px);
+  gap: var(--pa-list-item-gap-default);
   padding: var(--pa-list-item-padding-y) var(--pa-list-item-padding-x);
-  background-color: var(--pa-list-item-background-default, var(--pa-color-surface-base-background));
-  color: var(--pa-list-item-text, var(--pa-color-surface-base-text));
-  border-bottom: var(--pa-Border-width-50, 1px) solid var(--pa-list-item-border, var(--pa-color-surface-base-divider));
-  transition: all var(--pa-list-item-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-list-item-transition-easing-default, var(--pa-transition-easing-default, ease));
+  background-color: var(--pa-list-item-background-default);
+  color: var(--pa-list-item-text);
+  border-bottom: var(--pa-list-item-border-width) solid var(--pa-list-item-border-color);
+  transition: all var(--pa-list-item-transition-duration-default) var(--pa-list-item-transition-easing-default);
 
   &:last-child {
     border-bottom: none;
@@ -49,12 +49,12 @@ defineProps<{
     cursor: var(--pa-cursor-pointer, pointer);
 
     &:hover {
-      background-color: var(--pa-list-item-background-hover, var(--pa-color-surface-cards-hover-background));
+      background-color: var(--pa-list-item-background-hover);
     }
   }
 
   &.is-selected {
-    background-color: var(--pa-list-item-background-selected, var(--pa-color-surface-cards-selected-background));
+    background-color: var(--pa-list-item-background-selected);
   }
 }
 
@@ -73,7 +73,7 @@ defineProps<{
 .pa-list-item-actions {
   display: flex;
   align-items: center;
-  gap: var(--pa-spacing-8, 8px);
+  gap: var(--pa-list-item-gap-actions);
   flex-shrink: 0;
 }
 </style>

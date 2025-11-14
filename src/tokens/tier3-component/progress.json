@@ -81,6 +81,26 @@
           "$value": "{icon.size.2xl}"
         }
       }
+    },
+    "line": {
+      "gap": {
+        "$type": "dimension",
+        "$value": "{spacing.150}"
+      }
+    },
+    "transition": {
+      "duration": {
+        "default": {
+          "$type": "duration",
+          "$value": "{transition.duration.default}"
+        }
+      },
+      "easing": {
+        "default": {
+          "$type": "string",
+          "$value": "{transition.easing.default}"
+        }
+      }
     }
   }
 }

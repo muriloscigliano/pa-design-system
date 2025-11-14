@@ -30,16 +30,16 @@ defineProps<{
 }
 
 .pa-page-layout-sidebar {
-  width: var(--pa-layout-drawer-sm, 300px);
+  width: var(--pa-page-layout-sidebar-width);
   flex-shrink: 0;
-  background-color: var(--pa-color-surface-container-background, var(--pa-gray-white, #ffffff));
-  border-right: var(--pa-Border-width-50, 1px) solid var(--pa-color-surface-container-border, var(--pa-gray-200, #e9ecef));
+  background-color: var(--pa-page-layout-sidebar-background);
+  border-right: var(--pa-page-layout-sidebar-border-width) solid var(--pa-page-layout-sidebar-border-color);
 }
 
 .pa-page-layout-main {
   flex: 1;
-  padding: var(--pa-spacing-24, 24px);
-  background-color: var(--pa-color-surface-base-background, var(--pa-gray-100, #f7f7f8));
+  padding: var(--pa-page-layout-main-padding);
+  background-color: var(--pa-page-layout-main-background);
   overflow-x: auto;
 }
 </style>

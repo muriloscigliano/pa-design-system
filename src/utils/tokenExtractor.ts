@@ -110,7 +110,9 @@ const tokenImports: Record<string, () => Promise<any>> = {
   'panavbuttongroup': () => import('../tokens/tier3-component/nav-button-group.json'),
   'pasheet': () => import('../tokens/tier3-component/sheet.json'),
   'pasquare': () => import('../tokens/tier3-component/square.json'),
-  'patoggle': () => import('../tokens/tier3-component/toggle.json')
+  'patoggle': () => import('../tokens/tier3-component/toggle.json'),
+  'pasettingspanel': () => import('../tokens/tier3-component/settings-panel.json'),
+  'pasettingssection': () => import('../tokens/tier3-component/settings-section.json')
 }
 
 const componentNameMap: Record<string, string> = {
@@ -184,7 +186,9 @@ const componentNameMap: Record<string, string> = {
   'panavbuttongroup': 'nav-button-group',
   'pasheet': 'sheet',
   'pasquare': 'square',
-  'patoggle': 'toggle'
+  'patoggle': 'toggle',
+  'pasettingspanel': 'settings-panel',
+  'pasettingssection': 'settings-section'
 }
 
 export async function getComponentTokens(componentId: string): Promise<string> {

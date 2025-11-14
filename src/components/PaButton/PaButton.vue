@@ -36,18 +36,18 @@ defineProps<{
 <style lang="scss" scoped>
 .pa-button {
   border: none;
-  cursor: var(--pa-button-cursor-default, var(--pa-cursor-pointer, pointer));
+  cursor: var(--pa-button-cursor-default);
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-weight: var(--pa-font-weight-400, 400);
-  transition: all var(--pa-button-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-button-transition-easing-default, var(--pa-transition-easing-default, ease));
+  font-weight: var(--pa-font-weight-regular);
+  transition: all var(--pa-button-transition-duration-default) var(--pa-button-transition-easing-default);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--pa-spacing-8, 8px);
+  gap: var(--pa-button-icon-gap);
   
   &.has-icon-left {
     justify-content: flex-start;
-    gap: var(--pa-spacing-8, 8px);
+    gap: var(--pa-button-icon-gap);
   }
   
   &.has-icon-center {
@@ -56,14 +56,14 @@ defineProps<{
   
   &.has-icon-right {
     justify-content: flex-end;
-    gap: var(--pa-spacing-8, 8px);
+    gap: var(--pa-button-icon-gap);
   }
 
   &--primary {
     background-color: var(--pa-button-primary-background-default);
     color: var(--pa-button-primary-text-default);
-    border: var(--pa-button-border-width-default, var(--pa-Border-width-50, 1px)) solid var(--pa-button-primary-border-default);
-    border-radius: var(--pa-button-primary-radius, var(--pa-Border-radius-100, 8px));
+    border: var(--pa-button-border-width-default) solid var(--pa-button-primary-border-default);
+    border-radius: var(--pa-button-primary-radius);
 
     &:hover:not(.is-disabled) {
       background-color: var(--pa-button-primary-background-hover);
@@ -74,8 +74,8 @@ defineProps<{
     }
 
     &:focus-visible {
-      outline: var(--pa-button-outline-width-default, var(--pa-outline-width-default, 2px)) solid var(--pa-button-primary-border-focus);
-      outline-offset: var(--pa-button-outline-offset-default, var(--pa-outline-offset-default, 2px));
+      outline: var(--pa-button-outline-width-default) solid var(--pa-button-primary-border-focus);
+      outline-offset: var(--pa-button-outline-offset-default);
     }
 
     &.is-disabled,
@@ -89,8 +89,8 @@ defineProps<{
   &--secondary {
     background-color: var(--pa-button-secondary-background-default);
     color: var(--pa-button-secondary-text-default);
-    border: var(--pa-button-border-width-default, var(--pa-Border-width-50, 1px)) solid var(--pa-button-secondary-border-default);
-    border-radius: var(--pa-button-secondary-radius, var(--pa-Border-radius-100, 8px));
+    border: var(--pa-button-border-width-default) solid var(--pa-button-secondary-border-default);
+    border-radius: var(--pa-button-secondary-radius);
 
     &:hover:not(.is-disabled) {
       background-color: var(--pa-button-secondary-background-hover);
@@ -101,8 +101,8 @@ defineProps<{
     }
 
     &:focus-visible {
-      outline: var(--pa-button-outline-width-default, var(--pa-outline-width-default, 2px)) solid var(--pa-button-secondary-border-focus);
-      outline-offset: var(--pa-button-outline-offset-default, var(--pa-outline-offset-default, 2px));
+      outline: var(--pa-button-outline-width-default) solid var(--pa-button-secondary-border-focus);
+      outline-offset: var(--pa-button-outline-offset-default);
     }
 
     &.is-disabled,
@@ -116,8 +116,8 @@ defineProps<{
   &--tertiary {
     background-color: var(--pa-button-tertiary-background-default);
     color: var(--pa-button-tertiary-text-default);
-    border: var(--pa-button-border-width-default, var(--pa-Border-width-50, 1px)) solid var(--pa-button-tertiary-border-default);
-    border-radius: var(--pa-button-tertiary-radius, var(--pa-Border-radius-100, 8px));
+    border: var(--pa-button-border-width-default) solid var(--pa-button-tertiary-border-default);
+    border-radius: var(--pa-button-tertiary-radius);
 
     &:hover:not(.is-disabled) {
       background-color: var(--pa-button-tertiary-background-hover);
@@ -128,8 +128,8 @@ defineProps<{
     }
 
     &:focus-visible {
-      outline: var(--pa-button-outline-width-default, var(--pa-outline-width-default, 2px)) solid var(--pa-button-tertiary-border-focus);
-      outline-offset: var(--pa-button-outline-offset-default, var(--pa-outline-offset-default, 2px));
+      outline: var(--pa-button-outline-width-default) solid var(--pa-button-tertiary-border-focus);
+      outline-offset: var(--pa-button-outline-offset-default);
     }
 
     &.is-disabled,
@@ -142,41 +142,41 @@ defineProps<{
 
   &--link {
     background-color: transparent;
-    color: var(--pa-button-link-text-default, var(--pa-color-action-primary-text-default));
+    color: var(--pa-button-link-text-default);
     border: none;
     border-radius: 0;
     padding: 0;
     text-decoration: underline;
-    text-underline-offset: var(--pa-spacing-4, 4px);
+    text-underline-offset: var(--pa-button-link-underline-offset);
 
     &:hover:not(.is-disabled) {
-      color: var(--pa-button-link-text-hover, var(--pa-color-action-primary-text-hover));
-      text-decoration-thickness: 2px;
+      color: var(--pa-button-link-text-hover);
+      text-decoration-thickness: var(--pa-button-link-underline-thickness);
     }
 
     &:active:not(.is-disabled) {
-      color: var(--pa-button-link-text-active, var(--pa-color-action-primary-text-active));
+      color: var(--pa-button-link-text-active);
     }
 
     &:focus-visible {
-      outline: var(--pa-button-outline-width-default, var(--pa-outline-width-default, 2px)) solid var(--pa-button-link-border-focus, var(--pa-color-action-primary-border-focus));
-      outline-offset: var(--pa-button-outline-offset-default, var(--pa-outline-offset-default, 2px));
-      border-radius: var(--pa-Border-radius-50, 4px);
+      outline: var(--pa-button-outline-width-default) solid var(--pa-button-link-border-focus);
+      outline-offset: var(--pa-button-outline-offset-default);
+      border-radius: var(--pa-border-radius-small);
     }
 
     &.is-disabled,
     &:disabled {
-      color: var(--pa-button-link-text-disabled, var(--pa-color-action-primary-text-disabled));
+      color: var(--pa-button-link-text-disabled);
       text-decoration: none;
-      opacity: calc(var(--pa-opacity-60, 60) / 100);
+      opacity: calc(var(--pa-opacity-60) / 100);
     }
   }
 
   &--action {
     background-color: var(--pa-button-action-background-default);
     color: var(--pa-button-action-text-default);
-    border: var(--pa-button-border-width-default, var(--pa-Border-width-50, 1px)) solid var(--pa-button-action-border-default);
-    border-radius: var(--pa-button-action-radius, var(--pa-Border-radius-100, 8px));
+    border: var(--pa-button-border-width-default) solid var(--pa-button-action-border-default);
+    border-radius: var(--pa-button-action-radius);
 
     &:hover:not(.is-disabled) {
       background-color: var(--pa-button-action-background-hover);
@@ -187,8 +187,8 @@ defineProps<{
     }
 
     &:focus-visible {
-      outline: var(--pa-button-outline-width-default, var(--pa-outline-width-default, 2px)) solid var(--pa-button-action-border-focus);
-      outline-offset: var(--pa-button-outline-offset-default, var(--pa-outline-offset-default, 2px));
+      outline: var(--pa-button-outline-width-default) solid var(--pa-button-action-border-focus);
+      outline-offset: var(--pa-button-outline-offset-default);
     }
 
     &.is-disabled,
@@ -216,8 +216,8 @@ defineProps<{
 
   &.is-disabled,
   &:disabled {
-    cursor: var(--pa-button-cursor-disabled, var(--pa-cursor-not-allowed, not-allowed));
-    opacity: calc(var(--pa-opacity-60, 60) / 100);
+    cursor: var(--pa-button-cursor-disabled);
+    opacity: calc(var(--pa-opacity-60) / 100);
   }
 
   &.is-loading {
@@ -226,13 +226,13 @@ defineProps<{
     
     .pa-button-loader {
       display: inline-block;
-      width: var(--pa-icon-size-sm, var(--pa-icon-size-100, 16px));
-      height: var(--pa-icon-size-sm, var(--pa-icon-size-100, 16px));
-      border: var(--pa-button-border-width-default, var(--pa-Border-width-50, 1px)) solid currentColor;
+      width: var(--pa-icon-size-sm);
+      height: var(--pa-icon-size-sm);
+      border: var(--pa-button-border-width-default) solid currentColor;
       border-top-color: transparent;
       border-radius: 50%;
       animation: pa-button-spin 0.6s linear infinite;
-      margin-right: var(--pa-spacing-8, 8px);
+      margin-right: var(--pa-button-icon-gap);
     }
   }
 }

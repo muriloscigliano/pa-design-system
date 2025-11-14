@@ -42,24 +42,24 @@ const isOpen = ref(false)
 .pa-kebab-menu-trigger {
   background: none;
   border: none;
-  padding: var(--pa-spacing-4, 4px);
-  cursor: var(--pa-cursor-pointer, pointer);
-  color: var(--pa-color-surface-container-text, var(--pa-gray-900, #212529));
+  padding: var(--pa-kebab-menu-trigger-padding);
+  cursor: var(--pa-cursor-pointer);
+  color: var(--pa-color-surface-container-text);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--pa-icon-size-lg, var(--pa-icon-size-300, 32px));
-  height: var(--pa-icon-size-lg, var(--pa-icon-size-300, 32px));
-  border-radius: var(--pa-Border-radius-50, 4px);
-  transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  width: var(--pa-kebab-menu-trigger-size);
+  height: var(--pa-kebab-menu-trigger-size);
+  border-radius: var(--pa-kebab-menu-trigger-radius);
+  transition: background-color var(--pa-kebab-menu-transition-duration-default) var(--pa-kebab-menu-transition-easing-default);
 
   &:hover {
-    background-color: var(--pa-color-surface-cards-hover-background, var(--pa-gray-200, #e9ecef));
+    background-color: var(--pa-kebab-menu-trigger-background-hover);
   }
 
   svg {
-    width: var(--pa-icon-size-sm, var(--pa-icon-size-100, 16px));
-    height: var(--pa-icon-size-sm, var(--pa-icon-size-100, 16px));
+    width: var(--pa-kebab-menu-trigger-icon-size);
+    height: var(--pa-kebab-menu-trigger-icon-size);
   }
 }
 </style>

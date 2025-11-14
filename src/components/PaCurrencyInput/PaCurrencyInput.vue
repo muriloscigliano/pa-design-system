@@ -61,9 +61,9 @@ const handleInput = (value: string | number) => {
 <style lang="scss" scoped>
 .pa-currency-input {
   &-symbol {
-    color: var(--pa-input-text-default, var(--pa-color-surface-container-text));
-    font-weight: var(--pa-font-weight-500, 500);
-    padding-right: var(--pa-spacing-8, 8px);
+    color: var(--pa-currency-input-symbol-color);
+    font-weight: var(--pa-currency-input-symbol-font-weight);
+    padding-right: var(--pa-currency-input-symbol-spacing-right);
   }
 }
 </style>

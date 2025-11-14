@@ -29,16 +29,16 @@ defineProps<{
 
 <style lang="scss" scoped>
 .pa-header {
-  background-color: var(--pa-header-background, var(--pa-color-surface-container-background));
-  color: var(--pa-header-text, var(--pa-color-surface-container-text));
-  border-bottom: var(--pa-Border-width-50, 1px) solid var(--pa-header-border, var(--pa-color-surface-container-border));
-  height: var(--pa-header-height, 64px);
+  background-color: var(--pa-header-background);
+  color: var(--pa-header-text);
+  border-bottom: var(--pa-header-border-width) solid var(--pa-header-border);
+  height: var(--pa-header-height);
   padding: var(--pa-header-padding-y) var(--pa-header-padding-x);
 
   &.is-sticky {
     position: sticky;
     top: 0;
-    z-index: var(--pa-header-z-index, var(--pa-z-index-200, 200));
+    z-index: var(--pa-header-z-index);
   }
 }
 
@@ -60,13 +60,13 @@ defineProps<{
   display: flex;
   align-items: center;
   flex: 1;
-  margin: 0 var(--pa-spacing-24, 24px);
+  margin: 0 var(--pa-header-navigation-margin-x);
 }
 
 .pa-header-actions {
   display: flex;
   align-items: center;
-  gap: var(--pa-spacing-8, 8px);
+  gap: var(--pa-header-actions-gap);
   flex-shrink: 0;
 }
 </style>

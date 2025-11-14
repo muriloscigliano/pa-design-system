@@ -89,9 +89,49 @@
         "$type": "dimension",
         "$value": "{font.size.lg}"
       },
+      "title-weight": {
+        "$type": "string",
+        "$value": "{font.weight.medium}"
+      },
       "description-size": {
         "$type": "dimension",
         "$value": "{font.size.md}"
+      },
+      "icon-size": {
+        "$type": "dimension",
+        "$value": "{icon.size.md}"
+      }
+    },
+    "line": {
+      "width": {
+        "$type": "dimension",
+        "$value": "{spacing.25}"
+      }
+    },
+    "description": {
+      "spacing": {
+        "top": {
+          "$type": "dimension",
+          "$value": "{spacing.50}"
+        }
+      },
+      "opacity": {
+        "$type": "number",
+        "$value": 0.7
+      }
+    },
+    "transition": {
+      "duration": {
+        "default": {
+          "$type": "duration",
+          "$value": "{transition.duration.default}"
+        }
+      },
+      "easing": {
+        "default": {
+          "$type": "string",
+          "$value": "{transition.easing.default}"
+        }
       }
     }
   }

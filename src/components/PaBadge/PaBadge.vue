@@ -29,9 +29,9 @@ defineProps<{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--pa-badge-border-radius-default, var(--pa-Border-radius-full, 99999px));
+  border-radius: var(--pa-badge-border-radius-default);
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-weight: var(--pa-font-weight-500, 500);
+  font-weight: var(--pa-font-weight-medium);
   white-space: nowrap;
 
   &--default {
@@ -56,24 +56,24 @@ defineProps<{
 
   &--sm {
     padding: var(--pa-badge-size-sm-padding-y) var(--pa-badge-size-sm-padding-x);
-    font-size: var(--pa-badge-size-sm-font, var(--pa-font-size-75, 12px));
+    font-size: var(--pa-badge-size-sm-font);
   }
 
   &--md {
     padding: var(--pa-badge-size-md-padding-y) var(--pa-badge-size-md-padding-x);
-    font-size: var(--pa-badge-size-md-font, var(--pa-font-size-100, 14px));
+    font-size: var(--pa-badge-size-md-font);
   }
 
   &--lg {
     padding: var(--pa-badge-size-lg-padding-y) var(--pa-badge-size-lg-padding-x);
-    font-size: var(--pa-badge-size-lg-font, var(--pa-font-size-200, 16px));
+    font-size: var(--pa-badge-size-lg-font);
   }
 
   &.is-dot {
     padding: 0;
-    width: var(--pa-spacing-8, 8px);
-    height: var(--pa-spacing-8, 8px);
-    min-width: var(--pa-spacing-8, 8px);
+    width: var(--pa-badge-dot-size);
+    height: var(--pa-badge-dot-size);
+    min-width: var(--pa-badge-dot-size);
   }
 }
 
@@ -83,9 +83,9 @@ defineProps<{
 }
 
 .pa-badge-dot {
-  width: var(--pa-spacing-8, 8px);
-  height: var(--pa-spacing-8, 8px);
-  border-radius: var(--pa-Border-radius-full, 99999px);
+  width: var(--pa-badge-dot-size);
+  height: var(--pa-badge-dot-size);
+  border-radius: var(--pa-badge-border-radius-default);
   background-color: currentColor;
 }
 </style>

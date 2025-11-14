@@ -1,5 +1,43 @@
 {
   "switch": {
+    "gap": {
+      "$type": "dimension",
+      "$value": "{spacing.100}"
+    },
+    "border": {
+      "radius": {
+        "$type": "dimension",
+        "$value": "{border.radius.full}"
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "{color.toggle.border.focus}"
+      }
+    },
+    "thumb": {
+      "spacing": {
+        "left": {
+          "$type": "dimension",
+          "$value": "{spacing.25}"
+        },
+        "right": {
+          "$type": "dimension",
+          "$value": "{spacing.50}"
+        }
+      },
+      "off": {
+        "$type": "color",
+        "$value": "{color.toggle.thumb.off}"
+      },
+      "on": {
+        "$type": "color",
+        "$value": "{color.toggle.thumb.on}"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{color.toggle.thumb.disabled}"
+      }
+    },
     "transition": {
       "duration": {
         "default": {
@@ -40,26 +78,6 @@
       "disabled": {
         "$type": "color",
         "$value": "{color.toggle.background.disabled}"
-      }
-    },
-    "thumb": {
-      "off": {
-        "$type": "color",
-        "$value": "{color.toggle.thumb.off}"
-      },
-      "on": {
-        "$type": "color",
-        "$value": "{color.toggle.thumb.on}"
-      },
-      "disabled": {
-        "$type": "color",
-        "$value": "{color.toggle.thumb.disabled}"
-      }
-    },
-    "border": {
-      "focus": {
-        "$type": "color",
-        "$value": "{color.toggle.border.focus}"
       }
     },
     "size": {

@@ -1,10 +1,20 @@
 {
   "radio": {
+    "gap": {
+      "$type": "dimension",
+      "$value": "{spacing.100}"
+    },
     "border": {
       "width": {
         "default": {
           "$type": "dimension",
           "$value": "{border.width.thin}"
+        }
+      },
+      "radius": {
+        "default": {
+          "$type": "dimension",
+          "$value": "{border.radius.full}"
         }
       }
     },

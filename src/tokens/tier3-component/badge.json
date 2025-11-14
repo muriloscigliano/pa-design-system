@@ -93,6 +93,12 @@
           "$value": "{font.size.lg}"
         }
       }
+    },
+    "dot": {
+      "size": {
+        "$type": "dimension",
+        "$value": "{spacing.100}"
+      }
     }
   }
 }

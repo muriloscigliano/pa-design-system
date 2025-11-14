@@ -214,6 +214,16 @@
           "$type": "color",
           "$value": "{color.action.primary.border.focus}"
         }
+      },
+      "underline": {
+        "offset": {
+          "$type": "dimension",
+          "$value": "{spacing.50}"
+        },
+        "thickness": {
+          "$type": "dimension",
+          "$value": "{border.width.medium}"
+        }
       }
     },
     "action": {
@@ -262,6 +272,12 @@
       "radius": {
         "$type": "dimension",
         "$value": "{border.radius.medium}"
+      }
+    },
+    "icon": {
+      "gap": {
+        "$type": "dimension",
+        "$value": "{spacing.100}"
       }
     },
     "size": {

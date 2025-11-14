@@ -50,7 +50,7 @@ const handleChange = (value: string | number) => {
 <style lang="scss" scoped>
 .pa-radio-button-group {
   display: inline-flex;
-  gap: var(--pa-spacing-16, 16px);
+  gap: var(--pa-radio-button-group-gap);
 
   &--horizontal {
     flex-direction: row;

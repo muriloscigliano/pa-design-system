@@ -35,13 +35,13 @@ defineProps<{
   }
 
   &--outlined {
-    border: var(--pa-Border-width-50, 1px) solid var(--pa-container-border, var(--pa-color-surface-container-border));
-    border-radius: var(--pa-container-border-radius, var(--pa-Border-radius-100, 8px));
+    border: var(--pa-container-border-width) solid var(--pa-container-border);
+    border-radius: var(--pa-container-border-radius);
   }
 
   &--elevated {
-    box-shadow: var(--pa-shadow-md, var(--pa-shadow-md));
-    border-radius: var(--pa-container-border-radius, var(--pa-Border-radius-100, 8px));
+    box-shadow: var(--pa-container-shadow);
+    border-radius: var(--pa-container-border-radius);
   }
 
   &--sm {

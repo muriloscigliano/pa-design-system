@@ -19,8 +19,24 @@
       "$value": "{color.surface.base.text}"
     },
     "border": {
-      "$type": "color",
-      "$value": "{color.surface.base.divider}"
+      "color": {
+        "$type": "color",
+        "$value": "{color.surface.base.divider}"
+      },
+      "width": {
+        "$type": "dimension",
+        "$value": "{border.width.thin}"
+      }
+    },
+    "gap": {
+      "default": {
+        "$type": "dimension",
+        "$value": "{spacing.150}"
+      },
+      "actions": {
+        "$type": "dimension",
+        "$value": "{spacing.100}"
+      }
     },
     "padding": {
       "x": {

@@ -71,7 +71,8 @@ export const navigation: Record<string, NavigationSection> = {
       { label: 'PaTextContainer', id: 'patextcontainer' },
       { label: 'PaTextDivider', id: 'patextdivider' },
       { label: 'PaSlottedLayout', id: 'paslottedlayout' },
-      { label: 'PaSlottedLayoutHeader', id: 'paslottedlayoutheader' }
+      { label: 'PaSlottedLayoutHeader', id: 'paslottedlayoutheader' },
+      { label: 'PaSettingsPanel', id: 'pasettingspanel' }
     ]
   },
   'navigation': {

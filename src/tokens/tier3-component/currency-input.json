@@ -1,9 +1,21 @@
 {
   "currency-input": {
     "symbol": {
+      "color": {
+        "$type": "color",
+        "$value": "{color.input.text.default}"
+      },
+      "font": {
+        "weight": {
+          "$type": "string",
+          "$value": "{font.weight.medium}"
+        }
+      },
       "spacing": {
-        "$type": "dimension",
-        "$value": "{spacing.100}"
+        "right": {
+          "$type": "dimension",
+          "$value": "{spacing.100}"
+        }
       }
     }
   }

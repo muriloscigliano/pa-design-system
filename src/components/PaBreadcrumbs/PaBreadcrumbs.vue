@@ -60,47 +60,47 @@ const defaultSeparator = props.separator || '/'
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: var(--pa-breadcrumbs-spacing-item-gap, var(--pa-spacing-8, 8px));
+  gap: var(--pa-breadcrumbs-spacing-item-gap);
 }
 
 .pa-breadcrumbs-item {
   display: flex;
   align-items: center;
-  gap: var(--pa-breadcrumbs-spacing-item-gap, var(--pa-spacing-8, 8px));
+  gap: var(--pa-breadcrumbs-spacing-item-gap);
 }
 
 .pa-breadcrumbs-link {
   display: flex;
   align-items: center;
-  gap: var(--pa-spacing-4, 4px);
-  color: var(--pa-breadcrumbs-text-link, var(--pa-color-action-primary-text-default));
+  gap: var(--pa-breadcrumbs-spacing-link-gap);
+  color: var(--pa-breadcrumbs-text-link);
   text-decoration: none;
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-size: var(--pa-breadcrumbs-font-size, var(--pa-font-size-200, 16px));
-  font-weight: var(--pa-font-weight-400, 400);
-  transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
-  cursor: var(--pa-cursor-pointer, pointer);
+  font-size: var(--pa-breadcrumbs-font-size);
+  font-weight: var(--pa-breadcrumbs-font-weight);
+  transition: color var(--pa-breadcrumbs-transition-duration-default) var(--pa-breadcrumbs-transition-easing-default);
+  cursor: var(--pa-cursor-pointer);
 
   &:hover:not(.is-active) {
     text-decoration: underline;
   }
 
   &.is-active {
-    color: var(--pa-breadcrumbs-text-default, var(--pa-color-surface-container-text));
-    cursor: var(--pa-cursor-default, default);
+    color: var(--pa-breadcrumbs-text-default);
+    cursor: var(--pa-cursor-default);
   }
 }
 
 .pa-breadcrumbs-icon {
   display: flex;
   align-items: center;
-  font-size: var(--pa-icon-size-200, 20px);
+  font-size: var(--pa-breadcrumbs-icon-size);
 }
 
 .pa-breadcrumbs-separator {
-  color: var(--pa-breadcrumbs-text-separator, var(--pa-color-surface-container-icon));
+  color: var(--pa-breadcrumbs-text-separator);
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-size: var(--pa-breadcrumbs-font-size, var(--pa-font-size-200, 16px));
+  font-size: var(--pa-breadcrumbs-font-size);
 }
 </style>
 

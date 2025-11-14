@@ -32,15 +32,15 @@ defineProps<{
   }
 
   &--gap-sm {
-    gap: var(--pa-action-button-group-gap-sm, var(--pa-spacing-8, 8px));
+    gap: var(--pa-action-button-group-gap-sm);
   }
 
   &--gap-md {
-    gap: var(--pa-action-button-group-gap-md, var(--pa-spacing-16, 16px));
+    gap: var(--pa-action-button-group-gap-md);
   }
 
   &--gap-lg {
-    gap: var(--pa-action-button-group-gap-lg, var(--pa-spacing-24, 24px));
+    gap: var(--pa-action-button-group-gap-lg);
   }
 }
 </style>

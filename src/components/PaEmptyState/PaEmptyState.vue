@@ -29,38 +29,38 @@ defineProps<{
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: var(--pa-spacing-32, 32px);
+  padding: var(--pa-empty-state-padding);
 }
 
 .pa-empty-state-icon {
-  color: var(--pa-empty-state-icon, var(--pa-gray-400, #ced4da));
-  margin-bottom: var(--pa-empty-state-spacing-icon, var(--pa-spacing-24, 24px));
+  color: var(--pa-empty-state-icon);
+  margin-bottom: var(--pa-empty-state-spacing-icon);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--pa-icon-size-xl, var(--pa-icon-size-400, 64px));
-  height: var(--pa-icon-size-xl, var(--pa-icon-size-400, 64px));
+  width: var(--pa-empty-state-icon-size);
+  height: var(--pa-empty-state-icon-size);
 }
 
 .pa-empty-state-title {
-  color: var(--pa-empty-state-text-primary, var(--pa-color-surface-container-text));
+  color: var(--pa-empty-state-text-primary);
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-size: var(--pa-font-size-500, 24px);
-  font-weight: var(--pa-font-weight-700, 700);
-  margin: 0 0 var(--pa-empty-state-spacing-text, var(--pa-spacing-16, 16px)) 0;
+  font-size: var(--pa-empty-state-title-font-size);
+  font-weight: var(--pa-empty-state-title-font-weight);
+  margin: 0 0 var(--pa-empty-state-spacing-text) 0;
 }
 
 .pa-empty-state-description {
-  color: var(--pa-empty-state-text-secondary, var(--pa-gray-500, #adb5bd));
+  color: var(--pa-empty-state-text-secondary);
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-size: var(--pa-font-size-200, 16px);
-  font-weight: var(--pa-font-weight-400, 400);
-  margin: 0 0 var(--pa-empty-state-spacing-text, var(--pa-spacing-16, 16px)) 0;
-  max-width: var(--pa-spacing-800, var(--pa-spacing-100, 100px));
+  font-size: var(--pa-empty-state-description-font-size);
+  font-weight: var(--pa-empty-state-description-font-weight);
+  margin: 0 0 var(--pa-empty-state-spacing-text) 0;
+  max-width: var(--pa-empty-state-description-max-width);
 }
 
 .pa-empty-state-action {
-  margin-top: var(--pa-spacing-8, 8px);
+  margin-top: var(--pa-empty-state-spacing-action);
 }
 </style>
 

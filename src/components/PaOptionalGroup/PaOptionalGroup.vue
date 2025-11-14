@@ -21,32 +21,32 @@ defineProps<{
 .pa-optional-group {
   display: flex;
   flex-direction: column;
-  gap: var(--pa-optional-group-gap, var(--pa-spacing-8, 8px));
+  gap: var(--pa-optional-group-gap);
 
   &-header {
     display: flex;
     align-items: center;
-    gap: var(--pa-spacing-8, 8px);
+    gap: var(--pa-optional-group-header-gap);
   }
 
   &-label {
-    font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-    font-size: var(--pa-font-size-100, 14px);
-    font-weight: var(--pa-font-weight-500, 500);
-    color: var(--pa-color-surface-container-text, var(--pa-color-surface-base-text));
+    font-family: var(--pa-font-family-roboto);
+    font-size: var(--pa-optional-group-label-font-size);
+    font-weight: var(--pa-optional-group-label-font-weight);
+    color: var(--pa-color-surface-container-text);
   }
 
   &-badge {
-    font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-    font-size: var(--pa-font-size-75, 12px);
-    font-weight: var(--pa-font-weight-400, 400);
-    color: var(--pa-color-surface-container-text-secondary, var(--pa-color-surface-base-text));
+    font-family: var(--pa-font-family-roboto);
+    font-size: var(--pa-optional-group-badge-font-size);
+    font-weight: var(--pa-optional-group-badge-font-weight);
+    color: var(--pa-color-surface-container-text-secondary);
   }
 
   &-content {
     display: flex;
     flex-direction: column;
-    gap: var(--pa-spacing-8, 8px);
+    gap: var(--pa-optional-group-content-gap);
   }
 }
 </style>

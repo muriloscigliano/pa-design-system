@@ -49,13 +49,13 @@ const dismiss = () => {
 .pa-inline-message {
   display: flex;
   align-items: flex-start;
-  gap: var(--pa-spacing-12, 12px);
+  gap: var(--pa-inline-message-gap);
   padding: var(--pa-inline-message-padding-y) var(--pa-inline-message-padding-x);
-  border: var(--pa-inline-message-border-width-default, var(--pa-Border-width-50, 1px)) solid;
-  border-radius: var(--pa-inline-message-border-radius-default, var(--pa-Border-radius-100, 8px));
+  border: var(--pa-inline-message-border-width-default) solid;
+  border-radius: var(--pa-inline-message-border-radius-default);
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-size: var(--pa-font-size-200, 16px);
-  font-weight: var(--pa-font-weight-400, 400);
+  font-size: var(--pa-inline-message-font-size);
+  font-weight: var(--pa-inline-message-font-weight);
 
   &--info {
     background-color: var(--pa-inline-message-background-info);
@@ -86,8 +86,8 @@ const dismiss = () => {
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  width: var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px));
-  height: var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px));
+  width: var(--pa-inline-message-icon-size);
+  height: var(--pa-inline-message-icon-size);
 
   .pa-inline-message--info & {
     color: var(--pa-inline-message-icon-info);
@@ -113,28 +113,28 @@ const dismiss = () => {
 .pa-inline-message-close {
   background: none;
   border: none;
-  font-size: var(--pa-font-size-500, 24px);
+  font-size: var(--pa-inline-message-close-font-size);
   line-height: 1;
-  cursor: var(--pa-cursor-pointer, pointer);
+  cursor: var(--pa-cursor-pointer);
   color: currentColor;
-  padding: var(--pa-spacing-4, 4px);
+  padding: var(--pa-inline-message-close-padding);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--pa-icon-size-md, var(--pa-icon-size-200, 24px));
-  height: var(--pa-icon-size-md, var(--pa-icon-size-200, 24px));
+  width: var(--pa-inline-message-close-size);
+  height: var(--pa-inline-message-close-size);
   flex-shrink: 0;
-  opacity: 0.7;
-  transition: opacity var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  opacity: var(--pa-inline-message-close-opacity-default);
+  transition: opacity var(--pa-inline-message-transition-duration-default) var(--pa-inline-message-transition-easing-default);
 
   &:hover {
-    opacity: 1;
+    opacity: var(--pa-inline-message-close-opacity-hover);
   }
 }
 
 .pa-inline-message-enter-active,
 .pa-inline-message-leave-active {
-  transition: opacity var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  transition: opacity var(--pa-inline-message-transition-duration-default) var(--pa-inline-message-transition-easing-default);
 }
 
 .pa-inline-message-enter-from,

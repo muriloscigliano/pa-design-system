@@ -72,15 +72,15 @@ const handleInput = (event: Event) => {
 .pa-slider {
   position: relative;
   width: 100%;
-  padding: var(--pa-spacing-8, 8px) 0;
+  padding: var(--pa-slider-padding-y) 0;
 }
 
 .pa-slider-track {
   position: relative;
   width: 100%;
-  height: var(--pa-slider-track-height, 4px);
-  background-color: var(--pa-slider-track-background, var(--pa-gray-300, #dee2e6));
-  border-radius: var(--pa-slider-track-radius, var(--pa-Border-radius-full, 99999px));
+  height: var(--pa-slider-track-height);
+  background-color: var(--pa-slider-track-background);
+  border-radius: var(--pa-slider-track-radius);
 }
 
 .pa-slider-filled {
@@ -88,9 +88,9 @@ const handleInput = (event: Event) => {
   top: 0;
   left: 0;
   height: 100%;
-  background-color: var(--pa-slider-track-filled, var(--pa-color-action-primary-background-default));
-  border-radius: var(--pa-slider-track-radius, var(--pa-Border-radius-full, 99999px));
-  transition: width var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  background-color: var(--pa-slider-track-filled);
+  border-radius: var(--pa-slider-track-radius);
+  transition: width var(--pa-slider-transition-duration-default) var(--pa-slider-transition-easing-default);
 }
 
 .pa-slider-input {
@@ -98,46 +98,46 @@ const handleInput = (event: Event) => {
   top: 50%;
   left: 0;
   width: 100%;
-  height: var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px));
+  height: var(--pa-slider-input-height);
   margin: 0;
   transform: translateY(-50%);
   background: transparent;
-  cursor: var(--pa-cursor-pointer, pointer);
+  cursor: var(--pa-cursor-pointer);
   appearance: none;
   -webkit-appearance: none;
 
   &::-webkit-slider-thumb {
     appearance: none;
-    width: var(--pa-slider-thumb-width, var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px)));
-    height: var(--pa-slider-thumb-height, var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px)));
-    background-color: var(--pa-slider-thumb-background, var(--pa-gray-white, #ffffff));
-    border: var(--pa-slider-thumb-border-width, var(--pa-Border-width-100, 2px)) solid var(--pa-slider-thumb-border-color, var(--pa-color-action-primary-border-default));
-    border-radius: var(--pa-slider-thumb-radius, var(--pa-Border-radius-full, 99999px));
-    cursor: var(--pa-cursor-pointer, pointer);
-    transition: all var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+    width: var(--pa-slider-thumb-width);
+    height: var(--pa-slider-thumb-height);
+    background-color: var(--pa-slider-thumb-background);
+    border: var(--pa-slider-thumb-border-width) solid var(--pa-slider-thumb-border-color);
+    border-radius: var(--pa-slider-thumb-radius);
+    cursor: var(--pa-cursor-pointer);
+    transition: all var(--pa-slider-transition-duration-default) var(--pa-slider-transition-easing-default);
 
     &:hover {
-      background-color: var(--pa-slider-thumb-hover, var(--pa-color-action-primary-background-hover));
+      background-color: var(--pa-slider-thumb-hover);
     }
   }
 
   &::-moz-range-thumb {
-    width: var(--pa-slider-thumb-width, var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px)));
-    height: var(--pa-slider-thumb-height, var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px)));
-    background-color: var(--pa-slider-thumb-background, var(--pa-gray-white, #ffffff));
-    border: var(--pa-slider-thumb-border-width, var(--pa-Border-width-100, 2px)) solid var(--pa-slider-thumb-border-color, var(--pa-color-action-primary-border-default));
-    border-radius: var(--pa-slider-thumb-radius, var(--pa-Border-radius-full, 99999px));
-    cursor: var(--pa-cursor-pointer, pointer);
-    transition: all var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+    width: var(--pa-slider-thumb-width);
+    height: var(--pa-slider-thumb-height);
+    background-color: var(--pa-slider-thumb-background);
+    border: var(--pa-slider-thumb-border-width) solid var(--pa-slider-thumb-border-color);
+    border-radius: var(--pa-slider-thumb-radius);
+    cursor: var(--pa-cursor-pointer);
+    transition: all var(--pa-slider-transition-duration-default) var(--pa-slider-transition-easing-default);
 
     &:hover {
-      background-color: var(--pa-slider-thumb-hover, var(--pa-color-action-primary-background-hover));
+      background-color: var(--pa-slider-thumb-hover);
     }
   }
 
   &:disabled {
-    cursor: var(--pa-cursor-not-allowed, not-allowed);
-    opacity: calc(var(--pa-opacity-60, 60) / 100);
+    cursor: var(--pa-cursor-not-allowed);
+    opacity: calc(var(--pa-opacity-60) / 100);
   }
 }
 </style>

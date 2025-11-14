@@ -92,113 +92,113 @@ onUnmounted(() => {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--pa-drawer-overlay-background, var(--pa-color-modal-overlay-background));
-  z-index: var(--pa-z-index-500, 500);
+  background-color: var(--pa-drawer-overlay-background);
+  z-index: var(--pa-drawer-overlay-z-index);
 }
 
 .pa-drawer-container {
   position: absolute;
   display: flex;
   flex-direction: column;
-  background-color: var(--pa-drawer-container-background, var(--pa-color-modal-container-background));
-  border: var(--pa-Border-width-50, 1px) solid var(--pa-drawer-container-border, var(--pa-color-modal-container-border));
-  box-shadow: var(--pa-drawer-container-shadow, var(--pa-shadow-300));
+  background-color: var(--pa-drawer-container-background);
+  border: var(--pa-drawer-container-border-width) solid var(--pa-drawer-container-border-color);
+  box-shadow: var(--pa-drawer-container-shadow);
   overflow: hidden;
 
   &--left {
     top: 0;
     left: 0;
     bottom: 0;
-    width: var(--pa-drawer-size-md-width, 400px);
-    border-right: var(--pa-Border-width-50, 1px) solid var(--pa-drawer-container-border, var(--pa-color-modal-container-border));
+    width: var(--pa-drawer-size-md-width);
+    border-right: var(--pa-drawer-container-border-width) solid var(--pa-drawer-container-border-color);
   }
 
   &--right {
     top: 0;
     right: 0;
     bottom: 0;
-    width: var(--pa-drawer-size-md-width, 400px);
-    border-left: var(--pa-Border-width-50, 1px) solid var(--pa-drawer-container-border, var(--pa-color-modal-container-border));
+    width: var(--pa-drawer-size-md-width);
+    border-left: var(--pa-drawer-container-border-width) solid var(--pa-drawer-container-border-color);
   }
 
   &--top {
     top: 0;
     left: 0;
     right: 0;
-    height: var(--pa-drawer-size-md-height, 400px);
-    border-bottom: var(--pa-Border-width-50, 1px) solid var(--pa-drawer-container-border, var(--pa-color-modal-container-border));
+    height: var(--pa-drawer-size-md-height);
+    border-bottom: var(--pa-drawer-container-border-width) solid var(--pa-drawer-container-border-color);
   }
 
   &--bottom {
     bottom: 0;
     left: 0;
     right: 0;
-    height: var(--pa-drawer-size-md-height, 400px);
-    border-top: var(--pa-Border-width-50, 1px) solid var(--pa-drawer-container-border, var(--pa-color-modal-container-border));
+    height: var(--pa-drawer-size-md-height);
+    border-top: var(--pa-drawer-container-border-width) solid var(--pa-drawer-container-border-color);
   }
 
   &--sm {
     &.pa-drawer-container--left,
     &.pa-drawer-container--right {
-      width: var(--pa-drawer-size-sm-width, 300px);
+      width: var(--pa-drawer-size-sm-width);
     }
     &.pa-drawer-container--top,
     &.pa-drawer-container--bottom {
-      height: var(--pa-drawer-size-sm-height, 300px);
+      height: var(--pa-drawer-size-sm-height);
     }
   }
 
   &--lg {
     &.pa-drawer-container--left,
     &.pa-drawer-container--right {
-      width: var(--pa-drawer-size-lg-width, 600px);
+      width: var(--pa-drawer-size-lg-width);
     }
     &.pa-drawer-container--top,
     &.pa-drawer-container--bottom {
-      height: var(--pa-drawer-size-lg-height, 600px);
+      height: var(--pa-drawer-size-lg-height);
     }
   }
 }
 
 .pa-drawer-header {
-  padding: var(--pa-drawer-header-padding, var(--pa-spacing-16, 16px));
-  border-bottom: var(--pa-Border-width-50, 1px) solid var(--pa-drawer-header-border, var(--pa-color-surface-base-divider));
+  padding: var(--pa-drawer-header-padding);
+  border-bottom: var(--pa-drawer-header-border-width) solid var(--pa-drawer-header-border-color);
 }
 
 .pa-drawer-body {
   flex: 1;
-  padding: var(--pa-drawer-body-padding, var(--pa-spacing-16, 16px));
+  padding: var(--pa-drawer-body-padding);
   overflow-y: auto;
 }
 
 .pa-drawer-footer {
-  padding: var(--pa-drawer-footer-padding, var(--pa-spacing-16, 16px));
-  border-top: var(--pa-Border-width-50, 1px) solid var(--pa-drawer-footer-border, var(--pa-color-surface-base-divider));
+  padding: var(--pa-drawer-footer-padding);
+  border-top: var(--pa-drawer-footer-border-width) solid var(--pa-drawer-footer-border-color);
 }
 
 .pa-drawer-enter-active,
 .pa-drawer-leave-active {
-  transition: opacity var(--pa-drawer-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-drawer-transition-easing-default, var(--pa-transition-easing-default, ease));
+  transition: opacity var(--pa-drawer-transition-duration-default) var(--pa-drawer-transition-easing-default);
 }
 
 .pa-drawer-enter-active .pa-drawer-container--left,
 .pa-drawer-leave-active .pa-drawer-container--left {
-  transition: transform var(--pa-drawer-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-drawer-transition-easing-default, var(--pa-transition-easing-default, ease));
+  transition: transform var(--pa-drawer-transition-duration-default) var(--pa-drawer-transition-easing-default);
 }
 
 .pa-drawer-enter-active .pa-drawer-container--right,
 .pa-drawer-leave-active .pa-drawer-container--right {
-  transition: transform var(--pa-drawer-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-drawer-transition-easing-default, var(--pa-transition-easing-default, ease));
+  transition: transform var(--pa-drawer-transition-duration-default) var(--pa-drawer-transition-easing-default);
 }
 
 .pa-drawer-enter-active .pa-drawer-container--top,
 .pa-drawer-leave-active .pa-drawer-container--top {
-  transition: transform var(--pa-drawer-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-drawer-transition-easing-default, var(--pa-transition-easing-default, ease));
+  transition: transform var(--pa-drawer-transition-duration-default) var(--pa-drawer-transition-easing-default);
 }
 
 .pa-drawer-enter-active .pa-drawer-container--bottom,
 .pa-drawer-leave-active .pa-drawer-container--bottom {
-  transition: transform var(--pa-drawer-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-drawer-transition-easing-default, var(--pa-transition-easing-default, ease));
+  transition: transform var(--pa-drawer-transition-duration-default) var(--pa-drawer-transition-easing-default);
 }
 
 .pa-drawer-enter-from .pa-drawer-container--left {

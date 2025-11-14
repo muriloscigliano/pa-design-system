@@ -9,9 +9,9 @@ defineProps<{
   <div
     class="pa-square"
     :style="{
-      width: typeof size === 'number' ? `${size}px` : size || 'var(--pa-square-size-default, 48px)',
-      height: typeof size === 'number' ? `${size}px` : size || 'var(--pa-square-size-default, 48px)',
-      backgroundColor: color || 'var(--pa-square-background, var(--pa-color-surface-container-background))'
+      width: typeof size === 'number' ? `${size}px` : size || 'var(--pa-square-size-default)',
+      height: typeof size === 'number' ? `${size}px` : size || 'var(--pa-square-size-default)',
+      backgroundColor: color || 'var(--pa-square-background)'
     }"
   >
     <slot />
@@ -23,8 +23,8 @@ defineProps<{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--pa-square-radius, var(--pa-Border-radius-100, 8px));
-  background-color: var(--pa-square-background, var(--pa-color-surface-container-background));
+  border-radius: var(--pa-square-radius);
+  background-color: var(--pa-square-background);
   overflow: hidden;
 }
 </style>

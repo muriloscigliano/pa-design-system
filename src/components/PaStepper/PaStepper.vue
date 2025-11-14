@@ -113,8 +113,8 @@ const handleStepClick = (index: number, step: Step) => {
   }
 
   &.is-disabled {
-    opacity: calc(var(--pa-opacity-60, 60) / 100);
-    cursor: var(--pa-cursor-not-allowed, not-allowed);
+    opacity: calc(var(--pa-opacity-60) / 100);
+    cursor: var(--pa-cursor-not-allowed);
   }
 }
 
@@ -122,100 +122,100 @@ const handleStepClick = (index: number, step: Step) => {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--pa-stepper-icon-size, var(--pa-icon-size-300, 32px));
-  height: var(--pa-stepper-icon-size, var(--pa-icon-size-300, 32px));
-  border-radius: var(--pa-Border-radius-full, 50%);
-  background-color: var(--pa-stepper-icon-background-default, var(--pa-color-surface-container-background));
-  color: var(--pa-stepper-icon-text-default, var(--pa-color-surface-container-text));
+  width: var(--pa-stepper-icon-size);
+  height: var(--pa-stepper-icon-size);
+  border-radius: var(--pa-border-radius-full);
+  background-color: var(--pa-stepper-icon-background-default);
+  color: var(--pa-stepper-icon-text-default);
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-size: var(--pa-font-size-200, 16px);
-  font-weight: var(--pa-font-weight-500, 500);
+  font-size: var(--pa-stepper-font-icon-size);
+  font-weight: var(--pa-stepper-font-title-weight);
   flex-shrink: 0;
-  transition: all var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  transition: all var(--pa-stepper-transition-duration-default) var(--pa-stepper-transition-easing-default);
 
   .pa-stepper-step.is-process & {
-    background-color: var(--pa-stepper-icon-background-active, var(--pa-color-action-primary-background-default));
-    color: var(--pa-stepper-icon-text-active, var(--pa-color-action-primary-text-default));
+    background-color: var(--pa-stepper-icon-background-active);
+    color: var(--pa-stepper-icon-text-active);
   }
 
   .pa-stepper-step.is-finish & {
-    background-color: var(--pa-stepper-icon-background-completed, var(--pa-color-action-primary-background-default));
-    color: var(--pa-stepper-icon-text-completed, var(--pa-color-action-primary-text-default));
+    background-color: var(--pa-stepper-icon-background-completed);
+    color: var(--pa-stepper-icon-text-completed);
   }
 
   .pa-stepper-step.is-error & {
-    background-color: var(--pa-stepper-icon-background-error, var(--pa-color-status-error-default));
-    color: var(--pa-stepper-icon-text-error, var(--pa-color-status-error-text));
+    background-color: var(--pa-stepper-icon-background-error);
+    color: var(--pa-stepper-icon-text-error);
   }
 }
 
 .pa-stepper-step-icon-custom {
-  font-size: var(--pa-icon-size-200, 20px);
+  font-size: var(--pa-stepper-font-icon-size);
 }
 
 .pa-stepper-step-content {
-  margin-left: var(--pa-stepper-spacing-icon-text, var(--pa-spacing-12, 12px));
+  margin-left: var(--pa-stepper-spacing-icon-text);
   text-align: left;
 
   .pa-stepper--horizontal & {
-    margin-left: var(--pa-stepper-spacing-icon-text, var(--pa-spacing-12, 12px));
+    margin-left: var(--pa-stepper-spacing-icon-text);
     margin-top: 0;
   }
 
   .pa-stepper--vertical & {
     margin-left: 0;
-    margin-top: var(--pa-stepper-spacing-icon-text, var(--pa-spacing-12, 12px));
+    margin-top: var(--pa-stepper-spacing-icon-text);
     text-align: center;
   }
 }
 
 .pa-stepper-step-title {
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-size: var(--pa-stepper-font-title-size, var(--pa-font-size-200, 16px));
-  font-weight: var(--pa-font-weight-500, 500);
-  color: var(--pa-stepper-text-default, var(--pa-color-surface-container-text));
-  transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  font-size: var(--pa-stepper-font-title-size);
+  font-weight: var(--pa-stepper-font-title-weight);
+  color: var(--pa-stepper-text-default);
+  transition: color var(--pa-stepper-transition-duration-default) var(--pa-stepper-transition-easing-default);
 
   .pa-stepper-step.is-process &,
   .pa-stepper-step.is-finish & {
-    color: var(--pa-stepper-text-active, var(--pa-color-action-primary-text-default));
+    color: var(--pa-stepper-text-active);
   }
 
   .pa-stepper-step.is-error & {
-    color: var(--pa-stepper-text-error, var(--pa-color-status-error-default));
+    color: var(--pa-stepper-text-error);
   }
 }
 
 .pa-stepper-step-description {
-  margin-top: var(--pa-spacing-4, 4px);
+  margin-top: var(--pa-stepper-description-spacing-top);
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-size: var(--pa-stepper-font-description-size, var(--pa-font-size-100, 14px));
-  color: var(--pa-stepper-text-default, var(--pa-color-surface-container-text));
-  opacity: 0.7;
+  font-size: var(--pa-stepper-font-description-size);
+  color: var(--pa-stepper-text-default);
+  opacity: var(--pa-stepper-description-opacity);
 }
 
 .pa-stepper-step-line {
   position: absolute;
-  background-color: var(--pa-stepper-line-default, var(--pa-color-surface-base-divider));
+  background-color: var(--pa-stepper-line-default);
 
   .pa-stepper--horizontal & {
-    top: calc(var(--pa-stepper-icon-size, var(--pa-icon-size-300, 32px)) / 2);
-    left: calc(50% + var(--pa-stepper-icon-size, var(--pa-icon-size-300, 32px)) / 2 + var(--pa-stepper-spacing-icon-text, var(--pa-spacing-12, 12px)));
-    right: calc(-50% + var(--pa-stepper-icon-size, var(--pa-icon-size-300, 32px)) / 2);
-    height: var(--pa-spacing-25, var(--pa-spacing-2, 2px));
+    top: calc(var(--pa-stepper-icon-size) / 2);
+    left: calc(50% + var(--pa-stepper-icon-size) / 2 + var(--pa-stepper-spacing-icon-text));
+    right: calc(-50% + var(--pa-stepper-icon-size) / 2);
+    height: var(--pa-stepper-line-width);
     transform: translateY(-50%);
   }
 
   .pa-stepper--vertical & {
-    top: calc(var(--pa-stepper-icon-size, var(--pa-icon-size-300, 32px)) + var(--pa-stepper-spacing-icon-text, var(--pa-spacing-12, 12px)));
-    left: calc(var(--pa-stepper-icon-size, var(--pa-icon-size-300, 32px)) / 2);
-    bottom: calc(-100% + var(--pa-stepper-icon-size, var(--pa-icon-size-300, 32px)) / 2);
-    width: var(--pa-spacing-25, var(--pa-spacing-2, 2px));
+    top: calc(var(--pa-stepper-icon-size) + var(--pa-stepper-spacing-icon-text));
+    left: calc(var(--pa-stepper-icon-size) / 2);
+    bottom: calc(-100% + var(--pa-stepper-icon-size) / 2);
+    width: var(--pa-stepper-line-width);
     transform: translateX(-50%);
   }
 
   &.is-completed {
-    background-color: var(--pa-stepper-line-completed, var(--pa-color-action-primary-background-default));
+    background-color: var(--pa-stepper-line-completed);
   }
 }
 </style>

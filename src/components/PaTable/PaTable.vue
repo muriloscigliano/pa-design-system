@@ -42,50 +42,50 @@ defineProps<{
 }
 
 .pa-table-header {
-  background-color: var(--pa-table-header-background, var(--pa-color-surface-container-background));
-  color: var(--pa-table-header-text, var(--pa-color-surface-container-text));
-  border-bottom: var(--pa-Border-width-100, 2px) solid var(--pa-table-header-border, var(--pa-color-surface-container-border));
+  background-color: var(--pa-table-header-background);
+  color: var(--pa-table-header-text);
+  border-bottom: var(--pa-table-header-border-width) solid var(--pa-table-header-border-color);
 }
 
 .pa-table-header :deep(th) {
   padding: var(--pa-table-header-padding-y) var(--pa-table-header-padding-x);
-  font-weight: var(--pa-font-weight-600, 600);
+  font-weight: var(--pa-table-header-font-weight);
   text-align: left;
 }
 
 .pa-table-body {
-  background-color: var(--pa-table-row-background-default, var(--pa-color-surface-base-background));
+  background-color: var(--pa-table-row-background-default);
 }
 
 .pa-table-body :deep(tr) {
-  border-bottom: var(--pa-Border-width-50, 1px) solid var(--pa-table-row-border, var(--pa-color-surface-base-divider));
-  transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  border-bottom: var(--pa-table-row-border-width) solid var(--pa-table-row-border-color);
+  transition: background-color var(--pa-table-row-transition-duration) var(--pa-table-row-transition-easing);
 
   &:last-child {
     border-bottom: none;
   }
 
   .pa-table.is-hoverable &:hover {
-    background-color: var(--pa-table-row-background-hover, var(--pa-color-surface-cards-hover-background));
+    background-color: var(--pa-table-row-background-hover);
   }
 
   &.is-selected {
-    background-color: var(--pa-table-row-background-selected, var(--pa-color-surface-cards-selected-background));
+    background-color: var(--pa-table-row-background-selected);
   }
 }
 
 .pa-table.is-striped .pa-table-body :deep(tr:nth-child(even)) {
-  background-color: var(--pa-table-row-background-striped, var(--pa-color-surface-container-background));
+  background-color: var(--pa-table-row-background-striped);
 }
 
 .pa-table-body :deep(td),
 .pa-table-footer :deep(td) {
   padding: var(--pa-table-cell-padding-y) var(--pa-table-cell-padding-x);
-  color: var(--pa-table-cell-text, var(--pa-color-surface-base-text));
+  color: var(--pa-table-cell-text);
 }
 
 .pa-table-footer {
-  border-top: var(--pa-Border-width-100, 2px) solid var(--pa-table-header-border, var(--pa-color-surface-container-border));
+  border-top: var(--pa-table-header-border-width) solid var(--pa-table-header-border-color);
 }
 </style>
 

@@ -42,7 +42,37 @@
       "radius": {
         "$type": "dimension",
         "$value": "{border.radius.medium}"
+      },
+      "border": {
+        "width": {
+          "$type": "dimension",
+          "$value": "{border.width.thin}"
+        }
+      },
+      "font": {
+        "size": {
+          "$type": "dimension",
+          "$value": "{font.size.lg}"
+        },
+        "weight": {
+          "$type": "string",
+          "$value": "{font.weight.regular}"
+        }
+      },
+      "size": {
+        "min-width": {
+          "$type": "dimension",
+          "$value": "{spacing.100}"
+        },
+        "height": {
+          "$type": "dimension",
+          "$value": "{spacing.100}"
+        }
       }
+    },
+    "gap": {
+      "$type": "dimension",
+      "$value": "{spacing.50}"
     }
   }
 }

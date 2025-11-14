@@ -9,9 +9,9 @@ defineProps<{
   <div
     class="pa-circle"
     :style="{
-      width: typeof size === 'number' ? `${size}px` : size || 'var(--pa-circle-size-default, 48px)',
-      height: typeof size === 'number' ? `${size}px` : size || 'var(--pa-circle-size-default, 48px)',
-      backgroundColor: color || 'var(--pa-circle-background, var(--pa-color-surface-container-background))'
+      width: typeof size === 'number' ? `${size}px` : size || 'var(--pa-circle-size-default)',
+      height: typeof size === 'number' ? `${size}px` : size || 'var(--pa-circle-size-default)',
+      backgroundColor: color || 'var(--pa-circle-background)'
     }"
   >
     <slot />

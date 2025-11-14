@@ -58,7 +58,7 @@ const handleChange = (value: boolean, optionValue: string | number) => {
 <style lang="scss" scoped>
 .pa-toggle-input-group {
   display: inline-flex;
-  gap: var(--pa-toggle-input-group-gap, var(--pa-spacing-16, 16px));
+  gap: var(--pa-toggle-input-group-gap);
 
   &--horizontal {
     flex-direction: row;

@@ -69,28 +69,28 @@ defineProps<{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--pa-loading-overlay-background, rgba(255, 255, 255, 0.8));
-    z-index: var(--pa-loading-overlay-z-index, var(--pa-z-index-300, 300));
+    background-color: var(--pa-loading-overlay-background);
+    z-index: var(--pa-loading-overlay-z-index);
   }
 
   &--sm {
     .pa-loading-spinner {
-      width: var(--pa-loading-size-sm, 16px);
-      height: var(--pa-loading-size-sm, 16px);
+      width: var(--pa-loading-size-sm);
+      height: var(--pa-loading-size-sm);
     }
   }
 
   &--md {
     .pa-loading-spinner {
-      width: var(--pa-loading-size-md, 24px);
-      height: var(--pa-loading-size-md, 24px);
+      width: var(--pa-loading-size-md);
+      height: var(--pa-loading-size-md);
     }
   }
 
   &--lg {
     .pa-loading-spinner {
-      width: var(--pa-loading-size-lg, 32px);
-      height: var(--pa-loading-size-lg, 32px);
+      width: var(--pa-loading-size-lg);
+      height: var(--pa-loading-size-lg);
     }
   }
 }
@@ -99,14 +99,14 @@ defineProps<{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--pa-loading-spinner-primary, var(--pa-color-action-primary-background-default));
+  color: var(--pa-loading-spinner-primary);
 
   &--primary {
-    color: var(--pa-loading-spinner-primary, var(--pa-color-action-primary-background-default));
+    color: var(--pa-loading-spinner-primary);
   }
 
   &--secondary {
-    color: var(--pa-loading-spinner-secondary, var(--pa-color-action-secondary-background-default));
+    color: var(--pa-loading-spinner-secondary);
   }
 
   svg {

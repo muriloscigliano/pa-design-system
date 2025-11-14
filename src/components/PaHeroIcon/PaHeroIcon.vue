@@ -25,18 +25,18 @@ defineProps<{
   color: var(--pa-hero-icon-color, var(--pa-color-surface-base-icon));
 
   &--sm {
-    width: var(--pa-hero-icon-size-sm, var(--pa-icon-size-300, 32px));
-    height: var(--pa-hero-icon-size-sm, var(--pa-icon-size-300, 32px));
+    width: var(--pa-hero-icon-size-sm);
+    height: var(--pa-hero-icon-size-sm);
   }
 
   &--md {
-    width: var(--pa-hero-icon-size-md, var(--pa-icon-size-400, 48px));
-    height: var(--pa-hero-icon-size-md, var(--pa-icon-size-400, 48px));
+    width: var(--pa-hero-icon-size-md);
+    height: var(--pa-hero-icon-size-md);
   }
 
   &--lg {
-    width: var(--pa-hero-icon-size-lg, var(--pa-icon-size-500, 56px));
-    height: var(--pa-hero-icon-size-lg, var(--pa-icon-size-500, 56px));
+    width: var(--pa-hero-icon-size-lg);
+    height: var(--pa-hero-icon-size-lg);
   }
 
   svg {

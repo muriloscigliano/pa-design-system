@@ -25,16 +25,16 @@ defineProps<{
 .pa-form {
   display: flex;
   flex-direction: column;
-  gap: var(--pa-spacing-16, 16px);
+  gap: var(--pa-form-gap);
   width: 100%;
 }
 
 .pa-form-error {
-  color: var(--pa-color-status-error-text-default, var(--pa-red-500, #d51e33));
+  color: var(--pa-form-error-color);
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-size: var(--pa-font-size-100, 14px);
-  font-weight: var(--pa-font-weight-400, 400);
-  margin-top: var(--pa-spacing-8, 8px);
+  font-size: var(--pa-form-error-font-size);
+  font-weight: var(--pa-form-error-font-weight);
+  margin-top: var(--pa-form-error-spacing-top);
 }
 </style>
 

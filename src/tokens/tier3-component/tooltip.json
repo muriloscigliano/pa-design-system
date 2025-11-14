@@ -39,6 +39,34 @@
     "z-index": {
       "$type": "dimension",
       "$value": "{z-index.top}"
+    },
+    "max-width": {
+      "$type": "dimension",
+      "$value": "{spacing.500}"
+    },
+    "arrow": {
+      "size": {
+        "$type": "dimension",
+        "$value": "{spacing.100}"
+      },
+      "offset": {
+        "$type": "dimension",
+        "$value": "{spacing.100}"
+      }
+    },
+    "font": {
+      "weight": {
+        "$type": "string",
+        "$value": "{font.weight.regular}"
+      }
+    },
+    "transition": {
+      "duration": {
+        "fast": {
+          "$type": "duration",
+          "$value": "{transition.duration.fast}"
+        }
+      }
     }
   }
 }

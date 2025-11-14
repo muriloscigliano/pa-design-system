@@ -69,6 +69,7 @@ export const componentDocsMap: Record<string, () => Promise<any>> = {
   'paaccordion': () => import('../views/PaAccordionDocs.vue'),
   'papagination': () => import('../views/PaPaginationDocs.vue'),
   'paslider': () => import('../views/PaSliderDocs.vue'),
-  'parangeslider': () => import('../views/PaRangeSliderDocs.vue')
+  'parangeslider': () => import('../views/PaRangeSliderDocs.vue'),
+  'pasettingspanel': () => import('../views/PaSettingsPanelDocs.vue')
 }
 

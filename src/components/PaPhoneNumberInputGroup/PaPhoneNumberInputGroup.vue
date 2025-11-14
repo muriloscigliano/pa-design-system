@@ -64,11 +64,11 @@ const handleInput = (value: string | number) => {
 .pa-phone-number-input-group {
   &-wrapper {
     display: flex;
-    gap: var(--pa-spacing-8, 8px);
+    gap: var(--pa-phone-number-input-group-gap);
   }
 
   &-country-code {
-    width: 80px;
+    width: var(--pa-phone-number-input-group-country-code-width);
     flex-shrink: 0;
   }
 }

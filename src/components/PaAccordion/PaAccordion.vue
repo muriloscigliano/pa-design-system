@@ -63,8 +63,8 @@ const toggle = () => {
 
 <style lang="scss" scoped>
 .pa-accordion {
-  border: var(--pa-Border-width-50, 1px) solid var(--pa-accordion-header-border, var(--pa-color-surface-base-border));
-  border-radius: var(--pa-Border-radius-100, 8px);
+  border: var(--pa-accordion-border-width) solid var(--pa-accordion-header-border);
+  border-radius: var(--pa-accordion-border-radius);
   overflow: hidden;
 }
 
@@ -73,24 +73,24 @@ const toggle = () => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--pa-accordion-header-background-default, var(--pa-color-surface-base-background));
-  color: var(--pa-accordion-header-text, var(--pa-color-surface-base-text));
+  background-color: var(--pa-accordion-header-background-default);
+  color: var(--pa-accordion-header-text);
   padding: var(--pa-accordion-header-padding-y) var(--pa-accordion-header-padding-x);
   border: none;
-  cursor: var(--pa-cursor-pointer, pointer);
+  cursor: var(--pa-cursor-pointer);
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-size: var(--pa-font-size-200, 16px);
-  font-weight: var(--pa-font-weight-500, 500);
+  font-size: var(--pa-accordion-header-font-size);
+  font-weight: var(--pa-accordion-header-font-weight);
   text-align: left;
-  transition: all var(--pa-accordion-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-accordion-transition-easing-default, var(--pa-transition-easing-default, ease));
+  transition: all var(--pa-accordion-transition-duration-default) var(--pa-accordion-transition-easing-default);
 
   &:hover {
-    background-color: var(--pa-accordion-header-background-hover, var(--pa-color-surface-cards-hover-background));
+    background-color: var(--pa-accordion-header-background-hover);
   }
 
   &:focus-visible {
-    outline: var(--pa-outline-width-default, 2px) solid var(--pa-color-action-primary-border-focus);
-    outline-offset: var(--pa-outline-offset-default, 2px);
+    outline: var(--pa-accordion-outline-width) solid var(--pa-color-action-primary-border-focus);
+    outline-offset: var(--pa-accordion-outline-offset);
   }
 }
 
@@ -102,11 +102,11 @@ const toggle = () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--pa-accordion-icon, var(--pa-color-surface-container-icon));
-  width: var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px));
-  height: var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px));
+  color: var(--pa-accordion-icon-color);
+  width: var(--pa-accordion-icon-size);
+  height: var(--pa-accordion-icon-size);
   flex-shrink: 0;
-  transition: transform var(--pa-accordion-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-accordion-transition-easing-default, var(--pa-transition-easing-default, ease));
+  transition: transform var(--pa-accordion-transition-duration-default) var(--pa-accordion-transition-easing-default);
 
   .pa-accordion.is-open & {
     transform: rotate(180deg);
@@ -130,8 +130,8 @@ const toggle = () => {
 
 .pa-accordion-content-enter-active,
 .pa-accordion-content-leave-active {
-  transition: max-height var(--pa-accordion-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-accordion-transition-easing-default, ease),
-    opacity var(--pa-accordion-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-accordion-transition-easing-default, ease);
+  transition: max-height var(--pa-accordion-transition-duration-default) var(--pa-accordion-transition-easing-default),
+    opacity var(--pa-accordion-transition-duration-default) var(--pa-accordion-transition-easing-default);
 }
 
 .pa-accordion-content-enter-from,

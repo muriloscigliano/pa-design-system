@@ -29,6 +29,24 @@
         "$type": "dimension",
         "$value": "{spacing.400}"
       }
+    },
+    "label": {
+      "padding": {
+        "x": {
+          "$type": "dimension",
+          "$value": "{spacing.200}"
+        }
+      },
+      "font": {
+        "size": {
+          "$type": "dimension",
+          "$value": "{font.size.md}"
+        },
+        "weight": {
+          "$type": "string",
+          "$value": "{font.weight.medium}"
+        }
+      }
     }
   }
 }

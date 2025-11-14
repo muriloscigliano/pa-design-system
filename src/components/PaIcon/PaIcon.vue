@@ -28,23 +28,23 @@ defineProps<{
   color: var(--pa-icon-color, var(--pa-color-surface-container-icon));
 
   &--sm {
-    width: var(--pa-icon-size-sm, var(--pa-icon-size-100, 16px));
-    height: var(--pa-icon-size-sm, var(--pa-icon-size-100, 16px));
+    width: var(--pa-icon-size-sm);
+    height: var(--pa-icon-size-sm);
   }
 
   &--md {
-    width: var(--pa-icon-size-md, var(--pa-icon-size-200, 24px));
-    height: var(--pa-icon-size-md, var(--pa-icon-size-200, 24px));
+    width: var(--pa-icon-size-md);
+    height: var(--pa-icon-size-md);
   }
 
   &--lg {
-    width: var(--pa-icon-size-lg, var(--pa-icon-size-300, 32px));
-    height: var(--pa-icon-size-lg, var(--pa-icon-size-300, 32px));
+    width: var(--pa-icon-size-lg);
+    height: var(--pa-icon-size-lg);
   }
 
   &--xl {
-    width: var(--pa-icon-size-xl, var(--pa-icon-size-400, 48px));
-    height: var(--pa-icon-size-xl, var(--pa-icon-size-400, 48px));
+    width: var(--pa-icon-size-xl);
+    height: var(--pa-icon-size-xl);
   }
 
   svg {

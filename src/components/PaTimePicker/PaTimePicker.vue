@@ -296,77 +296,77 @@ onUnmounted(() => {
 
 .pa-time-picker-input-field {
   width: 100%;
-  background-color: var(--pa-time-picker-background-default, var(--pa-color-input-background-default));
-  color: var(--pa-time-picker-text-default, var(--pa-color-input-text-default));
-  border: var(--pa-time-picker-border-width-default, var(--pa-Border-width-50, 1px)) solid var(--pa-time-picker-border-default, var(--pa-color-input-border-default));
-  border-radius: var(--pa-time-picker-border-radius-default, var(--pa-Border-radius-100, 8px));
+  background-color: var(--pa-time-picker-background-default);
+  color: var(--pa-time-picker-text-default);
+  border: var(--pa-time-picker-border-width-default) solid var(--pa-time-picker-border-default);
+  border-radius: var(--pa-time-picker-border-radius-default);
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-weight: var(--pa-font-weight-400, 400);
-  transition: all var(--pa-time-picker-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-time-picker-transition-easing-default, var(--pa-transition-easing-default, ease));
+  font-weight: var(--pa-font-weight-regular);
+  transition: all var(--pa-time-picker-transition-duration-default) var(--pa-time-picker-transition-easing-default);
   outline: none;
   cursor: inherit;
 
   &::placeholder {
-    color: var(--pa-time-picker-text-placeholder, var(--pa-color-input-text-placeholder));
+    color: var(--pa-time-picker-text-placeholder);
   }
 
   .pa-time-picker--sm & {
     padding: var(--pa-time-picker-size-sm-padding-y) var(--pa-time-picker-size-sm-padding-x);
-    padding-right: calc(var(--pa-time-picker-size-sm-padding-x, var(--pa-spacing-12, 12px)) + var(--pa-icon-size-md, var(--pa-icon-size-200, 24px)));
-    font-size: var(--pa-time-picker-size-sm-font, var(--pa-font-size-100, 14px));
+    padding-right: calc(var(--pa-time-picker-size-sm-padding-x) + var(--pa-time-picker-icon-size));
+    font-size: var(--pa-time-picker-size-sm-font);
   }
 
   .pa-time-picker--md & {
     padding: var(--pa-time-picker-size-md-padding-y) var(--pa-time-picker-size-md-padding-x);
-    padding-right: calc(var(--pa-time-picker-size-md-padding-x, var(--pa-spacing-16, 16px)) + var(--pa-icon-size-md, var(--pa-icon-size-200, 24px)));
-    font-size: var(--pa-time-picker-size-md-font, var(--pa-font-size-200, 16px));
+    padding-right: calc(var(--pa-time-picker-size-md-padding-x) + var(--pa-time-picker-icon-size));
+    font-size: var(--pa-time-picker-size-md-font);
   }
 
   .pa-time-picker--lg & {
     padding: var(--pa-time-picker-size-lg-padding-y) var(--pa-time-picker-size-lg-padding-x);
-    padding-right: calc(var(--pa-time-picker-size-lg-padding-x, var(--pa-spacing-24, 24px)) + var(--pa-icon-size-md, var(--pa-icon-size-200, 24px)));
-    font-size: var(--pa-time-picker-size-lg-font, var(--pa-font-size-400, 20px));
+    padding-right: calc(var(--pa-time-picker-size-lg-padding-x) + var(--pa-time-picker-icon-size));
+    font-size: var(--pa-time-picker-size-lg-font);
   }
 
   &:hover:not(.is-disabled) {
-    background-color: var(--pa-time-picker-background-hover, var(--pa-color-input-background-hover));
-    border-color: var(--pa-time-picker-border-hover, var(--pa-color-input-border-hover));
+    background-color: var(--pa-time-picker-background-hover);
+    border-color: var(--pa-time-picker-border-hover);
   }
 
   .pa-time-picker.is-open & {
-    background-color: var(--pa-time-picker-background-focus, var(--pa-color-input-background-focus));
-    border-color: var(--pa-time-picker-border-focus, var(--pa-color-input-border-focus));
-    outline: var(--pa-time-picker-outline-width-default, var(--pa-outline-width-default, 2px)) solid var(--pa-time-picker-border-focus, var(--pa-color-input-border-focus));
-    outline-offset: var(--pa-time-picker-outline-offset-default, var(--pa-outline-offset-default, 2px));
+    background-color: var(--pa-time-picker-background-focus);
+    border-color: var(--pa-time-picker-border-focus);
+    outline: var(--pa-time-picker-outline-width-default) solid var(--pa-time-picker-border-focus);
+    outline-offset: var(--pa-time-picker-outline-offset-default);
   }
 
   &.is-error {
-    border-color: var(--pa-time-picker-border-error, var(--pa-color-input-border-error));
+    border-color: var(--pa-time-picker-border-error);
   }
 
   &.is-disabled {
-    background-color: var(--pa-time-picker-background-disabled, var(--pa-color-input-background-disabled));
-    color: var(--pa-time-picker-text-disabled, var(--pa-color-input-text-disabled));
-    border-color: var(--pa-time-picker-border-disabled, var(--pa-color-input-border-disabled));
-    cursor: var(--pa-cursor-not-allowed, not-allowed);
-    opacity: calc(var(--pa-opacity-60, 60) / 100);
+    background-color: var(--pa-time-picker-background-disabled);
+    color: var(--pa-time-picker-text-disabled);
+    border-color: var(--pa-time-picker-border-disabled);
+    cursor: var(--pa-cursor-not-allowed);
+    opacity: calc(var(--pa-opacity-60) / 100);
   }
 }
 
 .pa-time-picker-icon {
   position: absolute;
-  right: var(--pa-spacing-12, 12px);
+  right: var(--pa-time-picker-icon-spacing-right);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px));
-  height: var(--pa-icon-size-xs, var(--pa-icon-size-150, 20px));
+  width: var(--pa-time-picker-icon-size);
+  height: var(--pa-time-picker-icon-size);
   color: var(--pa-color-input-icon-default);
   pointer-events: none;
 
   svg {
-    width: var(--pa-icon-size-sm, var(--pa-icon-size-100, 16px));
-    height: var(--pa-icon-size-sm, var(--pa-icon-size-100, 16px));
+    width: var(--pa-time-picker-icon-size);
+    height: var(--pa-time-picker-icon-size);
   }
 }
 

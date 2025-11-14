@@ -30,6 +30,32 @@
       "z-index": {
         "$type": "dimension",
         "$value": "{z-index.400}"
+      },
+      "min-width": {
+        "$type": "dimension",
+        "$value": "{spacing.500}"
+      },
+      "spacing": {
+        "top": {
+          "$type": "dimension",
+          "$value": "{spacing.50}"
+        },
+        "bottom": {
+          "$type": "dimension",
+          "$value": "{spacing.50}"
+        },
+        "left": {
+          "$type": "dimension",
+          "$value": "{spacing.50}"
+        },
+        "right": {
+          "$type": "dimension",
+          "$value": "{spacing.50}"
+        }
+      },
+      "border-width": {
+        "$type": "dimension",
+        "$value": "{border.width.thin}"
       }
     },
     "item": {
@@ -65,6 +91,14 @@
         "y": {
           "$type": "dimension",
           "$value": "{spacing.100}"
+        }
+      }
+    },
+    "transition": {
+      "duration": {
+        "fast": {
+          "$type": "duration",
+          "$value": "{transition.duration.fast}"
         }
       }
     }

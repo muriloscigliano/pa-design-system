@@ -25,31 +25,31 @@ defineProps<{
   width: 100%;
 
   &--spacing-sm {
-    margin: var(--pa-page-divider-spacing-sm, var(--pa-spacing-24, 24px)) 0;
+    margin: var(--pa-page-divider-spacing-sm) 0;
   }
 
   &--spacing-md {
-    margin: var(--pa-page-divider-spacing-md, var(--pa-spacing-32, 32px)) 0;
+    margin: var(--pa-page-divider-spacing-md) 0;
   }
 
   &--spacing-lg {
-    margin: var(--pa-page-divider-spacing-lg, var(--pa-spacing-48, 48px)) 0;
+    margin: var(--pa-page-divider-spacing-lg) 0;
   }
 
   &-line {
     flex: 1;
     border: none;
-    border-top: var(--pa-page-divider-border-width, var(--pa-Border-width-50, 1px)) solid var(--pa-page-divider-border, var(--pa-color-surface-container-border));
+    border-top: var(--pa-page-divider-border-width) solid var(--pa-page-divider-border);
     margin: 0;
   }
 
   &-label {
-    padding: 0 var(--pa-spacing-16, 16px);
+    padding: 0 var(--pa-page-divider-label-padding-x);
     font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-    font-size: var(--pa-font-size-200, 16px);
-    font-weight: var(--pa-font-weight-600, 600);
-    color: var(--pa-page-divider-text, var(--pa-color-surface-base-text));
-    background-color: var(--pa-page-divider-background, var(--pa-color-surface-base-background));
+    font-size: var(--pa-page-divider-label-font-size);
+    font-weight: var(--pa-page-divider-label-font-weight);
+    color: var(--pa-page-divider-text);
+    background-color: var(--pa-page-divider-background);
   }
 }
 </style>

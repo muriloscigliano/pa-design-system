@@ -46,14 +46,14 @@ defineEmits<{
 .pa-radio {
   display: inline-flex;
   align-items: center;
-  gap: var(--pa-spacing-8, 8px);
-  cursor: var(--pa-cursor-pointer, pointer);
+  gap: var(--pa-radio-gap);
+  cursor: var(--pa-cursor-pointer);
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-weight: var(--pa-font-weight-400, 400);
+  font-weight: var(--pa-font-weight-regular);
 
   &.is-disabled {
-    cursor: var(--pa-cursor-not-allowed, not-allowed);
-    opacity: calc(var(--pa-opacity-60, 60) / 100);
+    cursor: var(--pa-cursor-not-allowed);
+    opacity: calc(var(--pa-opacity-60) / 100);
   }
 }
 
@@ -70,24 +70,24 @@ defineEmits<{
   align-items: center;
   justify-content: center;
   background-color: var(--pa-radio-background-default);
-  border: var(--pa-radio-border-width-default, var(--pa-Border-width-50, 1px)) solid var(--pa-radio-border-default);
-  border-radius: var(--pa-Border-radius-full, 99999px);
-  transition: all var(--pa-radio-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-radio-transition-easing-default, var(--pa-transition-easing-default, ease));
+  border: var(--pa-radio-border-width-default) solid var(--pa-radio-border-default);
+  border-radius: var(--pa-radio-border-radius-default);
+  transition: all var(--pa-radio-transition-duration-default) var(--pa-radio-transition-easing-default);
   flex-shrink: 0;
 
   .pa-radio--sm & {
-    width: var(--pa-radio-size-sm-width, 16px);
-    height: var(--pa-radio-size-sm-height, 16px);
+    width: var(--pa-radio-size-sm-width);
+    height: var(--pa-radio-size-sm-height);
   }
 
   .pa-radio--md & {
-    width: var(--pa-radio-size-md-width, 20px);
-    height: var(--pa-radio-size-md-height, 20px);
+    width: var(--pa-radio-size-md-width);
+    height: var(--pa-radio-size-md-height);
   }
 
   .pa-radio--lg & {
-    width: var(--pa-radio-size-lg-width, 24px);
-    height: var(--pa-radio-size-lg-height, 24px);
+    width: var(--pa-radio-size-lg-width);
+    height: var(--pa-radio-size-lg-height);
   }
 
   .pa-radio:not(.is-disabled):hover & {
@@ -96,8 +96,8 @@ defineEmits<{
   }
 
   .pa-radio-input:focus-visible + & {
-    outline: var(--pa-radio-outline-width-default, var(--pa-outline-width-default, 2px)) solid var(--pa-radio-border-focus);
-    outline-offset: var(--pa-radio-outline-offset-default, var(--pa-outline-offset-default, 2px));
+    outline: var(--pa-radio-outline-width-default) solid var(--pa-radio-border-focus);
+    outline-offset: var(--pa-radio-outline-offset-default);
   }
 
   .pa-radio.is-checked & {
@@ -112,19 +112,19 @@ defineEmits<{
 }
 
 .pa-radio-dot {
-  width: var(--pa-radio-size-md-dot, 10px);
-  height: var(--pa-radio-size-md-dot, 10px);
+  width: var(--pa-radio-size-md-dot);
+  height: var(--pa-radio-size-md-dot);
   background-color: var(--pa-radio-dot-default);
-  border-radius: var(--pa-Border-radius-full, 99999px);
+  border-radius: var(--pa-radio-border-radius-default);
 
   .pa-radio--sm & {
-    width: var(--pa-radio-size-sm-dot, 8px);
-    height: var(--pa-radio-size-sm-dot, 8px);
+    width: var(--pa-radio-size-sm-dot);
+    height: var(--pa-radio-size-sm-dot);
   }
 
   .pa-radio--lg & {
-    width: var(--pa-radio-size-lg-dot, 12px);
-    height: var(--pa-radio-size-lg-dot, 12px);
+    width: var(--pa-radio-size-lg-dot);
+    height: var(--pa-radio-size-lg-dot);
   }
 
   .pa-radio.is-disabled & {
@@ -133,7 +133,7 @@ defineEmits<{
 }
 
 .pa-radio-label {
-  color: var(--pa-input-text-default, var(--pa-color-surface-container-text));
+  color: var(--pa-input-text-default);
   user-select: none;
 }
 </style>

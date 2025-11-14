@@ -95,6 +95,66 @@
         "$type": "dimension",
         "$value": "{spacing.150}"
       }
+    },
+    "gap": {
+      "$type": "dimension",
+      "$value": "{spacing.150}"
+    },
+    "font": {
+      "size": {
+        "$type": "dimension",
+        "$value": "{font.size.lg}"
+      },
+      "weight": {
+        "$type": "string",
+        "$value": "{font.weight.regular}"
+      }
+    },
+    "icon": {
+      "size": {
+        "$type": "dimension",
+        "$value": "{icon.size.xs}"
+      }
+    },
+    "close": {
+      "font": {
+        "size": {
+          "$type": "dimension",
+          "$value": "{font.size.xl}"
+        }
+      },
+      "size": {
+        "$type": "dimension",
+        "$value": "{icon.size.md}"
+      },
+      "padding": {
+        "$type": "dimension",
+        "$value": "{spacing.50}"
+      },
+      "opacity": {
+        "default": {
+          "$type": "number",
+          "$value": 0.7
+        },
+        "hover": {
+          "$type": "number",
+          "$value": 1
+        }
+      }
+    },
+    "transition": {
+      "duration": {
+        "default": {
+          "$type": "duration",
+          "$value": "{transition.duration.default}"
+        }
+      },
+      "easing": {
+        "default": {
+          "$type": "string",
+          "$value": "{transition.easing.default}"
+        }
+      }
     }
   }
 }

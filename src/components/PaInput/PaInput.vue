@@ -202,58 +202,58 @@ const handleBlur = (event: FocusEvent) => {
 
 .pa-input-label {
   position: absolute;
-  left: var(--pa-input-padding-x, var(--pa-spacing-200, 16px));
+  left: var(--pa-input-padding-x);
   top: 50%;
   transform: translateY(-50%);
-  font-size: var(--pa-input-font-size, var(--pa-font-size-lg, 16px));
-  font-weight: var(--pa-input-label-font-weight, var(--pa-font-weight-400, 400));
+  font-size: var(--pa-input-font-size);
+  font-weight: var(--pa-input-label-font-weight);
   color: var(--pa-input-text-default);
   pointer-events: none;
-  transition: all var(--pa-input-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-input-transition-easing-default, var(--pa-transition-easing-default, ease));
+  transition: all var(--pa-input-transition-duration-default) var(--pa-input-transition-easing-default);
   z-index: 1;
   white-space: nowrap;
-  max-width: calc(100% - calc(var(--pa-input-padding-x, var(--pa-spacing-200, 16px)) * 2));
+  max-width: calc(100% - calc(var(--pa-input-padding-x) * 2));
 
   &.is-floating {
-    top: var(--pa-input-padding-y, var(--pa-spacing-100, 8px));
+    top: var(--pa-input-padding-y);
     transform: none;
-    font-size: var(--pa-input-label-font-size, var(--pa-font-size-sm, 12px));
+    font-size: var(--pa-input-label-font-size);
     color: var(--pa-input-text-placeholder);
     line-height: 1;
   }
 }
 
 .pa-input-wrapper.has-icon-left .pa-input-label {
-  left: calc(var(--pa-input-padding-x, var(--pa-spacing-200, 16px)) + var(--pa-input-icon-size, var(--pa-spacing-200, 20px)) + var(--pa-input-icon-spacing-left, var(--pa-spacing-200, 16px)));
-  max-width: calc(100% - calc(var(--pa-input-padding-x, var(--pa-spacing-200, 16px)) * 2) - var(--pa-input-icon-size, var(--pa-spacing-200, 20px)) - var(--pa-input-icon-spacing-left, var(--pa-spacing-200, 16px)));
+  left: calc(var(--pa-input-padding-x) + var(--pa-input-icon-size) + var(--pa-input-icon-spacing-left));
+  max-width: calc(100% - calc(var(--pa-input-padding-x) * 2) - var(--pa-input-icon-size) - var(--pa-input-icon-spacing-left));
 
   &:not(.is-floating) {
-    left: calc(var(--pa-input-padding-x, var(--pa-spacing-200, 16px)) + var(--pa-input-icon-size, var(--pa-spacing-200, 20px)) + var(--pa-input-icon-spacing-left, var(--pa-spacing-200, 16px)));
+    left: calc(var(--pa-input-padding-x) + var(--pa-input-icon-size) + var(--pa-input-icon-spacing-left));
   }
 
   &.is-floating {
-    left: calc(var(--pa-input-icon-spacing-left, var(--pa-spacing-200, 16px)) + var(--pa-input-icon-size, var(--pa-spacing-200, 20px)) + var(--pa-spacing-200, 16px));
+    left: calc(var(--pa-input-icon-spacing-left) + var(--pa-input-icon-size) + var(--pa-input-padding-x));
   }
 }
 
 .pa-input-label-optional {
-  color: var(--pa-input-label-color-optional, var(--pa-input-text-placeholder));
-  font-weight: var(--pa-font-weight-400, 400);
+  color: var(--pa-input-label-color-optional);
+  font-weight: var(--pa-input-label-font-weight);
 }
 
 .pa-input {
   width: 100%;
-  height: var(--pa-input-height-default, var(--pa-spacing-700, 56px));
+  height: var(--pa-input-height-default);
   box-sizing: border-box;
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-size: var(--pa-input-font-size, var(--pa-font-size-lg, 16px));
-  font-weight: var(--pa-input-font-weight, var(--pa-font-weight-400, 400));
-  padding: var(--pa-input-padding-y, var(--pa-spacing-100, 8px)) var(--pa-input-padding-x, var(--pa-spacing-200, 16px));
+  font-size: var(--pa-input-font-size);
+  font-weight: var(--pa-input-font-weight);
+  padding: var(--pa-input-padding-y) var(--pa-input-padding-x);
   background-color: var(--pa-input-background-default);
   color: var(--pa-input-text-default);
-  border: var(--pa-input-border-width-default, var(--pa-border-width-thin, 1px)) solid var(--pa-input-border-default);
-  border-radius: var(--pa-input-border-radius-default, var(--pa-border-radius-medium, 8px));
-  transition: all var(--pa-input-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-input-transition-easing-default, var(--pa-transition-easing-default, ease));
+  border: var(--pa-input-border-width-default) solid var(--pa-input-border-default);
+  border-radius: var(--pa-input-border-radius-default);
+  transition: all var(--pa-input-transition-duration-default) var(--pa-input-transition-easing-default);
   outline: none;
 
 
@@ -262,8 +262,8 @@ const handleBlur = (event: FocusEvent) => {
   }
 
   &.has-label.is-label-floating {
-    padding-top: calc(var(--pa-input-padding-y, var(--pa-spacing-100, 8px)) + var(--pa-input-label-font-size, var(--pa-font-size-sm, 12px)) + 6px);
-    padding-bottom: var(--pa-input-padding-y, var(--pa-spacing-100, 8px));
+    padding-top: calc(var(--pa-input-padding-y) + var(--pa-input-label-font-size) + var(--pa-input-label-spacing-gap));
+    padding-bottom: var(--pa-input-padding-y);
   }
 
   &:hover:not(.is-disabled) {
@@ -274,8 +274,8 @@ const handleBlur = (event: FocusEvent) => {
   &:focus:not(.is-disabled) {
     background-color: var(--pa-input-background-focus);
     border-color: var(--pa-input-border-focus);
-    outline: var(--pa-input-outline-width-default, var(--pa-outline-width-default, 2px)) solid var(--pa-input-border-focus);
-    outline-offset: var(--pa-input-outline-offset-default, var(--pa-outline-offset-default, 2px));
+    outline: var(--pa-input-outline-width-default) solid var(--pa-input-border-focus);
+    outline-offset: var(--pa-input-outline-offset-default);
   }
 
   &.is-error {
@@ -299,20 +299,20 @@ const handleBlur = (event: FocusEvent) => {
     background-color: var(--pa-input-background-disabled);
     color: var(--pa-input-text-disabled);
     border-color: var(--pa-input-border-disabled);
-    cursor: var(--pa-cursor-not-allowed, not-allowed);
-    opacity: calc(var(--pa-opacity-60, 60) / 100);
+    cursor: var(--pa-cursor-not-allowed);
+    opacity: calc(var(--pa-opacity-60) / 100);
   }
 
   &.has-icon-left {
-    padding-left: calc(var(--pa-input-padding-x, var(--pa-spacing-200, 16px)) + var(--pa-input-icon-size, var(--pa-spacing-200, 20px)) + var(--pa-input-icon-spacing-left, var(--pa-spacing-200, 16px)));
+    padding-left: calc(var(--pa-input-padding-x) + var(--pa-input-icon-size) + var(--pa-input-icon-spacing-left));
   }
 
   &.has-icon-right {
-    padding-right: calc(var(--pa-input-padding-x, var(--pa-spacing-200, 16px)) + var(--pa-input-icon-size, var(--pa-spacing-200, 20px)) + var(--pa-input-icon-spacing-right, var(--pa-spacing-200, 16px)));
+    padding-right: calc(var(--pa-input-padding-x) + var(--pa-input-icon-size) + var(--pa-input-icon-spacing-right));
   }
 
   &.has-right-element {
-    padding-right: calc(var(--pa-input-padding-x, var(--pa-spacing-200, 16px)) + var(--pa-input-right-element-width, var(--pa-spacing-500, 48px)) + var(--pa-input-right-element-spacing-left, var(--pa-spacing-100, 8px)));
+    padding-right: calc(var(--pa-input-padding-x) + var(--pa-input-right-element-width) + var(--pa-input-right-element-spacing-left));
   }
 }
 
@@ -323,18 +323,18 @@ const handleBlur = (event: FocusEvent) => {
   justify-content: center;
   color: var(--pa-input-icon-default);
   pointer-events: none;
-  width: var(--pa-input-icon-size, var(--pa-spacing-200, 20px));
-  height: var(--pa-input-icon-size, var(--pa-spacing-200, 20px));
-  font-size: var(--pa-input-icon-size, var(--pa-spacing-200, 20px));
+  width: var(--pa-input-icon-size);
+  height: var(--pa-input-icon-size);
+  font-size: var(--pa-input-icon-size);
   line-height: 1;
   z-index: 2;
 
   &--left {
-    left: var(--pa-input-icon-spacing-left, var(--pa-spacing-200, 16px));
+    left: var(--pa-input-icon-spacing-left);
   }
 
   &--right {
-    right: var(--pa-input-icon-spacing-right, var(--pa-spacing-200, 16px));
+    right: var(--pa-input-icon-spacing-right);
   }
 
   &--error {
@@ -360,40 +360,40 @@ const handleBlur = (event: FocusEvent) => {
 
 .pa-input-clear {
   position: absolute;
-  right: var(--pa-input-icon-spacing-right, var(--pa-spacing-200, 16px));
+  right: var(--pa-input-icon-spacing-right);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--pa-input-icon-size, var(--pa-spacing-200, 20px));
-  height: var(--pa-input-icon-size, var(--pa-spacing-200, 20px));
+  width: var(--pa-input-icon-size);
+  height: var(--pa-input-icon-size);
   background: none;
   border: none;
   color: var(--pa-input-icon-default);
   cursor: pointer;
-  font-size: var(--pa-input-icon-size, var(--pa-spacing-200, 20px));
+  font-size: var(--pa-input-icon-size);
   line-height: 1;
   padding: 0;
   z-index: 2;
-  transition: color var(--pa-input-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-input-transition-easing-default, var(--pa-transition-easing-default, ease));
+  transition: color var(--pa-input-transition-duration-default) var(--pa-input-transition-easing-default);
 
   &:hover {
     color: var(--pa-input-text-default);
   }
 
   &:focus {
-    outline: var(--pa-input-outline-width-default, var(--pa-outline-width-default, 2px)) solid var(--pa-input-border-focus);
-    outline-offset: var(--pa-input-outline-offset-default, var(--pa-outline-offset-default, 2px));
-    border-radius: 2px;
+    outline: var(--pa-input-outline-width-default) solid var(--pa-input-border-focus);
+    outline-offset: var(--pa-input-outline-offset-default);
+    border-radius: var(--pa-input-border-radius-default);
   }
 }
 
 .pa-input-right-element {
   position: absolute;
-  right: var(--pa-input-right-element-spacing-left, var(--pa-spacing-100, 8px));
+  right: var(--pa-input-right-element-spacing-left);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--pa-input-right-element-width, var(--pa-spacing-500, 48px));
+  width: var(--pa-input-right-element-width);
   height: 100%;
   pointer-events: none;
   z-index: 2;
@@ -401,27 +401,27 @@ const handleBlur = (event: FocusEvent) => {
 
 .pa-input-helper {
   display: block;
-  font-size: var(--pa-input-helper-font-size, var(--pa-font-size-sm, 12px));
-  font-weight: var(--pa-input-helper-font-weight, var(--pa-font-weight-400, 400));
-  color: var(--pa-input-helper-color-default, var(--pa-input-text-placeholder));
-  margin-top: var(--pa-input-helper-spacing-top, var(--pa-spacing-50, 4px));
+  font-size: var(--pa-input-helper-font-size);
+  font-weight: var(--pa-input-helper-font-weight);
+  color: var(--pa-input-helper-color-default);
+  margin-top: var(--pa-input-helper-spacing-top);
 }
 
 .pa-input-message {
   display: block;
-  margin-top: var(--pa-input-message-error-spacing-top, var(--pa-spacing-50, 4px));
+  margin-top: var(--pa-input-message-error-spacing-top);
 
   &--error {
-    font-size: var(--pa-input-message-error-font-size, var(--pa-font-size-sm, 12px));
-    font-weight: var(--pa-input-message-error-font-weight, var(--pa-font-weight-400, 400));
-    color: var(--pa-input-message-error-color, var(--pa-input-border-error));
+    font-size: var(--pa-input-message-error-font-size);
+    font-weight: var(--pa-input-message-error-font-weight);
+    color: var(--pa-input-message-error-color);
   }
 
   &--valid {
-    font-size: var(--pa-input-message-valid-font-size, var(--pa-font-size-sm, 12px));
-    font-weight: var(--pa-input-message-valid-font-weight, var(--pa-font-weight-400, 400));
-    color: var(--pa-input-message-valid-color, var(--pa-input-border-valid));
-    margin-top: var(--pa-input-message-valid-spacing-top, var(--pa-spacing-50, 4px));
+    font-size: var(--pa-input-message-valid-font-size);
+    font-weight: var(--pa-input-message-valid-font-weight);
+    color: var(--pa-input-message-valid-color);
+    margin-top: var(--pa-input-message-valid-spacing-top);
   }
 }
 

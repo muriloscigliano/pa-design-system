@@ -110,53 +110,53 @@ const pages = computed(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--pa-spacing-4, 4px);
+  gap: var(--pa-pagination-gap);
 }
 
 .pa-pagination-controls {
   display: flex;
   align-items: center;
-  gap: var(--pa-spacing-4, 4px);
+  gap: var(--pa-pagination-gap);
 }
 
 .pa-pagination-item {
   padding: var(--pa-pagination-item-padding-y) var(--pa-pagination-item-padding-x);
-  background-color: var(--pa-pagination-item-background-default, var(--pa-color-surface-base-background));
-  color: var(--pa-pagination-item-text-default, var(--pa-color-surface-base-text));
-  border: var(--pa-Border-width-50, 1px) solid var(--pa-pagination-item-border, var(--pa-color-surface-container-border));
-  border-radius: var(--pa-pagination-item-radius, var(--pa-Border-radius-100, 8px));
+  background-color: var(--pa-pagination-item-background-default);
+  color: var(--pa-pagination-item-text-default);
+  border: var(--pa-pagination-item-border-width) solid var(--pa-pagination-item-border);
+  border-radius: var(--pa-pagination-item-radius);
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-size: var(--pa-font-size-200, 16px);
-  font-weight: var(--pa-font-weight-400, 400);
-  cursor: var(--pa-cursor-pointer, pointer);
-  transition: all var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
-  min-width: var(--pa-spacing-100, var(--pa-spacing-10, 10px));
-  height: var(--pa-spacing-100, var(--pa-spacing-10, 10px));
+  font-size: var(--pa-pagination-item-font-size);
+  font-weight: var(--pa-pagination-item-font-weight);
+  cursor: var(--pa-cursor-pointer);
+  transition: all var(--pa-transition-duration-default) var(--pa-transition-easing-default);
+  min-width: var(--pa-pagination-item-size-min-width);
+  height: var(--pa-pagination-item-size-height);
   display: flex;
   align-items: center;
   justify-content: center;
 
   &:hover:not(:disabled) {
-    background-color: var(--pa-pagination-item-background-hover, var(--pa-color-surface-cards-hover-background));
+    background-color: var(--pa-pagination-item-background-hover);
   }
 
   &.is-active {
-    background-color: var(--pa-pagination-item-background-active, var(--pa-color-action-primary-background-default));
-    color: var(--pa-pagination-item-text-active, var(--pa-color-action-primary-text-default));
-    border-color: var(--pa-pagination-item-background-active, var(--pa-color-action-primary-background-default));
+    background-color: var(--pa-pagination-item-background-active);
+    color: var(--pa-pagination-item-text-active);
+    border-color: var(--pa-pagination-item-background-active);
   }
 
   &:disabled {
-    opacity: calc(var(--pa-opacity-60, 60) / 100);
-    cursor: var(--pa-cursor-not-allowed, not-allowed);
+    opacity: calc(var(--pa-opacity-60) / 100);
+    cursor: var(--pa-cursor-not-allowed);
   }
 }
 
 .pa-pagination-ellipsis {
   padding: var(--pa-pagination-item-padding-y) var(--pa-pagination-item-padding-x);
-  color: var(--pa-pagination-item-text-default, var(--pa-color-surface-base-text));
-  min-width: var(--pa-spacing-100, var(--pa-spacing-10, 10px));
-  height: var(--pa-spacing-100, var(--pa-spacing-10, 10px));
+  color: var(--pa-pagination-item-text-default);
+  min-width: var(--pa-pagination-item-size-min-width);
+  height: var(--pa-pagination-item-size-height);
   display: flex;
   align-items: center;
   justify-content: center;

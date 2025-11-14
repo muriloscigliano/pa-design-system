@@ -80,44 +80,44 @@ onUnmounted(() => {
 
 .pa-dropdown-menu {
   position: absolute;
-  background-color: var(--pa-dropdown-menu-background, var(--pa-color-surface-container-background));
-  border: var(--pa-Border-width-50, 1px) solid var(--pa-dropdown-menu-border, var(--pa-color-surface-container-border));
-  border-radius: var(--pa-dropdown-menu-border-radius, var(--pa-Border-radius-100, 8px));
-  box-shadow: var(--pa-dropdown-menu-shadow, var(--pa-shadow-md));
+  background-color: var(--pa-dropdown-menu-background);
+  border: var(--pa-dropdown-menu-border-width) solid var(--pa-dropdown-menu-border);
+  border-radius: var(--pa-dropdown-menu-border-radius);
+  box-shadow: var(--pa-dropdown-menu-shadow);
   padding: var(--pa-dropdown-menu-padding-y) var(--pa-dropdown-menu-padding-x);
-  z-index: var(--pa-dropdown-menu-z-index, var(--pa-z-index-400, 400));
-  min-width: var(--pa-spacing-500, var(--pa-spacing-48, 48px));
-  margin-top: var(--pa-spacing-4, 4px);
+  z-index: var(--pa-dropdown-menu-z-index);
+  min-width: var(--pa-dropdown-menu-min-width);
+  margin-top: var(--pa-dropdown-menu-spacing-top);
 
   &--top {
     bottom: 100%;
     margin-top: 0;
-    margin-bottom: var(--pa-spacing-4, 4px);
+    margin-bottom: var(--pa-dropdown-menu-spacing-bottom);
   }
 
   &--left {
     right: 100%;
     margin-top: 0;
-    margin-right: var(--pa-spacing-4, 4px);
+    margin-right: var(--pa-dropdown-menu-spacing-right);
   }
 
   &--right {
     left: 100%;
     margin-top: 0;
-    margin-left: var(--pa-spacing-4, 4px);
+    margin-left: var(--pa-dropdown-menu-spacing-left);
   }
 }
 
 .pa-dropdown-enter-active,
 .pa-dropdown-leave-active {
-  transition: opacity var(--pa-transition-duration-fast, 100ms) var(--pa-transition-easing-default, ease),
-    transform var(--pa-transition-duration-fast, 100ms) var(--pa-transition-easing-default, ease);
+  transition: opacity var(--pa-dropdown-transition-duration-fast) var(--pa-transition-easing-default),
+    transform var(--pa-dropdown-transition-duration-fast) var(--pa-transition-easing-default);
 }
 
 .pa-dropdown-enter-from,
 .pa-dropdown-leave-to {
   opacity: 0;
-  transform: translateY(calc(var(--pa-spacing-4, 4px) * -1));
+  transform: translateY(calc(var(--pa-dropdown-menu-spacing-top) * -1));
 }
 </style>
 

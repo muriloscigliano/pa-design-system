@@ -44,37 +44,37 @@ const selectOption = (option: { label: string; value: string | number; disabled?
 .pa-toggle-segmentation {
   display: inline-flex;
   background-color: var(--pa-segmented-control-background, var(--pa-color-surface-container-background));
-  border: var(--pa-Border-width-50, 1px) solid var(--pa-segmented-control-item-border, var(--pa-color-surface-container-border));
-  border-radius: var(--pa-segmented-control-item-radius, var(--pa-Border-radius-100, 8px));
-  padding: var(--pa-spacing-4, 4px);
-  gap: var(--pa-spacing-4, 4px);
+  border: var(--pa-segmented-control-border-width) solid var(--pa-segmented-control-item-border);
+  border-radius: var(--pa-segmented-control-item-radius);
+  padding: var(--pa-segmented-control-padding);
+  gap: var(--pa-segmented-control-gap);
 }
 
 .pa-toggle-segmentation-item {
   padding: var(--pa-segmented-control-item-padding-y) var(--pa-segmented-control-item-padding-x);
-  background-color: var(--pa-segmented-control-item-background-default, transparent);
-  color: var(--pa-segmented-control-item-text-default, var(--pa-color-surface-container-text));
+  background-color: var(--pa-segmented-control-item-background-default);
+  color: var(--pa-segmented-control-item-text-default);
   border: none;
-  border-radius: var(--pa-segmented-control-item-radius, var(--pa-Border-radius-100, 8px));
+  border-radius: var(--pa-segmented-control-item-radius);
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-size: var(--pa-font-size-200, 16px);
-  font-weight: var(--pa-font-weight-400, 400);
-  cursor: var(--pa-cursor-pointer, pointer);
-  transition: all var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  font-size: var(--pa-segmented-control-font-size);
+  font-weight: var(--pa-segmented-control-font-weight);
+  cursor: var(--pa-cursor-pointer);
+  transition: all var(--pa-segmented-control-transition-duration-default) var(--pa-segmented-control-transition-easing-default);
   white-space: nowrap;
 
   &:hover:not(.is-disabled):not(.is-selected) {
-    background-color: var(--pa-color-surface-cards-hover-background, var(--pa-gray-200, #e9ecef));
+    background-color: var(--pa-segmented-control-item-hover-background);
   }
 
   &.is-selected {
-    background-color: var(--pa-segmented-control-item-background-selected, var(--pa-color-action-primary-background-default));
-    color: var(--pa-segmented-control-item-text-selected, var(--pa-color-action-primary-text-default));
+    background-color: var(--pa-segmented-control-item-background-selected);
+    color: var(--pa-segmented-control-item-text-selected);
   }
 
   &.is-disabled {
-    opacity: calc(var(--pa-opacity-60, 60) / 100);
-    cursor: var(--pa-cursor-not-allowed, not-allowed);
+    opacity: calc(var(--pa-opacity-60) / 100);
+    cursor: var(--pa-cursor-not-allowed);
   }
 }
 </style>

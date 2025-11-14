@@ -86,6 +86,12 @@
           "$type": "dimension",
           "$value": "{spacing.100}"
         }
+      },
+      "indicator": {
+        "width": {
+          "$type": "dimension",
+          "$value": "{spacing.25}"
+        }
       }
     },
     "content": {

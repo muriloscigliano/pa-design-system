@@ -33,16 +33,16 @@ const handleChange = (event: Event) => {
   display: inline-block;
 
   &-input {
-    width: var(--pa-color-picker-size, 48px);
-    height: var(--pa-color-picker-size, 48px);
-    border: var(--pa-color-picker-border-width, var(--pa-Border-width-50, 1px)) solid var(--pa-color-picker-border, var(--pa-color-surface-container-border));
-    border-radius: var(--pa-color-picker-radius, var(--pa-Border-radius-100, 8px));
-    cursor: var(--pa-cursor-pointer, pointer);
+    width: var(--pa-color-picker-size);
+    height: var(--pa-color-picker-size);
+    border: var(--pa-color-picker-border-width) solid var(--pa-color-picker-border);
+    border-radius: var(--pa-color-picker-radius);
+    cursor: var(--pa-color-picker-cursor-default);
     padding: 0;
 
     &:disabled {
-      cursor: var(--pa-cursor-not-allowed, not-allowed);
-      opacity: calc(var(--pa-opacity-60, 60) / 100);
+      cursor: var(--pa-color-picker-cursor-disabled);
+      opacity: calc(var(--pa-opacity-60) / 100);
     }
   }
 }

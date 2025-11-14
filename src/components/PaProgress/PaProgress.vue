@@ -101,48 +101,48 @@ const strokeDashoffset = computed(() => {
   display: flex;
   align-items: center;
   width: 100%;
-  gap: var(--pa-spacing-12, 12px);
+  gap: var(--pa-progress-line-gap);
 }
 
 .pa-progress-line-track {
   flex: 1;
-  height: var(--pa-progress-size-md-height, var(--pa-spacing-8, 8px));
-  background-color: var(--pa-progress-background-default, var(--pa-color-surface-base-divider));
-  border-radius: var(--pa-progress-border-radius, var(--pa-Border-radius-full, 9999px));
+  height: var(--pa-progress-size-md-height);
+  background-color: var(--pa-progress-background-default);
+  border-radius: var(--pa-progress-border-radius);
   overflow: hidden;
 
   .pa-progress--sm & {
-    height: var(--pa-progress-size-sm-height, var(--pa-spacing-4, 4px));
+    height: var(--pa-progress-size-sm-height);
   }
 
   .pa-progress--lg & {
-    height: var(--pa-progress-size-lg-height, var(--pa-spacing-12, 12px));
+    height: var(--pa-progress-size-lg-height);
   }
 }
 
 .pa-progress-line-fill {
   height: 100%;
-  background-color: var(--pa-progress-background-filled, var(--pa-color-action-primary-background-default));
-  border-radius: var(--pa-progress-border-radius, var(--pa-Border-radius-full, 9999px));
-  transition: width var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  background-color: var(--pa-progress-background-filled);
+  border-radius: var(--pa-progress-border-radius);
+  transition: width var(--pa-progress-transition-duration-default) var(--pa-progress-transition-easing-default);
 
   &--success {
-    background-color: var(--pa-progress-background-success, var(--pa-color-status-success-background-default));
+    background-color: var(--pa-progress-background-success);
   }
 
   &--warning {
-    background-color: var(--pa-progress-background-warning, var(--pa-color-status-warning-background-default));
+    background-color: var(--pa-progress-background-warning);
   }
 
   &--error {
-    background-color: var(--pa-progress-background-error, var(--pa-color-status-error-background-default));
+    background-color: var(--pa-progress-background-error);
   }
 }
 
 .pa-progress-text {
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-size: var(--pa-progress-size-md-font, var(--pa-font-size-200, 16px));
-  color: var(--pa-progress-text-default, var(--pa-color-surface-container-text));
+  font-size: var(--pa-progress-size-md-font);
+  color: var(--pa-progress-text-default);
   white-space: nowrap;
 }
 
@@ -154,47 +154,47 @@ const strokeDashoffset = computed(() => {
 }
 
 .pa-progress-circle-svg {
-  width: var(--pa-progress-circular-size-md, var(--pa-icon-size-400, 64px));
-  height: var(--pa-progress-circular-size-md, var(--pa-icon-size-400, 64px));
+  width: var(--pa-progress-circular-size-md);
+  height: var(--pa-progress-circular-size-md);
   transform: rotate(-90deg);
 
   &--sm {
-    width: var(--pa-progress-circular-size-sm, var(--pa-icon-size-300, 48px));
-    height: var(--pa-progress-circular-size-sm, var(--pa-icon-size-300, 48px));
+    width: var(--pa-progress-circular-size-sm);
+    height: var(--pa-progress-circular-size-sm);
   }
 
   &--lg {
-    width: var(--pa-progress-circular-size-lg, var(--pa-icon-size-500, 56px));
-    height: var(--pa-progress-circular-size-lg, var(--pa-icon-size-500, 56px));
+    width: var(--pa-progress-circular-size-lg);
+    height: var(--pa-progress-circular-size-lg);
   }
 }
 
 .pa-progress-circle-track {
-  stroke: var(--pa-progress-background-default, var(--pa-color-surface-base-divider));
+  stroke: var(--pa-progress-background-default);
 }
 
 .pa-progress-circle-fill {
-  stroke: var(--pa-progress-background-filled, var(--pa-color-action-primary-background-default));
-  transition: stroke-dashoffset var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  stroke: var(--pa-progress-background-filled);
+  transition: stroke-dashoffset var(--pa-progress-transition-duration-default) var(--pa-progress-transition-easing-default);
 
   &--success {
-    stroke: var(--pa-progress-background-success, var(--pa-color-status-success-background-default));
+    stroke: var(--pa-progress-background-success);
   }
 
   &--warning {
-    stroke: var(--pa-progress-background-warning, var(--pa-color-status-warning-background-default));
+    stroke: var(--pa-progress-background-warning);
   }
 
   &--error {
-    stroke: var(--pa-progress-background-error, var(--pa-color-status-error-background-default));
+    stroke: var(--pa-progress-background-error);
   }
 }
 
 .pa-progress-circle-text {
   position: absolute;
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-size: var(--pa-progress-size-md-font, var(--pa-font-size-200, 16px));
-  color: var(--pa-progress-text-default, var(--pa-color-surface-container-text));
+  font-size: var(--pa-progress-size-md-font);
+  color: var(--pa-progress-text-default);
 }
 </style>
 

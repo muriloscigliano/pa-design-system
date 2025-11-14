@@ -58,7 +58,7 @@ const handleChange = (value: boolean, optionValue: string | number) => {
 <style lang="scss" scoped>
 .pa-checkbox-group {
   display: inline-flex;
-  gap: var(--pa-checkbox-group-gap, var(--pa-spacing-16, 16px));
+  gap: var(--pa-checkbox-group-gap);
   border: none;
   padding: 0;
   margin: 0;

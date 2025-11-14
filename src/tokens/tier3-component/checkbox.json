@@ -1,5 +1,9 @@
 {
   "checkbox": {
+    "gap": {
+      "$type": "dimension",
+      "$value": "{spacing.100}"
+    },
     "border": {
       "width": {
         "default": {

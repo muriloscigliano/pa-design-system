@@ -47,6 +47,62 @@
         "$type": "dimension",
         "$value": "{spacing.100}"
       }
+    },
+    "border": {
+      "width": {
+        "$type": "dimension",
+        "$value": "{border.width.thin}"
+      }
+    },
+    "gap": {
+      "$type": "dimension",
+      "$value": "{spacing.50}"
+    },
+    "font": {
+      "size": {
+        "$type": "dimension",
+        "$value": "{font.size.lg}"
+      },
+      "weight": {
+        "$type": "string",
+        "$value": "{font.weight.regular}"
+      }
+    },
+    "remove": {
+      "font": {
+        "size": {
+          "$type": "dimension",
+          "$value": "{font.size.xl}"
+        }
+      },
+      "size": {
+        "$type": "dimension",
+        "$value": "{icon.size.sm}"
+      },
+      "opacity": {
+        "default": {
+          "$type": "number",
+          "$value": 0.7
+        },
+        "hover": {
+          "$type": "number",
+          "$value": 1
+        }
+      }
+    },
+    "transition": {
+      "duration": {
+        "default": {
+          "$type": "duration",
+          "$value": "{transition.duration.default}"
+        }
+      },
+      "easing": {
+        "default": {
+          "$type": "string",
+          "$value": "{transition.easing.default}"
+        }
+      }
     }
   }
 }

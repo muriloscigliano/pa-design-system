@@ -8,6 +8,10 @@
       "z-index": {
         "$type": "dimension",
         "$value": "{z-index.400}"
+      },
+      "padding": {
+        "$type": "dimension",
+        "$value": "{spacing.200}"
       }
     },
     "container": {
@@ -18,6 +22,10 @@
       "border": {
         "$type": "color",
         "$value": "{color.modal.container.border}"
+      },
+      "border-width": {
+        "$type": "dimension",
+        "$value": "{border.width.thin}"
       },
       "border-radius": {
         "$type": "dimension",
@@ -68,6 +76,48 @@
           "$type": "dimension",
           "$value": "{spacing.200}"
         }
+      },
+      "border": {
+        "width": {
+          "$type": "dimension",
+          "$value": "{border.width.thin}"
+        },
+        "color": {
+          "$type": "color",
+          "$value": "{color.modal.footer.border}"
+        }
+      }
+    },
+    "close": {
+      "font": {
+        "size": {
+          "$type": "dimension",
+          "$value": "{font.size.xl}"
+        }
+      },
+      "size": {
+        "width": {
+          "$type": "dimension",
+          "$value": "{spacing.400}"
+        },
+        "height": {
+          "$type": "dimension",
+          "$value": "{spacing.400}"
+        }
+      },
+      "padding": {
+        "$type": "dimension",
+        "$value": "{spacing.50}"
+      },
+      "radius": {
+        "$type": "dimension",
+        "$value": "{border.radius.small}"
+      },
+      "background": {
+        "hover": {
+          "$type": "color",
+          "$value": "{color.surface.cards.hover.background}"
+        }
       }
     },
     "body": {
@@ -88,8 +138,14 @@
         "$value": "{color.modal.footer.background}"
       },
       "border": {
-        "$type": "color",
-        "$value": "{color.modal.footer.border}"
+        "width": {
+          "$type": "dimension",
+          "$value": "{border.width.thin}"
+        },
+        "color": {
+          "$type": "color",
+          "$value": "{color.modal.footer.border}"
+        }
       },
       "padding": {
         "x": {

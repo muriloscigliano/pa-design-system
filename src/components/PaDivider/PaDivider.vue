@@ -18,30 +18,30 @@ defineProps<{
 <style lang="scss" scoped>
 .pa-divider {
   border: none;
-  background-color: var(--pa-divider-background, var(--pa-color-surface-container-border));
+  background-color: var(--pa-divider-background);
 
   &--horizontal {
     width: 100%;
-    height: var(--pa-divider-thickness, var(--pa-Border-width-50, 1px));
-    margin: var(--pa-divider-spacing-md, var(--pa-spacing-16, 16px)) 0;
+    height: var(--pa-divider-thickness);
+    margin: var(--pa-divider-spacing-md) 0;
   }
 
   &--vertical {
-    width: var(--pa-divider-thickness, var(--pa-Border-width-50, 1px));
+    width: var(--pa-divider-thickness);
     height: 100%;
-    margin: 0 var(--pa-divider-spacing-md, var(--pa-spacing-16, 16px));
+    margin: 0 var(--pa-divider-spacing-md);
   }
 
   &--spacing-sm {
-    margin: var(--pa-divider-spacing-sm, var(--pa-spacing-8, 8px));
+    margin: var(--pa-divider-spacing-sm);
   }
 
   &--spacing-md {
-    margin: var(--pa-divider-spacing-md, var(--pa-spacing-16, 16px));
+    margin: var(--pa-divider-spacing-md);
   }
 
   &--spacing-lg {
-    margin: var(--pa-divider-spacing-lg, var(--pa-spacing-24, 24px));
+    margin: var(--pa-divider-spacing-lg);
   }
 }
 </style>

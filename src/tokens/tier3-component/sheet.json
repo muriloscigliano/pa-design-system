@@ -8,6 +8,28 @@
       "background": {
         "$type": "color",
         "$value": "rgba(0, 0, 0, 0.5)"
+      },
+      "z-index": {
+        "$type": "dimension",
+        "$value": "{z-index.400}"
+      }
+    },
+    "shadow": {
+      "$type": "shadow",
+      "$value": "{shadow.lg}"
+    },
+    "transition": {
+      "duration": {
+        "default": {
+          "$type": "duration",
+          "$value": "{transition.duration.default}"
+        }
+      },
+      "easing": {
+        "default": {
+          "$type": "string",
+          "$value": "{transition.easing.default}"
+        }
       }
     },
     "size": {
