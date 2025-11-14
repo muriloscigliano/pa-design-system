@@ -1,35 +1,100 @@
 <script setup lang="ts">
-defineProps<{
+import { computed } from 'vue'
+
+const props = withDefaults(defineProps<{
   variant?: 'primary' | 'secondary' | 'tertiary' | 'link' | 'action'
   size?: 'sm' | 'md' | 'lg'
   disabled?: boolean
   loading?: boolean
+  isLoading?: boolean // Alias for loading (external library compatibility)
   iconPosition?: 'left' | 'center' | 'right'
+  icon?: string // Icon name (external library compatibility)
+  iconRight?: boolean // External library compatibility
+  block?: boolean // Full width button
+  shape?: 'square' | 'circle' // Button shape
+  type?: 'button' | 'submit' | 'reset'
+  preventDefault?: boolean // Prevent default click behavior
+  sfSelector?: string // Salesforce selector (external library compatibility)
+}>(), {
+  variant: 'primary',
+  size: 'md',
+  disabled: false,
+  loading: false,
+  isLoading: false,
+  iconPosition: 'left',
+  iconRight: false,
+  block: false,
+  shape: 'square',
+  type: 'button',
+  preventDefault: false,
+  sfSelector: ''
+})
+
+const emit = defineEmits<{
+  click: [event: MouseEvent]
 }>()
+
+const isActuallyLoading = computed(() => props.loading || props.isLoading)
+
+const validatedType = computed((): 'submit' | 'reset' | 'button' => {
+  if (['button', 'submit', 'reset'].includes(props.type || 'button')) {
+    return props.type as 'submit' | 'reset' | 'button'
+  }
+  return 'button'
+})
+
+const effectiveIconPosition = computed(() => {
+  if (props.iconRight) return 'right'
+  return props.iconPosition
+})
+
+const handleClick = (event: MouseEvent) => {
+  if (props.preventDefault) {
+    event.preventDefault()
+  }
+  if (props.disabled || isActuallyLoading.value) {
+    return
+  }
+  emit('click', event)
+}
 </script>
 
 <template>
   <button
+    :type="validatedType"
     :class="[
       'pa-button',
-      `pa-button--${variant || 'primary'}`,
-      `pa-button--${size || 'md'}`,
+      `pa-button--${variant}`,
+      `pa-button--${size}`,
+      `pa-button--shape-${shape}`,
       {
-        'has-icon-left': iconPosition === 'left',
-        'has-icon-center': iconPosition === 'center',
-        'has-icon-right': iconPosition === 'right'
-      },
-      { 
-        'is-disabled': disabled || loading,
-        'is-loading': loading
+        'has-icon-left': effectiveIconPosition === 'left',
+        'has-icon-center': effectiveIconPosition === 'center',
+        'has-icon-right': effectiveIconPosition === 'right',
+        'is-block': block,
+        'is-disabled': disabled || isActuallyLoading,
+        'is-loading': isActuallyLoading,
+        'has-icon': icon,
+        'icon-lone': icon && !$slots.default
       }
     ]"
-    :disabled="disabled || loading"
-    :aria-busy="loading"
-    :aria-live="loading ? 'polite' : undefined"
+    :disabled="disabled || isActuallyLoading"
+    :aria-busy="isActuallyLoading"
+    :aria-live="isActuallyLoading ? 'polite' : undefined"
+    :sf-selector="sfSelector || undefined"
+    @click="handleClick"
   >
-    <span v-if="loading" class="pa-button-loader" aria-hidden="true"></span>
+    <span v-if="icon && $slots.default && effectiveIconPosition === 'left'" class="pa-button-icon pa-button-icon--left">
+      <slot name="icon">{{ icon }}</slot>
+    </span>
     <slot />
+    <span v-if="icon && $slots.default && effectiveIconPosition === 'right'" class="pa-button-icon pa-button-icon--right">
+      <slot name="icon">{{ icon }}</slot>
+    </span>
+    <span v-if="icon && !$slots.default" class="pa-button-icon pa-button-icon--lone">
+      <slot name="icon">{{ icon }}</slot>
+    </span>
+    <span v-if="isActuallyLoading" class="pa-button-loader" aria-hidden="true"></span>
   </button>
 </template>
 
@@ -57,6 +122,37 @@ defineProps<{
   &.has-icon-right {
     justify-content: flex-end;
     gap: var(--pa-button-icon-gap);
+  }
+
+  &.is-block {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  &--shape-circle {
+    border-radius: var(--pa-border-radius-full);
+    aspect-ratio: 1;
+    padding: var(--pa-button-size-md-padding-y);
+  }
+
+  &.has-icon {
+    &.has-icon-left:not(.icon-lone) {
+      justify-content: flex-start;
+    }
+    &.has-icon-right:not(.icon-lone) {
+      justify-content: flex-end;
+    }
+  }
+
+  &.icon-lone {
+    justify-content: center;
+    padding: var(--pa-button-size-md-padding-y);
+  }
+
+  .pa-button-icon {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
   }
 
   &--primary {
@@ -244,8 +340,9 @@ defineProps<{
 }
 
 @media (max-width: 768px) {
-  .pa-button {
+  .pa-button:not(.icon-lone) {
     width: 100%;
+    min-width: 100%;
   }
 }
 </style>

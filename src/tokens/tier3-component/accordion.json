@@ -28,6 +28,16 @@
           "$type": "dimension",
           "$value": "{spacing.150}"
         }
+      },
+      "font": {
+        "size": {
+          "$type": "dimension",
+          "$value": "{font.size.lg}"
+        },
+        "weight": {
+          "$type": "string",
+          "$value": "{font.weight.medium}"
+        }
       }
     },
     "content": {
@@ -68,18 +78,6 @@
       "size": {
         "$type": "dimension",
         "$value": "{icon.size.xs}"
-      }
-    },
-    "header": {
-      "font": {
-        "size": {
-          "$type": "dimension",
-          "$value": "{font.size.lg}"
-        },
-        "weight": {
-          "$type": "string",
-          "$value": "{font.weight.medium}"
-        }
       }
     },
     "outline": {

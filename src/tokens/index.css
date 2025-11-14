@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 13 Nov 2025 06:01:09 GMT
+ * Generated on Fri, 14 Nov 2025 00:45:38 GMT
  */
 
 :root {
@@ -204,7 +204,7 @@
 
 /**
  * Do not edit directly
- * Generated on Thu, 13 Nov 2025 06:01:09 GMT
+ * Generated on Fri, 14 Nov 2025 00:45:38 GMT
  */
 
 :root {
@@ -698,6 +698,12 @@
   --pa-border-radius-medium: var(--pa-Border-radius-100);
   --pa-border-radius-large: var(--pa-Border-radius-200);
   --pa-border-radius-full: var(--pa-Border-radius-full);
+  --pa-accordion-header-background-default: var(--pa-color-surface-base-background);
+  --pa-accordion-header-background-hover: var(--pa-color-surface-cards-hover-background);
+  --pa-accordion-header-text: var(--pa-color-surface-base-text);
+  --pa-accordion-header-border: var(--pa-color-surface-base-border);
+  --pa-accordion-header-padding-x: var(--pa-spacing-200);
+  --pa-accordion-header-padding-y: var(--pa-spacing-150);
   --pa-accordion-header-font-size: var(--pa-font-size-lg);
   --pa-accordion-header-font-weight: var(--pa-font-weight-medium);
   --pa-accordion-content-background: var(--pa-color-surface-container-background);
@@ -794,6 +800,7 @@
   --pa-breadcrumbs-text-default: var(--pa-color-surface-container-text);
   --pa-breadcrumbs-text-link: var(--pa-color-action-primary-text-default);
   --pa-breadcrumbs-text-separator: var(--pa-color-surface-container-icon);
+  --pa-breadcrumbs-font-size: var(--pa-font-size-lg);
   --pa-breadcrumbs-font-weight: var(--pa-font-weight-regular);
   --pa-breadcrumbs-spacing-item-gap: var(--pa-spacing-100);
   --pa-breadcrumbs-spacing-link-gap: var(--pa-spacing-50);
@@ -1678,7 +1685,7 @@
 
 /**
  * Do not edit directly
- * Generated on Thu, 13 Nov 2025 06:01:09 GMT
+ * Generated on Fri, 14 Nov 2025 00:45:38 GMT
  */
 
 [data-theme="dark"] {
@@ -2172,6 +2179,12 @@
   --pa-border-radius-medium: var(--pa-Border-radius-100);
   --pa-border-radius-large: var(--pa-Border-radius-200);
   --pa-border-radius-full: var(--pa-Border-radius-full);
+  --pa-accordion-header-background-default: var(--pa-color-surface-base-background);
+  --pa-accordion-header-background-hover: var(--pa-color-surface-cards-hover-background);
+  --pa-accordion-header-text: var(--pa-color-surface-base-text);
+  --pa-accordion-header-border: var(--pa-color-surface-base-border);
+  --pa-accordion-header-padding-x: var(--pa-spacing-200);
+  --pa-accordion-header-padding-y: var(--pa-spacing-150);
   --pa-accordion-header-font-size: var(--pa-font-size-lg);
   --pa-accordion-header-font-weight: var(--pa-font-weight-medium);
   --pa-accordion-content-background: var(--pa-color-surface-container-background);
@@ -2268,6 +2281,7 @@
   --pa-breadcrumbs-text-default: var(--pa-color-surface-container-text);
   --pa-breadcrumbs-text-link: var(--pa-color-action-primary-text-default);
   --pa-breadcrumbs-text-separator: var(--pa-color-surface-container-icon);
+  --pa-breadcrumbs-font-size: var(--pa-font-size-lg);
   --pa-breadcrumbs-font-weight: var(--pa-font-weight-regular);
   --pa-breadcrumbs-spacing-item-gap: var(--pa-spacing-100);
   --pa-breadcrumbs-spacing-link-gap: var(--pa-spacing-50);

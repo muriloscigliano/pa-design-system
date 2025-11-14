@@ -18,6 +18,10 @@
       "size": {
         "$type": "dimension",
         "$value": "{font.size.lg}"
+      },
+      "weight": {
+        "$type": "string",
+        "$value": "{font.weight.regular}"
       }
     },
     "spacing": {
@@ -34,12 +38,6 @@
       "size": {
         "$type": "dimension",
         "$value": "{icon.size.md}"
-      }
-    },
-    "font": {
-      "weight": {
-        "$type": "string",
-        "$value": "{font.weight.regular}"
       }
     },
     "transition": {
