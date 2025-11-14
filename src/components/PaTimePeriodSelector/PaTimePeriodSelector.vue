@@ -32,14 +32,6 @@ const isSelected = (option: TimePeriodOption): boolean => {
   return props.modelValue.value === option.value && props.modelValue.unit === option.unit
 }
 
-const formatLabel = (option: TimePeriodOption): string => {
-  if (option.label) return option.label
-  const unitLabel = option.value === 1 
-    ? option.unit.charAt(0).toUpperCase() + option.unit.slice(1)
-    : option.unit.charAt(0).toUpperCase() + option.unit.slice(1) + 's'
-  return `${option.value} ${unitLabel}`
-}
-
 const selectOption = (option: TimePeriodOption) => {
   if (props.disabled) return
   const value = { value: option.value, unit: option.unit }
