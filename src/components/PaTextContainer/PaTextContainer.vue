@@ -22,19 +22,19 @@ defineProps<{
   width: 100%;
 
   &--max-width-sm {
-    max-width: var(--pa-text-container-max-width-sm, 480px);
+    max-width: var(--pa-text-container-max-width-sm);
   }
 
   &--max-width-md {
-    max-width: var(--pa-text-container-max-width-md, 720px);
+    max-width: var(--pa-text-container-max-width-md);
   }
 
   &--max-width-lg {
-    max-width: var(--pa-text-container-max-width-lg, 960px);
+    max-width: var(--pa-text-container-max-width-lg);
   }
 
   &--max-width-xl {
-    max-width: var(--pa-text-container-max-width-xl, 1200px);
+    max-width: var(--pa-text-container-max-width-xl);
   }
 
   &--max-width-full {
@@ -42,15 +42,15 @@ defineProps<{
   }
 
   &--padding-sm {
-    padding: var(--pa-text-container-padding-sm, var(--pa-spacing-16, 16px));
+    padding: var(--pa-text-container-padding-sm);
   }
 
   &--padding-md {
-    padding: var(--pa-text-container-padding-md, var(--pa-spacing-24, 24px));
+    padding: var(--pa-text-container-padding-md);
   }
 
   &--padding-lg {
-    padding: var(--pa-text-container-padding-lg, var(--pa-spacing-32, 32px));
+    padding: var(--pa-text-container-padding-lg);
   }
 }
 </style>

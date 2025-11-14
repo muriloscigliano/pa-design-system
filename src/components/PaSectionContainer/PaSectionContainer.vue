@@ -26,9 +26,9 @@ defineProps<{
 
 <style lang="scss" scoped>
 .pa-section-container {
-  background-color: var(--pa-section-container-background, var(--pa-color-surface-container-background));
-  border: var(--pa-Border-width-50, 1px) solid var(--pa-section-container-border, var(--pa-color-surface-container-border));
-  border-radius: var(--pa-section-container-border-radius, var(--pa-Border-radius-100, 8px));
+  background-color: var(--pa-section-container-background);
+  border: var(--pa-section-container-border-width) solid var(--pa-section-container-border);
+  border-radius: var(--pa-section-container-border-radius);
   padding: var(--pa-section-container-padding-y) var(--pa-section-container-padding-x);
   width: 100%;
 }
@@ -37,10 +37,10 @@ defineProps<{
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: var(--pa-spacing-16, 16px);
-  padding-bottom: var(--pa-section-container-spacing-header, var(--pa-spacing-16, 16px));
-  border-bottom: var(--pa-Border-width-50, 1px) solid var(--pa-section-container-header-border, var(--pa-color-surface-base-divider));
-  margin-bottom: var(--pa-section-container-spacing-content, var(--pa-spacing-24, 24px));
+  gap: var(--pa-section-container-spacing-header-gap);
+  padding-bottom: var(--pa-section-container-spacing-header);
+  border-bottom: var(--pa-section-container-header-border-width) solid var(--pa-section-container-header-border);
+  margin-bottom: var(--pa-section-container-spacing-content);
 }
 
 .pa-section-container-header-content {
@@ -48,24 +48,24 @@ defineProps<{
 }
 
 .pa-section-container-title {
-  margin: 0 0 var(--pa-spacing-4, 4px) 0;
+  margin: 0 0 var(--pa-section-container-spacing-title-bottom) 0;
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-size: var(--pa-font-size-500, 24px);
-  font-weight: var(--pa-font-weight-700, 700);
-  color: var(--pa-color-surface-container-text, var(--pa-gray-900, #212529));
+  font-size: var(--pa-section-container-title-font-size);
+  font-weight: var(--pa-section-container-title-font-weight);
+  color: var(--pa-section-container-title-color);
 }
 
 .pa-section-container-description {
   margin: 0;
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-size: var(--pa-font-size-200, 16px);
-  font-weight: var(--pa-font-weight-400, 400);
-  color: var(--pa-gray-500, #adb5bd);
+  font-size: var(--pa-section-container-description-font-size);
+  font-weight: var(--pa-section-container-description-font-weight);
+  color: var(--pa-section-container-description-color);
 }
 
 .pa-section-container-actions {
   display: flex;
-  gap: var(--pa-spacing-8, 8px);
+  gap: var(--pa-section-container-spacing-actions-gap);
   flex-shrink: 0;
 }
 

@@ -87,6 +87,10 @@
         "$type": "color",
         "$value": "{color.surface.container.border}"
       },
+      "border-radius": {
+        "$type": "dimension",
+        "$value": "{border.radius.medium}"
+      },
       "shadow": {
         "$type": "shadow",
         "$value": "{shadow.md}"
@@ -94,6 +98,30 @@
       "z-index": {
         "$type": "dimension",
         "$value": "{z-index.400}"
+      },
+      "spacing": {
+        "top": {
+          "$type": "dimension",
+          "$value": "{spacing.50}"
+        }
+      }
+    },
+    "column": {
+      "label": {
+        "padding": {
+          "$type": "dimension",
+          "$value": "{spacing.100}"
+        },
+        "font": {
+          "size": {
+            "$type": "dimension",
+            "$value": "{font.size.sm}"
+          },
+          "weight": {
+            "$type": "string",
+            "$value": "{font.weight.semibold}"
+          }
+        }
       }
     },
     "time-item": {
@@ -119,6 +147,20 @@
         "selected": {
           "$type": "color",
           "$value": "{color.action.primary.text.default}"
+        }
+      },
+      "padding": {
+        "$type": "dimension",
+        "$value": "{spacing.100}"
+      },
+      "font": {
+        "size": {
+          "$type": "dimension",
+          "$value": "{font.size.lg}"
+        },
+        "weight": {
+          "$type": "string",
+          "$value": "{font.weight.regular}"
         }
       }
     },
@@ -177,6 +219,10 @@
         "default": {
           "$type": "duration",
           "$value": "{transition.duration.default}"
+        },
+        "fast": {
+          "$type": "duration",
+          "$value": "{transition.duration.fast}"
         }
       },
       "easing": {

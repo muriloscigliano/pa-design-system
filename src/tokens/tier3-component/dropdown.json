@@ -92,13 +92,43 @@
           "$type": "dimension",
           "$value": "{spacing.100}"
         }
+      },
+      "font": {
+        "size": {
+          "$type": "dimension",
+          "$value": "{font.size.lg}"
+        },
+        "weight": {
+          "$type": "string",
+          "$value": "{font.weight.regular}"
+        }
+      },
+      "border-radius": {
+        "$type": "dimension",
+        "$value": "{border.radius.small}"
+      },
+      "disabled": {
+        "opacity": {
+          "$type": "number",
+          "$value": 0.6
+        }
       }
     },
     "transition": {
       "duration": {
+        "default": {
+          "$type": "duration",
+          "$value": "{transition.duration.default}"
+        },
         "fast": {
           "$type": "duration",
           "$value": "{transition.duration.fast}"
+        }
+      },
+      "easing": {
+        "default": {
+          "$type": "string",
+          "$value": "{transition.easing.default}"
         }
       }
     }

@@ -374,12 +374,12 @@ onUnmounted(() => {
   position: absolute;
   top: 100%;
   left: 0;
-  margin-top: var(--pa-spacing-4, 4px);
-  background-color: var(--pa-time-picker-panel-background, var(--pa-color-surface-container-background));
-  border: 1px solid var(--pa-time-picker-panel-border, var(--pa-color-surface-container-border));
-  border-radius: var(--pa-time-picker-border-radius-default, var(--pa-Border-radius-100, 8px));
-  box-shadow: var(--pa-time-picker-panel-shadow, var(--pa-shadow-md));
-  z-index: var(--pa-time-picker-panel-z-index, var(--pa-z-index-400, 400));
+  margin-top: var(--pa-time-picker-panel-spacing-top);
+  background-color: var(--pa-time-picker-panel-background);
+  border: var(--pa-time-picker-border-width-default) solid var(--pa-time-picker-panel-border);
+  border-radius: var(--pa-time-picker-panel-border-radius);
+  box-shadow: var(--pa-time-picker-panel-shadow);
+  z-index: var(--pa-time-picker-panel-z-index);
   min-width: 200px;
   max-height: 300px;
   overflow: hidden;
@@ -394,7 +394,7 @@ onUnmounted(() => {
 .pa-time-picker-column {
   flex: 1;
   min-width: 60px;
-  border-right: 1px solid var(--pa-color-surface-base-divider, var(--pa-gray-200, #e9ecef));
+  border-right: var(--pa-time-picker-border-width-default) solid var(--pa-color-surface-base-divider);
 
   &:last-child {
     border-right: none;
@@ -402,13 +402,13 @@ onUnmounted(() => {
 }
 
 .pa-time-picker-column-label {
-  padding: var(--pa-spacing-8, 8px);
+  padding: var(--pa-time-picker-column-label-padding);
   text-align: center;
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-size: var(--pa-font-size-100, 14px);
-  font-weight: var(--pa-font-weight-600, 600);
-  color: var(--pa-gray-500, #adb5bd);
-  border-bottom: 1px solid var(--pa-color-surface-base-divider, var(--pa-gray-200, #e9ecef));
+  font-size: var(--pa-time-picker-column-label-font-size);
+  font-weight: var(--pa-time-picker-column-label-font-weight);
+  color: var(--pa-color-surface-container-icon);
+  border-bottom: var(--pa-time-picker-border-width-default) solid var(--pa-color-surface-base-divider);
 }
 
 .pa-time-picker-list {
@@ -417,30 +417,30 @@ onUnmounted(() => {
 }
 
 .pa-time-picker-item {
-  padding: var(--pa-spacing-8, 8px);
+  padding: var(--pa-time-picker-time-item-padding);
   text-align: center;
-  background-color: var(--pa-time-picker-time-item-background-default, transparent);
-  color: var(--pa-time-picker-time-item-text-default, var(--pa-color-surface-container-text));
-  cursor: var(--pa-cursor-pointer, pointer);
-  transition: all var(--pa-time-picker-transition-duration-default, var(--pa-transition-duration-default, 200ms)) var(--pa-time-picker-transition-easing-default, var(--pa-transition-easing-default, ease));
+  background-color: var(--pa-time-picker-time-item-background-default);
+  color: var(--pa-time-picker-time-item-text-default);
+  cursor: var(--pa-cursor-pointer);
+  transition: all var(--pa-time-picker-transition-duration-default) var(--pa-time-picker-transition-easing-default);
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-size: var(--pa-font-size-200, 16px);
-  font-weight: var(--pa-font-weight-400, 400);
+  font-size: var(--pa-time-picker-time-item-font-size);
+  font-weight: var(--pa-time-picker-time-item-font-weight);
 
   &:hover {
-    background-color: var(--pa-time-picker-time-item-background-hover, var(--pa-color-surface-cards-hover-background));
+    background-color: var(--pa-time-picker-time-item-background-hover);
   }
 
   &.is-selected {
-    background-color: var(--pa-time-picker-time-item-background-selected, var(--pa-color-action-primary-background-default));
-    color: var(--pa-time-picker-time-item-text-selected, var(--pa-color-action-primary-text-default));
+    background-color: var(--pa-time-picker-time-item-background-selected);
+    color: var(--pa-time-picker-time-item-text-selected);
   }
 }
 
 .pa-time-picker-panel-enter-active,
 .pa-time-picker-panel-leave-active {
-  transition: opacity var(--pa-transition-duration-fast, 100ms) var(--pa-transition-easing-default, ease),
-    transform var(--pa-transition-duration-fast, 100ms) var(--pa-transition-easing-default, ease);
+  transition: opacity var(--pa-time-picker-transition-duration-fast) var(--pa-time-picker-transition-easing-default),
+    transform var(--pa-time-picker-transition-duration-fast) var(--pa-time-picker-transition-easing-default);
 }
 
 .pa-time-picker-panel-enter-from,

@@ -55,19 +55,19 @@ const isActive = (id: string): boolean => {
 
 <style lang="scss" scoped>
 .sidebar {
-  background-color: var(--pa-color-surface-container-background, #151517);
-  border-radius: var(--pa-Border-radius-100, 8px);
-  padding: var(--pa-spacing-36, 36px);
+  background-color: var(--pa-app-sidebar-background);
+  border-radius: var(--pa-app-sidebar-border-radius);
+  padding: var(--pa-app-sidebar-padding);
   width: 300px;
-  height: calc(100vh - var(--pa-spacing-12, 12px));
+  height: calc(100vh - var(--pa-app-sidebar-height-offset));
   display: flex;
   flex-direction: column;
-  gap: var(--pa-spacing-36, 36px);
+  gap: var(--pa-app-sidebar-spacing-section);
   align-items: center;
   flex-shrink: 0;
   overflow-y: auto;
   overflow-x: hidden;
-  transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  transition: background-color var(--pa-app-sidebar-transition-duration-default) var(--pa-app-sidebar-transition-easing-default);
 }
 
 .sidebar-logo {
@@ -103,7 +103,7 @@ const isActive = (id: string): boolean => {
 .sidebar-nav {
   display: flex;
   flex-direction: column;
-  gap: var(--pa-spacing-36, 36px);
+  gap: var(--pa-app-sidebar-spacing-section);
   width: 100%;
   align-items: flex-start;
   justify-content: flex-end;
@@ -112,7 +112,7 @@ const isActive = (id: string): boolean => {
 .nav-section {
   display: flex;
   flex-direction: column;
-  gap: var(--pa-spacing-24, 24px);
+  gap: var(--pa-app-sidebar-spacing-nav);
   width: 100%;
   align-items: flex-start;
   justify-content: flex-end;
@@ -121,13 +121,13 @@ const isActive = (id: string): boolean => {
 .nav-section-title {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: var(--pa-font-size-200, 16px);
+  font-size: var(--pa-app-sidebar-nav-section-title-font-size);
   line-height: normal;
-  color: var(--pa-color-surface-container-text-secondary, #6c757d);
+  color: var(--pa-color-surface-container-text-secondary);
   text-transform: uppercase;
   margin: 0;
   white-space: nowrap;
-  transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  transition: color var(--pa-app-sidebar-transition-duration-default) var(--pa-app-sidebar-transition-easing-default);
 }
 
 [data-theme="dark"] .nav-section-title {
@@ -137,13 +137,13 @@ const isActive = (id: string): boolean => {
 .nav-list {
   display: flex;
   flex-direction: column;
-  gap: var(--pa-spacing-16, 16px);
+  gap: var(--pa-app-sidebar-spacing-list);
   width: 100%;
   margin: 0;
   padding: 0;
   list-style: none;
   position: relative;
-  padding-left: var(--pa-spacing-18, 18px);
+  padding-left: var(--pa-app-sidebar-spacing-list-left);
   
   &::before {
     content: '';
@@ -164,16 +164,16 @@ const isActive = (id: string): boolean => {
 .nav-item {
   font-family: 'Inter', sans-serif;
   font-weight: 300;
-  font-size: var(--pa-font-size-200, 16px);
+  font-size: var(--pa-app-sidebar-nav-item-font-size);
   line-height: normal;
   white-space: nowrap;
 }
 
 .nav-link {
-  color: var(--pa-color-surface-container-text, #212529);
+  color: var(--pa-color-surface-container-text);
   text-decoration: none;
   cursor: pointer;
-  transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  transition: color var(--pa-app-sidebar-transition-duration-default) var(--pa-app-sidebar-transition-easing-default);
   display: block;
   
   &:hover {

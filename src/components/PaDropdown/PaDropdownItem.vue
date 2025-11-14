@@ -27,26 +27,26 @@ defineEmits<{
 <style lang="scss" scoped>
 .pa-dropdown-item {
   padding: var(--pa-dropdown-item-padding-y) var(--pa-dropdown-item-padding-x);
-  color: var(--pa-dropdown-item-text-default, var(--pa-color-surface-container-text));
+  color: var(--pa-dropdown-item-text-default);
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-size: var(--pa-font-size-200, 16px);
-  font-weight: var(--pa-font-weight-400, 400);
-  cursor: var(--pa-cursor-pointer, pointer);
-  border-radius: var(--pa-Border-radius-50, 4px);
-  transition: all var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  font-size: var(--pa-dropdown-item-font-size);
+  font-weight: var(--pa-dropdown-item-font-weight);
+  cursor: var(--pa-cursor-pointer);
+  border-radius: var(--pa-dropdown-item-border-radius);
+  transition: all var(--pa-dropdown-transition-duration-default) var(--pa-dropdown-transition-easing-default);
 
   &:hover:not(.is-disabled) {
-    background-color: var(--pa-dropdown-item-background-hover, var(--pa-color-surface-cards-hover-background));
+    background-color: var(--pa-dropdown-item-background-hover);
   }
 
   &.is-selected {
-    background-color: var(--pa-dropdown-item-background-selected, var(--pa-color-surface-cards-selected-background));
-    color: var(--pa-dropdown-item-text-selected, var(--pa-color-surface-container-text));
+    background-color: var(--pa-dropdown-item-background-selected);
+    color: var(--pa-dropdown-item-text-selected);
   }
 
   &.is-disabled {
-    opacity: calc(var(--pa-opacity-60, 60) / 100);
-    cursor: var(--pa-cursor-not-allowed, not-allowed);
+    opacity: calc(var(--pa-dropdown-item-disabled-opacity) / 100);
+    cursor: var(--pa-cursor-not-allowed);
     pointer-events: none;
   }
 }

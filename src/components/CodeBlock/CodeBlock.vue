@@ -147,14 +147,14 @@ const handleCopy = async () => {
 
 <style lang="scss" scoped>
 .code-block {
-  background-color: var(--pa-color-surface-base-background);
-  border: 1px solid var(--pa-color-surface-container-border);
-  border-radius: var(--pa-Border-radius-100, 8px);
+  background-color: var(--pa-code-block-background);
+  border: var(--pa-border-width-thin) solid var(--pa-code-block-border-color);
+  border-radius: var(--pa-code-block-border-radius);
   padding: 0;
   overflow-x: auto;
   margin: 0;
   position: relative;
-  transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease), border-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  transition: background-color var(--pa-code-block-transition-duration-default) var(--pa-code-block-transition-easing-default), border-color var(--pa-code-block-transition-duration-default) var(--pa-code-block-transition-easing-default);
   
   &:hover .copy-code-button {
     opacity: 1;
@@ -163,14 +163,14 @@ const handleCopy = async () => {
   code {
     display: block;
     font-family: 'Roboto Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-    font-size: var(--pa-font-size-100, 14px);
+    font-size: var(--pa-code-block-code-font-size);
     line-height: 1.5;
     white-space: pre;
-    padding: var(--pa-spacing-24, 24px);
-    padding-right: calc(var(--pa-spacing-12, 12px) + 80px);
+    padding: var(--pa-code-block-code-padding-default);
+    padding-right: calc(var(--pa-code-block-code-padding-right) + 80px);
     margin: 0;
     color: var(--pa-color-surface-container-text);
-    transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+    transition: color var(--pa-code-block-transition-duration-default) var(--pa-code-block-transition-easing-default);
     background-color: transparent !important;
     position: relative;
     z-index: 1;
@@ -180,7 +180,7 @@ const handleCopy = async () => {
     }
     
     &:not(:has(.line-number)) {
-      padding-left: var(--pa-spacing-24, 24px);
+      padding-left: var(--pa-code-block-code-padding-left);
     }
     
     &::selection {
@@ -220,17 +220,17 @@ const handleCopy = async () => {
       position: absolute;
       left: 0;
       top: 0;
-      width: 48px;
-      padding-right: var(--pa-spacing-16, 16px);
+      width: var(--pa-code-block-line-number-width);
+      padding-right: var(--pa-code-block-line-number-padding-right);
       text-align: right;
       font-family: 'Roboto Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-      font-size: var(--pa-font-size-100, 14px);
+      font-size: var(--pa-code-block-line-number-font-size);
       line-height: 1.5;
       color: var(--pa-color-surface-container-text-secondary);
       user-select: none;
       pointer-events: none;
       white-space: pre;
-      transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+      transition: color var(--pa-code-block-transition-duration-default) var(--pa-code-block-transition-easing-default);
     }
   }
   
@@ -240,11 +240,11 @@ const handleCopy = async () => {
     left: 0;
     top: 0;
     bottom: 0;
-    width: 48px;
+    width: var(--pa-code-block-line-number-width);
     background-color: var(--pa-color-surface-container-background);
-    border-right: 1px solid var(--pa-color-surface-container-border);
-    border-radius: var(--pa-Border-radius-100, 8px) 0 0 var(--pa-Border-radius-100, 8px);
-    transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease), border-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+    border-right: var(--pa-border-width-thin) solid var(--pa-color-surface-container-border);
+    border-radius: var(--pa-code-block-border-radius) 0 0 var(--pa-code-block-border-radius);
+    transition: background-color var(--pa-code-block-transition-duration-default) var(--pa-code-block-transition-easing-default), border-color var(--pa-code-block-transition-duration-default) var(--pa-code-block-transition-easing-default);
     z-index: 0;
     margin-right: 28px;
   }
@@ -252,23 +252,23 @@ const handleCopy = async () => {
 
 .copy-code-button {
   position: absolute;
-  top: var(--pa-spacing-12, 12px);
-  right: var(--pa-spacing-12, 12px);
+  top: var(--pa-code-block-copy-button-top);
+  right: var(--pa-code-block-copy-button-right);
   background-color: var(--pa-color-surface-container-background);
-  border: 1px solid var(--pa-color-surface-container-border);
-  border-radius: var(--pa-Border-radius-50, 4px);
-  padding: var(--pa-spacing-6, 6px) var(--pa-spacing-10, 10px);
+  border: var(--pa-border-width-thin) solid var(--pa-color-surface-container-border);
+  border-radius: var(--pa-code-block-copy-button-border-radius);
+  padding: var(--pa-code-block-copy-button-padding-y) var(--pa-code-block-copy-button-padding-x);
   font-family: 'Inter', sans-serif;
-  font-size: var(--pa-font-size-100, 14px);
+  font-size: var(--pa-code-block-copy-button-font-size);
   font-weight: 500;
   color: var(--pa-color-surface-container-text-secondary);
   cursor: pointer;
   opacity: 0;
-  transition: all var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  transition: all var(--pa-code-block-transition-duration-default) var(--pa-code-block-transition-easing-default);
   z-index: 10;
   display: flex;
   align-items: center;
-  gap: var(--pa-spacing-6, 6px);
+  gap: var(--pa-code-block-copy-button-gap);
   margin: 0;
   
   &:hover {

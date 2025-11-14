@@ -197,14 +197,14 @@ provide('closeTab', closeTab)
   &.is-disabled {
     color: var(--pa-tabs-tab-text-disabled);
     cursor: var(--pa-cursor-not-allowed);
-    opacity: calc(var(--pa-opacity-60, 60) / 100);
+    opacity: calc(var(--pa-tabs-tab-disabled-opacity) / 100);
   }
 }
 
 .pa-tabs-tab-icon {
   display: flex;
   align-items: center;
-  font-size: var(--pa-icon-size-200, 20px);
+  font-size: var(--pa-tabs-tab-icon-size);
 }
 
 .pa-tabs-tab-label {
@@ -216,31 +216,31 @@ provide('closeTab', closeTab)
 }
 
 .pa-tabs-tab-close {
-  margin-left: var(--pa-spacing-4, 4px);
-  padding: var(--pa-spacing-2, 2px);
+  margin-left: var(--pa-tabs-tab-close-margin-left);
+  padding: var(--pa-tabs-tab-close-padding);
   background: none;
   border: none;
-  font-size: var(--pa-font-size-400, 20px);
+  font-size: var(--pa-tabs-tab-close-font-size);
   line-height: 1;
-  cursor: var(--pa-cursor-pointer, pointer);
+  cursor: var(--pa-cursor-pointer);
   color: inherit;
-  opacity: 0.6;
-  transition: opacity var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  opacity: var(--pa-tabs-tab-close-opacity-default);
+  transition: opacity var(--pa-tabs-transition-duration-default) var(--pa-tabs-transition-easing-default);
 
   &:hover {
-    opacity: 1;
+    opacity: var(--pa-tabs-tab-close-opacity-hover);
   }
 }
 
 .pa-tabs-tab-add {
-  min-width: var(--pa-spacing-100, var(--pa-spacing-10, 10px));
+  min-width: var(--pa-tabs-tab-add-min-width);
   justify-content: center;
-  font-size: var(--pa-font-size-500, 24px);
-  font-weight: var(--pa-font-weight-400, 400);
+  font-size: var(--pa-tabs-tab-add-font-size);
+  font-weight: var(--pa-tabs-tab-add-font-weight);
 }
 
 .pa-tabs-content {
-  padding: var(--pa-tabs-content-padding, var(--pa-spacing-16, 16px));
+  padding: var(--pa-tabs-content-padding);
 }
 </style>
 

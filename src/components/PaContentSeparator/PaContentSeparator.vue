@@ -22,57 +22,57 @@ defineProps<{
 
 <style lang="scss" scoped>
 .pa-content-separator {
-  border-color: var(--pa-color-surface-base-divider, var(--pa-gray-200, #e9ecef));
+  border-color: var(--pa-content-separator-border-color);
 
   &--horizontal {
     width: 100%;
-    height: var(--pa-Border-width-50, 1px);
-    border-top: var(--pa-Border-width-50, 1px) solid var(--pa-color-surface-base-divider, var(--pa-gray-200, #e9ecef));
+    height: var(--pa-content-separator-border-width);
+    border-top: var(--pa-content-separator-border-width) solid var(--pa-content-separator-border-color);
     display: flex;
     align-items: center;
 
     &.has-text {
       border-top: none;
-      gap: var(--pa-spacing-16, 16px);
+      gap: var(--pa-content-separator-spacing-text);
 
       &::before,
       &::after {
         content: '';
         flex: 1;
-        height: var(--pa-Border-width-50, 1px);
-        background-color: var(--pa-color-surface-base-divider, var(--pa-gray-200, #e9ecef));
+        height: var(--pa-content-separator-border-width);
+        background-color: var(--pa-content-separator-border-color);
       }
     }
   }
 
   &--vertical {
-    width: var(--pa-Border-width-50, 1px);
+    width: var(--pa-content-separator-border-width);
     height: 100%;
-    border-left: var(--pa-Border-width-50, 1px) solid var(--pa-color-surface-base-divider, var(--pa-gray-200, #e9ecef));
+    border-left: var(--pa-content-separator-border-width) solid var(--pa-content-separator-border-color);
     display: flex;
     flex-direction: column;
     align-items: center;
 
     &.has-text {
       border-left: none;
-      gap: var(--pa-spacing-16, 16px);
+      gap: var(--pa-content-separator-spacing-text);
 
       &::before,
       &::after {
         content: '';
         flex: 1;
-        width: var(--pa-Border-width-50, 1px);
-        background-color: var(--pa-color-surface-base-divider, var(--pa-gray-200, #e9ecef));
+        width: var(--pa-content-separator-border-width);
+        background-color: var(--pa-content-separator-border-color);
       }
     }
   }
 }
 
 .pa-content-separator-text {
-  color: var(--pa-color-surface-container-text, var(--pa-gray-900, #212529));
+  color: var(--pa-content-separator-text-color);
   font-family: var(--pa-font-family-roboto, Roboto, sans-serif);
-  font-size: var(--pa-font-size-100, 14px);
-  font-weight: var(--pa-font-weight-400, 400);
+  font-size: var(--pa-content-separator-text-font-size);
+  font-weight: var(--pa-content-separator-text-font-weight);
   white-space: nowrap;
 }
 </style>

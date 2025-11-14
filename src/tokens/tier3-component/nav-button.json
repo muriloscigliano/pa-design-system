@@ -88,6 +88,22 @@
       "$type": "dimension",
       "$value": "{border.radius.medium}"
     },
+    "cursor": {
+      "default": {
+        "$type": "string",
+        "$value": "{cursor.pointer}"
+      },
+      "disabled": {
+        "$type": "string",
+        "$value": "{cursor.not-allowed}"
+      }
+    },
+    "disabled": {
+      "opacity": {
+        "$type": "number",
+        "$value": 0.6
+      }
+    },
     "transition": {
       "duration": {
         "$type": "duration",

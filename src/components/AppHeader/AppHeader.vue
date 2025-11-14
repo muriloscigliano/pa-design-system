@@ -88,29 +88,29 @@ const handleToggleTheme = () => {
 
 <style lang="scss" scoped>
 .main-header {
-  background-color: var(--pa-color-surface-container-background, #151517);
-  border-radius: var(--pa-Border-radius-100, 8px);
-  padding: var(--pa-spacing-8, 8px) var(--pa-spacing-18, 18px);
+  background-color: var(--pa-app-header-background);
+  border-radius: var(--pa-app-header-border-radius);
+  padding: var(--pa-app-header-padding-y) var(--pa-app-header-padding-x);
   height: 139px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-shrink: 0;
-  transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  transition: background-color var(--pa-app-header-transition-duration-default) var(--pa-app-header-transition-easing-default);
 }
 
 .search-container {
   backdrop-filter: blur(20px);
-  background-color: var(--pa-color-surface-base-background, #f7f7f8);
-  border: 1px solid var(--pa-color-surface-container-border, #dee2e6);
-  border-radius: 250px;
+  background-color: var(--pa-app-header-search-container-background);
+  border: var(--pa-border-width-thin) solid var(--pa-app-header-search-container-border);
+  border-radius: var(--pa-app-header-search-container-border-radius);
   display: flex;
-  gap: var(--pa-spacing-8, 8px);
+  gap: var(--pa-app-header-search-container-gap);
   align-items: center;
-  padding: var(--pa-spacing-12, 12px) var(--pa-spacing-6, 6px);
+  padding: var(--pa-app-header-search-container-padding-y) var(--pa-app-header-search-container-padding-x);
   height: 32px;
   width: 300px;
-  transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease), border-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  transition: background-color var(--pa-app-header-transition-duration-default) var(--pa-app-header-transition-easing-default), border-color var(--pa-app-header-transition-duration-default) var(--pa-app-header-transition-easing-default);
 }
 
 [data-theme="dark"] .search-container {
@@ -125,20 +125,20 @@ const handleToggleTheme = () => {
   outline: none;
   font-family: 'Satoshi', sans-serif;
   font-weight: 500;
-  font-size: var(--pa-font-size-200, 16px);
+  font-size: var(--pa-app-header-search-input-font-size);
   line-height: 0.965;
-  color: var(--pa-color-surface-container-text, #212529);
-  padding: var(--pa-spacing-8, 8px) var(--pa-spacing-18, 18px);
+  color: var(--pa-color-surface-container-text);
+  padding: var(--pa-app-header-search-input-padding-y) var(--pa-app-header-search-input-padding-x);
   min-width: 0;
-  border-radius: 250px;
+  border-radius: var(--pa-app-header-search-container-border-radius);
   text-align: center;
-  transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  transition: color var(--pa-app-header-transition-duration-default) var(--pa-app-header-transition-easing-default);
   
   &::placeholder {
-    color: var(--pa-color-surface-container-text-secondary, #6c757d);
+    color: var(--pa-color-surface-container-text-secondary);
     text-align: center;
     white-space: nowrap;
-    transition: color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+    transition: color var(--pa-app-header-transition-duration-default) var(--pa-app-header-transition-easing-default);
   }
   
   &:focus {
@@ -163,13 +163,13 @@ const handleToggleTheme = () => {
   height: 42px;
   background: linear-gradient(-85.36deg, #c10505 7.68%, #d51e33 92.47%);
   border: none;
-  border-radius: 50%;
+  border-radius: var(--pa-border-radius-full);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   flex-shrink: 0;
-  transition: opacity var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  transition: opacity var(--pa-app-header-transition-duration-default) var(--pa-app-header-transition-easing-default);
   
   &:hover {
     opacity: 0.9;
@@ -187,17 +187,17 @@ const handleToggleTheme = () => {
 }
 
 .theme-toggle {
-  background-color: var(--pa-color-surface-base-background, #f7f7f8);
-  border: 1px solid var(--pa-color-surface-container-border, #dee2e6);
-  border-radius: 500px;
+  background-color: var(--pa-app-header-theme-toggle-background);
+  border: var(--pa-border-width-thin) solid var(--pa-app-header-theme-toggle-border);
+  border-radius: var(--pa-app-header-theme-toggle-border-radius);
   height: 40px;
   width: 76px;
-  padding: var(--pa-spacing-2, 2px);
+  padding: var(--pa-app-header-theme-toggle-padding);
   display: flex;
   align-items: center;
   position: relative;
   cursor: pointer;
-  transition: background-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease), border-color var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  transition: background-color var(--pa-app-header-transition-duration-default) var(--pa-app-header-transition-easing-default), border-color var(--pa-app-header-transition-duration-default) var(--pa-app-header-transition-easing-default);
 }
 
 [data-theme="dark"] .theme-toggle {
@@ -209,14 +209,14 @@ const handleToggleTheme = () => {
   width: 36px;
   height: 36px;
   background: linear-gradient(-85.36deg, #c10505 7.68%, #d51e33 92.47%);
-  border: 1px solid #c10505;
-  border-radius: 500px;
+  border: var(--pa-border-width-thin) solid #c10505;
+  border-radius: var(--pa-app-header-theme-toggle-border-radius);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform var(--pa-transition-duration-default, 200ms) var(--pa-transition-easing-default, ease);
+  transition: transform var(--pa-app-header-transition-duration-default) var(--pa-app-header-transition-easing-default);
   position: absolute;
-  left: var(--pa-spacing-2, 2px);
+  left: var(--pa-app-header-theme-toggle-slider-spacing-left);
   z-index: 2;
   
   &.is-dark {
@@ -244,7 +244,7 @@ const handleToggleTheme = () => {
   z-index: 1;
   
   &.theme-toggle-icon-dark {
-    left: var(--pa-spacing-2, 2px);
+    left: var(--pa-app-header-theme-toggle-slider-spacing-left);
     
     img {
       width: 16px;
@@ -253,7 +253,7 @@ const handleToggleTheme = () => {
   }
   
   &.theme-toggle-icon-light {
-    right: var(--pa-spacing-2, 2px);
+    right: var(--pa-app-header-theme-toggle-slider-spacing-right);
     
     img {
       width: 20px;
