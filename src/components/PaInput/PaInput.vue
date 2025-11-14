@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   modelValue?: string | number
+  value?: string | number // External library compatibility (Vue 2 pattern)
   disabled?: boolean
   error?: boolean
   valid?: boolean
@@ -17,14 +18,55 @@ const props = defineProps<{
   iconRight?: string
   showClear?: boolean
   rightElement?: 'text' | 'icon' | 'dropdown' | 'checkbox' | 'toggle'
-}>()
+  // External library compatibility props
+  size?: 'sm' | 'md' | 'lg'
+  name?: string
+  required?: boolean
+  min?: number | string // string for date inputs
+  max?: number | string // string for date inputs
+  maxlength?: number
+  pattern?: string
+  readonly?: boolean
+  step?: string
+  sfSelector?: string
+}>(), {
+  disabled: false,
+  error: false,
+  valid: false,
+  type: 'text',
+  optional: false,
+  showClear: false,
+  size: 'md',
+  required: false,
+  readonly: false,
+  step: '',
+  sfSelector: ''
+})
 
 const emit = defineEmits<{
   'update:modelValue': [value: string | number]
+  'input': [value: string | number] // External library compatibility
   'focus': [event: FocusEvent]
   'blur': [event: FocusEvent]
   'clear': []
+  'change': [event: Event]
+  'keyup': [event: KeyboardEvent]
+  'keydown': [event: KeyboardEvent]
+  'select': [event: Event]
 }>()
+
+// Support both modelValue (Vue 3) and value (Vue 2/external library)
+const internalValue = computed(() => {
+  return props.modelValue !== undefined ? props.modelValue : props.value
+})
+
+// Watch for external value changes (Vue 2 pattern)
+watch(() => props.value, (newValue) => {
+  if (newValue !== undefined && newValue !== internalValue.value) {
+    emit('update:modelValue', newValue)
+    emit('input', newValue)
+  }
+})
 
 const inputId = computed(() => `pa-input-${Math.random().toString(36).substr(2, 9)}`)
 const helperId = computed(() => `${inputId.value}-helper`)
@@ -56,6 +98,28 @@ const handleFocus = (event: FocusEvent) => {
 const handleBlur = (event: FocusEvent) => {
   isFocused.value = false
   emit('blur', event)
+}
+
+const handleInput = (event: Event) => {
+  const value = (event.target as HTMLInputElement).value
+  emit('update:modelValue', value)
+  emit('input', value) // External library compatibility
+}
+
+const handleChange = (event: Event) => {
+  emit('change', event)
+}
+
+const handleKeyUp = (event: KeyboardEvent) => {
+  emit('keyup', event)
+}
+
+const handleKeyDown = (event: KeyboardEvent) => {
+  emit('keydown', event)
+}
+
+const handleSelect = (event: Event) => {
+  emit('select', event)
 }
 </script>
 
@@ -91,6 +155,7 @@ const handleBlur = (event: FocusEvent) => {
         :id="inputId"
         :class="[
           'pa-input',
+          `pa-input--${size}`,
           {
             'is-disabled': disabled,
             'is-error': error,
@@ -102,15 +167,29 @@ const handleBlur = (event: FocusEvent) => {
             'is-label-floating': isLabelFloating
           }
         ]"
-        :value="modelValue"
+        :value="internalValue"
         :disabled="disabled"
+        :name="name"
         :placeholder="label ? undefined : placeholder"
-        :type="type || 'text'"
+        :type="type"
+        :required="required"
+        :min="min"
+        :max="max"
+        :maxlength="maxlength"
+        :pattern="pattern"
+        :readonly="readonly"
+        :step="step"
         :aria-invalid="error"
         :aria-describedby="ariaDescribedBy"
-        @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+        :aria-required="required"
+        :sf-selector="sfSelector || undefined"
+        @input="handleInput"
         @focus="handleFocus"
         @blur="handleBlur"
+        @change="handleChange"
+        @keyup="handleKeyUp"
+        @keydown="handleKeyDown"
+        @select="handleSelect"
       />
 
       <button
@@ -255,6 +334,24 @@ const handleBlur = (event: FocusEvent) => {
   border-radius: var(--pa-input-border-radius-default);
   transition: all var(--pa-input-transition-duration-default) var(--pa-input-transition-easing-default);
   outline: none;
+
+  &--sm {
+    height: calc(var(--pa-input-height-default) * 0.875);
+    font-size: var(--pa-input-font-size);
+    padding: calc(var(--pa-input-padding-y) * 0.75) calc(var(--pa-input-padding-x) * 0.875);
+  }
+
+  &--md {
+    height: var(--pa-input-height-default);
+    font-size: var(--pa-input-font-size);
+    padding: var(--pa-input-padding-y) var(--pa-input-padding-x);
+  }
+
+  &--lg {
+    height: calc(var(--pa-input-height-default) * 1.125);
+    font-size: var(--pa-input-font-size);
+    padding: calc(var(--pa-input-padding-y) * 1.25) calc(var(--pa-input-padding-x) * 1.125);
+  }
 
 
   &::placeholder {
